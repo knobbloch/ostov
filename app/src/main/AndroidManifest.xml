@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest package="com.knobblochsapplication.app" xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name" android:largeHeap="true"
+        android:name="com.knobblochsapplication.app.appcomponents.di.MyApp"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true" android:theme="@style/Theme.MyApp" android:usesCleartextTraffic="true">
+        <activity
+            android:name="com.knobblochsapplication.app.modules.menuone.ui.MenuOneActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.menutwo.ui.MenuTwoActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.changetask.ui.ChangeTaskActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.percentageoftask.ui.PercentageOfTaskActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.menu.ui.MenuActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.addtask.ui.AddTaskActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.goalsdelete.ui.GoalsDeleteActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.addinganewgoal.ui.AddingANewGoalActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.percentageofgoal.ui.PercentageOfGoalActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.helpscreenthree.ui.HelpScreenThreeActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.menuunion.ui.MenuUnionActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.settings.ui.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.sort.ui.SortActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.goalscheme.ui.GoalSchemeActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true"
+            android:name="com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.goalschange.ui.GoalsChangeActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.goals.ui.GoalsActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.goalsuniontwo.ui.GoalsUniontwoActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.deletebranches.ui.DeleteBranchesActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.helpscreenone.ui.HelpScreenOneActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.cautionpriority.ui.CautionPriorityActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.helpscreenfour.ui.HelpScreenFourActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.knobblochsapplication.app.modules.helpscreentwo.ui.HelpScreenTwoActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

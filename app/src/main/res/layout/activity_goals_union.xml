@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="goalsUnionVM" type="com.knobblochsapplication.app.modules.goalsunion.data.viewmodel.GoalsUnionVM"/>
+    </data>
+    <LinearLayout android:gravity="start"
+        android:id="@+id/linearGoalsunion"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylewhite_A700">
+        <View android:background="@color/indigo_50"
+            android:id="@+id/viewFour"
+            android:layout_height="@dimen/_10pxv" android:layout_width="@dimen/_360pxh"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btn" android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="@dimen/_4pxh"
+            android:paddingBottom="@dimen/_14pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_14pxv" android:singleLine="true"
+            android:text="@string/lbl" android:textAllCaps="false"
+            style="@style/btnSolid" tools:text="@string/lbl"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerGoalsUnion"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            itemSpace="@{@dimen/_1pxh}" tools:itemCount="2" tools:listitem="@layout/row_goals_union"/>
+        <ImageButton
+            android:background="@drawable/rectangle_bg_indigo_300_radius_30_5"
+            android:id="@+id/btnArrowleft" android:layout_gravity="end"
+            android:layout_height="@dimen/_61pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_244pxv"
+            android:layout_width="@dimen/_61pxh"
+            android:paddingHorizontal="@dimen/_22pxh"
+            android:paddingVertical="@dimen/_22pxv"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_arrowleft_white_a700" tools:ignore="ContentDescription"/>
+        <View
+            android:background="@drawable/rectangle_bg_gray_900_radius_1"
+            android:id="@+id/lineHome"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_2pxv"
+            android:layout_marginBottom="@dimen/_8pxv"
+            android:layout_marginEnd="@dimen/_32pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_40pxv" android:layout_width="@dimen/_72pxh"/>
+    </LinearLayout>
+</layout>

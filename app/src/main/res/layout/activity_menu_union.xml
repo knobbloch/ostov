@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="menuUnionVM" type="com.knobblochsapplication.app.modules.menuunion.data.viewmodel.MenuUnionVM"/>
+    </data>
+    <LinearLayout android:gravity="start"
+        android:id="@+id/linearMenuunion"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStyleindigo_51">
+        <TextView android:ellipsize="end" android:id="@+id/txtLabeltext"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12pxh"
+            android:layout_marginStart="@dimen/_12pxh"
+            android:layout_marginTop="@dimen/_25pxv"
+            android:layout_width="wrap_content"
+            android:letterSpacing="0.03"
+            android:lineSpacingExtra="@dimen/_3pxh"
+            android:singleLine="true"
+            android:text="@{menuUnionVM.menuUnionModel.txtLabeltext}"
+            style="@style/txtABeeZeeregular16" tools:text="@string/lbl23"/>
+        <View android:background="@color/bluegray_100"
+            android:id="@+id/lineDivider"
+            android:layout_height="@dimen/_1pxv"
+            android:layout_marginTop="@dimen/_28pxv" android:layout_width="@dimen/_200pxh"/>
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtLabeltextOne"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12pxh"
+            android:layout_marginStart="@dimen/_12pxh"
+            android:layout_marginTop="@dimen/_26pxv"
+            android:layout_width="wrap_content"
+            android:letterSpacing="0.03"
+            android:lineSpacingExtra="@dimen/_3pxh"
+            android:singleLine="true"
+            android:text="@{menuUnionVM.menuUnionModel.txtLabeltextOne}"
+            style="@style/txtABeeZeeregular16" tools:text="@string/lbl22"/>
+        <View android:background="@color/bluegray_100"
+            android:id="@+id/lineDividerOne"
+            android:layout_height="@dimen/_1pxv"
+            android:layout_marginTop="@dimen/_26pxv" android:layout_width="@dimen/_200pxh"/>
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtLabeltextTwo"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_26pxv"
+            android:layout_marginEnd="@dimen/_12pxh"
+            android:layout_marginStart="@dimen/_12pxh"
+            android:layout_marginTop="@dimen/_25pxv"
+            android:layout_width="match_parent"
+            android:letterSpacing="0.03"
+            android:lineSpacingExtra="@dimen/_3pxh"
+            android:singleLine="true"
+            android:text="@{menuUnionVM.menuUnionModel.txtLabeltextTwo}"
+            style="@style/txtABeeZeeregular16" tools:text="@string/lbl24"/>
+    </LinearLayout>
+</layout>

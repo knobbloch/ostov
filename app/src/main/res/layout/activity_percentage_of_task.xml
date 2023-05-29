@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="percentageOfTaskVM" type="com.knobblochsapplication.app.modules.percentageoftask.data.viewmodel.PercentageOfTaskVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearPercentageoft"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" android:orientation="vertical">
+        <LinearLayout android:id="@+id/linearSideSheet"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylewhite_2">
+            <androidx.appcompat.widget.Toolbar android:gravity="start"
+                android:id="@+id/toolbarToolbar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:contentInsetStart="0dp" style="@style/groupStyleindigo_50">
+                <LinearLayout android:id="@+id/linearRowheadlinetext"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_15pxv"
+                    android:layout_marginEnd="@dimen/_29pxh"
+                    android:layout_marginStart="@dimen/_24pxh"
+                    android:layout_marginTop="@dimen/_25pxv"
+                    android:layout_width="match_parent" android:orientation="horizontal">
+                    <TextView android:id="@+id/txtHeadlinetext"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.93"
+                        android:layout_width="0dp"
+                        android:lineSpacingExtra="@dimen/_8pxh"
+                        android:text="@{percentageOfTaskVM.percentageOfTaskModel.txtHeadlinetext}"
+                        style="@style/txtRobotoregular20" tools:text="@string/msg15"/>
+                    <LinearLayout android:gravity="center_horizontal"
+                        android:id="@+id/linearContainer"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_37pxv"
+                        android:layout_marginStart="@dimen/_52pxh"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_weight="0.07"
+                        android:layout_width="0dp"
+                        android:orientation="vertical" style="@style/groupStylecornerRadius_2">
+                        <ImageView android:gravity="start"
+                            android:id="@+id/imageClose"
+                            android:layout_height="@dimen/_14pxh"
+                            android:layout_width="match_parent"
+                            android:scaleType="centerCrop"
+                            circular="@{true}"
+                            imageRes="@{@drawable/img_close_gray_700}"
+                            tools:ignore="ContentDescription" tools:src="@drawable/img_close_gray_700"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+            <FrameLayout android:id="@+id/frameStackseventyfive"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/_76pxv"
+                android:layout_marginEnd="@dimen/_27pxh"
+                android:layout_marginStart="@dimen/_27pxh"
+                android:layout_marginTop="@dimen/_23pxv" android:layout_width="@dimen/_76pxh">
+                <View
+                    android:background="@drawable/rectangle_bg_deep_purple_500_radius_38"
+                    android:id="@+id/viewProgressbar"
+                    android:layout_gravity="start"
+                    android:layout_height="@dimen/_76pxh" android:layout_width="@dimen/_76pxh"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtSeventyFive"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_25pxv"
+                    android:layout_marginEnd="@dimen/_26pxh"
+                    android:layout_marginStart="@dimen/_25pxh"
+                    android:layout_marginTop="@dimen/_26pxv"
+                    android:layout_width="wrap_content"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="@dimen/_4pxh"
+                    android:singleLine="true"
+                    android:text="@{percentageOfTaskVM.percentageOfTaskModel.txtSeventyFive}"
+                    style="@style/txtABeeZeeregular20_1" tools:text="@string/lbl_752"/>
+            </FrameLayout>
+            <TextView android:gravity="end"
+                android:id="@+id/txtHeadlinetextOne"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_27pxv"
+                android:layout_marginEnd="@dimen/_11pxh"
+                android:layout_marginStart="@dimen/_11pxh"
+                android:layout_marginTop="@dimen/_17pxv"
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="@dimen/_10pxh"
+                android:text="@{percentageOfTaskVM.percentageOfTaskModel.txtHeadlinetextOne}"
+                style="@style/txtRobotoregular18" tools:text="@string/msg16"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

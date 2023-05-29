@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="goalsUniontwoVM" type="com.knobblochsapplication.app.modules.goalsuniontwo.data.viewmodel.GoalsUniontwoVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStackmenu"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylewhite_A700">
+        <LinearLayout android:id="@+id/linearColumnmenu"
+            android:layout_gravity="start"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8pxv"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar android:gravity="start"
+                android:id="@+id/toolbarToolbar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:contentInsetStart="0dp" style="@style/groupStyleindigo_52">
+                <LinearLayout android:id="@+id/linearRowmenu"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5pxv"
+                    android:layout_marginEnd="@dimen/_28pxh"
+                    android:layout_marginStart="@dimen/_19pxh"
+                    android:layout_marginTop="@dimen/_65pxv"
+                    android:layout_width="match_parent" android:orientation="horizontal">
+                    <ImageView android:id="@+id/imageMenu"
+                        android:layout_height="@dimen/_17pxh"
+                        android:layout_marginBottom="@dimen/_4pxv"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_width="@dimen/_32pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_menu_indigo_900"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_menu_indigo_900"/>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtNine"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_1pxv"
+                        android:layout_marginStart="@dimen/_75pxh"
+                        android:layout_weight="0.57"
+                        android:layout_width="0dp"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="@dimen/_4pxh"
+                        android:singleLine="true"
+                        android:text="@{goalsUniontwoVM.goalsUniontwoModel.txtNine}"
+                        style="@style/txtABeeZeeregular20" tools:text="@string/lbl"/>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtTen"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_65pxh"
+                        android:layout_marginTop="@dimen/_1pxv"
+                        android:layout_weight="0.25"
+                        android:layout_width="0dp"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="@dimen/_4pxh"
+                        android:singleLine="true"
+                        android:text="@{goalsUniontwoVM.goalsUniontwoModel.txtTen}"
+                        style="@style/txtABeeZeeregular20" tools:text="@string/lbl_75"/>
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+            <FrameLayout android:id="@+id/frameGoalsunionTwo"
+                android:layout_height="@dimen/_628pxv"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_68pxv" android:layout_width="@dimen/_344pxh">
+                <LinearLayout android:id="@+id/linearColumneleven"
+                    android:layout_gravity="bottom|center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_61pxh"
+                    android:layout_marginStart="@dimen/_61pxh"
+                    android:layout_marginTop="@dimen/_10pxv"
+                    android:layout_width="match_parent" android:orientation="vertical">
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtEleven"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_59pxh"
+                        android:layout_marginStart="@dimen/_59pxh"
+                        android:layout_width="wrap_content"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="@dimen/_4pxh"
+                        android:singleLine="true"
+                        android:text="@{goalsUniontwoVM.goalsUniontwoModel.txtEleven}"
+                        style="@style/txtABeeZeeregular18_1" tools:text="@string/lbl25"/>
+                    <LinearLayout android:gravity="start"
+                        android:id="@+id/linearRowellipseone"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_365pxv"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal" style="@style/groupStylecornerRadius_8">
+                        <View
+                            android:background="@drawable/rectangle_bg_indigo_a200_radius_8_5"
+                            android:id="@+id/viewEllipseOne"
+                            android:layout_height="@dimen/_17pxh"
+                            android:layout_marginBottom="@dimen/_62pxv"
+                            android:layout_marginTop="@dimen/_37pxv" android:layout_width="@dimen/_17pxh"/>
+                        <View
+                            android:background="@drawable/rectangle_bg_indigo_a200_radius_18_5"
+                            android:id="@+id/viewEllipseOneOne"
+                            android:layout_height="@dimen/_37pxh"
+                            android:layout_marginBottom="@dimen/_31pxv"
+                            android:layout_marginStart="@dimen/_44pxh"
+                            android:layout_marginTop="@dimen/_48pxv" android:layout_width="@dimen/_37pxh"/>
+                        <View
+                            android:background="@drawable/rectangle_bg_indigo_a200_radius_8_5"
+                            android:id="@+id/viewEllipseOneTwo"
+                            android:layout_height="@dimen/_17pxh"
+                            android:layout_marginStart="@dimen/_16pxh"
+                            android:layout_marginTop="@dimen/_99pxv" android:layout_width="@dimen/_17pxh"/>
+                        <View
+                            android:background="@drawable/rectangle_bg_indigo_a200_radius_16_5"
+                            android:id="@+id/viewEllipseOneThree"
+                            android:layout_height="@dimen/_33pxh"
+                            android:layout_marginBottom="@dimen/_22pxv"
+                            android:layout_marginStart="@dimen/_35pxh"
+                            android:layout_marginTop="@dimen/_61pxv" android:layout_width="@dimen/_33pxh"/>
+                        <View
+                            android:background="@drawable/rectangle_bg_indigo_a200_radius_8_5"
+                            android:id="@+id/viewEllipseOneFour"
+                            android:layout_height="@dimen/_17pxh"
+                            android:layout_marginBottom="@dimen/_99pxv"
+                            android:layout_marginStart="@dimen/_5pxh" android:layout_width="@dimen/_17pxh"/>
+                    </LinearLayout>
+                    <View
+                        android:background="@drawable/rectangle_bg_gray_900_radius_1"
+                        android:id="@+id/lineHome"
+                        android:layout_gravity="start"
+                        android:layout_height="@dimen/_2pxv"
+                        android:layout_marginEnd="@dimen/_67pxh"
+                        android:layout_marginStart="@dimen/_67pxh"
+                        android:layout_marginTop="@dimen/_71pxv" android:layout_width="@dimen/_72pxh"/>
+                </LinearLayout>
+                <FrameLayout android:id="@+id/frameStackone"
+                    android:layout_gravity="top|start"
+                    android:layout_height="@dimen/_585pxv"
+                    android:layout_marginBottom="@dimen/_10pxv" android:layout_width="@dimen/_344pxh">
+                    <LinearLayout android:id="@+id/linearColumnone"
+                        android:layout_gravity="top|end"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_171pxv"
+                        android:layout_marginEnd="@dimen/_116pxh"
+                        android:layout_marginStart="@dimen/_116pxh"
+                        android:layout_marginTop="@dimen/_171pxv"
+                        android:layout_width="match_parent" android:orientation="vertical">
+                        <TextView android:gravity="start"
+                            android:id="@+id/txtOne"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_10pxh"
+                            android:layout_width="match_parent"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="@dimen/_4pxh"
+                            android:text="@{goalsUniontwoVM.goalsUniontwoModel.txtOne}"
+                            style="@style/txtABeeZeeregular16_1" tools:text="@string/lbl_12"/>
+                        <TextView android:gravity="end"
+                            android:id="@+id/txtThree"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10pxh"
+                            android:layout_marginTop="@dimen/_104pxv"
+                            android:layout_width="match_parent"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="@dimen/_4pxh"
+                            android:text="@{goalsUniontwoVM.goalsUniontwoModel.txtThree}"
+                            style="@style/txtABeeZeeregular16_1" tools:text="@string/lbl_32"/>
+                    </LinearLayout>
+                    <TextView android:id="@+id/txtTwo"
+                        android:layout_gravity="top|end"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_113pxv"
+                        android:layout_marginStart="@dimen/_10pxh"
+                        android:layout_marginTop="@dimen/_113pxv"
+                        android:layout_width="wrap_content"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="@dimen/_4pxh"
+                        android:text="@{goalsUniontwoVM.goalsUniontwoModel.txtTwo}"
+                        style="@style/txtABeeZeeregular16_1" tools:text="@string/lbl_23"/>
+                    <LinearLayout android:id="@+id/linearRowthirtyone"
+                        android:layout_gravity="bottom|start"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10pxh"
+                        android:layout_marginTop="@dimen/_10pxv"
+                        android:layout_width="match_parent" android:orientation="horizontal">
+                        <TextView android:id="@+id/txtThirtyOne"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_23pxv"
+                            android:layout_weight="0.51"
+                            android:layout_width="0dp"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="@dimen/_4pxh"
+                            android:text="@{goalsUniontwoVM.goalsUniontwoModel.txtThirtyOne}"
+                            style="@style/txtABeeZeeregular16_1" tools:text="@string/lbl_3_1"/>
+                        <ImageButton
+                            android:background="@drawable/rectangle_bg_indigo_300_radius_30_5"
+                            android:id="@+id/btnArrowleft"
+                            android:layout_height="@dimen/_61pxh"
+                            android:layout_marginStart="@dimen/_189pxh"
+                            android:layout_marginTop="@dimen/_46pxv"
+                            android:layout_width="@dimen/_61pxh"
+                            android:paddingHorizontal="@dimen/_22pxh"
+                            android:paddingVertical="@dimen/_22pxv"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/img_arrowleft_white_a700" tools:ignore="ContentDescription"/>
+                    </LinearLayout>
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtTwelve"
+                        android:layout_gravity="top|end"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10pxv"
+                        android:layout_marginEnd="@dimen/_10pxh"
+                        android:layout_marginStart="@dimen/_10pxh"
+                        android:layout_width="wrap_content"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="@dimen/_4pxh"
+                        android:singleLine="true"
+                        android:text="@{goalsUniontwoVM.goalsUniontwoModel.txtTwelve}"
+                        style="@style/txtABeeZeeregular18_1" tools:text="@string/lbl25"/>
+                </FrameLayout>
+            </FrameLayout>
+        </LinearLayout>
+        <ImageView android:id="@+id/imageThirteen"
+            android:layout_gravity="start"
+            android:layout_height="@dimen/_792pxv"
+            android:layout_marginTop="@dimen/_8pxv"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY" imageRes="@{@drawable/img_}"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_"/>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="goalsUnionRowModel" type="com.knobblochsapplication.app.modules.goalsunion.data.model.GoalsUnionRowModel"/>
+    </data>
+    <LinearLayout android:gravity="start"
+        android:id="@+id/linearColumnone"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylewhite_1">
+        <LinearLayout android:gravity="end"
+            android:id="@+id/linearRowone"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_27pxh"
+            android:layout_marginStart="@dimen/_27pxh"
+            android:layout_marginTop="@dimen/_19pxv"
+            android:layout_width="match_parent" android:orientation="horizontal">
+            <TextView android:ellipsize="end" android:id="@+id/txtOne"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8" android:layout_width="0dp"
+                android:lineSpacingExtra="@dimen/_5pxh"
+                android:singleLine="true"
+                android:text="@{goalsUnionRowModel.txtOne}"
+                style="@style/txtABeeZeeregular25" tools:text="@string/lbl_1"/>
+            <LinearLayout android:gravity="center_horizontal"
+                android:id="@+id/linearContainer"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5pxv"
+                android:layout_marginStart="@dimen/_172pxh"
+                android:layout_marginTop="@dimen/_4pxv"
+                android:layout_weight="0.2" android:layout_width="0dp"
+                android:orientation="vertical" style="@style/groupStylecornerRadius">
+                <View
+                    android:background="@drawable/rectangle_bg_blue_900_radius_10"
+                    android:id="@+id/viewIcon"
+                    android:layout_gravity="start"
+                    android:layout_height="@dimen/_20pxh" android:layout_width="@dimen/_20pxh"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal"
+            android:id="@+id/linearColumntwo"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_11pxv"
+            android:layout_marginEnd="@dimen/_37pxh"
+            android:layout_marginStart="@dimen/_37pxh"
+            android:layout_marginTop="@dimen/_8pxv"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylegray_50cornerRadius">
+            <TextView android:ellipsize="end" android:gravity="start"
+                android:id="@+id/txtTwo"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_67pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_15pxv"
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="@dimen/_3pxh"
+                android:singleLine="true"
+                android:text="@{goalsUnionRowModel.txtTwo}"
+                style="@style/txtABeeZeeregular15" tools:text="@string/lbl2"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

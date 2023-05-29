@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="goalsVM" type="com.knobblochsapplication.app.modules.goals.data.viewmodel.GoalsVM"/>
+    </data>
+    <LinearLayout android:gravity="start" android:id="@+id/linearGoals"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylewhite_A700">
+        <View android:background="@color/indigo_50"
+            android:id="@+id/viewStatusbar"
+            android:layout_height="@dimen/_10pxv" android:layout_width="@dimen/_360pxh"/>
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearHeader"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal" style="@style/groupStyleindigo_50">
+            <FrameLayout android:id="@+id/frameContainer"
+                android:layout_height="@dimen/_40pxv"
+                android:layout_marginBottom="@dimen/_6pxv"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_7pxv"
+                android:layout_width="@dimen/_40pxh" style="@style/groupStyleindigo_300cornerRadius">
+                <ImageView android:id="@+id/imageArrowleft"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/_16pxh"
+                    android:layout_marginHorizontal="@dimen/_12pxh"
+                    android:layout_marginVertical="@dimen/_12pxv"
+                    android:layout_width="@dimen/_16pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_arrowleft_white_a700"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft_white_a700"/>
+            </FrameLayout>
+            <TextView android:ellipsize="end" android:id="@+id/txtText"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_12pxv"
+                android:layout_marginEnd="@dimen/_130pxh"
+                android:layout_marginStart="@dimen/_71pxh"
+                android:layout_marginTop="@dimen/_16pxv"
+                android:layout_weight="0.71" android:layout_width="0dp"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="@dimen/_4pxh"
+                android:singleLine="true"
+                android:text="@{goalsVM.goalsModel.txtText}"
+                style="@style/txtABeeZeeregular20" tools:text="@string/lbl"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearBlockgoal1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylewhite_1">
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtNamegoal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_59pxh"
+                android:layout_marginStart="@dimen/_59pxh"
+                android:layout_marginTop="@dimen/_19pxv"
+                android:layout_width="wrap_content"
+                android:lineSpacingExtra="@dimen/_5pxh"
+                android:singleLine="true"
+                android:text="@{goalsVM.goalsModel.txtNamegoal}"
+                style="@style/txtABeeZeeregular25" tools:text="@string/lbl_1"/>
+            <LinearLayout android:gravity="center_horizontal"
+                android:id="@+id/linearColumnaboutgoal"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_11pxv"
+                android:layout_marginEnd="@dimen/_37pxh"
+                android:layout_marginStart="@dimen/_37pxh"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStylegray_50cornerRadius">
+                <TextView android:ellipsize="end"
+                    android:gravity="start"
+                    android:id="@+id/txtAboutgoal"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_67pxv"
+                    android:layout_marginEnd="@dimen/_16pxh"
+                    android:layout_marginStart="@dimen/_16pxh"
+                    android:layout_marginTop="@dimen/_15pxv"
+                    android:layout_width="match_parent"
+                    android:lineSpacingExtra="@dimen/_3pxh"
+                    android:singleLine="true"
+                    android:text="@{goalsVM.goalsModel.txtAboutgoal}"
+                    style="@style/txtABeeZeeregular15" tools:text="@string/lbl2"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearBlockgoal2"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylewhite_1">
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtNamegoalOne"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_59pxh"
+                android:layout_marginStart="@dimen/_59pxh"
+                android:layout_marginTop="@dimen/_19pxv"
+                android:layout_width="wrap_content"
+                android:lineSpacingExtra="@dimen/_5pxh"
+                android:singleLine="true"
+                android:text="@{goalsVM.goalsModel.txtNamegoalOne}"
+                style="@style/txtABeeZeeregular25" tools:text="@string/lbl_22"/>
+            <LinearLayout android:gravity="center_horizontal"
+                android:id="@+id/linearColumnaboutgoalOne"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_11pxv"
+                android:layout_marginEnd="@dimen/_37pxh"
+                android:layout_marginStart="@dimen/_37pxh"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStylegray_50cornerRadius">
+                <TextView android:ellipsize="end"
+                    android:gravity="start"
+                    android:id="@+id/txtAboutgoalOne"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_67pxv"
+                    android:layout_marginEnd="@dimen/_16pxh"
+                    android:layout_marginStart="@dimen/_16pxh"
+                    android:layout_marginTop="@dimen/_15pxv"
+                    android:layout_width="match_parent"
+                    android:lineSpacingExtra="@dimen/_3pxh"
+                    android:singleLine="true"
+                    android:text="@{goalsVM.goalsModel.txtAboutgoalOne}"
+                    style="@style/txtABeeZeeregular15" tools:text="@string/lbl2"/>
+            </LinearLayout>
+        </LinearLayout>
+        <ImageButton
+            android:background="@drawable/rectangle_bg_indigo_400_cc_radius_33"
+            android:id="@+id/btnPlus" android:layout_gravity="end"
+            android:layout_height="@dimen/_66pxh"
+            android:layout_marginEnd="@dimen/_31pxh"
+            android:layout_marginStart="@dimen/_31pxh"
+            android:layout_marginTop="@dimen/_244pxv"
+            android:layout_width="@dimen/_68pxh"
+            android:paddingHorizontal="@dimen/_21pxh"
+            android:paddingVertical="@dimen/_21pxv"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_plus" tools:ignore="ContentDescription"/>
+        <View
+            android:background="@drawable/rectangle_bg_gray_900_radius_1"
+            android:id="@+id/lineHome"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_2pxv"
+            android:layout_marginBottom="@dimen/_8pxv"
+            android:layout_marginEnd="@dimen/_31pxh"
+            android:layout_marginStart="@dimen/_31pxh"
+            android:layout_marginTop="@dimen/_35pxv" android:layout_width="@dimen/_72pxh"/>
+    </LinearLayout>
+</layout>

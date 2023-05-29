@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="goalsDeleteVM" type="com.knobblochsapplication.app.modules.goalsdelete.data.viewmodel.GoalsDeleteVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearGoalsdelete"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearColumntext"
+            style="@style/groupStyleindigo_50cornerRadius"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtText"
+                style="@style/txtABeeZeeregular25_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_71pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:text="@{goalsDeleteVM.goalsDeleteModel.txtText}"
+                tools:text="@string/msg6" />
+
+            <LinearLayout
+                android:id="@+id/linearRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_48pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginBottom="@dimen/_29pxv"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn"
+                    style="@style/btnSolidRounded_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="@dimen/_4pxh"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_12pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingBottom="@dimen/_12pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl21"
+                    android:textAllCaps="false"
+                    tools:text="@string/lbl21" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn1"
+                    style="@style/btnSolidRounded_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13pxh"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="@dimen/_4pxh"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_12pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingBottom="@dimen/_12pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl22"
+                    android:textAllCaps="false"
+                    tools:text="@string/lbl22" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
