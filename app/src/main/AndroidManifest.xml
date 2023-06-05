@@ -41,15 +41,15 @@
             android:name="com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity" android:screenOrientation="portrait"/>
         <activity
             android:name="com.knobblochsapplication.app.modules.sort.ui.SortActivity" android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.knobblochsapplication.app.modules.goalscheme.ui.GoalSchemeActivity" android:screenOrientation="portrait"/>
         <activity android:exported="true"
-            android:name="com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity" android:screenOrientation="portrait">
+            android:name="com.knobblochsapplication.app.modules.goalscheme.ui.GoalSchemeActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity 
+            android:name="com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity" android:screenOrientation="portrait"/>  
         <activity
             android:name="com.knobblochsapplication.app.modules.goalschange.ui.GoalsChangeActivity" android:screenOrientation="portrait"/>
         <activity
