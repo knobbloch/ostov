@@ -75,15 +75,19 @@
                 android:layout_marginTop="@dimen/_16pxv"
                 android:layout_width="match_parent"
                 android:orientation="horizontal" style="@style/groupStylecornerRadius_3">
-                <TextView android:ellipsize="end"
+
+                <TextView
                     android:id="@+id/txtLanguage"
+                    style="@style/txtABeeZeeregular18"
+                    android:layout_width="113dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_6pxv"
                     android:layout_marginTop="@dimen/_3pxv"
+                    android:layout_marginBottom="@dimen/_6pxv"
                     android:layout_weight="0.3"
-                    android:layout_width="0dp" android:singleLine="true"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:text="@{addTaskVM.addTaskModel.txtLanguage}"
-                    style="@style/txtABeeZeeregular18" tools:text="@string/lbl16"/>
+                    tools:text="@string/lbl16" />
                 <View
                     android:background="@drawable/rectangle_bg_gray_50_radius_16"
                     android:id="@+id/viewRectangleThree"

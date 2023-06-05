@@ -18,7 +18,7 @@ class DiagramViewActivity : BaseActivity<ActivityDiagramViewBinding>(R.layout.ac
   }
 
   override fun setUpClicks(): Unit {
-    binding.imageArrowleft.setOnClickListener {
+    binding.button3.setOnClickListener {
       finish()
     }
   }

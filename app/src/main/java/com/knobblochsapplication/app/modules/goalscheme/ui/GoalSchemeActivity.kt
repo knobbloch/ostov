@@ -27,8 +27,8 @@ class GoalSchemeActivity : BaseActivity<ActivityGoalSchemeBinding>(R.layout.acti
       startActivity(destIntent)
     }
     binding.imageMenu.setOnClickListener {
-      val destIntent = MenuOneActivity.getIntent(this, null)
-      startActivity(destIntent)
+//      val destIntent = MenuOneActivity.getIntent(this, null)
+//      startActivity(destIntent)
     }
   }
 

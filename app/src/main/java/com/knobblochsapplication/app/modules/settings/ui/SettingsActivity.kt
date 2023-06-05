@@ -20,7 +20,7 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding>(R.layout.activity
   }
 
   override fun setUpClicks(): Unit {
-    binding.imageArrowleft.setOnClickListener {
+    binding.button2.setOnClickListener {
       finish()
     }
   }

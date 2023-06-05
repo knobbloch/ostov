@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/img_search"
+        android:onClick="onClickGoSettings"
+        android:title="Настройки">
+
+    </item>
+    <item
+        android:id="@+id/nav_diagramview"
+        android:icon="@drawable/img_menu"
+        android:onClick="onClickGoDiagramView"
+        android:title="Вид диаграммы">
+
+    </item>
+    <item
+        android:id="@+id/nav_sorttype"
+        android:icon="@drawable/img_camera_gray_800"
+        android:onClick="onClickGoSortType"
+        android:title="Тип сортировки">
+
+    </item>
+    <item
+        android:id="@+id/nav_downloadlist"
+        android:icon="@drawable/img_download"
+        android:onClick="onClickGoDownloadList"
+        android:title="Скачать список .docx">
+
+    </item>
+</menu>
+
+

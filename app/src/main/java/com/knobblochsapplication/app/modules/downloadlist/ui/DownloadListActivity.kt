@@ -19,14 +19,14 @@ class DownloadListActivity :
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     val downloadListAdapter =
     DownloadListAdapter(viewModel.downloadListList.value?:mutableListOf())
-    binding.recyclerDownloadList.adapter = downloadListAdapter
-    downloadListAdapter.setOnItemClickListener(
-    object : DownloadListAdapter.OnItemClickListener {
-      override fun onItemClick(view:View, position:Int, item : DownloadListRowModel) {
-        onClickRecyclerDownloadList(view, position, item)
-      }
-    }
-    )
+//    binding.recyclerDownloadList.adapter = downloadListAdapter
+//    downloadListAdapter.setOnItemClickListener(
+//    object : DownloadListAdapter.OnItemClickListener {
+//      override fun onItemClick(view:View, position:Int, item : DownloadListRowModel) {
+//        onClickRecyclerDownloadList(view, position, item)
+//      }
+//    }
+//    )
     viewModel.downloadListList.observe(this) {
       downloadListAdapter.updateData(it)
     }
@@ -34,7 +34,7 @@ class DownloadListActivity :
   }
 
   override fun setUpClicks(): Unit {
-    binding.imageArrowleft.setOnClickListener {
+    binding.button5.setOnClickListener {
       finish()
     }
   }
