@@ -22,14 +22,14 @@ class GoalSchemeActivity : BaseActivity<ActivityGoalSchemeBinding>(R.layout.acti
   }
 
   override fun setUpClicks(): Unit {
-    binding.txtSeventyFive.setOnClickListener {
-      val destIntent = PercentageOfGoalActivity.getIntent(this, null)
-      startActivity(destIntent)
-    }
-    binding.imageMenu.setOnClickListener {
-//      val destIntent = MenuOneActivity.getIntent(this, null)
+//    binding.txtSeventyFive.setOnClickListener {
+//      val destIntent = PercentageOfGoalActivity.getIntent(this, null)
 //      startActivity(destIntent)
-    }
+//    }
+//    binding.imageMenu.setOnClickListener {
+////      val destIntent = MenuOneActivity.getIntent(this, null)
+////      startActivity(destIntent)
+//    }
   }
 
   companion object {
