@@ -9,11 +9,11 @@ import android.view.View
 import androidx.core.view.GravityCompat
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
-import com.knobblochsapplication.app.databinding.ActivityMenuBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
 import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
+
 
 class MainMenu : AppCompatActivity() {
     lateinit var binding: ActivityMainMenuBinding
@@ -22,7 +22,7 @@ class MainMenu : AppCompatActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.apply {
-            binding.open.setOnClickListener {
+            binding.openMainMenu.setOnClickListener{
                 drawer.openDrawer(GravityCompat.START)
             }
         }
