@@ -23,7 +23,7 @@
             android:paddingStart="@dimen/_30pxh"
             android:paddingTop="@dimen/_14pxv" android:singleLine="true"
             android:text="@string/lbl" android:textAllCaps="false"
-            style="@style/btnSolid" tools:text="@string/lbl"/>
+            tools:text="@string/lbl"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerGoalsUnion"
             android:layout_height="wrap_content"
@@ -32,7 +32,6 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             itemSpace="@{@dimen/_1pxh}" tools:itemCount="2" tools:listitem="@layout/row_goals_union"/>
         <ImageButton
-            android:background="@drawable/rectangle_bg_indigo_300_radius_30_5"
             android:id="@+id/btnArrowleft" android:layout_gravity="end"
             android:layout_height="@dimen/_61pxh"
             android:layout_marginEnd="@dimen/_32pxh"
@@ -44,7 +43,6 @@
             android:scaleType="fitCenter"
             android:src="@drawable/img_arrowleft_white_a700" tools:ignore="ContentDescription"/>
         <View
-            android:background="@drawable/rectangle_bg_gray_900_radius_1"
             android:id="@+id/lineHome"
             android:layout_gravity="center_horizontal"
             android:layout_height="@dimen/_2pxv"

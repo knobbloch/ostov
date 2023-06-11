@@ -18,9 +18,6 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.menuone.ui.MenuOneActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".modules.goalscheme.ui.GoalSchemeActivity"
             android:screenOrientation="portrait" />
         <activity

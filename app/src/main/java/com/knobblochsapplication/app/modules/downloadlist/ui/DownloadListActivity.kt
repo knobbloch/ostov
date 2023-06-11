@@ -2,6 +2,7 @@ package com.knobblochsapplication.app.modules.downloadlist.ui
 
 import android.view.View
 import androidx.activity.viewModels
+import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityDownloadListBinding
@@ -17,6 +18,7 @@ class DownloadListActivity :
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
+    window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
     val downloadListAdapter =
     DownloadListAdapter(viewModel.downloadListList.value?:mutableListOf())
 //    binding.recyclerDownloadList.adapter = downloadListAdapter
@@ -34,7 +36,7 @@ class DownloadListActivity :
   }
 
   override fun setUpClicks(): Unit {
-    binding.button5.setOnClickListener {
+    binding.topAppBar.setNavigationOnClickListener {
       finish()
     }
   }

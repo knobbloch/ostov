@@ -21,7 +21,8 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:navigationIcon="@drawable/img_arrowleft"
+                app:navigationIcon="@drawable/img_arrowback"
+                android:paddingStart="8dp"
                 app:title="@string/lbl14"
                 app:titleCentered="true" />
         </com.google.android.material.appbar.AppBarLayout>
@@ -34,16 +35,6 @@
             android:orientation="vertical"
             android:padding="16dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/title1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:ellipsize="end"
-                android:gravity="center_horizontal"
-                android:text="@string/msg3"
-                android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
 
             <LinearLayout
                 android:layout_width="match_parent"

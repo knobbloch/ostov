@@ -11,7 +11,7 @@
         <LinearLayout android:id="@+id/linearSideSheet"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:orientation="vertical" style="@style/groupStylewhite_2">
+            android:orientation="vertical" >
             <androidx.appcompat.widget.Toolbar android:gravity="start"
                 android:id="@+id/toolbarToolbar"
                 android:layout_height="wrap_content"
@@ -58,7 +58,6 @@
                 android:layout_marginStart="@dimen/_27pxh"
                 android:layout_marginTop="@dimen/_23pxv" android:layout_width="@dimen/_76pxh">
                 <View
-                    android:background="@drawable/rectangle_bg_deep_purple_500_radius_38"
                     android:id="@+id/viewProgressbar"
                     android:layout_gravity="start"
                     android:layout_height="@dimen/_76pxh" android:layout_width="@dimen/_76pxh"/>

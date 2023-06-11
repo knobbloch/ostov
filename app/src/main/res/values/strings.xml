@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">Фишлист</string>
-    <string name="loading">Loading?</string>
-    <string name="no_internet_connection">No internet connection!</string>
     <string name="msg">Диаграмма Исикавы:</string>
     <string name="lbl_23">Задача 2</string>
     <string name="lbl_24">Ветка 2:</string>
@@ -58,11 +56,9 @@
     <string name="lbl_32">Задача 3</string>
     <string name="msg9">Система дедлайнов поможет вам грамотно распределить время на работу, а уведомления всегда напомнят о задачах!</string>
     <string name="lbl8">По важности:</string>
-    <string name="lbl9">55</string>
     <string name="lbl6">Вид диаграммы</string>
     <string name="lbl_752">75</string>
     <string name="lbl7">Список:</string>
-    <string name="lbl10">58</string>
     <string name="lbl11">Важность</string>
     <string name="lbl12">Завершенность</string>
     <string name="lbl13">Скачать</string>
@@ -74,8 +70,4 @@
     <string name="lbl19">Описание:</string>
     <string name="lbl36">Применить</string>
     <string name="lbl37">Дальше</string>
-    <string name="msg_this_contact_has_no_phone_nu">This contact has no phone number</string>
-    <string name="msg_camera_storage_permission">This Application need permission\n1.Camera permission to capture the image.\n2.Storage Access permission to save the captured image.</string>
-    <string name="lbl_camera">Camera</string>
-    <string name="lbl_gallery">Gallery</string>
 </resources>
