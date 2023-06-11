@@ -36,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:drawerLayoutCornerSize="0dp"
         app:headerLayout="@layout/header"
         android:background="?android:attr/colorBackground"
         app:itemTextAppearance="@style/TextAppearance.Material3.TitleMedium"

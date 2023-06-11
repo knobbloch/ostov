@@ -23,7 +23,8 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:navigationIcon="@drawable/img_arrowleft"
+                android:paddingStart="8dp"
+                app:navigationIcon="@drawable/img_arrowback"
                 app:title="@string/lbl3"
                 app:titleCentered="true" />
         </com.google.android.material.appbar.AppBarLayout>
@@ -49,7 +50,7 @@
                     android:text="@string/lbl4"
                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
-                <Switch
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/switchDarkTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

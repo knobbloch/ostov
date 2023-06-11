@@ -2,107 +2,75 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <variable name="diagramViewVM" type="com.knobblochsapplication.app.modules.diagramview.data.viewmodel.DiagramViewVM"/>
+
+        <variable
+            name="diagramViewVM"
+            type="com.knobblochsapplication.app.modules.diagramview.data.viewmodel.DiagramViewVM" />
     </data>
 
-    <LinearLayout
-        android:id="@+id/linearDiagramview"
-        style="@style/groupStylewhite_A700"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/linearHeader"
-            style="@style/groupStyleindigo_50"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="start"
-            android:orientation="horizontal">
+            android:fitsSystemWindows="true">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/img_arrowback"
+                android:paddingStart="8dp"
+                app:title="@string/lbl6"
+                app:titleCentered="true" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-                <Button
-                    android:id="@+id/button3"
-                    style="@style/Widget.Material3.Button.IconButton.Filled"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="19dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="7dp"
-                    app:icon="@drawable/img_arrowleft"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:id="@+id/linearDiagramview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <TextView
-                    android:id="@+id/txtText"
-                    style="@style/txtABeeZeeregular20"
-                    android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="0.8"
-                    android:ellipsize="end"
-                    android:letterSpacing="0.01"
-                    android:lineSpacingExtra="@dimen/_4pxh"
-                    android:singleLine="true"
-                    android:text="@{diagramViewVM.diagramViewModel.txtText}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@string/lbl6" />
+                    android:checkedButton="@+id/radio_button_1">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/msg"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/lbl7"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+                </RadioGroup>
+            </LinearLayout>
 
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="39dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <RadioButton
-                    style="@style/txtABeeZeeregular18"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layoutDirection="rtl"
-                    android:text="@string/msg"
-                    android:textAlignment="textStart"
-                    android:textAppearance="@style/txtABeeZeeregular18"
-                    android:textSize="@dimen/_18sp" />
-
-                <RadioButton
-                    style="@style/txtABeeZeeregular18"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layoutDirection="rtl"
-                    android:text="@string/lbl7"
-                    android:textAlignment="textStart"
-                    android:textAppearance="@style/txtABeeZeeregular18"
-                    android:textSize="@dimen/_18sp" />
-
-            </RadioGroup>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
 
 </layout>
