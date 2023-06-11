@@ -31,8 +31,7 @@
     <string name="msg17">Добавление новой задачи</string>
     <string name="msg16">Ваш процент достижения задачи составляет 75%</string>
     <string name="lbl20">Вид диаграммы</string>
-    <string name="msg11">Добро пожаловать в "Фишлист"!
-        Мы поможем вам сфокусироваться и достичь ваших целей.</string>
+    <string name="msg11">Добро пожаловать в "Фишлист"!\nМы поможем вам сфокусироваться и достичь ваших целей.</string>
     <string name="lbl21">Отмена</string>
     <string name="msg10">Включить уведомления вы можете в настройках</string>
     <string name="lbl22">Удалить</string>
@@ -73,6 +72,7 @@
     <string name="lbl17">Дата дедлайна:</string>
     <string name="lbl18">Завершено:</string>
     <string name="lbl19">Описание:</string>
+    <string name="lbl36">Применить</string>
     <string name="msg_this_contact_has_no_phone_nu">This contact has no phone number</string>
     <string name="msg_camera_storage_permission">This Application need permission\n1.Camera permission to capture the image.\n2.Storage Access permission to save the captured image.</string>
     <string name="lbl_camera">Camera</string>

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:background="@color/indigo_50">
+    android:layout_height="150dp">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -16,15 +14,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img_navmenu" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:text="Фишлист"
-        android:textColor="#253368"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,8 +32,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:text="Твой удобный планер"
-        android:textColor="@color/gray_800"
-        android:textSize="14dp"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

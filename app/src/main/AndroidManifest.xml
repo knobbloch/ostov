@@ -19,9 +19,6 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.menuone.ui.MenuSide"
-            android:exported="false" />
-        <activity
             android:name=".modules.menuone.ui.MenuOneActivity"
             android:screenOrientation="portrait" />
         <activity

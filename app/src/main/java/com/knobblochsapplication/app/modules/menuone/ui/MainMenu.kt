@@ -1,30 +1,41 @@
 package com.knobblochsapplication.app.modules.menuone.ui
 
-import android.content.DialogInterface.OnClickListener
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
-import com.knobblochsapplication.app.R
+import com.google.android.material.elevation.SurfaceColors
+import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
 import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
-
+import org.koin.android.ext.android.inject
 
 class MainMenu : AppCompatActivity() {
     lateinit var binding: ActivityMainMenuBinding
+    private val preferenceHelper: PreferenceHelper by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
+//        window.navigationBarColor = SurfaceColors.SURFACE_2.getColor(this)
+
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.apply {
-            binding.openMainMenu.setOnClickListener{
+            topAppBar.setNavigationOnClickListener {
                 drawer.openDrawer(GravityCompat.START)
             }
+        }
+
+        if (preferenceHelper.isDarkTheme()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
 

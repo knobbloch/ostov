@@ -29,4 +29,16 @@ class PreferenceHelper() {
     private fun createGetMasterKey(): String {
         return MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
     }
+
+    private val DARK_THEME = "dark_theme"
+
+    fun isDarkTheme() =
+        sharedPreference.getBoolean(DARK_THEME, false)
+
+    fun setDarkTheme(isDark: Boolean) {
+        sharedPreference
+            .edit()
+            .putBoolean(DARK_THEME, isDark)
+            .apply()
+    }
 }
