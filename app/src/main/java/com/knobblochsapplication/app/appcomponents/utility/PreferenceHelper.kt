@@ -41,4 +41,16 @@ class PreferenceHelper() {
             .putBoolean(DARK_THEME, isDark)
             .apply()
     }
+
+    private val IS_HELP_PAGE_SHOWED = "help_page_is_showed"
+
+    fun isHelpPageShowed() =
+        sharedPreference.getBoolean(IS_HELP_PAGE_SHOWED, false)
+
+    fun setHelpPageShowed(isShowed: Boolean) {
+        sharedPreference
+            .edit()
+            .putBoolean(IS_HELP_PAGE_SHOWED, isShowed)
+            .apply()
+    }
 }

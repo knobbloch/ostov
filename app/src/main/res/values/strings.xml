@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="app_name">knobbloch_s_application10</string>
+    <string name="app_name">Фишлист</string>
     <string name="loading">Loading?</string>
     <string name="no_internet_connection">No internet connection!</string>
     <string name="msg">Диаграмма Исикавы:</string>
@@ -35,9 +35,9 @@
     <string name="lbl21">Отмена</string>
     <string name="msg10">Включить уведомления вы можете в настройках</string>
     <string name="lbl22">Удалить</string>
-    <string name="msg13">Сортируйте список дел по степени важности и  завершённости!  Следите за процентом выполнения задач, он поможет оценить ваш прогресс.</string>
+    <string name="msg13">Сортируйте список дел по степени важности и  завершённости!\nСледите за процентом выполнения задач, он поможет оценить ваш прогресс.</string>
     <string name="lbl23">Изменить</string>
-    <string name="msg12">Визуализируйте путь к намеченным целям с помощью диаграммы Исикавы! Она поможет разбить глобальные цели на более мелкие.</string>
+    <string name="msg12">Визуализируйте путь к намеченным целям с помощью диаграммы Исикавы!\nОна поможет разбить глобальные цели на более мелкие.</string>
     <string name="lbl24">Объединить</string>
     <string name="lbl25">Ваша цель</string>
     <string name="lbl26">Начать</string>
@@ -73,6 +73,7 @@
     <string name="lbl18">Завершено:</string>
     <string name="lbl19">Описание:</string>
     <string name="lbl36">Применить</string>
+    <string name="lbl37">Дальше</string>
     <string name="msg_this_contact_has_no_phone_nu">This contact has no phone number</string>
     <string name="msg_camera_storage_permission">This Application need permission\n1.Camera permission to capture the image.\n2.Storage Access permission to save the captured image.</string>
     <string name="lbl_camera">Camera</string>

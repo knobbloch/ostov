@@ -20,7 +20,8 @@
             android:layout_width="500dp"
             android:layout_marginTop="16dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/img_help1" />
+            app:srcCompat="@drawable/img_help1"
+            />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtDescription"
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:padding="16dp"
-            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:text="@string/msg11" />
 
         <View
@@ -37,7 +38,7 @@
             android:layout_weight="1"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn"
+            android:id="@+id/btn_start"
             android:layout_width="227dp"
             android:layout_height="66dp"
             android:layout_marginBottom="16dp"
