@@ -17,14 +17,14 @@ class SortActivity : BaseActivity<ActivitySortBinding>(R.layout.activity_sort) {
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     val sortAdapter = SortAdapter(viewModel.sortList.value?:mutableListOf())
-    binding.recyclerSort.adapter = sortAdapter
-    sortAdapter.setOnItemClickListener(
-    object : SortAdapter.OnItemClickListener {
-      override fun onItemClick(view:View, position:Int, item : SortRowModel) {
-        onClickRecyclerSort(view, position, item)
-      }
-    }
-    )
+//    binding.recyclerSort.adapter = sortAdapter
+//    sortAdapter.setOnItemClickListener(
+//    object : SortAdapter.OnItemClickListener {
+//      override fun onItemClick(view:View, position:Int, item : SortRowModel) {
+//        onClickRecyclerSort(view, position, item)
+//      }
+//    }
+//    )
     viewModel.sortList.observe(this) {
       sortAdapter.updateData(it)
     }
@@ -32,7 +32,7 @@ class SortActivity : BaseActivity<ActivitySortBinding>(R.layout.activity_sort) {
   }
 
   override fun setUpClicks(): Unit {
-    binding.imageArrowleft.setOnClickListener {
+    binding.button4.setOnClickListener {
       finish()
     }
   }

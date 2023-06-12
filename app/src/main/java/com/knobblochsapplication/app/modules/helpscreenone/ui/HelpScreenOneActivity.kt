@@ -9,7 +9,7 @@ import kotlin.String
 import kotlin.Unit
 
 class HelpScreenOneActivity :
-    BaseActivity<ActivityHelpScreenOneBinding>(R.layout.activity_help_screen_one) {
+  BaseActivity<ActivityHelpScreenOneBinding>(R.layout.activity_help_screen_one) {
   private val viewModel: HelpScreenOneVM by viewModels<HelpScreenOneVM>()
 
   override fun onInitialized(): Unit {

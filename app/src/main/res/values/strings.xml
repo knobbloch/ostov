@@ -31,8 +31,8 @@
     <string name="msg17">Добавление новой задачи</string>
     <string name="msg16">Ваш процент достижения задачи составляет 75%</string>
     <string name="lbl20">Вид диаграммы</string>
-    <string name="msg11">Добро пожаловать в “Остов”!
-Мы поможем вам сфокусироваться и достичь ваших целей.</string>
+    <string name="msg11">Добро пожаловать в "Фишлист"!
+        Мы поможем вам сфокусироваться и достичь ваших целей.</string>
     <string name="lbl21">Отмена</string>
     <string name="msg10">Включить уведомления вы можете в настройках</string>
     <string name="lbl22">Удалить</string>
@@ -42,8 +42,8 @@
     <string name="lbl24">Объединить</string>
     <string name="lbl25">Ваша цель</string>
     <string name="lbl26">Начать</string>
-    <string name="lbl27">Завершённость</string>
-    <string name="lbl28">По дате</string>
+    <string name="lbl27">По завершённости:</string>
+    <string name="lbl28">По дате:</string>
     <string name="msg19">Изменение задачи</string>
     <string name="lbl29">Приоритет:</string>
     <string name="msg18">Вынести в отдельную цель</string>
@@ -58,7 +58,7 @@
     <string name="msg5">Скачать список  .docx</string>
     <string name="lbl_32">Задача 3</string>
     <string name="msg9">Система дедлайнов поможет вам грамотно распределить время на работу, а уведомления всегда напомнят о задачах!</string>
-    <string name="lbl8">Важность:</string>
+    <string name="lbl8">По важности:</string>
     <string name="lbl9">55</string>
     <string name="lbl6">Вид диаграммы</string>
     <string name="lbl_752">75</string>

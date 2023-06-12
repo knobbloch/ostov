@@ -1,115 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable name="settingsVM" type="com.knobblochsapplication.app.modules.settings.data.viewmodel.SettingsVM"/>
     </data>
-    <LinearLayout android:gravity="center_horizontal"
+
+    <LinearLayout
         android:id="@+id/linearSettings"
-        android:layout_height="match_parent"
+        style="@style/groupStylewhite_A700"
         android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStylewhite_A700">
-        <View android:background="@color/indigo_50"
-            android:id="@+id/viewStatusbar"
-            android:layout_gravity="start"
-            android:layout_height="@dimen/_10pxv" android:layout_width="@dimen/_360pxh"/>
-        <LinearLayout android:gravity="start"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
             android:id="@+id/linearHeader"
-            android:layout_height="wrap_content"
+            style="@style/groupStyleindigo_50"
             android:layout_width="match_parent"
-            android:orientation="horizontal" style="@style/groupStyleindigo_50">
-            <FrameLayout android:id="@+id/frameContainer"
-                android:layout_height="@dimen/_40pxv"
-                android:layout_marginBottom="@dimen/_6pxv"
-                android:layout_marginStart="@dimen/_19pxh"
-                android:layout_marginTop="@dimen/_7pxv"
-                android:layout_width="@dimen/_40pxh" style="@style/groupStyleindigo_300cornerRadius">
-                <ImageView android:id="@+id/imageArrowleft"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/_16pxh"
-                    android:layout_marginHorizontal="@dimen/_12pxh"
-                    android:layout_marginVertical="@dimen/_12pxv"
-                    android:layout_width="@dimen/_16pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_arrowleft_white_a700"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft_white_a700"/>
-            </FrameLayout>
-            <TextView android:ellipsize="end" android:id="@+id/txtFive"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_12pxv"
-                android:layout_marginEnd="@dimen/_126pxh"
-                android:layout_marginStart="@dimen/_68pxh"
-                android:layout_marginTop="@dimen/_16pxv"
-                android:layout_weight="0.73" android:layout_width="0dp"
-                android:letterSpacing="0.01"
-                android:lineSpacingExtra="@dimen/_4pxh"
-                android:singleLine="true"
-                android:text="@{settingsVM.settingsModel.txtFive}"
-                style="@style/txtABeeZeeregular20" tools:text="@string/lbl3"/>
-        </LinearLayout>
-        <LinearLayout android:id="@+id/linearBlockdarkthem"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_37pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_30pxv"
-            android:layout_width="match_parent" android:orientation="horizontal">
-            <TextView android:ellipsize="end" android:id="@+id/txtText"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_6pxv"
-                android:layout_marginTop="@dimen/_3pxv"
-                android:layout_weight="0.69" android:layout_width="0dp"
-                android:singleLine="true"
-                android:text="@{settingsVM.settingsModel.txtText}"
-                style="@style/txtABeeZeeregular18" tools:text="@string/lbl4"/>
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchMaterialSwitch"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_115pxh"
-                android:layout_weight="0.31" android:layout_width="0dp"/>
+            android:gravity="start"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtFive"
+                    style="@style/txtABeeZeeregular20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.73"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="@dimen/_4pxh"
+                    android:singleLine="true"
+                    android:text="@{settingsVM.settingsModel.txtFive}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/lbl3" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/Widget.Material3.Button.IconButton.Filled"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    app:icon="@drawable/img_arrowleft"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
-        <LinearLayout android:id="@+id/linearBlockmessages"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_25pxv"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/Theme.MyApp"
             android:layout_width="match_parent"
-            android:orientation="horizontal" style="@style/groupStylecornerRadius_1">
-            <TextView android:ellipsize="end"
-                android:id="@+id/txtTextOne"
+            android:layout_height="0dp"
+            android:layout_weight="0.81">
+
+            <Switch
+                android:id="@+id/switch2"
+                style="@style/txtABeeZeeregular18"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.81" android:layout_width="0dp"
-                android:singleLine="true"
-                android:text="@{settingsVM.settingsModel.txtTextOne}"
-                style="@style/txtABeeZeeregular18" tools:text="@string/lbl5"/>
-            <FrameLayout android:id="@+id/frameCheckboxes"
-                android:layout_height="@dimen/_40pxv"
-                android:layout_marginStart="@dimen/_112pxh"
-                android:layout_width="@dimen/_40pxh" style="@style/groupStylegray_300cornerRadius">
-                <View
-                    android:background="@drawable/rectangle_bg_gray_300_radius_5"
-                    android:id="@+id/viewCreatefromfra"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/_19pxh"
-                    android:layout_marginHorizontal="@dimen/_10pxh"
-                    android:layout_marginVertical="@dimen/_10pxv" android:layout_width="@dimen/_19pxh"/>
-                <ImageView android:id="@+id/imageFile"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/_18pxh"
-                    android:layout_marginHorizontal="@dimen/_11pxh"
-                    android:layout_marginVertical="@dimen/_11pxv"
-                    android:layout_width="@dimen/_18pxh"
-                    android:scaleType="centerCrop" circular="@{true}"
-                    imageRes="@{@drawable/img_file}"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_file"/>
-            </FrameLayout>
-        </LinearLayout>
-        <View
-            android:background="@drawable/rectangle_bg_gray_900_radius_1"
-            android:id="@+id/lineHome"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="@dimen/_2pxv"
-            android:layout_marginBottom="@dimen/_8pxv"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_575pxv" android:layout_width="@dimen/_72pxh"/>
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="39dp"
+                android:text="@string/lbl4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                style="@style/txtABeeZeeregular18"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="39dp"
+                android:layoutDirection="rtl"
+                android:text="@string/lbl5"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switch2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
+
 </layout>

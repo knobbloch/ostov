@@ -58,4 +58,9 @@ class MenuOneActivity : BaseActivity<ActivityMenuOneBinding>(R.layout.activity_m
         return destIntent
       }
     }
+
+//  fun toTargets(view: View){
+//    val targetIntent = Intent(this, GoalsActivity::class.java)
+//    startActivity(targetIntent)
+//  }
   }
