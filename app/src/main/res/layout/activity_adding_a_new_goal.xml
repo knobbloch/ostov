@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <variable name="addingANewGoalVM" type="com.knobblochsapplication.app.modules.addinganewgoal.data.viewmodel.AddingANewGoalVM"/>
+        <variable name="addingANewGoalVM" type="com.knobblochsapplication.app.modules.sort.addinganewgoal.data.viewmodel.AddingANewGoalVM"/>
     </data>
     <LinearLayout android:gravity="center_horizontal"
         android:id="@+id/linearAddinganewgo"

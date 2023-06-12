@@ -30,7 +30,12 @@
         <activity
             android:name="com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity" android:screenOrientation="portrait"/>
         <activity
+<<<<<<< Updated upstream
             android:name="com.knobblochsapplication.app.modules.percentageofgoal.ui.PercentageOfGoalActivity" android:screenOrientation="portrait"/>
+=======
+            android:name=".modules.sort.addinganewgoal.ui.AddingANewGoalActivity"
+            android:screenOrientation="portrait" />
+>>>>>>> Stashed changes
         <activity
             android:name="com.knobblochsapplication.app.modules.helpscreenthree.ui.HelpScreenThreeActivity" android:screenOrientation="portrait"/>
         <activity
@@ -63,7 +68,12 @@
         <activity
             android:name="com.knobblochsapplication.app.modules.cautionpriority.ui.CautionPriorityActivity" android:screenOrientation="portrait"/>
         <activity
+<<<<<<< Updated upstream
             android:name="com.knobblochsapplication.app.modules.helpscreenfour.ui.HelpScreenFourActivity" android:screenOrientation="portrait"/>
+=======
+            android:name=".modules.changetask.cautionpriority.ui.CautionPriorityActivity"
+            android:screenOrientation="portrait" />
+>>>>>>> Stashed changes
         <activity
             android:name="com.knobblochsapplication.app.modules.helpscreentwo.ui.HelpScreenTwoActivity" android:screenOrientation="portrait"/>
     </application>

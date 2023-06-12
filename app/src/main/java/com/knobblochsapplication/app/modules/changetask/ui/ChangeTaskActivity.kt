@@ -5,7 +5,7 @@ import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.appcomponents.views.ImagePickerFragmentDialog
 import com.knobblochsapplication.app.databinding.ActivityChangeTaskBinding
-import com.knobblochsapplication.app.modules.cautionpriority.ui.CautionPriorityActivity
+import com.knobblochsapplication.app.modules.changetask.cautionpriority.ui.CautionPriorityActivity
 import com.knobblochsapplication.app.modules.changetask.`data`.viewmodel.ChangeTaskVM
 import kotlin.String
 import kotlin.Unit

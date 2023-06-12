@@ -1,4 +1,4 @@
-package com.knobblochsapplication.app.modules.cautionpriority.ui
+package com.knobblochsapplication.app.modules.changetask.cautionpriority.ui
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityCautionPriorityBinding
-import com.knobblochsapplication.app.modules.cautionpriority.`data`.viewmodel.CautionPriorityVM
+import com.knobblochsapplication.app.modules.changetask.cautionpriority.data.viewmodel.CautionPriorityVM
 import kotlin.String
 import kotlin.Unit
 
