@@ -1,4 +1,4 @@
-package com.knobblochsapplication.app.modules.addinganewgoal.`data`.model
+package com.knobblochsapplication.app.modules.sort.addinganewgoal.data.model
 
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.di.MyApp

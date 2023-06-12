@@ -1,9 +1,9 @@
-package com.knobblochsapplication.app.modules.cautionpriority.`data`.viewmodel
+package com.knobblochsapplication.app.modules.changetask.cautionpriority.data.viewmodel
 
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.knobblochsapplication.app.modules.cautionpriority.`data`.model.CautionPriorityModel
+import com.knobblochsapplication.app.modules.changetask.cautionpriority.data.model.CautionPriorityModel
 import org.koin.core.KoinComponent
 
 class CautionPriorityVM : ViewModel(), KoinComponent {

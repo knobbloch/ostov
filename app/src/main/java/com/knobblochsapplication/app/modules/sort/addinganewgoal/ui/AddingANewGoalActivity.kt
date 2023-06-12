@@ -1,11 +1,11 @@
-package com.knobblochsapplication.app.modules.addinganewgoal.ui
+package com.knobblochsapplication.app.modules.sort.addinganewgoal.ui
 
 import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.appcomponents.views.ImagePickerFragmentDialog
 import com.knobblochsapplication.app.databinding.ActivityAddingANewGoalBinding
-import com.knobblochsapplication.app.modules.addinganewgoal.`data`.viewmodel.AddingANewGoalVM
+import com.knobblochsapplication.app.modules.sort.addinganewgoal.data.viewmodel.AddingANewGoalVM
 import kotlin.String
 import kotlin.Unit
 
