@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.knobblochsapplication.app">
@@ -11,6 +12,21 @@
     <application
         android:name=".appcomponents.di.MyApp"
         android:allowBackup="false"
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest package="com.knobblochsapplication.app" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+
+    <application android:allowBackup="false"
+        android:requestLegacyExternalStorage="true"
+>>>>>>> Stashed changes
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
@@ -19,6 +35,7 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
+<<<<<<< Updated upstream
             android:name=".modules.menuone.ui.MenuSide"
             android:exported="false" />
         <activity
@@ -83,6 +100,50 @@
             android:name=".modules.goalsunion.ui.GoalsUnionActivity"
             android:screenOrientation="portrait" />
         <activity
+=======
+            android:name=".modules.menutwo.ui.MenuTwoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.changetask.ui.ChangeTaskActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.percentageoftask.ui.PercentageOfTaskActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.menu.ui.MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.addtask.ui.AddTaskActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.goalsdelete.ui.GoalsDeleteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.diagramview.ui.DiagramViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.percentageofgoal.ui.PercentageOfGoalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.helpscreenthree.ui.HelpScreenThreeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.menuunion.ui.MenuUnionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.settings.ui.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.downloadlist.ui.DownloadListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.sort.ui.SortActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.goalsunion.ui.GoalsUnionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+>>>>>>> Stashed changes
             android:name=".modules.goalschange.ui.GoalsChangeActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -98,9 +159,12 @@
             android:name=".modules.helpscreenone.ui.HelpScreenOneActivity"
             android:screenOrientation="portrait" />
         <activity
+<<<<<<< Updated upstream
             android:name=".modules.cautionpriority.ui.CautionPriorityActivity"
             android:screenOrientation="portrait" />
         <activity
+=======
+>>>>>>> Stashed changes
             android:name=".modules.helpscreenfour.ui.HelpScreenFourActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -108,4 +172,8 @@
             android:screenOrientation="portrait" />
     </application>
 
+<<<<<<< Updated upstream
 </manifest>
+=======
+</manifest>
+>>>>>>> Stashed changes

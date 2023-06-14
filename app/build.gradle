@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "com.knobblochsapplication.app"
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
@@ -84,5 +84,8 @@ dependencies {
     implementation "com.airbnb.android:lottie:3.4.0"
 
     implementation 'com.vmadalin:easypermissions-ktx:0.1.0'
+
+    implementation 'org.apache.poi:poi-ooxml:4.1.2'
+    implementation 'javax.xml.stream:stax-api:1.0'
 }
 
