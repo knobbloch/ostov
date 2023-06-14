@@ -19,7 +19,7 @@ public class by_complete implements Comparator<Integer> {
             if(File_Manager.Find_task_by_id(context,goal_id,o1).isComplete()==File_Manager.Find_task_by_id(context,goal_id,o2).isComplete()){
                 return 0;
             }
-            if(File_Manager.Find_task_by_id(context,goal_id,o1).isComplete()==true && File_Manager.Find_task_by_id(context,goal_id,o2).isComplete()==false){
+            if(File_Manager.Find_task_by_id(context, goal_id, o1).isComplete() && !File_Manager.Find_task_by_id(context, goal_id, o2).isComplete()){
                 return -1;
             }
             else{

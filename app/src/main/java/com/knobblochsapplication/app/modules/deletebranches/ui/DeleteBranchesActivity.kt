@@ -5,7 +5,6 @@ import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityDeleteBranchesBinding
 import com.knobblochsapplication.app.modules.deletebranches.`data`.viewmodel.DeleteBranchesVM
-import com.knobblochsapplication.app.modules.goalscheme.ui.GoalSchemeActivity
 import kotlin.String
 import kotlin.Unit
 

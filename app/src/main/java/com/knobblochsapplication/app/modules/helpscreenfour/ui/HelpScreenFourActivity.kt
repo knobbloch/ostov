@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityHelpScreenFourBinding
-import com.knobblochsapplication.app.modules.goalscheme.ui.GoalSchemeActivity
 import com.knobblochsapplication.app.modules.helpscreenfour.`data`.viewmodel.HelpScreenFourVM
 import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
 import kotlin.String

@@ -49,7 +49,7 @@ object PickerHandler {
     }
 
     fun getContactInfo(contactData: Uri, context: Context) {
-        var cursor: Cursor? = context.contentResolver.query(contactData!!,null,null,null,null)
+        var cursor: Cursor? = context.contentResolver.query(contactData,null,null,null,null)
         cursor?.moveToFirst()
         var checkPhoneNo:String =
                 cursor!!.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts.HAS_PHONE_NUMBER))

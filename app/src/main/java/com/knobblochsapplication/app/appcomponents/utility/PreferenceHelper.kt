@@ -9,7 +9,7 @@ import com.knobblochsapplication.app.appcomponents.di.MyApp
 /**
  * class which used to manage application shared preference
  */
-class PreferenceHelper() {
+class PreferenceHelper {
     private val masterKeyAlias: String = createGetMasterKey()
 
     private val sharedPreference: SharedPreferences = EncryptedSharedPreferences.create(

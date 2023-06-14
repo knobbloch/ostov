@@ -1,4 +1,4 @@
-package com.knobblochsapplication.app.modules.sort.addinganewgoal.data.viewmodel
+package com.knobblochsapplication.app.modules.addinganewgoal.data.viewmodel
 
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData

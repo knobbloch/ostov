@@ -31,7 +31,7 @@ class DownloadListAdapter(
   // TODO uncomment following line after integration with data source
   // return list.size
 
-  public fun updateData(newData: List<DownloadListRowModel>) {
+  fun updateData(newData: List<DownloadListRowModel>) {
     list = newData
     notifyDataSetChanged()
   }

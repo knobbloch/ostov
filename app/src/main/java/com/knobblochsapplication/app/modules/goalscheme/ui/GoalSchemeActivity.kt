@@ -1,5 +1,4 @@
 
-<<<<<<< Updated upstream
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -43,5 +42,4 @@ class GoalSchemeActivity : BaseActivity<ActivityGoalSchemeBinding>(R.layout.acti
     }
   }
 }
-=======
->>>>>>> Stashed changes
+
