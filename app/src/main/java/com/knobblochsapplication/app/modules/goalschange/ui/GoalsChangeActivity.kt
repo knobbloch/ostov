@@ -20,6 +20,13 @@ class GoalsChangeActivity : BaseActivity<ActivityGoalsChangeBinding>(R.layout.ac
 
   override fun setUpClicks(): Unit {
 
+    binding.imageClose3.setOnClickListener {
+      finish()
+    }
+
+    binding.btn2.setOnClickListener {
+      finish()
+    }
 
     binding.imageCamera.setOnClickListener {
       ImagePickerFragmentDialog().show(supportFragmentManager)
@@ -30,7 +37,8 @@ class GoalsChangeActivity : BaseActivity<ActivityGoalsChangeBinding>(R.layout.ac
   }
 
   companion object {
-    const val TAG: String = "GOALS_CHANGE_ACTIVITY"
+
+      const val TAG: String = "GOALS_CHANGE_ACTIVITY"
 
   }
 }
