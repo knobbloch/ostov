@@ -3,10 +3,16 @@ package com.knobblochsapplication.app.modules.menuunion.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityMenuUnionBinding
+import com.knobblochsapplication.app.modules.addinganewgoal.ui.AddingANewGoalActivity
+import com.knobblochsapplication.app.modules.goals.ui.GoalsActivity
+import com.knobblochsapplication.app.modules.goalschange.ui.GoalsChangeActivity
+import com.knobblochsapplication.app.modules.goalsdelete.ui.GoalsDeleteActivity
+import com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity
 import com.knobblochsapplication.app.modules.menuunion.`data`.viewmodel.MenuUnionVM
 import kotlin.String
 import kotlin.Unit
@@ -20,6 +26,7 @@ class MenuUnionActivity : BaseActivity<ActivityMenuUnionBinding>(R.layout.activi
   }
 
   override fun setUpClicks(): Unit {
+
   }
 
   companion object {

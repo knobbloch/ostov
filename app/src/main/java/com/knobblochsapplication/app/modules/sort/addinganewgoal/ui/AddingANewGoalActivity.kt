@@ -1,11 +1,13 @@
-package com.knobblochsapplication.app.modules.sort.addinganewgoal.ui
+package com.knobblochsapplication.app.modules.addinganewgoal.ui
 
 import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.appcomponents.views.ImagePickerFragmentDialog
 import com.knobblochsapplication.app.databinding.ActivityAddingANewGoalBinding
-import com.knobblochsapplication.app.modules.sort.addinganewgoal.data.viewmodel.AddingANewGoalVM
+import com.knobblochsapplication.app.modules.addinganewgoal.`data`.viewmodel.AddingANewGoalVM
+import com.knobblochsapplication.app.modules.goals.ui.GoalsActivity
+import com.knobblochsapplication.app.modules.menuunion.ui.MenuUnionActivity
 import kotlin.String
 import kotlin.Unit
 
@@ -20,14 +22,9 @@ class AddingANewGoalActivity :
 
   override fun setUpClicks(): Unit {
 
-
-    binding.imageCamera.setOnClickListener {
-      ImagePickerFragmentDialog().show(supportFragmentManager)
-      { path ->//TODO HANDLE DATA
-      }
-
-    }
   }
+
+
 
   companion object {
     const val TAG: String = "ADDING_A_NEW_GOAL_ACTIVITY"

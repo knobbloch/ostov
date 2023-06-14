@@ -73,8 +73,11 @@
     <string name="lbl17">Дата дедлайна:</string>
     <string name="lbl18">Завершено:</string>
     <string name="lbl19">Описание:</string>
+    <string name="lbl40">Добавить</string>
     <string name="msg_this_contact_has_no_phone_nu">This contact has no phone number</string>
     <string name="msg_camera_storage_permission">This Application need permission\n1.Camera permission to capture the image.\n2.Storage Access permission to save the captured image.</string>
     <string name="lbl_camera">Camera</string>
     <string name="lbl_gallery">Gallery</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

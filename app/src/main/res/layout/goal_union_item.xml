@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_18pxv" />
+
+        <LinearLayout
+            android:id="@+id/linearBlockgoal1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:gravity="start"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/_50pxh"
+            android:paddingTop="@dimen/_20pxv"
+            android:paddingEnd="@dimen/_35pxh"
+            android:paddingBottom="@dimen/_15pxv">
+
+            <TextView
+                android:id="@+id/txtNamegoal"
+                style="@style/txtABeeZeeregular25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:ellipsize="end"
+                android:lineSpacingExtra="@dimen/_5pxh"
+                android:singleLine="false"
+                android:text="@string/lbl_1"
+                tools:text="@string/lbl_1" />
+
+            <LinearLayout
+                android:id="@+id/linearColumnaboutgoal"
+                style="@style/groupStylegray_50cornerRadius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtAboutgoal"
+                    style="@style/txtABeeZeeregular15"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_15pxh"
+                    android:layout_marginTop="@dimen/_15pxv"
+                    android:layout_marginEnd="@dimen/_15pxh"
+                    android:layout_marginBottom="@dimen/_15pxv"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:lineSpacingExtra="@dimen/_3pxh"
+                    android:singleLine="false"
+                    android:text="@string/lbl2"
+                    tools:text="@string/lbl2" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/blue_900"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
