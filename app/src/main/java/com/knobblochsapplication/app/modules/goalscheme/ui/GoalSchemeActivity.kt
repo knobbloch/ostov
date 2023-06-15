@@ -8,23 +8,15 @@ import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityGoalSchemeBinding
 import com.knobblochsapplication.app.modules.goalscheme.data.viewmodel.GoalSchemeVM
 
-class GoalSchemeActivity : BaseActivity<ActivityGoalSchemeBinding>(R.layout.activity_goal_scheme) {
-  private val viewModel: GoalSchemeVM by viewModels<GoalSchemeVM>()
+class GoalSchemeActivity {
+  /*private val viewModel: GoalSchemeVM by viewModels<GoalSchemeVM>()
 
   override fun onInitialized(): Unit {
-    viewModel.navArguments = intent.extras?.getBundle("bundle")
-    binding.goalSchemeVM = viewModel
+    //viewModel.navArguments = intent.extras?.getBundle("bundle")
+    //binding.goalSchemeVM = viewModel
   }
 
   override fun setUpClicks(): Unit {
-//    binding.txtSeventyFive.setOnClickListener {
-//      val destIntent = PercentageOfGoalActivity.getIntent(this, null)
-//      startActivity(destIntent)
-//    }
-//    binding.imageMenu.setOnClickListener {
-////      val destIntent = MenuOneActivity.getIntent(this, null)
-////      startActivity(destIntent)
-//    }
   }
 
   companion object {
@@ -36,6 +28,6 @@ class GoalSchemeActivity : BaseActivity<ActivityGoalSchemeBinding>(R.layout.acti
       destIntent.putExtra("bundle", bundle)
       return destIntent
     }
-  }
+  }*/
 }
 
