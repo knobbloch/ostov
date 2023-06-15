@@ -11,7 +11,7 @@
     </item>
     <item
         android:id="@+id/nav_diagramview"
-        android:icon="@drawable/img_menu"
+        android:icon="@drawable/ic_menu"
         android:onClick="onClickGoDiagramView"
         android:title="Вид диаграммы">
 

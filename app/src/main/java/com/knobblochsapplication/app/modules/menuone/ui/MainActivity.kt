@@ -7,10 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import com.google.android.material.elevation.SurfaceColors
+import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
+import com.knobblochsapplication.app.modules.goals.ui.GoalsActivity
 import com.knobblochsapplication.app.modules.helpscreenone.ui.HelpScreenOneActivity
 import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
@@ -27,13 +29,10 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
 //        window.navigationBarColor = SurfaceColors.SURFACE_2.getColor(this)
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             if (!preferenceHelper.isHelpPageShowed()) {
-                println("isHelpPageShowed false")
                 val myIntent = Intent(this, HelpScreenOneActivity::class.java)
                 this.startActivity(myIntent)
-            } else {
-                println("isHelpPageShowed true")
             }
 
             if (preferenceHelper.isDarkTheme()) {
@@ -42,10 +41,17 @@ class MainActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
-
-        binding.apply {
-            topAppBar.setNavigationOnClickListener {
-                drawer.openDrawer(GravityCompat.START)
+        binding.topAppBar.setNavigationOnClickListener {
+            binding.drawer.openDrawer(GravityCompat.START)
+        }
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.list -> {
+                    val myIntent = Intent(this@MainActivity, GoalsActivity::class.java)
+                    startActivity(myIntent)
+                    true
+                }
+                else -> false
             }
         }
     }

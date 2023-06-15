@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:contentDescription="@string/lbl37"
-                app:srcCompat="@drawable/img_right_24" />
+                app:srcCompat="@drawable/ic_right" />
         </LinearLayout>
     </LinearLayout>
 </layout>

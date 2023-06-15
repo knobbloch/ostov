@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="txtRobotoromanregular20">
-        <item name="android:textSize">@dimen/_20pxh</item>
-        <item name="android:textColor">@color/gray_800</item>
-        <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-    </style>
     <style name="txtRobotoregular20">
         <item name="android:textSize">@dimen/_20pxh</item>
         <item name="android:textColor">@color/indigo_900</item>
@@ -69,17 +63,8 @@
         <item name="android:fontFamily">@font/abeezee</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
-    <style name="txtABeeZeeregular15_1">
-        <item name="android:textSize">@dimen/_15pxh</item>
-        <item name="android:textColor">@color/gray_401</item>
-        <item name="android:fontFamily">@font/abeezee</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-    </style>
     <style name="groupStylecornerRadius_7">
         <item name="android:background">@drawable/rectangle_radius_22_105</item>
-    </style>
-    <style name="groupStylecornerRadius_6">
-        <item name="android:background">@drawable/rectangle_radius_12</item>
     </style>
     <style name="groupStylecornerRadius_8">
         <item name="android:background">@drawable/rectangle_radius_58</item>
@@ -129,10 +114,4 @@
         <item name="android:fontFamily">@font/abeezee</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
-    <style name="searchViewstatelayer" parent="Widget.AppCompat.SearchView">
-        <item name="android:textSize">@dimen/_20pxh</item>
-        <item name="android:textColorPrimary">@color/gray_800</item>
-        <item name="android:textColorHint">@color/gray_800</item>
-    </style>
-
 </resources>

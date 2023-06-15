@@ -7,9 +7,7 @@ import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityMenuUnionBinding
-import com.knobblochsapplication.app.modules.menuunion.`data`.viewmodel.MenuUnionVM
-import kotlin.String
-import kotlin.Unit
+import com.knobblochsapplication.app.modules.menuunion.data.viewmodel.MenuUnionVM
 
 class MenuUnionActivity : BaseActivity<ActivityMenuUnionBinding>(R.layout.activity_menu_union) {
   private val viewModel: MenuUnionVM by viewModels<MenuUnionVM>()
@@ -20,6 +18,7 @@ class MenuUnionActivity : BaseActivity<ActivityMenuUnionBinding>(R.layout.activi
   }
 
   override fun setUpClicks(): Unit {
+
   }
 
   companion object {

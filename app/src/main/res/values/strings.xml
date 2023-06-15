@@ -25,8 +25,8 @@
     <string name="lbl_1">Цель 1</string>
     <string name="msg20">Переместить с потомками </string>
     <string name="msg15">Процент достижения задачи</string>
-    <string name="msg14">Добавление новой цели</string>
-    <string name="msg17">Добавление новой задачи</string>
+    <string name="msg14">Добавление цели</string>
+    <string name="msg17">Добавление задачи</string>
     <string name="msg16">Ваш процент достижения задачи составляет 75%</string>
     <string name="lbl20">Вид диаграммы</string>
     <string name="msg11">Добро пожаловать в "Фишлист"!\nМы поможем вам сфокусироваться и достичь ваших целей.</string>
@@ -70,4 +70,8 @@
     <string name="lbl19">Описание:</string>
     <string name="lbl36">Применить</string>
     <string name="lbl37">Дальше</string>
+    <string name="lbl40">Добавить</string>
+    <string name="default_priority_value">1</string>
+    <string name="error_empty_goal_name">Название не может быть пустым</string>
+    <string name="goal_change_level">Сделать подцелью</string>
 </resources>

@@ -39,9 +39,6 @@
             android:name=".modules.goalsdelete.ui.GoalsDeleteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".modules.addinganewgoal.ui.AddingANewGoalActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".modules.diagramview.ui.DiagramViewActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -74,9 +71,6 @@
         </activity>
         <activity
             android:name=".modules.goalsunion.ui.GoalsUnionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.goalschange.ui.GoalsChangeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.goals.ui.GoalsActivity"

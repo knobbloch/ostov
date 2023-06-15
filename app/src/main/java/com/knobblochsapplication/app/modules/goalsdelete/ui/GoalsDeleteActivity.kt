@@ -4,10 +4,7 @@ import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityGoalsDeleteBinding
-import com.knobblochsapplication.app.modules.goals.ui.GoalsActivity
-import com.knobblochsapplication.app.modules.goalsdelete.`data`.viewmodel.GoalsDeleteVM
-import kotlin.String
-import kotlin.Unit
+import com.knobblochsapplication.app.modules.goalsdelete.data.viewmodel.GoalsDeleteVM
 
 class GoalsDeleteActivity : BaseActivity<ActivityGoalsDeleteBinding>(R.layout.activity_goals_delete)
     {
@@ -20,12 +17,10 @@ class GoalsDeleteActivity : BaseActivity<ActivityGoalsDeleteBinding>(R.layout.ac
 
   override fun setUpClicks(): Unit {
     binding.btn.setOnClickListener {
-      val destIntent = GoalsActivity.getIntent(this, null)
-      startActivity(destIntent)
+      finish()
     }
     binding.btn1.setOnClickListener {
-      val destIntent = GoalsActivity.getIntent(this, null)
-      startActivity(destIntent)
+      finish()
     }
   }
 

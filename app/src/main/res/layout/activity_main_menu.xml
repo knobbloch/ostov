@@ -20,7 +20,8 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:navigationIcon="@drawable/img_menu_indigo_900"
+                app:navigationIcon="@drawable/ic_menu_main"
+                app:menu="@menu/main_page_menu"
                 app:title="@string/lbl"
                 app:titleCentered="true" />
         </com.google.android.material.appbar.AppBarLayout>
