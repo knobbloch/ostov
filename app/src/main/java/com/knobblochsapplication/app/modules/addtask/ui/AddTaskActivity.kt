@@ -3,11 +3,8 @@ package com.knobblochsapplication.app.modules.addtask.ui
 import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
-import com.knobblochsapplication.app.appcomponents.views.ImagePickerFragmentDialog
 import com.knobblochsapplication.app.databinding.ActivityAddTaskBinding
-import com.knobblochsapplication.app.modules.addtask.`data`.viewmodel.AddTaskVM
-import kotlin.String
-import kotlin.Unit
+import com.knobblochsapplication.app.modules.addtask.data.viewmodel.AddTaskVM
 
 class AddTaskActivity : BaseActivity<ActivityAddTaskBinding>(R.layout.activity_add_task) {
   private val viewModel: AddTaskVM by viewModels<AddTaskVM>()
@@ -21,10 +18,6 @@ class AddTaskActivity : BaseActivity<ActivityAddTaskBinding>(R.layout.activity_a
 
 
     binding.imageCamera.setOnClickListener {
-      ImagePickerFragmentDialog().show(supportFragmentManager)
-      { path ->//TODO HANDLE DATA
-      }
-
     }
   }
 

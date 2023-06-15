@@ -52,9 +52,8 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatButton
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn"
-                    style="@style/btnSolidRounded_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
@@ -72,9 +71,8 @@
                     android:textSize="20sp"
                     tools:text="@string/lbl21" />
 
-                <androidx.appcompat.widget.AppCompatButton
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn1"
-                    style="@style/btnSolidRounded_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_13pxh"

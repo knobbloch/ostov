@@ -6,11 +6,7 @@ import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityGoalSchemeBinding
-import com.knobblochsapplication.app.modules.goalscheme.`data`.viewmodel.GoalSchemeVM
-import com.knobblochsapplication.app.modules.menuone.ui.MenuOneActivity
-import com.knobblochsapplication.app.modules.percentageofgoal.ui.PercentageOfGoalActivity
-import kotlin.String
-import kotlin.Unit
+import com.knobblochsapplication.app.modules.goalscheme.data.viewmodel.GoalSchemeVM
 
 class GoalSchemeActivity : BaseActivity<ActivityGoalSchemeBinding>(R.layout.activity_goal_scheme) {
   private val viewModel: GoalSchemeVM by viewModels<GoalSchemeVM>()

@@ -3,12 +3,9 @@ package com.knobblochsapplication.app.modules.changetask.ui
 import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
-import com.knobblochsapplication.app.appcomponents.views.ImagePickerFragmentDialog
 import com.knobblochsapplication.app.databinding.ActivityChangeTaskBinding
-import com.knobblochsapplication.app.modules.changetask.cautionpriority.ui.CautionPriorityActivity
-import com.knobblochsapplication.app.modules.changetask.`data`.viewmodel.ChangeTaskVM
-import kotlin.String
-import kotlin.Unit
+import com.knobblochsapplication.app.modules.cautionpriority.ui.CautionPriorityActivity
+import com.knobblochsapplication.app.modules.changetask.data.viewmodel.ChangeTaskVM
 
 class ChangeTaskActivity : BaseActivity<ActivityChangeTaskBinding>(R.layout.activity_change_task) {
   private val viewModel: ChangeTaskVM by viewModels<ChangeTaskVM>()
@@ -22,9 +19,6 @@ class ChangeTaskActivity : BaseActivity<ActivityChangeTaskBinding>(R.layout.acti
 
 
     binding.imageCamera.setOnClickListener {
-      ImagePickerFragmentDialog().show(supportFragmentManager)
-      { path ->//TODO HANDLE DATA
-      }
 
     }
     binding.btnVectorOne.setOnClickListener {

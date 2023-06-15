@@ -1,15 +1,13 @@
 package com.knobblochsapplication.app.modules.helpscreentwo.ui
 
+import android.content.Intent
 import androidx.activity.viewModels
+import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityHelpScreenTwoBinding
 import com.knobblochsapplication.app.modules.helpscreenthree.ui.HelpScreenThreeActivity
-import com.knobblochsapplication.app.modules.helpscreentwo.`data`.viewmodel.HelpScreenTwoVM
-import com.knobblochsapplication.app.modules.menuone.ui.MenuOneActivity
-import com.knobblochsapplication.app.modules.percentageofgoal.ui.PercentageOfGoalActivity
-import kotlin.String
-import kotlin.Unit
+import com.knobblochsapplication.app.modules.helpscreentwo.data.viewmodel.HelpScreenTwoVM
 
 class HelpScreenTwoActivity :
     BaseActivity<ActivityHelpScreenTwoBinding>(R.layout.activity_help_screen_two) {
@@ -17,21 +15,15 @@ class HelpScreenTwoActivity :
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
+    window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
     binding.helpScreenTwoVM = viewModel
   }
 
   override fun setUpClicks(): Unit {
-    binding.txtSeventyFive.setOnClickListener {
-      val destIntent = PercentageOfGoalActivity.getIntent(this, null)
-      startActivity(destIntent)
-    }
-    binding.imageMenu.setOnClickListener {
-      val destIntent = MenuOneActivity.getIntent(this, null)
-      startActivity(destIntent)
-    }
-    binding.btnArrowright.setOnClickListener {
-      val destIntent = HelpScreenThreeActivity.getIntent(this, null)
-      startActivity(destIntent)
+    binding.floatingActionButton.setOnClickListener {
+      this.finish()
+      val myIntent = Intent(this, HelpScreenThreeActivity::class.java)
+      this.startActivity(myIntent)
     }
   }
 

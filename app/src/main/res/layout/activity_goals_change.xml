@@ -1,339 +1,259 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <variable name="goalsChangeVM" type="com.knobblochsapplication.app.modules.goalschange.data.viewmodel.GoalsChangeVM"/>
+
+        <variable
+            name="goalsChangeVM"
+            type="com.knobblochsapplication.app.modules.goalschange.data.viewmodel.GoalsChangeVM" />
     </data>
 
     <LinearLayout
-        android:id="@+id/linearChangeGoal"
+        android:id="@+id/linearGoalschange"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/linearBottomSheet"
+            style="@style/groupStylewhite_A700cornerRadius"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/linearHeader"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarToolbar"
                 style="@style/groupStyleindigo_50"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/_15pxh"
-                android:paddingTop="@dimen/_10pxh"
-                android:paddingEnd="@dimen/_25pxh"
-                android:paddingBottom="@dimen/_10pxh">
+                app:contentInsetStart="0dp">
 
-                <TextView
-                    android:id="@+id/txtHeadlinetext"
-                    style="@style/txtRobotoregular20"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/linearColumndraghandle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:lineSpacingExtra="@dimen/_4pxh"
-                    android:singleLine="true"
-                    android:text="@string/lbl15"
-                    tools:text="@string/lbl15" />
+                    android:layout_marginStart="@dimen/_18pxh"
+                    android:layout_marginTop="@dimen/_16pxv"
+                    android:layout_marginEnd="@dimen/_33pxh"
+                    android:layout_marginBottom="@dimen/_12pxv"
+                    android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/imageClose3"
-                    circular="@{true}"
-                    imageRes="@{@drawable/img_close}"
-                    android:layout_width="@dimen/_14pxh"
-                    android:layout_height="@dimen/_14pxh"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img_close"
-                    tools:ignore="ContentDescription"
-                    tools:src="@drawable/img_close" />
+                    <View
+                        android:id="@+id/viewDraghandle"
+                        android:layout_width="@dimen/_32pxh"
+                        android:layout_height="@dimen/_4pxv"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="@dimen/_131pxh"
+                        android:layout_marginEnd="@dimen/_131pxh" />
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/linearRowheadlinetext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_19pxv"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtHeadlinetext"
+                            style="@style/txtRobotoregular20"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.92"
+                            android:ellipsize="end"
+                            android:lineSpacingExtra="@dimen/_4pxh"
+                            android:singleLine="true"
+                            android:text="@{goalsChangeVM.goalsChangeModel.txtHeadlinetext}"
+                            tools:text="@string/lbl15" />
+
+                        <LinearLayout
+                            android:id="@+id/linearContainer"
+                            style="@style/groupStylecornerRadius_2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_138pxh"
+                            android:layout_marginTop="@dimen/_3pxv"
+                            android:layout_marginBottom="@dimen/_6pxv"
+                            android:layout_weight="0.08"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageClose"
+                                circular="@{true}"
+                                imageRes="@{@drawable/img_close}"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_14pxh"
+                                android:gravity="start"
+                                android:scaleType="centerCrop"
+                                tools:ignore="ContentDescription"
+                                tools:src="@drawable/img_close" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
 
             <LinearLayout
                 android:id="@+id/linearRowlanguage"
                 style="@style/groupStylecornerRadius_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16pxh"
-                android:layout_marginTop="@dimen/_13pxv"
-                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_14pxh"
+                android:layout_marginTop="@dimen/_16pxv"
+                android:layout_marginEnd="@dimen/_14pxh"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/txtLanguage"
                     style="@style/txtABeeZeeregular18"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_3pxv"
                     android:layout_marginBottom="@dimen/_6pxv"
-                    android:layout_weight="0"
+                    android:layout_weight="0.3"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="@string/lbl16"
+                    android:text="@{goalsChangeVM.goalsChangeModel.txtLanguage}"
                     tools:text="@string/lbl16" />
 
-                <FrameLayout
-                    android:id="@+id/frameStackcamera1"
-                    style="@style/groupStylegray_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_9pxh"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/editName"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@android:color/transparent"
-                        android:ems="10"
-                        android:inputType="text"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:textColor="#757575"
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-                </FrameLayout>
-
+                <View
+                    android:id="@+id/viewRectangleThree"
+                    android:layout_width="@dimen/_213pxh"
+                    android:layout_height="@dimen/_32pxv"
+                    android:layout_marginStart="@dimen/_17pxh" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearBlockdate"
+                android:id="@+id/linearRowsix"
                 style="@style/groupStylecornerRadius_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16pxh"
-                android:layout_marginTop="@dimen/_22pxv"
-                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_14pxh"
+                android:layout_marginTop="@dimen/_16pxv"
+                android:layout_marginEnd="@dimen/_14pxh"
                 android:gravity="start"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txtText"
+                    android:id="@+id/txtSix"
                     style="@style/txtABeeZeeregular18"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4pxv"
                     android:layout_marginBottom="@dimen/_5pxv"
-                    android:layout_weight="0"
+                    android:layout_weight="0.44"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="@string/lbl17"
+                    android:text="@{goalsChangeVM.goalsChangeModel.txtSix}"
                     tools:text="@string/lbl17" />
 
                 <FrameLayout
-                    android:id="@+id/frameStackcamera2"
-                    style="@style/groupStylegray_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_9pxh"
-                    android:layout_weight="1">
+                    android:id="@+id/frameStackcamera"
+                    android:layout_width="@dimen/_176pxh"
+                    android:layout_height="@dimen/_32pxv"
+                    android:layout_marginStart="@dimen/_9pxh">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <EditText
-                            android:id="@+id/editDate"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@android:color/transparent"
-                            android:ems="10"
-                            android:inputType="date"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:textColor="#757575"
-                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-                        <ImageView
-                            android:id="@+id/imageCamera"
-                            android:layout_width="@dimen/_18pxh"
-                            android:layout_height="@dimen/_20pxh"
-                            android:layout_gravity="bottom|end"
-                            android:layout_marginStart="@dimen/_10pxh"
-                            android:layout_marginTop="@dimen/_10pxv"
-                            android:layout_marginEnd="@dimen/_7pxh"
-                            android:layout_marginBottom="@dimen/_5pxv"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_camera"
-                            tools:src="@drawable/img_camera" />
-                    </LinearLayout>
-
+                    <ImageView
+                        android:id="@+id/imageCamera"
+                        android:layout_width="@dimen/_18pxh"
+                        android:layout_height="@dimen/_20pxh"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginStart="@dimen/_13pxh"
+                        android:layout_marginTop="@dimen/_10pxv"
+                        android:layout_marginEnd="@dimen/_13pxh"
+                        android:layout_marginBottom="@dimen/_5pxv"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_camera"
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_camera" />
                 </FrameLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearBlockimpotance"
+                android:id="@+id/linearRowseven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16pxh"
-                android:layout_marginTop="@dimen/_20pxv"
-                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="@dimen/_14pxh"
+                android:layout_marginTop="@dimen/_16pxv"
+                android:layout_marginEnd="@dimen/_14pxh"
+                android:gravity="start"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txtRang"
+                    android:id="@+id/txtSeven"
                     style="@style/txtABeeZeeregular18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:text="@string/lbl29"
-                    tools:text="@string/lbl29" />
-
-                <ImageButton
-                    android:id="@+id/btnArrowLeft"
-                    android:layout_width="@dimen/_32pxh"
-                    android:layout_height="@dimen/_32pxh"
-                    android:layout_marginStart="@dimen/_48pxh"
-                    android:layout_weight="0"
-                    android:background="@drawable/rectangle_bg_gray_51_radius_16"
-                    android:paddingHorizontal="@dimen/_11pxh"
-                    android:paddingVertical="@dimen/_11pxv"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/img_vector"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                <TextView
-                    android:id="@+id/editPriority"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:text="1"
-                    android:textSize="18dp"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                <ImageButton
-                    android:id="@+id/btnArrowRight"
-                    android:layout_width="@dimen/_32pxh"
-                    android:layout_height="@dimen/_32pxh"
-                    android:layout_weight="0"
-                    android:background="@drawable/rectangle_bg_gray_51_radius_16"
-                    android:paddingHorizontal="@dimen/_11pxh"
-                    android:paddingVertical="@dimen/_11pxv"
-                    android:scaleType="fitCenter"
-                    android:scaleX="-1"
-                    android:src="@drawable/img_vector"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearBlockIsDone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_16pxh"
-                android:layout_marginTop="@dimen/_20pxv"
-                android:layout_marginEnd="@dimen/_16pxh"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txtRang1"
-                    style="@style/txtABeeZeeregular18"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_6pxv"
-                    android:layout_marginBottom="@dimen/_6pxv"
-                    android:layout_weight="0"
+                    android:layout_weight="0.78"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="@string/lbl18"
+                    android:text="@{goalsChangeVM.goalsChangeModel.txtSeven}"
                     tools:text="@string/lbl18" />
 
-                <CheckBox
-                    android:id="@+id/isDoneCheckBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_35pxh"
-                    android:layout_weight="0" />
+                <FrameLayout
+                    android:id="@+id/frameCheckboxes"
+                    android:layout_width="@dimen/_40pxh"
+                    android:layout_height="@dimen/_40pxv"
+                    android:layout_marginStart="@dimen/_35pxh">
 
+                    <View
+                        android:id="@+id/viewCreatefromfra"
+                        android:layout_width="@dimen/_19pxh"
+                        android:layout_height="@dimen/_19pxh"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_10pxh"
+                        android:layout_marginVertical="@dimen/_10pxv"
+                       />
+
+                    <ImageView
+                        android:id="@+id/imageFile"
+                        circular="@{true}"
+                        imageRes="@{@drawable/img_file}"
+                        android:layout_width="@dimen/_18pxh"
+                        android:layout_height="@dimen/_18pxh"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_11pxh"
+                        android:layout_marginVertical="@dimen/_11pxv"
+                        android:scaleType="centerCrop"
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_file" />
+                </FrameLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearBlockabout"
+                android:id="@+id/linearColumneight"
                 style="@style/groupStylecornerRadius_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16pxh"
-                android:layout_marginTop="@dimen/_24pxv"
-                android:layout_marginEnd="@dimen/_16pxh"
-                android:layout_marginBottom="@dimen/_19pxv"
+                android:layout_marginStart="@dimen/_14pxh"
+                android:layout_marginTop="@dimen/_7pxv"
+                android:layout_marginEnd="@dimen/_14pxh"
+                android:layout_marginBottom="@dimen/_16pxv"
                 android:gravity="start"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtTextOne"
+                    android:id="@+id/txtEight"
                     style="@style/txtABeeZeeregular18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_1pxh"
                     android:layout_marginEnd="@dimen/_10pxh"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="@string/lbl19"
+                    android:text="@{goalsChangeVM.goalsChangeModel.txtEight}"
                     tools:text="@string/lbl19" />
 
-                <FrameLayout
-                    android:id="@+id/frameStackcamera3"
-                    style="@style/groupStylegray_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10pxh">
-
-                    <EditText
-                        android:id="@+id/editDescription"
-                        style="@style/groupStylegray_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:ems="10"
-                        android:gravity="start|top"
-                        android:inputType="textMultiLine"
-                        android:maxLines="3"
-                        android:minLines="3"
-                        android:padding="10dp"
-                        android:textColor="#757575"
-                        tools:ignore="SpeakableTextPresentCheck" />
-
-                </FrameLayout>
-
+                <View
+                    android:id="@+id/viewRectangleTwo"
+                    android:layout_width="@dimen/_329pxh"
+                    android:layout_height="@dimen/_210pxv"
+                    android:layout_marginTop="@dimen/_13pxv" />
             </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn2"
-                style="@style/btnSolidRounded_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/_15pxh"
-                android:ellipsize="end"
-                android:letterSpacing="0.01"
-                android:lineSpacingExtra="@dimen/_4pxh"
-                android:minHeight="48dp"
-                android:paddingStart="@dimen/_30pxh"
-                android:paddingTop="@dimen/_12pxv"
-                android:paddingEnd="@dimen/_30pxh"
-                android:paddingBottom="@dimen/_12pxv"
-                android:singleLine="true"
-                android:text="@string/lbl31"
-                android:textAllCaps="false"
-                tools:text="@string/lbl31" />
         </LinearLayout>
     </LinearLayout>
-
 </layout>

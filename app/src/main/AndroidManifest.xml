@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -18,12 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".modules.menuone.ui.MenuSide"
-            android:exported="false" />
-        <activity
-            android:name=".modules.menuone.ui.MenuOneActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.goalscheme.ui.GoalSchemeActivity"
             android:screenOrientation="portrait" />
@@ -70,8 +63,14 @@
             android:name=".modules.sort.ui.SortActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".modules.menuone.ui.MainMenu"
+            android:name=".modules.menuone.ui.MainActivity"
+            android:exported="true"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".modules.goalsunion.ui.GoalsUnionActivity"
@@ -81,14 +80,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.goals.ui.GoalsActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.goalsuniontwo.ui.GoalsUniontwoActivity"
             android:screenOrientation="portrait" />

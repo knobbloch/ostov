@@ -3,11 +3,8 @@ package com.knobblochsapplication.app.modules.goalschange.ui
 import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
-import com.knobblochsapplication.app.appcomponents.views.ImagePickerFragmentDialog
 import com.knobblochsapplication.app.databinding.ActivityGoalsChangeBinding
-import com.knobblochsapplication.app.modules.goalschange.`data`.viewmodel.GoalsChangeVM
-import kotlin.String
-import kotlin.Unit
+import com.knobblochsapplication.app.modules.goalschange.data.viewmodel.GoalsChangeVM
 
 class GoalsChangeActivity : BaseActivity<ActivityGoalsChangeBinding>(R.layout.activity_goals_change)
     {
@@ -29,9 +26,6 @@ class GoalsChangeActivity : BaseActivity<ActivityGoalsChangeBinding>(R.layout.ac
     }
 
     binding.imageCamera.setOnClickListener {
-      ImagePickerFragmentDialog().show(supportFragmentManager)
-      { path ->//TODO HANDLE DATA
-      }
 
     }
   }
