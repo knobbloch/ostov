@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
-        <variable name="helpScreenFourVM" type="com.knobblochsapplication.app.modules.helpscreenfour.data.viewmodel.HelpScreenFourVM"/>
+
+        <variable
+            name="helpScreenFourVM"
+            type="com.knobblochsapplication.app.modules.helpscreenfour.data.viewmodel.HelpScreenFourVM" />
     </data>
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearHelpScreenOne"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,44 +17,62 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="500dp"
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="500dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/img_help4" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txtDescription"
+        <LinearLayout
+            android:id="@+id/texts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:padding="16dp"
-            android:text="@string/msg9"
-            android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/buttons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txtDescriptionSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/msg10"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="4dp"
+                android:text="@string/msg9"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtDescriptionSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/msg10"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+        </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="32dp"
             android:clipToPadding="false"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
+                android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|start"
+                android:layout_marginStart="16dp"
                 android:padding="16dp"
                 android:src="@drawable/img_help_step3" />
 
@@ -63,10 +86,11 @@
                 style="?attr/floatingActionButtonPrimaryStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:contentDescription="@string/lbl37"
                 app:srcCompat="@drawable/ic_right" />
         </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

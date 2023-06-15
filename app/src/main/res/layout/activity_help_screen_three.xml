@@ -4,7 +4,7 @@
     <data>
         <variable name="helpScreenThreeVM" type="com.knobblochsapplication.app.modules.helpscreenthree.data.viewmodel.HelpScreenThreeVM"/>
     </data>
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearHelpScreenOne"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,9 +12,17 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="500dp"
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_weight = "1"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintHeight_max="500dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/img_help3" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -22,27 +30,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:padding="16dp"
+            android:padding="8dp"
             android:text="@string/msg13"
-            android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            app:layout_constraintBottom_toTopOf="@+id/buttons"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="32dp"
             android:clipToPadding="false"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" >
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|start"
                 android:padding="16dp"
+                android:layout_marginStart="16dp"
                 android:src="@drawable/img_help_step2" />
 
             <View
@@ -55,9 +66,10 @@
                 style="?attr/floatingActionButtonPrimaryStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:contentDescription="@string/lbl37"
                 app:srcCompat="@drawable/ic_right" />
         </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
