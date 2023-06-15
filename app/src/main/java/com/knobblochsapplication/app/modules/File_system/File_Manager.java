@@ -340,7 +340,7 @@ public class File_Manager {
         Goal children = Find_task_by_id(context, goal_id, children_id);
 
         //Если родитель есть в детях ребёнка, то убираем его оттуда
-        if (children.getChildren().indexOf(parent_id) != -1) {
+        if (children.getChildren().contains(parent_id)) {
             File_Manager.remove_children(context, goal_id, children_id, parent_id);
             children = Find_task_by_id(context, goal_id, children_id);
         }
@@ -439,11 +439,7 @@ public class File_Manager {
             count += 1;
             par = task.getParentId();
         }
-        if (count == 5) {
-            return true;
-        } else {
-            return false;
-        }
+        return count == 5;
     }
 
     public static void sort_by_id(Context context, int goal_id) throws IOException {

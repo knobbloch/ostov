@@ -14,7 +14,7 @@ import org.koin.dsl.module
  */
 class MyApp : Application() {
 
-    public override fun onCreate(): Unit {
+    override fun onCreate(): Unit {
         super.onCreate()
         instance = this
         startKoin {
@@ -47,7 +47,7 @@ class MyApp : Application() {
         return koinModules
     }
 
-    public companion object {
+    companion object {
 
         // the application instance
         private lateinit var instance: MyApp
@@ -55,6 +55,6 @@ class MyApp : Application() {
         /**
          * method to get instance of application object
          */
-        public fun getInstance(): MyApp = instance
+        fun getInstance(): MyApp = instance
     }
 }

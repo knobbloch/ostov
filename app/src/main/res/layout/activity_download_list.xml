@@ -5,193 +5,165 @@
         <variable name="downloadListVM" type="com.knobblochsapplication.app.modules.downloadlist.data.viewmodel.DownloadListVM"/>
     </data>
 
-    <LinearLayout
-        android:id="@+id/linearDownloadlist"
-        style="@style/groupStylewhite_A700"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/img_arrowback"
+                android:paddingStart="8dp"
+                app:title="@string/msg2"
+                app:titleCentered="true" />
+        </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
-            android:id="@+id/linearHeader"
-            style="@style/groupStyleindigo_50"
+            android:id="@+id/linearSort"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.83">
-
-                <Button
-                    android:id="@+id/button5"
-                    style="@style/Widget.Material3.Button.IconButton.Filled"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="19dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="7dp"
-                    android:layout_weight="0.83"
-                    app:icon="@drawable/img_arrowleft"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txtText"
-                    style="@style/txtABeeZeeregular20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.83"
-                    android:ellipsize="end"
-                    android:letterSpacing="0.01"
-                    android:lineSpacingExtra="@dimen/_4pxh"
-                    android:singleLine="true"
-                    android:text="@{downloadListVM.downloadListModel.txtText}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@string/msg2" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/txtTextOne"
-                style="@style/txtABeeZeeregular15_1"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="39dp"
-                android:gravity="center_horizontal"
-                android:text="@{downloadListVM.downloadListModel.txtTextOne}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/msg3" />
-
-            <TextView
-                android:id="@+id/txtTextFive"
-                style="@style/txtABeeZeeregular15_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="39dp"
+                android:layout_marginBottom="8dp"
                 android:ellipsize="end"
                 android:gravity="center_horizontal"
-                android:singleLine="true"
-                android:text="@{downloadListVM.downloadListModel.txtTextFive}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox2"
-                tools:text="@string/msg4" />
+                android:text="@string/msg3"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
 
-            <CheckBox
-                android:id="@+id/checkBox3"
-                style="@style/txtABeeZeeregular18"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl8"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <CheckBox
+                    android:id="@+id/importantCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl27"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <CheckBox
+                    android:id="@+id/readinessCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl28"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <CheckBox
+                    android:id="@+id/dateCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTextFour"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="39dp"
-                android:layoutDirection="rtl"
-                android:text="@string/lbl8"
-                android:textAlignment="textStart"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/msg4"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTextOne" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
 
-            <CheckBox
-                android:id="@+id/checkBox5"
-                style="@style/txtABeeZeeregular18"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="39dp"
-                android:layout_marginEnd="39dp"
-                android:layoutDirection="rtl"
-                android:text="@string/lbl27"
-                android:textAlignment="textStart"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
 
-            <CheckBox
-                android:id="@+id/checkBox2"
-                style="@style/txtABeeZeeregular18"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="39dp"
-                android:layout_marginEnd="39dp"
-                android:layoutDirection="rtl"
-                android:text="@string/lbl28"
-                android:textAlignment="textStart"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="39dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTextFive">
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    style="@style/txtABeeZeeregular18"
+                <RadioGroup
+                    android:id="@+id/radioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layoutDirection="rtl"
-                    android:text="@string/lbl11"
-                    android:textAlignment="textStart" />
+                    android:checkedButton="@+id/radio_button_1">
 
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    style="@style/txtABeeZeeregular18"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layoutDirection="rtl"
-                    android:text="@string/lbl12"
-                    android:textAlignment="textStart" />
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/lbl11"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
-            </RadioGroup>
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/lbl12"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+                </RadioGroup>
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/button6"
-                style="@style/Widget.Material3.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="39dp"
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonDownload"
+                android:layout_width="227dp"
+                android:layout_height="66dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
                 android:text="@string/lbl13"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
+                android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

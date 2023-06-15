@@ -1,50 +1,52 @@
 package com.knobblochsapplication.app.modules.goalsunion.ui
 
-import android.view.View
+import android.content.Intent
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityGoalsUnionBinding
-import com.knobblochsapplication.app.modules.goalsunion.`data`.model.GoalsUnionRowModel
-import com.knobblochsapplication.app.modules.goalsunion.`data`.viewmodel.GoalsUnionVM
-import kotlin.Int
-import kotlin.String
-import kotlin.Unit
+import com.knobblochsapplication.app.modules.goals.ui.Goal
+import com.knobblochsapplication.app.modules.goalsunion.data.viewmodel.GoalsUnionVM
+
 
 class GoalsUnionActivity : BaseActivity<ActivityGoalsUnionBinding>(R.layout.activity_goals_union) {
-  private val viewModel: GoalsUnionVM by viewModels<GoalsUnionVM>()
 
-  override fun onInitialized(): Unit {
-    viewModel.navArguments = intent.extras?.getBundle("bundle")
-    val goalsUnionAdapter = GoalsUnionAdapter(viewModel.goalsUnionList.value?:mutableListOf())
-    binding.recyclerGoalsUnion.adapter = goalsUnionAdapter
-    goalsUnionAdapter.setOnItemClickListener(
-    object : GoalsUnionAdapter.OnItemClickListener {
-      override fun onItemClick(view:View, position:Int, item : GoalsUnionRowModel) {
-        onClickRecyclerGoalsUnion(view, position, item)
-      }
+    private val viewModel: GoalsUnionVM by viewModels<GoalsUnionVM>()
+    private val goalsUnionList = ArrayList<Goal>()
+
+    private val adapter = GoalsUnionAdapter(goalsUnionList)
+    override fun onInitialized(): Unit {
+        viewModel.navArguments = intent.extras?.getBundle("bundle")
+        binding.goalsUnionVM = viewModel
+        binding = ActivityGoalsUnionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        init()
     }
-    )
-    viewModel.goalsUnionList.observe(this) {
-      goalsUnionAdapter.updateData(it)
+
+    override fun setUpClicks(): Unit {
+
     }
-    binding.goalsUnionVM = viewModel
-  }
 
-  override fun setUpClicks(): Unit {
-  }
+    private fun init() {
+        binding.apply {
+            rcView.layoutManager = LinearLayoutManager(this@GoalsUnionActivity)
+            rcView.adapter = adapter
 
-  fun onClickRecyclerGoalsUnion(
-    view: View,
-    position: Int,
-    item: GoalsUnionRowModel
-  ): Unit {
-    when(view.id) {
+            frameContainer.setOnClickListener{
+                finish()
+            }
+            btnArrowleft.setOnClickListener {
+                Toast.makeText(this@GoalsUnionActivity, "переходим куда-то чтобы как-то склеить этих челов вместе", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
     }
-  }
 
-  companion object {
-    const val TAG: String = "GOALS_UNION_ACTIVITY"
+    companion object {
+        const val TAG: String = "GOALS_UNION_ACTIVITY"
 
-  }
+    }
 }

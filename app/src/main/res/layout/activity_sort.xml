@@ -1,169 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
-        <variable name="sortVM" type="com.knobblochsapplication.app.modules.sort.data.viewmodel.SortVM"/>
+
+        <variable
+            name="sortVM"
+            type="com.knobblochsapplication.app.modules.sort.data.viewmodel.SortVM" />
     </data>
 
-    <LinearLayout
-        android:id="@+id/linearSort"
-        style="@style/groupStylewhite_A700"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/img_arrowback"
+                android:paddingStart="8dp"
+                app:title="@string/lbl14"
+                app:titleCentered="true" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:id="@+id/linearSort"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
-                android:id="@+id/linearHeader"
-                style="@style/groupStyleindigo_50"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="start"
+                android:layout_height="64dp"
                 android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:paddingHorizontal="16dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.75">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl8"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
-                    <Button
-                        android:id="@+id/button4"
-                        style="@style/Widget.Material3.Button.IconButton.Filled"
-                        android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="19dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_marginBottom="7dp"
-                        android:layout_weight="0.75"
-                        app:icon="@drawable/img_arrowleft"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/txtText"
-                        style="@style/txtABeeZeeregular20"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.75"
-                        android:ellipsize="end"
-                        android:letterSpacing="0.01"
-                        android:lineSpacingExtra="@dimen/_4pxh"
-                        android:singleLine="true"
-                        android:text="@{sortVM.sortModel.txtText}"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="@string/lbl14" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
+                <CheckBox
+                    android:id="@+id/importantCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl27"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <CheckBox
+                    android:id="@+id/readinessCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl28"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <CheckBox
+                    android:id="@+id/dateCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/txtTextFour"
-                style="@style/txtABeeZeeregular15_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ellipsize="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 android:gravity="center_horizontal"
-                android:singleLine="true"
-                android:text="@{sortVM.sortModel.txtTextFour}"
+                android:text="@string/msg4"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox7"
-                tools:text="@string/msg4" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
 
-            <CheckBox
-                android:id="@+id/checkBox"
-                style="@style/txtABeeZeeregular18"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="39dp"
-                android:layoutDirection="rtl"
-                android:text="@string/lbl8"
-                android:textAlignment="textStart"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearHeader" />
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
 
-            <CheckBox
-                android:id="@+id/checkBox6"
-                style="@style/txtABeeZeeregular18"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="39dp"
-                android:layout_marginEnd="39dp"
-                android:layoutDirection="rtl"
-                android:text="@string/lbl27"
-                android:textAlignment="textStart"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox7"
-                style="@style/txtABeeZeeregular18"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="39dp"
-                android:layout_marginEnd="39dp"
-                android:layoutDirection="rtl"
-                android:text="@string/lbl28"
-                android:textAlignment="textStart"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
-
-            <RadioGroup
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="39dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTextFour">
-
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    style="@style/txtABeeZeeregular18"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start"
-                    android:layoutDirection="rtl"
-                    android:text="@string/lbl11"
-                    android:textAlignment="textStart" />
-
-                <RadioButton
-                    android:id="@+id/radioButton4"
-                    style="@style/txtABeeZeeregular18"
+                <RadioGroup
+                    android:id="@+id/radioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layoutDirection="rtl"
-                    android:text="@string/lbl12"
-                    android:textAlignment="textStart" />
-            </RadioGroup>
+                    android:checkedButton="@+id/radio_button_1">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/lbl11"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
-    </LinearLayout>
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/lbl12"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonDownload"
+                android:layout_width="227dp"
+                android:layout_height="66dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/lbl36"
+                android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

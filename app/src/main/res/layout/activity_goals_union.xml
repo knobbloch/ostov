@@ -4,53 +4,87 @@
     <data>
         <variable name="goalsUnionVM" type="com.knobblochsapplication.app.modules.goalsunion.data.viewmodel.GoalsUnionVM"/>
     </data>
-    <LinearLayout android:gravity="start"
-        android:id="@+id/linearGoalsunion"
-        android:layout_height="match_parent"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStylewhite_A700">
-        <View android:background="@color/indigo_50"
-            android:id="@+id/viewFour"
-            android:layout_height="@dimen/_10pxv" android:layout_width="@dimen/_360pxh"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:ellipsize="end" android:gravity="center"
-            android:id="@+id/btn" android:layout_height="wrap_content"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:letterSpacing="0.01"
-            android:lineSpacingExtra="@dimen/_4pxh"
-            android:paddingBottom="@dimen/_14pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingStart="@dimen/_30pxh"
-            android:paddingTop="@dimen/_14pxv" android:singleLine="true"
-            android:text="@string/lbl" android:textAllCaps="false"
-            style="@style/btnSolid" tools:text="@string/lbl"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerGoalsUnion"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            itemSpace="@{@dimen/_1pxh}" tools:itemCount="2" tools:listitem="@layout/row_goals_union"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearHeader"
+                style="@style/groupStyleindigo_50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/_7pxh"
+                android:paddingBottom="@dimen/_6pxh">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtText"
+                        style="@style/txtABeeZeeregular20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="end"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="@dimen/_4pxh"
+                        android:singleLine="true"
+                        android:text="@string/lbl"
+                        tools:text="@string/lbl" />
+
+                    <FrameLayout
+                        android:id="@+id/frameContainer"
+                        style="@style/groupStyleindigo_300cornerRadius"
+                        android:layout_width="@dimen/_35pxh"
+                        android:layout_height="@dimen/_35pxh"
+                        android:layout_gravity="start
+"
+                        android:layout_marginStart="@dimen/_10pxh">
+
+                        <ImageView
+                            android:id="@+id/imageArrowleft"
+                            android:layout_width="@dimen/_12pxh"
+                            android:layout_height="@dimen/_12pxh"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="@dimen/_12pxh"
+                            android:layout_marginVertical="@dimen/_12pxv"
+                            android:scaleX="-1"
+                            android:src="@drawable/img_arrowleft_white_a700"
+                            tools:src="@drawable/img_arrowleft_white_a700" />
+                    </FrameLayout>
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
         <ImageButton
-            android:background="@drawable/rectangle_bg_indigo_300_radius_30_5"
-            android:id="@+id/btnArrowleft" android:layout_gravity="end"
-            android:layout_height="@dimen/_61pxh"
-            android:layout_marginEnd="@dimen/_32pxh"
-            android:layout_marginStart="@dimen/_32pxh"
-            android:layout_marginTop="@dimen/_244pxv"
-            android:layout_width="@dimen/_61pxh"
-            android:paddingHorizontal="@dimen/_22pxh"
-            android:paddingVertical="@dimen/_22pxv"
+            android:id="@+id/btnArrowleft"
+            android:layout_width="@dimen/_68pxh"
+            android:layout_height="@dimen/_66pxh"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/_31pxh"
+            android:layout_marginBottom="@dimen/_31pxh"
+            android:background="@drawable/rectangle_bg_indigo_400_cc_radius_33"
+            android:paddingHorizontal="@dimen/_21pxh"
+            android:paddingVertical="@dimen/_21pxv"
             android:scaleType="fitCenter"
-            android:src="@drawable/img_arrowleft_white_a700" tools:ignore="ContentDescription"/>
-        <View
-            android:background="@drawable/rectangle_bg_gray_900_radius_1"
-            android:id="@+id/lineHome"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="@dimen/_2pxv"
-            android:layout_marginBottom="@dimen/_8pxv"
-            android:layout_marginEnd="@dimen/_32pxh"
-            android:layout_marginStart="@dimen/_32pxh"
-            android:layout_marginTop="@dimen/_40pxv" android:layout_width="@dimen/_72pxh"/>
-    </LinearLayout>
+            android:src="@drawable/img_arrowleft_white_a700" />
+
+    </FrameLayout>
+
 </layout>

@@ -1,48 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable name="goalsDeleteVM" type="com.knobblochsapplication.app.modules.goalsdelete.data.viewmodel.GoalsDeleteVM"/>
     </data>
-    <LinearLayout android:gravity="center_horizontal"
-        android:id="@+id/linearGoalsdelete"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/linearColumntext"
             style="@style/groupStyleindigo_50cornerRadius"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30pxh"
+            android:layout_marginEnd="@dimen/_30pxh"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/txtText"
                 style="@style/txtABeeZeeregular25_1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16pxh"
-                android:layout_marginTop="@dimen/_71pxv"
-                android:layout_marginEnd="@dimen/_16pxh"
-                android:gravity="center_horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_70pxv"
+                android:gravity="center"
                 android:letterSpacing="0.01"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginEnd="@dimen/_16pxh"
                 android:lineSpacingExtra="@dimen/_1pxh"
-                android:text="@{goalsDeleteVM.goalsDeleteModel.txtText}"
+                android:text="@string/msg6"
+                android:textSize="30sp"
                 tools:text="@string/msg6" />
 
             <LinearLayout
                 android:id="@+id/linearRow"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginStart="@dimen/_16pxh"
                 android:layout_marginTop="@dimen/_48pxv"
                 android:layout_marginEnd="@dimen/_16pxh"
                 android:layout_marginBottom="@dimen/_29pxv"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatButton
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn"
-                    style="@style/btnSolidRounded_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
@@ -57,11 +68,11 @@
                     android:singleLine="true"
                     android:text="@string/lbl21"
                     android:textAllCaps="false"
+                    android:textSize="20sp"
                     tools:text="@string/lbl21" />
 
-                <androidx.appcompat.widget.AppCompatButton
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn1"
-                    style="@style/btnSolidRounded_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_13pxh"
@@ -77,8 +88,11 @@
                     android:singleLine="true"
                     android:text="@string/lbl22"
                     android:textAllCaps="false"
+                    android:textSize="20sp"
                     tools:text="@string/lbl22" />
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

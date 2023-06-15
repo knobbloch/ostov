@@ -20,12 +20,10 @@ class GoalsDeleteActivity : BaseActivity<ActivityGoalsDeleteBinding>(R.layout.ac
 
   override fun setUpClicks(): Unit {
     binding.btn.setOnClickListener {
-      val destIntent = GoalsActivity.getIntent(this, null)
-      startActivity(destIntent)
+      finish()
     }
     binding.btn1.setOnClickListener {
-      val destIntent = GoalsActivity.getIntent(this, null)
-      startActivity(destIntent)
+      finish()
     }
   }
 

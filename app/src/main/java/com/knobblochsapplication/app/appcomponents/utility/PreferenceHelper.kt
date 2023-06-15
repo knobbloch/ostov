@@ -9,7 +9,7 @@ import com.knobblochsapplication.app.appcomponents.di.MyApp
 /**
  * class which used to manage application shared preference
  */
-class PreferenceHelper() {
+class PreferenceHelper {
     private val masterKeyAlias: String = createGetMasterKey()
 
     private val sharedPreference: SharedPreferences = EncryptedSharedPreferences.create(
@@ -28,5 +28,29 @@ class PreferenceHelper() {
      */
     private fun createGetMasterKey(): String {
         return MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+    }
+
+    private val DARK_THEME = "dark_theme"
+
+    fun isDarkTheme() =
+        sharedPreference.getBoolean(DARK_THEME, false)
+
+    fun setDarkTheme(isDark: Boolean) {
+        sharedPreference
+            .edit()
+            .putBoolean(DARK_THEME, isDark)
+            .apply()
+    }
+
+    private val IS_HELP_PAGE_SHOWED = "help_page_is_showed"
+
+    fun isHelpPageShowed() =
+        sharedPreference.getBoolean(IS_HELP_PAGE_SHOWED, false)
+
+    fun setHelpPageShowed(isShowed: Boolean) {
+        sharedPreference
+            .edit()
+            .putBoolean(IS_HELP_PAGE_SHOWED, isShowed)
+            .apply()
     }
 }
