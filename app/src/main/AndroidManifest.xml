@@ -18,9 +18,6 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.goalscheme.ui.GoalSchemeActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".modules.menutwo.ui.MenuTwoActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -77,9 +74,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.goalsuniontwo.ui.GoalsUniontwoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.deletebranches.ui.DeleteBranchesActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.helpscreenone.ui.HelpScreenOneActivity"

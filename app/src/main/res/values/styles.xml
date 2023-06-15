@@ -114,4 +114,7 @@
         <item name="android:fontFamily">@font/abeezee</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
+
+
+
 </resources>

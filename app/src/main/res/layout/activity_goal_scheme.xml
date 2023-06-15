@@ -2,14 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-        <variable
-            name="goalSchemeVM"
-            type="com.knobblochsapplication.app.modules.goalscheme.data.viewmodel.GoalSchemeVM" />
-    </data>
-
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/linearGoalscheme"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,6 +16,16 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/fishbone" />
 
-    </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addGoalBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:background="@drawable/img_arrowback"
+            android:contentDescription="@string/lbl30"
+            app:srcCompat="@drawable/ic_add" />
+
+    </FrameLayout>
 
 </layout>
