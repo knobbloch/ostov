@@ -46,9 +46,8 @@
                     android:layout_marginBottom="@dimen/_1pxv"
                     android:layout_marginStart="@dimen/_12pxh"
                     android:layout_marginTop="@dimen/_2pxv"
-                    android:layout_width="@dimen/_40pxh" style="@style/groupStylegray_300cornerRadius">
+                    android:layout_width="@dimen/_40pxh">
                     <View
-                        android:background="@drawable/rectangle_bg_gray_300_radius_5"
                         android:id="@+id/viewCreatefromfra"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_19pxh"
@@ -88,9 +87,8 @@
                 <FrameLayout android:id="@+id/frameCheckboxes1"
                     android:layout_height="@dimen/_40pxv"
                     android:layout_marginStart="@dimen/_102pxh"
-                    android:layout_width="@dimen/_40pxh" style="@style/groupStylegray_300cornerRadius">
+                    android:layout_width="@dimen/_40pxh">
                     <View
-                        android:background="@drawable/rectangle_bg_gray_300_radius_5"
                         android:id="@+id/viewCreatefromfraOne"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_19pxh"
@@ -117,7 +115,7 @@
                 android:layout_marginStart="@dimen/_16pxh"
                 android:layout_marginTop="@dimen/_24pxv"
                 android:layout_width="match_parent" android:orientation="horizontal">
-                <androidx.appcompat.widget.AppCompatButton
+                <com.google.android.material.button.MaterialButton
                     android:ellipsize="end" android:gravity="center"
                     android:id="@+id/btn"
                     android:layout_height="wrap_content"
@@ -132,8 +130,8 @@
                     android:singleLine="true"
                     android:text="@string/lbl21"
                     android:textAllCaps="false"
-                    style="@style/btnSolidRounded_1" tools:text="@string/lbl21"/>
-                <androidx.appcompat.widget.AppCompatButton
+                    tools:text="@string/lbl21"/>
+                <com.google.android.material.button.MaterialButton
                     android:ellipsize="end" android:gravity="center"
                     android:id="@+id/btn1"
                     android:layout_height="wrap_content"
@@ -149,7 +147,7 @@
                     android:singleLine="true"
                     android:text="@string/lbl22"
                     android:textAllCaps="false"
-                    style="@style/btnSolidRounded_1" tools:text="@string/lbl22"/>
+                    tools:text="@string/lbl22"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

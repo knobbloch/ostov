@@ -4,166 +4,166 @@
     <data>
         <variable name="downloadListVM" type="com.knobblochsapplication.app.modules.downloadlist.data.viewmodel.DownloadListVM"/>
     </data>
-    <LinearLayout android:gravity="center_horizontal"
-        android:id="@+id/linearDownloadlist"
-        android:layout_height="match_parent"
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStylewhite_A700">
-        <View android:background="@color/indigo_50"
-            android:id="@+id/viewStatusbar"
-            android:layout_gravity="start"
-            android:layout_height="@dimen/_10pxv" android:layout_width="@dimen/_360pxh"/>
-        <LinearLayout android:gravity="start"
-            android:id="@+id/linearHeader"
-            android:layout_height="wrap_content"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal" style="@style/groupStyleindigo_50">
-            <FrameLayout android:id="@+id/frameContainer"
-                android:layout_height="@dimen/_40pxv"
-                android:layout_marginBottom="@dimen/_6pxv"
-                android:layout_marginStart="@dimen/_19pxh"
-                android:layout_marginTop="@dimen/_7pxv"
-                android:layout_width="@dimen/_40pxh" style="@style/groupStyleindigo_300cornerRadius">
-                <ImageView android:id="@+id/imageArrowleft"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/_16pxh"
-                    android:layout_marginHorizontal="@dimen/_12pxh"
-                    android:layout_marginVertical="@dimen/_12pxv"
-                    android:layout_width="@dimen/_16pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_arrowleft_white_a700"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft_white_a700"/>
-            </FrameLayout>
-            <TextView android:ellipsize="end" android:id="@+id/txtText"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_14pxv"
-                android:layout_marginEnd="@dimen/_83pxh"
-                android:layout_marginStart="@dimen/_24pxh"
-                android:layout_marginTop="@dimen/_14pxv"
-                android:layout_weight="0.83" android:layout_width="0dp"
-                android:letterSpacing="0.01"
-                android:lineSpacingExtra="@dimen/_4pxh"
-                android:singleLine="true"
-                android:text="@{downloadListVM.downloadListModel.txtText}"
-                style="@style/txtABeeZeeregular20" tools:text="@string/msg2"/>
-        </LinearLayout>
-        <TextView android:gravity="center_horizontal"
-            android:id="@+id/txtTextOne"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_28pxv"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/img_arrowback"
+                android:paddingStart="8dp"
+                app:title="@string/msg2"
+                app:titleCentered="true" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:id="@+id/linearSort"
             android:layout_width="match_parent"
-            android:text="@{downloadListVM.downloadListModel.txtTextOne}"
-            style="@style/txtABeeZeeregular15_1" tools:text="@string/msg3"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:gravity="start"
-            android:id="@+id/recyclerDownloadList"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_10pxv"
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            itemSpace="@{@dimen/_24pxh}" tools:itemCount="3" tools:listitem="@layout/row_download_list"/>
-        <TextView android:ellipsize="end"
+            android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:id="@+id/txtTextFive"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_25pxv"
-            android:layout_width="match_parent"
-            android:singleLine="true"
-            android:text="@{downloadListVM.downloadListModel.txtTextFive}"
-            style="@style/txtABeeZeeregular15_1" tools:text="@string/msg4"/>
-        <LinearLayout android:id="@+id/linearBlockimportanc"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_26pxv"
-            android:layout_width="match_parent" android:orientation="horizontal">
-            <TextView android:ellipsize="end"
-                android:id="@+id/txtTextSix"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_6pxv"
-                android:layout_marginTop="@dimen/_9pxv"
-                android:layout_weight="0.83" android:layout_width="0dp"
-                android:singleLine="true"
-                android:text="@{downloadListVM.downloadListModel.txtTextSix}"
-                style="@style/txtABeeZeeregular20" tools:text="@string/lbl11"/>
-            <LinearLayout android:gravity="center_horizontal"
-                android:id="@+id/linearContainer"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10pxv"
-                android:layout_marginEnd="@dimen/_10pxh"
-                android:layout_marginStart="@dimen/_141pxh"
-                android:layout_marginTop="@dimen/_10pxv"
-                android:layout_weight="0.17" android:layout_width="0dp"
-                android:orientation="vertical" style="@style/groupStylecornerRadius">
-                <View
-                    android:background="@drawable/rectangle_bg_deep_purple_500_radius_10"
-                    android:id="@+id/viewIcon"
-                    android:layout_gravity="start"
-                    android:layout_height="@dimen/_20pxh" android:layout_width="@dimen/_20pxh"/>
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:text="@string/msg3"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl8"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <CheckBox
+                    android:id="@+id/importantCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
-        </LinearLayout>
-        <LinearLayout android:id="@+id/linearBlockdone"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_width="match_parent" android:orientation="horizontal">
-            <TextView android:ellipsize="end"
-                android:id="@+id/txtTextSeven"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_6pxv"
-                android:layout_marginTop="@dimen/_9pxv"
-                android:layout_weight="0.89" android:layout_width="0dp"
-                android:singleLine="true"
-                android:text="@{downloadListVM.downloadListModel.txtTextSeven}"
-                style="@style/txtABeeZeeregular20" tools:text="@string/lbl12"/>
-            <LinearLayout android:gravity="center_horizontal"
-                android:id="@+id/linearContainer1"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10pxv"
-                android:layout_marginEnd="@dimen/_10pxh"
-                android:layout_marginStart="@dimen/_83pxh"
-                android:layout_marginTop="@dimen/_10pxv"
-                android:layout_weight="0.11" android:layout_width="0dp"
-                android:orientation="vertical" style="@style/groupStylecornerRadius">
-                <View
-                    android:background="@drawable/rectangle_bg_indigo_900_radius_10"
-                    android:id="@+id/viewIconOne"
-                    android:layout_gravity="start"
-                    android:layout_height="@dimen/_20pxh" android:layout_width="@dimen/_20pxh"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl27"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <CheckBox
+                    android:id="@+id/readinessCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl28"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <CheckBox
+                    android:id="@+id/dateCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTextFour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/msg4"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkedButton="@+id/radio_button_1">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/lbl11"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/lbl12"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonDownload"
+                android:layout_width="227dp"
+                android:layout_height="66dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/lbl13"
+                android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
         </LinearLayout>
-        <androidx.appcompat.widget.AppCompatButton
-            android:ellipsize="end" android:gravity="center"
-            android:id="@+id/btn"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="@dimen/_58pxv"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_92pxv"
-            android:layout_width="@dimen/_201pxh"
-            android:letterSpacing="0.01"
-            android:lineSpacingExtra="@dimen/_4pxh"
-            android:paddingBottom="@dimen/_17pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingStart="@dimen/_30pxh"
-            android:paddingTop="@dimen/_17pxv" android:singleLine="true"
-            android:text="@string/lbl13" android:textAllCaps="false"
-            style="@style/btnSolidRounded" tools:text="@string/lbl13"/>
-        <View
-            android:background="@drawable/rectangle_bg_gray_900_radius_1"
-            android:id="@+id/lineHome"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="@dimen/_2pxv"
-            android:layout_marginBottom="@dimen/_8pxv"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_177pxv" android:layout_width="@dimen/_72pxh"/>
-    </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

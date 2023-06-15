@@ -12,23 +12,6 @@
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
-    <style name="groupStyleindigo_900_99cornerRadius">
-        <item name="android:background">@drawable/rectangle_bg_indigo_900_99_radius_10</item>
-    </style>
-    <style name="btnSolidRounded_2">
-        <item name="android:textSize">@dimen/_20pxh</item>
-        <item name="android:textColor">@color/white_A700</item>
-        <item name="android:fontFamily">@font/abeezee</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-        <item name="android:background">@drawable/rectangle_bg_indigo_400_cc_radius_33</item>
-    </style>
-    <style name="btnSolidRounded_1">
-        <item name="android:textSize">@dimen/_20pxh</item>
-        <item name="android:textColor">@color/white_A700</item>
-        <item name="android:fontFamily">@font/abeezee</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-        <item name="android:background">@drawable/rectangle_bg_indigo_300_radius_24_5</item>
-    </style>
     <style name="groupStylecornerRadius">
         <item name="android:background">@drawable/rectangle_radius_10</item>
     </style>
@@ -39,41 +22,41 @@
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
     <style name="groupStylewhite_A700">
-        <item name="android:background">@drawable/rectangle_bg_white_a700_border_gray_600_7f</item>
+        <!--        <item name="android:background">@drawable/rectangle_bg_white_a700_border_gray_600_7f</item>-->
     </style>
     <style name="groupStylecornerRadius_3">
         <item name="android:background">@drawable/rectangle_radius_16</item>
     </style>
+    <style name="groupStyleindigo_300cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_indigo_300_radius_20</item>
+    </style>
     <style name="groupStylecornerRadius_2">
         <item name="android:background">@drawable/rectangle_radius_7</item>
     </style>
-    <style name="btnSolidRounded">
+    <style name="groupStylegray_1">
+        <item name="android:background">@drawable/rectangle_bg_gray_50_radius_16</item>
+    </style>
+    <style name="btnSolidRounded_1">
         <item name="android:textSize">@dimen/_20pxh</item>
         <item name="android:textColor">@color/white_A700</item>
         <item name="android:fontFamily">@font/abeezee</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
-        <item name="android:background">@drawable/rectangle_bg_indigo_400_cc_radius_29</item>
+        <item name="android:background">@drawable/rectangle_bg_indigo_300_radius_24_5</item>
     </style>
     <style name="groupStylecornerRadius_5">
         <item name="android:background">@drawable/rectangle_radius_28</item>
     </style>
     <style name="groupStyleindigo_51">
-        <item name="android:background">@drawable/rectangle_bg_indigo_50</item>
-    </style>
-    <style name="groupStyleindigo_900_1">
-        <item name="android:background">@drawable/rectangle_bg_indigo_900_99_radius_6</item>
+        <!--        <item name="android:background">@drawable/rectangle_bg_indigo_50</item>-->
     </style>
     <style name="groupStyleindigo_50">
-        <item name="android:background">@drawable/rectangle_bg_indigo_50</item>
+        <!--        <item name="android:background">@drawable/rectangle_bg_indigo_50</item>-->
     </style>
     <style name="groupStylecornerRadius_4">
         <item name="android:background">@drawable/rectangle_radius_20</item>
     </style>
     <style name="groupStylecornerRadius_1">
         <item name="android:background">@drawable/rectangle_radius_5</item>
-    </style>
-    <style name="groupStyleblue_52cornerRadius">
-        <item name="android:background">@drawable/rectangle_bg_blue_52_radius_5</item>
     </style>
     <style name="txtRobotoregular18">
         <item name="android:textSize">@dimen/_18pxh</item>
@@ -82,7 +65,7 @@
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
     <style name="groupStylewhite_1">
-        <item name="android:background">@drawable/rectangle_bg_white_a700_border_blue_900</item>
+        <!--        <item name="android:background">@drawable/rectangle_bg_white_a700_border_blue_900</item>-->
     </style>
     <style name="txtABeeZeeregular25">
         <item name="android:textSize">@dimen/_25pxh</item>
@@ -91,13 +74,10 @@
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
     <style name="groupStylewhite_3">
-        <item name="android:background">@drawable/rectangle_bg_white_a700_border_gray_600_7f_radius_18</item>
+        <!--        <item name="android:background">@drawable/rectangle_bg_white_a700_border_gray_600_7f_radius_18</item>-->
     </style>
-    <style name="groupStylewhite_2">
-        <item name="android:background">@drawable/rectangle_bg_white_a700_radius_16</item>
-    </style>
-    <style name="groupStylewhite_5">
-        <item name="android:background">@drawable/rectangle_bg_white_a700_radius_4</item>
+    <style name="groupStylegray_50cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_gray_50_radius_20</item>
     </style>
     <style name="txtABeeZeeregular20">
         <item name="android:textSize">@dimen/_20pxh</item>
@@ -105,48 +85,17 @@
         <item name="android:fontFamily">@font/abeezee</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
-    <style name="groupStyleindigo_52">
-        <item name="android:background">@drawable/rectangle_bg_indigo_50_border_indigo_50</item>
-    </style>
-    <style name="groupStylewhite_4">
-        <item name="android:background">@drawable/rectangle_bg_white_a700_radius_3</item>
-    </style>
-    <style name="btnSolid">
-        <item name="android:textSize">@dimen/_20pxh</item>
-        <item name="android:textColor">@color/indigo_900</item>
-        <item name="android:fontFamily">@font/abeezee</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-        <item name="android:background">@drawable/rectangle_bg_indigo_50</item>
-    </style>
     <style name="txtABeeZeeregular15_1">
         <item name="android:textSize">@dimen/_15pxh</item>
         <item name="android:textColor">@color/gray_401</item>
         <item name="android:fontFamily">@font/abeezee</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
-    <style name="groupStyleblue_51cornerRadius">
-        <item name="android:background">@drawable/rectangle_bg_blue_51_radius_5</item>
-    </style>
-    <style name="groupStyleindigo_300cornerRadius">
-        <item name="android:background">@drawable/rectangle_bg_indigo_300_radius_20</item>
-    </style>
-    <style name="groupStyle">
-        <item name="android:background">@drawable/rectangle_gradient_s_indigo_50_e_white_a700</item>
-    </style>
-    <style name="groupStylegray_1">
-        <item name="android:background">@drawable/rectangle_bg_gray_50_radius_16</item>
-    </style>
     <style name="groupStylecornerRadius_7">
         <item name="android:background">@drawable/rectangle_radius_22_105</item>
     </style>
     <style name="groupStylecornerRadius_6">
         <item name="android:background">@drawable/rectangle_radius_12</item>
-    </style>
-    <style name="groupStyleblue_50">
-        <item name="android:background">@drawable/rectangle_bg_blue_50</item>
-    </style>
-    <style name="groupStylecornerRadius_9">
-        <item name="android:background">@drawable/rectangle_radius_66</item>
     </style>
     <style name="groupStylecornerRadius_8">
         <item name="android:background">@drawable/rectangle_radius_58</item>
@@ -163,44 +112,14 @@
         <item name="android:fontFamily">@font/abeezee</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
-    <style name="txtABeeZeeregular19">
-        <item name="android:textSize">@dimen/_19pxh</item>
-        <item name="android:textColor">@color/indigo_900</item>
-        <item name="android:fontFamily">@font/abeezee</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-    </style>
-    <style name="txtABeeZeeregular12">
-        <item name="android:textSize">@dimen/_12pxh</item>
-        <item name="android:textColor">@color/indigo_300</item>
-        <item name="android:fontFamily">@font/abeezee</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-    </style>
-    <style name="txtABeeZeeregular13">
-        <item name="android:textSize">@dimen/_13pxh</item>
-        <item name="android:textColor">@color/white_A700</item>
-        <item name="android:fontFamily">@font/abeezee</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-    </style>
     <style name="txtABeeZeeregular15">
         <item name="android:textSize">@dimen/_15pxh</item>
         <item name="android:textColor">@color/gray_400</item>
         <item name="android:fontFamily">@font/abeezee</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
-    <style name="txtABeeZeeregular10">
-        <item name="android:textSize">@dimen/_10pxh</item>
-        <item name="android:textColor">@color/indigo_900</item>
-        <item name="android:fontFamily">@font/abeezee</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-    </style>
-    <style name="txtABeeZeeregular11">
-        <item name="android:textSize">@dimen/_11pxh</item>
-        <item name="android:textColor">@color/indigo_900</item>
-        <item name="android:fontFamily">@font/abeezee</item>
-        <item name="android:textFontWeight" tools:targetApi="p">400</item>
-    </style>
     <style name="groupStyleindigo_50cornerRadius">
-        <item name="android:background">@drawable/rectangle_bg_indigo_50_radius_12</item>
+        <!--        <item name="android:background">@drawable/rectangle_bg_indigo_50_radius_12</item>-->
     </style>
     <style name="txtABeeZeeregular20_1">
         <item name="android:textSize">@dimen/_20pxh</item>
@@ -208,14 +127,11 @@
         <item name="android:fontFamily">@font/abeezee</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
-    <style name="groupStylegray_50cornerRadius">
-        <item name="android:background">@drawable/rectangle_bg_gray_50_radius_20</item>
-    </style>
     <style name="groupStylegray_300cornerRadius">
-        <item name="android:background">@drawable/rectangle_bg_gray_300_radius_5</item>
+        <!--        <item name="android:background">@drawable/rectangle_bg_gray_300_radius_5</item>-->
     </style>
     <style name="groupStylewhite_A700cornerRadius">
-        <item name="android:background">@drawable/rectangle_bg_white_a700_radius_tl_28_tr_28</item>
+        <!--        <item name="android:background">@drawable/rectangle_bg_white_a700_radius_tl_28_tr_28</item>-->
     </style>
     <style name="txtABeeZeeregular16_1">
         <item name="android:textSize">@dimen/_16pxh</item>
@@ -234,6 +150,11 @@
         <item name="android:textColorPrimary">@color/gray_800</item>
         <item name="android:textColorHint">@color/gray_800</item>
     </style>
+    <style name="txtNavMenu">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColorPrimary">@color/gray_800</item>
+        <item name="android:textColorHint">@color/gray_800</item>
+    </style>
     <style name="BottomSheetDialogTheme" parent = "Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
     </style>
@@ -241,4 +162,5 @@
     <style name="BottomSheetStyle" parent = "Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
+
 </resources>

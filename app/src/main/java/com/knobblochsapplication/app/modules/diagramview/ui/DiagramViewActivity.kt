@@ -1,6 +1,7 @@
 package com.knobblochsapplication.app.modules.diagramview.ui
 
 import androidx.activity.viewModels
+import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityDiagramViewBinding
@@ -14,11 +15,12 @@ class DiagramViewActivity : BaseActivity<ActivityDiagramViewBinding>(R.layout.ac
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
+    window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
     binding.diagramViewVM = viewModel
   }
 
   override fun setUpClicks(): Unit {
-    binding.imageArrowleft.setOnClickListener {
+    binding.topAppBar.setNavigationOnClickListener {
       finish()
     }
   }

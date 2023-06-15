@@ -18,7 +18,6 @@
             android:layout_marginStart="@dimen/_127pxh"
             android:layout_width="@dimen/_40pxh" style="@style/groupStylegray_300cornerRadius">
             <View
-                android:background="@drawable/rectangle_bg_gray_300_radius_5"
                 android:id="@+id/viewCreatefromfra"
                 android:layout_gravity="center"
                 android:layout_height="@dimen/_19pxh"

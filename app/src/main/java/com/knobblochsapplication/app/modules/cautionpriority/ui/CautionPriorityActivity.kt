@@ -13,11 +13,11 @@ import kotlin.Unit
 
 class CautionPriorityActivity :
     BaseActivity<ActivityCautionPriorityBinding>(R.layout.activity_caution_priority) {
-  private val viewModel: CautionPriorityVM by viewModels<CautionPriorityVM>()
+  //private val viewModel: CautionPriorityVM by viewModels<CautionPriorityVM>()
 
   override fun onInitialized(): Unit {
-    viewModel.navArguments = intent.extras?.getBundle("bundle")
-    binding.cautionPriorityVM = viewModel
+    //viewModel.navArguments = intent.extras?.getBundle("bundle")
+    //binding.cautionPriorityVM = viewModel
   }
 
   override fun setUpClicks(): Unit {

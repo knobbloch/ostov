@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <variable name="cautionPriorityVM" type="com.knobblochsapplication.app.modules.cautionpriority.data.viewmodel.CautionPriorityVM"/>
+        <variable name="cautionPriorityVM" type="com.knobblochsapplication.app.modules.changetask.cautionpriority.data.viewmodel.CautionPriorityVM"/>
     </data>
     <LinearLayout android:gravity="center_horizontal"
         android:id="@+id/linearCautionpriorit"
@@ -49,7 +49,6 @@
                     android:layout_width="0dp"
                     android:orientation="vertical" style="@style/groupStylecornerRadius">
                     <View
-                        android:background="@drawable/rectangle_bg_indigo_300_radius_10"
                         android:id="@+id/viewIcon"
                         android:layout_gravity="start"
                         android:layout_height="@dimen/_20pxh" android:layout_width="@dimen/_20pxh"/>
@@ -81,7 +80,6 @@
                     android:layout_width="0dp"
                     android:orientation="vertical" style="@style/groupStylecornerRadius">
                     <View
-                        android:background="@drawable/rectangle_bg_gray_600_radius_10"
                         android:id="@+id/viewIconOne"
                         android:layout_gravity="start"
                         android:layout_height="@dimen/_20pxh" android:layout_width="@dimen/_20pxh"/>
@@ -105,7 +103,7 @@
                 android:paddingTop="@dimen/_12pxv"
                 android:singleLine="true" android:text="@string/lbl33"
                 android:textAllCaps="false"
-                style="@style/btnSolidRounded_1" tools:text="@string/lbl33"/>
+                tools:text="@string/lbl33"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

@@ -1,121 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <variable name="diagramViewVM" type="com.knobblochsapplication.app.modules.diagramview.data.viewmodel.DiagramViewVM"/>
+
+        <variable
+            name="diagramViewVM"
+            type="com.knobblochsapplication.app.modules.diagramview.data.viewmodel.DiagramViewVM" />
     </data>
-    <LinearLayout android:gravity="center_horizontal"
-        android:id="@+id/linearDiagramview"
-        android:layout_height="match_parent"
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStylewhite_A700">
-        <View android:background="@color/indigo_50"
-            android:id="@+id/viewStatusbar"
-            android:layout_gravity="start"
-            android:layout_height="@dimen/_10pxv" android:layout_width="@dimen/_360pxh"/>
-        <LinearLayout android:gravity="start"
-            android:id="@+id/linearHeader"
-            android:layout_height="wrap_content"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal" style="@style/groupStyleindigo_50">
-            <FrameLayout android:id="@+id/frameContainer"
-                android:layout_height="@dimen/_40pxv"
-                android:layout_marginBottom="@dimen/_6pxv"
-                android:layout_marginStart="@dimen/_19pxh"
-                android:layout_marginTop="@dimen/_7pxv"
-                android:layout_width="@dimen/_40pxh" style="@style/groupStyleindigo_300cornerRadius">
-                <ImageView android:id="@+id/imageArrowleft"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/_16pxh"
-                    android:layout_marginHorizontal="@dimen/_12pxh"
-                    android:layout_marginVertical="@dimen/_12pxv"
-                    android:layout_width="@dimen/_16pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_arrowleft_white_a700"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft_white_a700"/>
-            </FrameLayout>
-            <TextView android:ellipsize="end" android:id="@+id/txtText"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_11pxv"
-                android:layout_marginEnd="@dimen/_101pxh"
-                android:layout_marginStart="@dimen/_42pxh"
-                android:layout_marginTop="@dimen/_17pxv"
-                android:layout_weight="0.8" android:layout_width="0dp"
-                android:letterSpacing="0.01"
-                android:lineSpacingExtra="@dimen/_4pxh"
-                android:singleLine="true"
-                android:text="@{diagramViewVM.diagramViewModel.txtText}"
-                style="@style/txtABeeZeeregular20" tools:text="@string/lbl6"/>
-        </LinearLayout>
-        <LinearLayout android:id="@+id/linearBlockIshikawa"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_35pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_27pxv"
-            android:layout_width="match_parent" android:orientation="horizontal">
-            <TextView android:ellipsize="end"
-                android:id="@+id/txtTextOne"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/img_arrowback"
+                android:paddingStart="8dp"
+                app:title="@string/lbl6"
+                app:titleCentered="true" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:id="@+id/linearDiagramview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_7pxv"
-                android:layout_marginTop="@dimen/_10pxv"
-                android:layout_weight="0.9" android:layout_width="0dp"
-                android:singleLine="true"
-                android:text="@{diagramViewVM.diagramViewModel.txtTextOne}"
-                style="@style/txtABeeZeeregular18" tools:text="@string/msg"/>
-            <LinearLayout android:gravity="center_horizontal"
-                android:id="@+id/linearContainer"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10pxv"
-                android:layout_marginEnd="@dimen/_10pxh"
-                android:layout_marginStart="@dimen/_66pxh"
-                android:layout_marginTop="@dimen/_10pxv"
-                android:layout_weight="0.1" android:layout_width="0dp"
-                android:orientation="vertical" style="@style/groupStylecornerRadius">
-                <View
-                    android:background="@drawable/rectangle_bg_indigo_900_radius_10"
-                    android:id="@+id/viewIcon"
-                    android:layout_gravity="start"
-                    android:layout_height="@dimen/_20pxh" android:layout_width="@dimen/_20pxh"/>
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkedButton="@+id/radio_button_1">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/msg"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl"
+                        android:text="@string/lbl7"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+                </RadioGroup>
             </LinearLayout>
+
         </LinearLayout>
-        <LinearLayout android:id="@+id/linearBlocklist"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_35pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_15pxv"
-            android:layout_width="match_parent" android:orientation="horizontal">
-            <TextView android:ellipsize="end"
-                android:id="@+id/txtTextTwo"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_9pxv"
-                android:layout_marginTop="@dimen/_8pxv"
-                android:layout_weight="0.78" android:layout_width="0dp"
-                android:singleLine="true"
-                android:text="@{diagramViewVM.diagramViewModel.txtTextTwo}"
-                style="@style/txtABeeZeeregular18" tools:text="@string/lbl7"/>
-            <LinearLayout android:gravity="center_horizontal"
-                android:id="@+id/linearContainer1"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10pxv"
-                android:layout_marginEnd="@dimen/_10pxh"
-                android:layout_marginStart="@dimen/_186pxh"
-                android:layout_marginTop="@dimen/_10pxv"
-                android:layout_weight="0.22" android:layout_width="0dp"
-                android:orientation="vertical" style="@style/groupStylecornerRadius">
-                <View
-                    android:background="@drawable/rectangle_bg_indigo_900_radius_10"
-                    android:id="@+id/viewIconOne"
-                    android:layout_gravity="start"
-                    android:layout_height="@dimen/_20pxh" android:layout_width="@dimen/_20pxh"/>
-            </LinearLayout>
-        </LinearLayout>
-        <View
-            android:background="@drawable/rectangle_bg_gray_900_radius_1"
-            android:id="@+id/lineHome"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="@dimen/_2pxv"
-            android:layout_marginBottom="@dimen/_8pxv"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_562pxv" android:layout_width="@dimen/_72pxh"/>
-    </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 </layout>

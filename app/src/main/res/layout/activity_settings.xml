@@ -1,115 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <variable name="settingsVM" type="com.knobblochsapplication.app.modules.settings.data.viewmodel.SettingsVM"/>
+
+        <variable
+            name="settingsVM"
+            type="com.knobblochsapplication.app.modules.settings.data.viewmodel.SettingsVM" />
     </data>
-    <LinearLayout android:gravity="center_horizontal"
-        android:id="@+id/linearSettings"
-        android:layout_height="match_parent"
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStylewhite_A700">
-        <View android:background="@color/indigo_50"
-            android:id="@+id/viewStatusbar"
-            android:layout_gravity="start"
-            android:layout_height="@dimen/_10pxv" android:layout_width="@dimen/_360pxh"/>
-        <LinearLayout android:gravity="start"
-            android:id="@+id/linearHeader"
-            android:layout_height="wrap_content"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal" style="@style/groupStyleindigo_50">
-            <FrameLayout android:id="@+id/frameContainer"
-                android:layout_height="@dimen/_40pxv"
-                android:layout_marginBottom="@dimen/_6pxv"
-                android:layout_marginStart="@dimen/_19pxh"
-                android:layout_marginTop="@dimen/_7pxv"
-                android:layout_width="@dimen/_40pxh" style="@style/groupStyleindigo_300cornerRadius">
-                <ImageView android:id="@+id/imageArrowleft"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/_16pxh"
-                    android:layout_marginHorizontal="@dimen/_12pxh"
-                    android:layout_marginVertical="@dimen/_12pxv"
-                    android:layout_width="@dimen/_16pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_arrowleft_white_a700"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft_white_a700"/>
-            </FrameLayout>
-            <TextView android:ellipsize="end" android:id="@+id/txtFive"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_12pxv"
-                android:layout_marginEnd="@dimen/_126pxh"
-                android:layout_marginStart="@dimen/_68pxh"
-                android:layout_marginTop="@dimen/_16pxv"
-                android:layout_weight="0.73" android:layout_width="0dp"
-                android:letterSpacing="0.01"
-                android:lineSpacingExtra="@dimen/_4pxh"
-                android:singleLine="true"
-                android:text="@{settingsVM.settingsModel.txtFive}"
-                style="@style/txtABeeZeeregular20" tools:text="@string/lbl3"/>
-        </LinearLayout>
-        <LinearLayout android:id="@+id/linearBlockdarkthem"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_37pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_30pxv"
-            android:layout_width="match_parent" android:orientation="horizontal">
-            <TextView android:ellipsize="end" android:id="@+id/txtText"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_6pxv"
-                android:layout_marginTop="@dimen/_3pxv"
-                android:layout_weight="0.69" android:layout_width="0dp"
-                android:singleLine="true"
-                android:text="@{settingsVM.settingsModel.txtText}"
-                style="@style/txtABeeZeeregular18" tools:text="@string/lbl4"/>
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchMaterialSwitch"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_115pxh"
-                android:layout_weight="0.31" android:layout_width="0dp"/>
-        </LinearLayout>
-        <LinearLayout android:id="@+id/linearBlockmessages"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_25pxv"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:paddingStart="8dp"
+                app:navigationIcon="@drawable/img_arrowback"
+                app:title="@string/lbl3"
+                app:titleCentered="true" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal" style="@style/groupStylecornerRadius_1">
-            <TextView android:ellipsize="end"
-                android:id="@+id/txtTextOne"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.81" android:layout_width="0dp"
-                android:singleLine="true"
-                android:text="@{settingsVM.settingsModel.txtTextOne}"
-                style="@style/txtABeeZeeregular18" tools:text="@string/lbl5"/>
-            <FrameLayout android:id="@+id/frameCheckboxes"
-                android:layout_height="@dimen/_40pxv"
-                android:layout_marginStart="@dimen/_112pxh"
-                android:layout_width="@dimen/_40pxh" style="@style/groupStylegray_300cornerRadius">
-                <View
-                    android:background="@drawable/rectangle_bg_gray_300_radius_5"
-                    android:id="@+id/viewCreatefromfra"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/_19pxh"
-                    android:layout_marginHorizontal="@dimen/_10pxh"
-                    android:layout_marginVertical="@dimen/_10pxv" android:layout_width="@dimen/_19pxh"/>
-                <ImageView android:id="@+id/imageFile"
-                    android:layout_gravity="center"
-                    android:layout_height="@dimen/_18pxh"
-                    android:layout_marginHorizontal="@dimen/_11pxh"
-                    android:layout_marginVertical="@dimen/_11pxv"
-                    android:layout_width="@dimen/_18pxh"
-                    android:scaleType="centerCrop" circular="@{true}"
-                    imageRes="@{@drawable/img_file}"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_file"/>
-            </FrameLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="32dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl4"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switchDarkTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:checked="true"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="32dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/lbl5"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                <CheckBox
+                    android:id="@+id/checkBox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
         </LinearLayout>
-        <View
-            android:background="@drawable/rectangle_bg_gray_900_radius_1"
-            android:id="@+id/lineHome"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="@dimen/_2pxv"
-            android:layout_marginBottom="@dimen/_8pxv"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_575pxv" android:layout_width="@dimen/_72pxh"/>
-    </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>

@@ -5,7 +5,7 @@ import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityDeleteBranchesBinding
 import com.knobblochsapplication.app.modules.deletebranches.`data`.viewmodel.DeleteBranchesVM
-import com.knobblochsapplication.app.modules.goalscheme.ui.GoalSchemeActivity
+import com.knobblochsapplication.app.modules.menuone.ui.MainActivity
 import kotlin.String
 import kotlin.Unit
 
@@ -20,12 +20,12 @@ class DeleteBranchesActivity :
 
   override fun setUpClicks(): Unit {
     binding.btn.setOnClickListener {
-      val destIntent = GoalSchemeActivity.getIntent(this, null)
-      startActivity(destIntent)
+      //val destIntent = MainActivity.getIntent(this, null)
+      //startActivity(destIntent)
     }
     binding.btn1.setOnClickListener {
-      val destIntent = GoalSchemeActivity.getIntent(this, null)
-      startActivity(destIntent)
+      //val destIntent = MainActivity.getIntent(this, null)
+      //startActivity(destIntent)
     }
   }
 

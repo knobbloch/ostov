@@ -31,7 +31,7 @@ class SortAdapter(
   // TODO uncomment following line after integration with data source
   // return list.size
 
-  public fun updateData(newData: List<SortRowModel>) {
+  fun updateData(newData: List<SortRowModel>) {
     list = newData
     notifyDataSetChanged()
   }

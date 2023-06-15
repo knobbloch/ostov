@@ -26,7 +26,6 @@
                     android:layout_marginTop="@dimen/_16pxv"
                     android:layout_width="match_parent" android:orientation="vertical">
                     <View
-                        android:background="@drawable/rectangle_bg_gray_600_7e_radius_2"
                         android:id="@+id/viewDraghandle"
                         android:layout_gravity="end"
                         android:layout_height="@dimen/_4pxv"
@@ -75,17 +74,20 @@
                 android:layout_marginTop="@dimen/_16pxv"
                 android:layout_width="match_parent"
                 android:orientation="horizontal" style="@style/groupStylecornerRadius_3">
-                <TextView android:ellipsize="end"
+
+                <TextView
                     android:id="@+id/txtLanguage"
+                    style="@style/txtABeeZeeregular18"
+                    android:layout_width="113dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_6pxv"
                     android:layout_marginTop="@dimen/_3pxv"
+                    android:layout_marginBottom="@dimen/_6pxv"
                     android:layout_weight="0.3"
-                    android:layout_width="0dp" android:singleLine="true"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:text="@{addTaskVM.addTaskModel.txtLanguage}"
-                    style="@style/txtABeeZeeregular18" tools:text="@string/lbl16"/>
+                    tools:text="@string/lbl16" />
                 <View
-                    android:background="@drawable/rectangle_bg_gray_50_radius_16"
                     android:id="@+id/viewRectangleThree"
                     android:layout_height="@dimen/_32pxv"
                     android:layout_marginStart="@dimen/_17pxh" android:layout_width="@dimen/_213pxh"/>
@@ -110,7 +112,7 @@
                 <FrameLayout android:id="@+id/frameStackcamera"
                     android:layout_height="@dimen/_32pxv"
                     android:layout_marginStart="@dimen/_9pxh"
-                    android:layout_width="@dimen/_176pxh" style="@style/groupStylegray_1">
+                    android:layout_width="@dimen/_176pxh">
                     <ImageView android:id="@+id/imageCamera"
                         android:layout_gravity="end"
                         android:layout_height="@dimen/_20pxh"
@@ -145,7 +147,6 @@
                         android:text="@{addTaskVM.addTaskModel.txtTwentySix}"
                         style="@style/txtABeeZeeregular18" tools:text="@string/lbl29"/>
                     <ImageButton
-                        android:background="@drawable/rectangle_bg_gray_51_radius_16"
                         android:id="@+id/btnVector"
                         android:layout_height="@dimen/_32pxh"
                         android:layout_marginStart="@dimen/_44pxh"
@@ -156,7 +157,6 @@
                         android:src="@drawable/img_vector" tools:ignore="ContentDescription"/>
                 </LinearLayout>
                 <ImageButton
-                    android:background="@drawable/rectangle_bg_gray_51_radius_16"
                     android:id="@+id/btnVectorOne"
                     android:layout_height="@dimen/_32pxh"
                     android:layout_marginStart="@dimen/_112pxh"
@@ -184,7 +184,6 @@
                     android:text="@{addTaskVM.addTaskModel.txtTwentySeven}"
                     style="@style/txtABeeZeeregular18" tools:text="@string/lbl19"/>
                 <View
-                    android:background="@drawable/rectangle_bg_gray_50_radius_20"
                     android:id="@+id/viewRectangleTwo"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="@dimen/_183pxv"

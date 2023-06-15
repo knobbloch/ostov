@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.knobblochsapplication.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -22,7 +18,7 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.menuone.ui.MenuOneActivity"
+            android:name=".modules.goalscheme.ui.GoalSchemeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.menutwo.ui.MenuTwoActivity"
@@ -67,16 +63,7 @@
             android:name=".modules.sort.ui.SortActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".modules.goalscheme.ui.GoalSchemeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.goalsunion.ui.GoalsUnionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.goalschange.ui.GoalsChangeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.goals.ui.GoalsActivity"
+            android:name=".modules.menuone.ui.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -85,6 +72,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".modules.goalsunion.ui.GoalsUnionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.goalschange.ui.GoalsChangeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.goals.ui.GoalsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.goalsuniontwo.ui.GoalsUniontwoActivity"
             android:screenOrientation="portrait" />
