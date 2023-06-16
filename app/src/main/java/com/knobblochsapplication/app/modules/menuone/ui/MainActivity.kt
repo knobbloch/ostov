@@ -27,6 +27,7 @@ import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityGoalSchemeBinding
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
+import com.knobblochsapplication.app.modules.File_system.File_Manager
 import com.knobblochsapplication.app.modules.File_system.Goal
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
@@ -46,22 +47,20 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
     private var mScaleGestureDetector: ScaleGestureDetector? = null
     var gestureDetector: GestureDetector? = null
     lateinit var bindLayout: ActivityGoalSchemeBinding
+    val goalId: Int = 1
 
     private val goalsList = ArrayList<Goal>()
-    private val childItemList = ArrayList<Goal>()
-
     ///private val goalsList = ParentItemList()
 
     //private val goalsList = ArrayList<Goal>()
     private val adapter = MenuAdapter(this, goalsList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        childItemList.add(Goal(1, "goal1111111", "", 1, 1, null))
-        childItemList.add(Goal(1, "goa22222222", "", 1, 1, null))
 
-        goalsList.add(Goal(1, "goal1", "", 1, 1, childItemList))
-
-
+        File_Manager.Find_task_by_id(1, 1)
+        for (i in File_Manager.Find_task_by_id(File_Manager.listFiles()[1], File_Manager.listFiles()[1]).children){
+            goalsList.add(File_Manager.Find_task_by_id(File_Manager.listFiles()[1], i))
+        }
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
