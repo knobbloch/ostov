@@ -7,19 +7,17 @@ import java.util.Comparator;
 
 public class by_expires implements Comparator<Integer>{
 
-    Context context;
     Integer goal_id;
-    public by_expires(Context _context, int _goal_id) {
-        context=_context;
+    public by_expires(int _goal_id) {
         goal_id=_goal_id;
     }
 
     public int compare(Integer o1, Integer o2){
         try {
-            if(File_Manager.Find_task_by_id(context,goal_id,o1).getExpiresAt()==File_Manager.Find_task_by_id(context,goal_id,o2).getExpiresAt()){
+            if(File_Manager.Find_task_by_id(goal_id,o1).getExpiresAt()==File_Manager.Find_task_by_id(goal_id,o2).getExpiresAt()){
                 return 0;
             }
-            if(File_Manager.Find_task_by_id(context,goal_id,o1).getExpiresAt()<File_Manager.Find_task_by_id(context,goal_id,o2).getExpiresAt()){
+            if(File_Manager.Find_task_by_id(goal_id,o1).getExpiresAt()<File_Manager.Find_task_by_id(goal_id,o2).getExpiresAt()){
                 return -1;
             }
             else{

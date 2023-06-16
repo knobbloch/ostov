@@ -26,6 +26,7 @@ class PreferenceHelper {
      *
      * @return the string value of encrypted key
      */
+
     private fun createGetMasterKey(): String {
         return MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
     }
