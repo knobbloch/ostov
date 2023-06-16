@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
 <dimen name="_1pxh">2.76dp</dimen>
-<dimen name="_2pxh">5.53dp</dimen>
 <dimen name="_3pxh">8.29dp</dimen>
 <dimen name="_4pxh">11.05dp</dimen>
 <dimen name="_5pxh">13.81dp</dimen>
@@ -22,7 +21,6 @@
 <dimen name="_20pxh">55.25dp</dimen>
 <dimen name="_21pxh">58.01dp</dimen>
 <dimen name="_22pxh">60.78dp</dimen>
-<dimen name="_23pxh">63.54dp</dimen>
 <dimen name="_24pxh">66.3dp</dimen>
 <dimen name="_25pxh">69.06dp</dimen>
 <dimen name="_26pxh">71.83dp</dimen>
@@ -33,12 +31,9 @@
 <dimen name="_31pxh">85.64dp</dimen>
 <dimen name="_32pxh">88.4dp</dimen>
 <dimen name="_33pxh">91.16dp</dimen>
-<dimen name="_34pxh">93.93dp</dimen>
 <dimen name="_35pxh">96.69dp</dimen>
 <dimen name="_36pxh">99.45dp</dimen>
 <dimen name="_37pxh">102.21dp</dimen>
-<dimen name="_38pxh">104.98dp</dimen>
-<dimen name="_39pxh">107.74dp</dimen>
 <dimen name="_40pxh">110.5dp</dimen>
 <dimen name="_41pxh">113.26dp</dimen>
 <dimen name="_42pxh">116.03dp</dimen>
@@ -1753,19 +1748,4 @@
 <dimen name="_867sp">2395.09sp</dimen>
 <dimen name="_868sp">2397.85sp</dimen>
 <dimen name="_869sp">2400.61sp</dimen>
-<dimen name="_870sp">2403.38sp</dimen>
-<dimen name="_871sp">2406.14sp</dimen>
-<dimen name="_872sp">2408.9sp</dimen>
-<dimen name="_873sp">2411.66sp</dimen>
-<dimen name="_874sp">2414.43sp</dimen>
-<dimen name="_875sp">2417.19sp</dimen>
-<dimen name="_876sp">2419.95sp</dimen>
-<dimen name="_877sp">2422.71sp</dimen>
-<dimen name="_878sp">2425.48sp</dimen>
-<dimen name="_879sp">2428.24sp</dimen>
-<dimen name="_880sp">2431.0sp</dimen>
-<dimen name="_881sp">2433.76sp</dimen>
-<dimen name="_882sp">2436.53sp</dimen>
-<dimen name="_883sp">2439.29sp</dimen>
-<dimen name="_884sp">2442.05sp</dimen>
 </resources>

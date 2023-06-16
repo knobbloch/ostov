@@ -22,6 +22,9 @@ import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
@@ -32,6 +35,7 @@ import com.knobblochsapplication.app.modules.File_system.Goal
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
 import com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity
+import com.knobblochsapplication.app.modules.goals.ui.GoalsActivity
 import com.knobblochsapplication.app.modules.helpscreenone.ui.HelpScreenOneActivity
 import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
@@ -77,13 +81,10 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
         window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
 //        window.navigationBarColor = SurfaceColors.SURFACE_2.getColor(this)
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             if (!preferenceHelper.isHelpPageShowed()) {
-                println("isHelpPageShowed false")
                 val myIntent = Intent(this, HelpScreenOneActivity::class.java)
                 this.startActivity(myIntent)
-            } else {
-                println("isHelpPageShowed true")
             }
 
             if (preferenceHelper.isDarkTheme()) {
@@ -92,10 +93,18 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
+        binding.topAppBar.setNavigationOnClickListener {
+            binding.drawer.openDrawer(GravityCompat.START)
+        }
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.list -> {
+                    val myIntent = Intent(this@MainActivity, GoalsActivity::class.java)
+                    startActivity(myIntent)
+                    true
+                }
 
-        binding.apply {
-            topAppBar.setNavigationOnClickListener {
-                drawer.openDrawer(GravityCompat.START)
+                else -> false
             }
         }
 
@@ -125,14 +134,14 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
                 scaleAnimation.fillAfter = true
 
                 // initialising the scrollview
-                val layout = binding.l2.layout
+                val layout = binding.include2.layout
 
                 // we are setting it as animation
                 layout.startAnimation(scaleAnimation)
                 return true
             }
         })
-        bindLayout = binding.l2
+        bindLayout = binding.include2
         InitFish()
     }
 

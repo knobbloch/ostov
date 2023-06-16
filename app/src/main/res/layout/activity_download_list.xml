@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="downloadListVM" type="com.knobblochsapplication.app.modules.downloadlist.data.viewmodel.DownloadListVM"/>
     </data>
@@ -139,6 +139,7 @@
                         android:layout_height="match_parent"
                         android:layoutDirection="rtl"
                         android:text="@string/lbl11"
+                        android:textColor="?attr/colorOnBackground"
                         android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
@@ -147,6 +148,7 @@
                         android:layout_height="match_parent"
                         android:layoutDirection="rtl"
                         android:text="@string/lbl12"
+                        android:textColor="?attr/colorOnBackground"
                         android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
                 </RadioGroup>
             </LinearLayout>
