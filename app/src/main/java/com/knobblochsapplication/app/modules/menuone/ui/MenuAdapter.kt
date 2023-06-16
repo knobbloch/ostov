@@ -18,7 +18,7 @@ class MenuAdapter(val listener: Listener, private val goalsList: ArrayList<Goal>
         fun bind(goal: com.knobblochsapplication.app.modules.File_system.Goal, listener: Listener) = with(binding) {
             txtNamegoal.text = goal.name
             txtNamegoal.setOnClickListener (View.OnClickListener {
-                listener.onBranchClick(adapterPosition, goal)
+                listener.onBranchClick(adapterPosition, goal.id)
                 //return@OnClickListener true
             })
             txtNamegoal.setOnLongClickListener(View.OnLongClickListener {
@@ -33,20 +33,21 @@ class MenuAdapter(val listener: Listener, private val goalsList: ArrayList<Goal>
         val view = LayoutInflater.from(parent.context).inflate(R.layout.fish_bone, parent, false)
 
 
-//        for (goal in goalsList){
-//            val childList = ArrayList<Goal>()
-//            for (i in goal.children){
-//                childList.add(File_Manager.Find_task_by_id(File_Manager.listFiles()[1], i))
-//            }
-//            if (childList != null){
-//                val view2 = view.findViewById<View>(R.id.rcView) as RecyclerView
-//                val layoutManager = LinearLayoutManager(view2.context)
-//                val adap = MenuAdapter(listener, childList)
-//                view2.setAdapter(adap)
-//                view2.setLayoutManager(layoutManager)
-//                MenuAdapter(listener, childList)
-//            }
-//        }
+        for (goal in goalsList){
+            System.out.println(goal.name)
+            val childList = ArrayList<Goal>()
+            for (i in goal.children){
+                childList.add(File_Manager.Find_task_by_id(File_Manager.listFiles().get(0), i))
+            }
+            if (childList != null && childList.size!=0){
+                val view2 = view.findViewById<View>(R.id.rcView) as RecyclerView
+                val layoutManager = LinearLayoutManager(view2.context)
+                val adap = MenuAdapter(listener, childList)
+                view2.setAdapter(adap)
+                view2.setLayoutManager(layoutManager)
+                MenuAdapter(listener, childList)
+            }
+        }
         return GoalHolder(view)
     }
 
@@ -60,7 +61,7 @@ class MenuAdapter(val listener: Listener, private val goalsList: ArrayList<Goal>
 
 
     interface Listener {
-        fun onBranchClick(position: Int, goal: Goal)
+        fun onBranchClick(position: Int, goal: Int)
         fun onLongBranchClick(position: Int, goal: Goal)
     }
 

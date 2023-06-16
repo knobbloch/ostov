@@ -26,6 +26,19 @@ class GoalsAdapter(val listener: Listener, private val goalsList: ArrayList<Goal
                 return@OnLongClickListener true
             })
 
+            deadline.text = goal.goalDeadline
+            itemView.setOnClickListener {
+                listener.onGoalClick(adapterPosition)
+            }
+            btnDelete.setOnClickListener {
+                listener.onBtnDeleteClick(adapterPosition)
+            }
+            btnEdit.setOnClickListener {
+                listener.onBtnEditClick(adapterPosition)
+            }
+            btnChangeLevel.setOnClickListener {
+                listener.onBtnChangeLevelClick(adapterPosition)
+            }
         }
     }
 
@@ -46,6 +59,9 @@ class GoalsAdapter(val listener: Listener, private val goalsList: ArrayList<Goal
     interface Listener {
         fun onGoalClick(position: Int)
         fun onLongGoalClick(position: Int)
+        fun onBtnDeleteClick(position: Int)
+        fun onBtnEditClick(position: Int)
+        fun onBtnChangeLevelClick(position: Int)
     }
 
 }

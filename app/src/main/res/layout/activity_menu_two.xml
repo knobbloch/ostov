@@ -3,70 +3,96 @@
     <data>
         <variable name="menuTwoVM" type="com.knobblochsapplication.app.modules.menutwo.data.viewmodel.MenuTwoVM"/>
     </data>
-    <LinearLayout android:gravity="start"
+
+    <LinearLayout
         android:id="@+id/linearMenuTwo"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStyleindigo_51">
-        <TextView android:ellipsize="end" android:id="@+id/txtLabeltext"
+        style="@style/groupStyleindigo_51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtLabeltext"
+            style="@style/txtABeeZeeregular16"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_12pxh"
             android:layout_marginStart="@dimen/_12pxh"
             android:layout_marginTop="@dimen/_26pxv"
-            android:layout_width="wrap_content"
+            android:layout_marginEnd="@dimen/_12pxh"
+            android:ellipsize="end"
             android:letterSpacing="0.03"
             android:lineSpacingExtra="@dimen/_3pxh"
             android:singleLine="true"
-            android:text="@{menuTwoVM.menuTwoModel.txtLabeltext}"
-            style="@style/txtABeeZeeregular16" tools:text="@string/lbl30"/>
-        <View android:background="@color/bluegray_100"
+            android:text="@string/lbl30"
+            tools:text="@string/lbl30" />
+
+        <View
             android:id="@+id/lineDivider"
+            android:layout_width="@dimen/_254pxh"
             android:layout_height="@dimen/_1pxv"
-            android:layout_marginTop="@dimen/_27pxv" android:layout_width="@dimen/_254pxh"/>
-        <TextView android:ellipsize="end" android:id="@+id/txtLanguage"
+            android:layout_marginTop="@dimen/_27pxv"
+            android:background="@color/bluegray_100" />
+
+        <TextView
+            android:id="@+id/txtLanguage"
+            style="@style/txtABeeZeeregular16"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_12pxh"
             android:layout_marginStart="@dimen/_12pxh"
             android:layout_marginTop="@dimen/_24pxv"
-            android:layout_width="wrap_content"
+            android:layout_marginEnd="@dimen/_12pxh"
+            android:ellipsize="end"
             android:letterSpacing="0.03"
             android:lineSpacingExtra="@dimen/_3pxh"
             android:singleLine="true"
-            android:text="@{menuTwoVM.menuTwoModel.txtLanguage}"
-            style="@style/txtABeeZeeregular16" tools:text="@string/lbl31"/>
-        <View android:background="@color/bluegray_100"
+            android:text="@string/lbl31"
+            tools:text="@string/lbl31" />
+
+        <View
             android:id="@+id/lineDividerOne"
+            android:layout_width="@dimen/_254pxh"
             android:layout_height="@dimen/_1pxv"
-            android:layout_marginTop="@dimen/_28pxv" android:layout_width="@dimen/_254pxh"/>
-        <TextView android:ellipsize="end"
+            android:layout_marginTop="@dimen/_28pxv"
+            android:background="@color/bluegray_100" />
+
+        <TextView
             android:id="@+id/txtLabeltextOne"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_12pxh"
-            android:layout_marginStart="@dimen/_12pxh"
-            android:layout_marginTop="@dimen/_26pxv"
+            style="@style/txtABeeZeeregular16"
             android:layout_width="wrap_content"
-            android:letterSpacing="0.03"
-            android:lineSpacingExtra="@dimen/_3pxh"
-            android:singleLine="true"
-            android:text="@{menuTwoVM.menuTwoModel.txtLabeltextOne}"
-            style="@style/txtABeeZeeregular16" tools:text="@string/lbl22"/>
-        <View android:background="@color/bluegray_100"
-            android:id="@+id/lineDividerTwo"
-            android:layout_height="@dimen/_1pxv"
-            android:layout_marginTop="@dimen/_26pxv" android:layout_width="@dimen/_254pxh"/>
-        <TextView android:ellipsize="end"
-            android:gravity="center_horizontal"
-            android:id="@+id/txtLabeltextTwo"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_25pxv"
-            android:layout_marginEnd="@dimen/_12pxh"
             android:layout_marginStart="@dimen/_12pxh"
             android:layout_marginTop="@dimen/_26pxv"
-            android:layout_width="match_parent"
+            android:layout_marginEnd="@dimen/_12pxh"
+            android:ellipsize="end"
             android:letterSpacing="0.03"
             android:lineSpacingExtra="@dimen/_3pxh"
             android:singleLine="true"
-            android:text="@{menuTwoVM.menuTwoModel.txtLabeltextTwo}"
-            style="@style/txtABeeZeeregular16" tools:text="@string/msg18"/>
+            android:text="@string/lbl22"
+            tools:text="@string/lbl22" />
+
+        <View
+            android:id="@+id/lineDividerTwo"
+            android:layout_width="@dimen/_254pxh"
+            android:layout_height="@dimen/_1pxv"
+            android:layout_marginTop="@dimen/_26pxv"
+            android:background="@color/bluegray_100" />
+
+        <TextView
+            android:id="@+id/txtLabeltextTwo"
+            style="@style/txtABeeZeeregular16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12pxh"
+            android:layout_marginTop="@dimen/_26pxv"
+            android:layout_marginEnd="@dimen/_12pxh"
+            android:layout_marginBottom="@dimen/_25pxv"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.03"
+            android:lineSpacingExtra="@dimen/_3pxh"
+            android:singleLine="true"
+            android:text="@string/msg18"
+            tools:text="@string/msg18" />
     </LinearLayout>
 </layout>

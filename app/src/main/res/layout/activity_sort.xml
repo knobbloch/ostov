@@ -131,6 +131,7 @@
                         android:id="@+id/radioButton3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:textColor="?attr/colorOnBackground"
                         android:layoutDirection="rtl"
                         android:text="@string/lbl11"
                         android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
@@ -139,6 +140,7 @@
                         android:id="@+id/radioButton4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:textColor="?attr/colorOnBackground"
                         android:layoutDirection="rtl"
                         android:text="@string/lbl12"
                         android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />

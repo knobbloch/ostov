@@ -122,8 +122,8 @@
                         android:layout_marginTop="@dimen/_6pxv"
                         android:layout_width="@dimen/_18pxh"
                         android:scaleType="fitXY"
-                        android:src="@drawable/img_camera"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_camera"/>
+                        android:src="@drawable/ic_date_picker"
+                        tools:ignore="ContentDescription" tools:src="@drawable/ic_date_picker"/>
                 </FrameLayout>
             </LinearLayout>
             <LinearLayout android:id="@+id/linearRowvectorOne"
