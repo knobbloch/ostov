@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
     private var mScaleGestureDetector: ScaleGestureDetector? = null
     var gestureDetector: GestureDetector? = null
     lateinit var bindLayout: ActivityGoalSchemeBinding
-    val goalId: Int = 1
+    val goalId: Int = 0
 
     private val goalsList = ArrayList<Goal>()
     ///private val goalsList = ParentItemList()
@@ -57,13 +57,18 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        File_Manager.Write_goal("1","1",1,1)
-        File_Manager.Write_goal("2","2",1,1)
+        File_Manager.Write_goal( "Первая зddадача", "Это первая задача", 1000, 1);
+        File_Manager.Write_task(1,  "Вторая задача", "Это вторая задача", 20, 10);
+        File_Manager.Write_task(1,  "Третья задача", "Это третья задача", 200, 7);
+        File_Manager.Write_task(1,  "Четвёртая задача", "Это четвёртая задача", 40, 3);
 
-//        File_Manager.Find_task_by_id(1, 1)
-//        for (i in File_Manager.Find_task_by_id(File_Manager.listFiles()[1], File_Manager.listFiles()[1]).children){
-//            goalsList.add(File_Manager.Find_task_by_id(File_Manager.listFiles()[1], i))
-//        }
+        File_Manager.connect_children_to_parent(1, 2, 1);
+        File_Manager.connect_children_to_parent(1, 3, 1);
+        File_Manager.connect_children_to_parent(1, 4, 2);
+
+        for (i in File_Manager.Find_task_by_id(File_Manager.listFiles().get(0), File_Manager.listFiles().get(0)).children){
+            goalsList.add(File_Manager.Find_task_by_id(File_Manager.listFiles().get(0), i))
+        }
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
@@ -120,7 +125,7 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
                 scaleAnimation.fillAfter = true
 
                 // initialising the scrollview
-                val layout = binding.l2.rcView
+                val layout = binding.l2.layout
 
                 // we are setting it as animation
                 layout.startAnimation(scaleAnimation)
@@ -149,8 +154,12 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
     }
 
     override fun onBranchClick(position: Int, goal: Goal) {
-       val a = 3
-        //Toast.makeText(this, "переходим к просмотру подзадач", Toast.LENGTH_LONG).show()
+        val a = 3
+        val dialog: Dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.activity_menu_two)
+
+        dialog.show()
     }
 
     override fun onLongBranchClick(position: Int, goal: Goal) {
