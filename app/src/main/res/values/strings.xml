@@ -21,14 +21,14 @@
     <string name="msg21">Потомков оставить, саму задачу сделать целью</string>
     <string name="lbl33">Сохранить</string>
     <string name="lbl">Мои цели</string>
-    <string name="lbl34">При удалении:</string>
+    <string name="lbl34">Удаление ветки</string>
     <string name="msg23">Сохранить дочерние ветки</string>
     <string name="lbl35">Удалить всё</string>
     <string name="lbl_1">Цель 1</string>
     <string name="msg20">Переместить с потомками </string>
     <string name="msg15">Процент достижения задачи</string>
-    <string name="msg14">Добавление новой цели</string>
-    <string name="msg17">Добавление новой задачи</string>
+    <string name="msg14">Новая цель</string>
+    <string name="msg17">Новая задача</string>
     <string name="msg16">Ваш процент достижения задачи составляет 75%</string>
     <string name="lbl20">Вид диаграммы</string>
     <string name="msg11">Добро пожаловать в "Фишлист"!
@@ -81,4 +81,25 @@
     <string name="lbl37">Дальше</string>
     <string name="lbl40">Добавить</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_priority_value">1</string>
+    <string name="error_empty_goal_name">Название не может быть пустым</string>
+    <string name="goal_change_level">Сделать подцелью</string>
+    <string-array name="dialog_actions_with_task">
+        <item>Добавить</item>
+        <item>Изменить</item>
+        <item>Удалить</item>
+        <item>Вынести в отдельную цель</item>
+    </string-array>
+    <string-array name="dialog_delete_task">
+        <item>Удалить всё</item>
+        <item>Сохранить дочерние ветки</item>
+    </string-array>
+    <string name="change_action">Выберите действие</string>
+    <string-array name="dialog_separate_target">
+        <item>Дублировать</item>
+        <item>Переместить с потомками</item>
+        <item>Потомков оставить, саму задачу сделать целью</item>
+    </string-array>
+    <string name="choise_action_when_separate_target">Вынесение в отдельную цель</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

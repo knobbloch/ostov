@@ -30,8 +30,8 @@
                         android:layout_marginTop="@dimen/_3pxv"
                         android:layout_width="@dimen/_32pxh"
                         android:scaleType="fitXY"
-                        android:src="@drawable/img_menu_indigo_900"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_menu_indigo_900"/>
+                        android:src="@drawable/ic_menu"
+                        tools:ignore="ContentDescription" tools:src="@drawable/ic_menu"/>
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtNine"
                         android:layout_height="wrap_content"
