@@ -50,7 +50,7 @@
                     android:checkedButton="@+id/radio_button_1">
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/radioButton3"
+                        android:id="@+id/diagramView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layoutDirection="rtl"
@@ -59,7 +59,7 @@
                         android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/radioButton4"
+                        android:id="@+id/listView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layoutDirection="rtl"

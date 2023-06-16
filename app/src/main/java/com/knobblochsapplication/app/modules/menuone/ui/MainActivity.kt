@@ -7,12 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.utility.AppStorage
-import com.knobblochsapplication.app.appcomponents.utility.Node
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
@@ -59,121 +59,32 @@ class MainActivity : AppCompatActivity() {
                     startActivity(myIntent)
                     true
                 }
-
                 else -> false
             }
         }
-        binding.include.addGoalBtn.setOnClickListener {
-            MaterialAlertDialogBuilder(this)
-                .setNeutralButton(R.string.lbl21) { dialog, _ ->
-                    dialog.dismiss()
-                }
-                .setItems(R.array.dialog_actions_with_task) { dialog, which ->
-                    when (which) {
-                        0 -> {
-                            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
-                            ft.addToBackStack(null)
-                            val newFragment: DialogFragment = CreateTaskDialogFragment.newInstance()
-                            newFragment.show(ft, "dialog")
-
-                            dialog.dismiss()
-                        }
-
-                        1 -> {
-                            dialog.dismiss()
-                        }
-
-                        2 -> {
-                            MaterialAlertDialogBuilder(this)
-                                .setNegativeButton(R.string.lbl21) { dialog, _ ->
-                                    dialog.dismiss()
-                                }
-                                .setPositiveButton(R.string.lbl22) { dialog, _ ->
-                                    dialog.dismiss()
-                                }
-                                .setSingleChoiceItems(
-                                    R.array.dialog_delete_task,
-                                    0
-                                ) { dialog, which ->
-                                    when (which) {
-                                        0 -> {}
-
-                                        1 -> {}
-                                    }
-                                }
-                                .setTitle(R.string.lbl34)
-                                .show()
-                            dialog.dismiss()
-
-                        }
-
-                        3 -> {
-                            MaterialAlertDialogBuilder(this)
-                                .setNegativeButton(R.string.lbl21) { dialog, _ ->
-                                    dialog.dismiss()
-                                }
-                                .setPositiveButton(R.string.lbl36) { dialog, _ ->
-                                    dialog.dismiss()
-                                }
-                                .setSingleChoiceItems(
-                                    R.array.dialog_separate_target,
-                                    0
-                                ) { dialog, which ->
-                                    when (which) {
-                                        0 -> {}
-                                        1 -> {}
-                                        2 -> {}
-                                    }
-                                }
-                                .setTitle(R.string.choise_action_when_separate_target)
-                                .show()
-                            dialog.dismiss()
-
-                        }
-                    }
-                }
-                .setTitle(R.string.change_action)
-                .create()
-                .show()
+        binding.addGoalBtn.setOnClickListener {
+            showTaskDialog()
         }
     }
 
     override fun onResume() {
         super.onResume()
         val uid = preferenceHelper.getLastSelectedGoal()
-        //todo перерисовать рыбу
         if (uid !== null) {
             lastSelectedGoalUid = uid
-            updateTree()
+        }
+        if (preferenceHelper.isDiagramSelected()) {
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            ft.replace(R.id.fragmentContainer, DiagramViewFragment(), "diagram_view")
+            ft.commit()
         } else {
-            binding.include.goalName.text = ""
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            ft.replace(R.id.fragmentContainer, ListViewFragment(), "list_view")
+            ft.commit()
         }
 
     }
 
-    fun updateTree() {
-        //todo debug
-        val goal = appStorage.getGoalByUid(lastSelectedGoalUid)
-        if (goal !== null) {
-            binding.include.goalName.text = PrintTree(goal, "", false)
-        }
-    }
-
-    fun PrintTree(
-        tree: Node,
-        indent: String,
-        last: Boolean
-    ):String {
-        //todo debug
-        var indent = indent
-        var s = ""
-        s+= indent + "+- p:" + tree.priority+" "+tree.name+"\n"
-        indent += if (last) "   " else "|  "
-        for (i in 0 until tree.tasks.count()) {
-            s+=PrintTree(tree.tasks[i], indent, i == tree.tasks.count() - 1)
-        }
-        return s
-    }
     fun onClickGoSettings(item: MenuItem) {
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
@@ -192,6 +103,96 @@ class MainActivity : AppCompatActivity() {
     fun onClickGoDownloadList(item: MenuItem) {
         val intent = Intent(this, DownloadListActivity::class.java)
         startActivity(intent)
+    }
+
+    fun updateView() {
+        val allFragments: List<Fragment> = supportFragmentManager.fragments
+        for(fragment in allFragments) {
+            if (fragment is ListViewFragment) {
+                fragment.updateTree()
+            }
+        }
+    }
+
+    fun showTaskDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setNeutralButton(R.string.lbl21) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setItems(R.array.dialog_actions_with_task) { dialog, which ->
+                when (which) {
+                    0 -> {
+                        showCreateTaskDialogFragment()
+                        dialog.dismiss()
+                    }
+                    1 -> {
+                        dialog.dismiss()
+                    }
+                    2 -> {
+                        showDialogDeleteTask()
+                        dialog.dismiss()
+                    }
+                    3 -> {
+                        showDialogSeparateTarget()
+                        dialog.dismiss()
+                    }
+                }
+            }
+            .setTitle(R.string.change_action)
+            .create()
+            .show()
+    }
+
+    fun showCreateTaskDialogFragment() {
+        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+        ft.addToBackStack(null)
+        val newFragment: DialogFragment = CreateTaskDialogFragment.newInstance()
+        newFragment.show(ft, "dialog")
+
+    }
+
+    fun showDialogSeparateTarget() {
+        MaterialAlertDialogBuilder(this)
+            .setNegativeButton(R.string.lbl21) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(R.string.lbl36) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setSingleChoiceItems(
+                R.array.dialog_separate_target,
+                0
+            ) { dialog, which ->
+                when (which) {
+                    0 -> {}
+                    1 -> {}
+                    2 -> {}
+                }
+            }
+            .setTitle(R.string.choise_action_when_separate_target)
+            .show()
+    }
+
+    fun showDialogDeleteTask() {
+        MaterialAlertDialogBuilder(this)
+            .setNegativeButton(R.string.lbl21) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(R.string.lbl22) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setSingleChoiceItems(
+                R.array.dialog_delete_task,
+                0
+            ) { dialog, which ->
+                when (which) {
+                    0 -> {}
+
+                    1 -> {}
+                }
+            }
+            .setTitle(R.string.lbl34)
+            .show()
     }
 
 }

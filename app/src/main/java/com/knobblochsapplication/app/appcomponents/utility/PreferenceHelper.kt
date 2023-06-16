@@ -65,4 +65,16 @@ class PreferenceHelper() {
             .putString(LAST_SELECTED_GOAL, lastSelectedGoal)
             .apply()
     }
+
+    private val DIAGRAM_VIEW_TYPE = "diagram_view_type"
+
+    fun isDiagramSelected() =
+        sharedPreference.getBoolean(DIAGRAM_VIEW_TYPE, false)
+
+    fun setDiagramSelected(isDiagramSelected: Boolean) {
+        sharedPreference
+            .edit()
+            .putBoolean(DIAGRAM_VIEW_TYPE, isDiagramSelected)
+            .apply()
+    }
 }

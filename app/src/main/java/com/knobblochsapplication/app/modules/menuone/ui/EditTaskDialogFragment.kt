@@ -68,8 +68,6 @@ class EditTaskDialogFragment : DialogFragment() {
             task.priority = binding.editPriority.text.toString().toInt()
             task.isDone = binding.finished.isChecked
             task.description = binding.goalDescription.text.toString()
-            //todo заменить на рыбу
-            mainActivity.updateTree()
             dismiss()
         }
         binding.editDate.setEndIconOnClickListener {
