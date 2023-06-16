@@ -1,6 +1,7 @@
 package com.knobblochsapplication.app.appcomponents.di
 
 import android.app.Application
+import com.knobblochsapplication.app.appcomponents.utility.AppStorage
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -37,6 +38,15 @@ class MyApp : Application() {
         return prefsModule
     }
 
+    private fun storageModule(): Module {
+        val storageModule = module {
+            single {
+                AppStorage(this@MyApp).loadAll()
+            }
+        }
+        return storageModule
+    }
+
     /**
      * method which returns the list of koin module to register
      * @return MutableList<Module> - list of koin modules
@@ -44,6 +54,7 @@ class MyApp : Application() {
     private fun getKoinModules(): MutableList<Module> {
         val koinModules = mutableListOf<Module>()
         koinModules.add(preferenceModule()) //register preference module
+        koinModules.add(storageModule())
         return koinModules
     }
 

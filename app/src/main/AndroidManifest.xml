@@ -18,34 +18,10 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.menutwo.ui.MenuTwoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.changetask.ui.ChangeTaskActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.percentageoftask.ui.PercentageOfTaskActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.menu.ui.MenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.addtask.ui.AddTaskActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.goalsdelete.ui.GoalsDeleteActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".modules.diagramview.ui.DiagramViewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".modules.percentageofgoal.ui.PercentageOfGoalActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".modules.helpscreenthree.ui.HelpScreenThreeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.menuunion.ui.MenuUnionActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.settings.ui.SettingsActivity"
@@ -73,13 +49,7 @@
             android:name=".modules.goals.ui.GoalsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".modules.goalsuniontwo.ui.GoalsUniontwoActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".modules.helpscreenone.ui.HelpScreenOneActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.cautionpriority.ui.CautionPriorityActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.helpscreenfour.ui.HelpScreenFourActivity"

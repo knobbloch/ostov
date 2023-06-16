@@ -48,7 +48,7 @@
     <string name="msg3">Выберите по каким критериям вы бы хотели отсортировать скачиваемый список</string>
     <string name="msg2">Скачивание списка</string>
     <string name="msg8">Ваш процент достижения цели составляет 75%</string>
-    <string name="lbl_75">75%</string>
+    <string name="lbl_75">0%</string>
     <string name="lbl_3_1">48</string>
     <string name="msg7">Процент достижения цели</string>
     <string name="msg6">Вы уверены, что хотите удалить цель?</string>
@@ -73,7 +73,7 @@
     <string name="lbl40">Добавить</string>
     <string name="default_priority_value">1</string>
     <string name="error_empty_goal_name">Название не может быть пустым</string>
-    <string name="goal_change_level">Сделать подцелью</string>
+    <string name="goal_change_level">Сделать задачей</string>
     <string-array name="dialog_actions_with_task">
         <item>Добавить</item>
         <item>Изменить</item>
@@ -91,8 +91,7 @@
         <item>Потомков оставить, саму задачу сделать целью</item>
     </string-array>
     <string name="choise_action_when_separate_target">Вынесение в отдельную цель</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
+    <string name="activity_goal_union_title">Выберите цель</string>
+    <string name="toast_select_goal">Необходимо выбрать цель, чтобы продолжить</string>
+    <string name="toast_union_goal">Необходимо минимум две цили</string>
 </resources>

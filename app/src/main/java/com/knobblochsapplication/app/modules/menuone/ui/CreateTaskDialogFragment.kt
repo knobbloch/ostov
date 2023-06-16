@@ -9,24 +9,22 @@ import androidx.fragment.app.DialogFragment
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.knobblochsapplication.app.R
+import com.knobblochsapplication.app.appcomponents.utility.AppStorage
 import com.knobblochsapplication.app.databinding.FragmentCreateTaskBinding
+import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
+import java.util.*
 
 class CreateTaskDialogFragment : DialogFragment() {
     lateinit var binding: FragmentCreateTaskBinding
+    private val appStorage: AppStorage by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onStart() {
-        super.onStart()
         dialog?.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT
         )
+        setStyle(STYLE_NO_TITLE, R.style.fullscreendialog)
     }
 
     override fun onCreateView(
@@ -43,20 +41,20 @@ class CreateTaskDialogFragment : DialogFragment() {
             dismiss()
         }
         binding.btnAdd.setOnClickListener {
-            var goalsActivity = this.activity as MainActivity
+            var mainActivity = this.activity as MainActivity
             if (binding.goalName.text.toString().isEmpty()) {
                 binding.editName.error = getString(R.string.error_empty_goal_name)
                 return@setOnClickListener
             }
-//            val goal = Goal(
-//                binding.goalName.text.toString(),
-//                binding.goalDeadline.text.toString(),
-//                binding.editPriority.text.toString().toInt(),
-//                false,
-//                binding.goalDescription.text.toString()
-////            )
-//            goalsActivity.goalsList.add(goal)
-//            goalsActivity.adapter.notifyDataSetChanged()
+            appStorage.addTask(
+                mainActivity.lastSelectedGoalUid,
+                binding.goalName.text.toString(),
+                binding.goalDeadline.text.toString(),
+                binding.editPriority.text.toString().toInt(),
+                binding.goalDescription.text.toString()
+            )
+            //todo заменить, когда будет рыба
+            mainActivity.updateTree()
             dismiss()
         }
         binding.editDate.setEndIconOnClickListener {

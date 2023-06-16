@@ -9,28 +9,38 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.divider.MaterialDividerItemDecoration
 import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
+import com.knobblochsapplication.app.appcomponents.utility.AppStorage
+import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityGoalsBinding
 import com.knobblochsapplication.app.modules.goals.data.viewmodel.GoalsVM
+import com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity
+import org.koin.android.ext.android.inject
 
 
 class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals),
     GoalsAdapter.Listener {
     private val viewModel: GoalsVM by viewModels<GoalsVM>()
-    val goalsList = ArrayList<Goal>()
-    val adapter = GoalsAdapter(this, goalsList)
+    private val appStorage: AppStorage by inject()
+    private val preferenceHelper: PreferenceHelper by inject()
+    lateinit var adapter:GoalsAdapter
+
+    override fun addObservers(): Unit {
+        adapter = GoalsAdapter(this, appStorage.goals)
+    }
 
     override fun onInitialized(): Unit {
         viewModel.navArguments = intent.extras?.getBundle("bundle")
         binding.goalsVM = viewModel
         window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
         setContentView(binding.root)
-        val divider = MaterialDividerItemDecoration(this, LinearLayoutManager.HORIZONTAL)
-        divider.isLastItemDecorated = false
-        binding.rcView.addItemDecoration(divider)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged()
     }
 
     override fun setUpClicks(): Unit {
@@ -57,20 +67,21 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
         }
     }
 
-
     override fun onGoalClick(position: Int) {
-        Toast.makeText(this, "переходим к просмотру подзадач", Toast.LENGTH_LONG).show()
+        preferenceHelper.setLastSelectedGoal(appStorage.goals[position].uid)
+        this.finish()
     }
 
-    override fun onBtnDeleteClick(position: Int) {
+    override fun onBtnDeleteClick(position: Int, uid: String) {
         MaterialAlertDialogBuilder(this)
             .setMessage(getString(R.string.msg6))
             .setNegativeButton(R.string.lbl21) { dialog, _ ->
                 dialog.dismiss()
             }
             .setPositiveButton(R.string.lbl22) { dialog, _ ->
-                this.goalsList.removeAt(position)
+                appStorage.remove(uid)
                 adapter.notifyItemRemoved(position)
+                preferenceHelper.setLastSelectedGoal(null)
                 dialog.dismiss()
             }
             .show()
@@ -85,6 +96,12 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
     }
 
     override fun onBtnChangeLevelClick(position: Int) {
-
+        if (appStorage.goals.count() == 1) {
+            Toast.makeText(this@GoalsActivity, R.string.toast_union_goal, Toast.LENGTH_LONG).show()
+            return
+        }
+        preferenceHelper.setLastSelectedGoal(appStorage.goals[position].uid)
+        val myIntent = Intent(this, GoalsUnionActivity::class.java)
+        this.startActivity(myIntent)
     }
 }

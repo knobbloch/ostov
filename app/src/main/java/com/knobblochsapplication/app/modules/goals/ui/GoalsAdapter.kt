@@ -5,25 +5,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.knobblochsapplication.app.R
+import com.knobblochsapplication.app.appcomponents.utility.Node
 import com.knobblochsapplication.app.databinding.GoalItemBinding
 
-class GoalsAdapter(val listener: Listener, private val goalsList: ArrayList<Goal>) :
+class GoalsAdapter(val listener: Listener, private val goalsList: MutableList<Node>) :
     RecyclerView.Adapter<GoalsAdapter.GoalHolder>() {
-
 
     class GoalHolder(item: View) : RecyclerView.ViewHolder(item) {
         val binding = GoalItemBinding.bind(item)
 
-
-        fun bind(goal: Goal, listener: Listener) = with(binding) {
-            txtNamegoal.text = goal.goalName
-            txtAboutgoal.text = goal.goalDescription
-            deadline.text = goal.goalDeadline
+        fun bind(goal: Node, listener: Listener) = with(binding) {
+            txtNamegoal.text = goal.name
+            txtAboutgoal.text = goal.description
+            deadline.text = goal.deadline
             itemView.setOnClickListener {
                 listener.onGoalClick(adapterPosition)
             }
             btnDelete.setOnClickListener {
-                listener.onBtnDeleteClick(adapterPosition)
+                listener.onBtnDeleteClick(adapterPosition, goal.uid)
             }
             btnEdit.setOnClickListener {
                 listener.onBtnEditClick(adapterPosition)
@@ -50,7 +49,7 @@ class GoalsAdapter(val listener: Listener, private val goalsList: ArrayList<Goal
 
     interface Listener {
         fun onGoalClick(position: Int)
-        fun onBtnDeleteClick(position: Int)
+        fun onBtnDeleteClick(position: Int, uid: String)
         fun onBtnEditClick(position: Int)
         fun onBtnChangeLevelClick(position: Int)
     }

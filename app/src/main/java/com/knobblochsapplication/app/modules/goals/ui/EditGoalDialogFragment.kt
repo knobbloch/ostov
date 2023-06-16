@@ -8,24 +8,28 @@ import androidx.fragment.app.DialogFragment
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.knobblochsapplication.app.R
+import com.knobblochsapplication.app.appcomponents.utility.AppStorage
 import com.knobblochsapplication.app.databinding.FragmentEditGoalBinding
+import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.*
 
 class EditGoalDialogFragment : DialogFragment() {
     lateinit var binding: FragmentEditGoalBinding
+    private val appStorage: AppStorage by inject()
     var position = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onStart() {
-        super.onStart()
+        // for fullscreen
         dialog?.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT
         )
+        setStyle(STYLE_NO_TITLE, R.style.fullscreendialog)
+    }
+
+    override fun onStart() {
+        super.onStart()
     }
 
     override fun onCreateView(
@@ -33,13 +37,12 @@ class EditGoalDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentEditGoalBinding.inflate(layoutInflater)
-        var goalsActivity:GoalsActivity = this.activity as GoalsActivity
-        var goal = goalsActivity.goalsList[position]
-        binding.goalName.setText(goal.goalName)
-        binding.goalDeadline.setText(goal.goalDeadline)
-        binding.editPriority.text = goal.goalPriority.toString()
-        binding.finished.isChecked = goal.goalIsDone
-        binding.goalDescription.setText(goal.goalDescription)
+        val goal = appStorage.goals[position]
+        binding.goalName.setText(goal.name)
+        binding.goalDeadline.setText(goal.deadline)
+        binding.editPriority.text = goal.priority.toString()
+        binding.finished.isChecked = goal.isDone
+        binding.goalDescription.setText(goal.description)
 
         return binding.root
     }
@@ -50,19 +53,19 @@ class EditGoalDialogFragment : DialogFragment() {
             dismiss()
         }
         binding.btnSave.setOnClickListener {
-            var goalsActivity = this.activity as GoalsActivity
+            val goalsActivity = this.activity as GoalsActivity
             if (binding.goalName.text.toString().isEmpty()){
                 binding.editName.error = getString(R.string.error_empty_goal_name)
                 return@setOnClickListener
             }
-            val goal = Goal(
-                binding.goalName.text.toString(),
-                binding.goalDeadline.text.toString(),
-                binding.editPriority.text.toString().toInt(),
-                binding.finished.isChecked,
-                binding.goalDescription.text.toString()
-            )
-            goalsActivity.goalsList[position] = goal
+
+            val goal = appStorage.goals[position]
+            goal.name = binding.goalName.text.toString()
+            goal.deadline = binding.goalDeadline.text.toString()
+            goal.priority = binding.editPriority.text.toString().toInt()
+            goal.isDone = binding.finished.isChecked
+            goal.description = binding.goalDescription.text.toString()
+            appStorage.goals[position] = goal
             goalsActivity.adapter.notifyItemChanged(position)
             dismiss()
         }

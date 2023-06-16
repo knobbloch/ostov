@@ -5,18 +5,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.knobblochsapplication.app.R
+import com.knobblochsapplication.app.appcomponents.utility.Node
 import com.knobblochsapplication.app.databinding.GoalUnionItemBinding
-import com.knobblochsapplication.app.modules.goals.ui.Goal
 
-class GoalsUnionAdapter(private val goalsUnionList: ArrayList<Goal>) :
+class GoalsUnionAdapter(val listener: Listener, private val goalsList: MutableList<Node>) :
     RecyclerView.Adapter<GoalsUnionAdapter.GoalHolder>() {
 
     class GoalHolder(item: View) : RecyclerView.ViewHolder(item) {
         val binding = GoalUnionItemBinding.bind(item)
 
-        fun bind(goal: Goal) = with(binding) {
-            txtNamegoal.text = goal.goalName
-            txtAboutgoal.text = goal.goalDescription
+        fun bind(goal: Node, listener: Listener) = with(binding) {
+            txtNamegoal.text = goal.name
+            txtAboutgoal.text = goal.description
+            deadline.text = goal.deadline
+            radio.setOnCheckedChangeListener { _, _ ->
+                listener.onBtnRadioClick(adapterPosition, goal.uid)
+            }
         }
     }
 
@@ -27,13 +31,14 @@ class GoalsUnionAdapter(private val goalsUnionList: ArrayList<Goal>) :
     }
 
     override fun getItemCount(): Int {
-        return goalsUnionList.size
+        return goalsList.size
     }
 
     override fun onBindViewHolder(holder: GoalHolder, position: Int) {
-        holder.bind(goalsUnionList[position])
+        holder.bind(goalsList[position], listener)
     }
 
-
-
+    interface Listener {
+        fun onBtnRadioClick(position: Int, uid: String)
+    }
 }

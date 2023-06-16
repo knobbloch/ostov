@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/completionPercentage"
+        android:title="@string/lbl_75"
+        android:contentDescription="@string/app_name"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/list"
         android:icon="@drawable/ic_checklist"
         android:title="@string/app_name"

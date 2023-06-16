@@ -8,22 +8,27 @@ import androidx.fragment.app.DialogFragment
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.knobblochsapplication.app.R
+import com.knobblochsapplication.app.appcomponents.utility.AppStorage
 import com.knobblochsapplication.app.databinding.FragmentCreateGoalBinding
+import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.*
 
 class CreateGoalDialogFragment : DialogFragment() {
     lateinit var binding: FragmentCreateGoalBinding
+    private val appStorage: AppStorage by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-    }
-
-    override fun onStart() {
-        super.onStart()
+        // for fullscreen
         dialog?.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT
         )
+        setStyle(STYLE_NO_TITLE, R.style.fullscreendialog)
+    }
+
+    override fun onStart() {
+        super.onStart()
     }
 
     override fun onCreateView(
@@ -45,14 +50,12 @@ class CreateGoalDialogFragment : DialogFragment() {
                 binding.editName.error = getString(R.string.error_empty_goal_name)
                 return@setOnClickListener
             }
-            val goal = Goal(
+            appStorage.addGoal(
                 binding.goalName.text.toString(),
                 binding.goalDeadline.text.toString(),
                 binding.editPriority.text.toString().toInt(),
-                false,
                 binding.goalDescription.text.toString()
             )
-            goalsActivity.goalsList.add(goal)
             goalsActivity.adapter.notifyDataSetChanged()
             dismiss()
         }
@@ -98,7 +101,6 @@ class CreateGoalDialogFragment : DialogFragment() {
     companion object {
         fun newInstance(): CreateGoalDialogFragment {
             val f = CreateGoalDialogFragment()
-
             return f
         }
     }

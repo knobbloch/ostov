@@ -53,4 +53,16 @@ class PreferenceHelper() {
             .putBoolean(IS_HELP_PAGE_SHOWED, isShowed)
             .apply()
     }
+
+    private val LAST_SELECTED_GOAL = "last_selected_goal"
+
+    fun getLastSelectedGoal() =
+        sharedPreference.getString(LAST_SELECTED_GOAL, null)
+
+    fun setLastSelectedGoal(lastSelectedGoal: String?) {
+        sharedPreference
+            .edit()
+            .putString(LAST_SELECTED_GOAL, lastSelectedGoal)
+            .apply()
+    }
 }

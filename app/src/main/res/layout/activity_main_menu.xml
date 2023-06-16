@@ -28,7 +28,7 @@
 
         <include
             android:id="@+id/include"
-            layout="@layout/activity_goal_scheme" />
+            layout="@layout/layout_goal_scheme" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

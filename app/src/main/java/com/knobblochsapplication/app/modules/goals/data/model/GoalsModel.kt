@@ -2,7 +2,6 @@ package com.knobblochsapplication.app.modules.goals.`data`.model
 
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.di.MyApp
-import kotlin.String
 
 data class GoalsModel(
   /**
@@ -23,11 +22,5 @@ data class GoalsModel(
   /**
    * TODO Replace with dynamic value
    */
-  var txtNamegoalOne: String? = MyApp.getInstance().resources.getString(R.string.lbl_22)
-  ,
-  /**
-   * TODO Replace with dynamic value
-   */
-  var txtAboutgoalOne: String? = MyApp.getInstance().resources.getString(R.string.lbl2)
-
+  var deadline: String? = MyApp.getInstance().resources.getString(R.string.lbl17)
 )

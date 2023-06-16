@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 def koin_version = "2.1.6"
@@ -17,7 +18,7 @@ android {
 
     defaultConfig {
         applicationId "com.knobblochsapplication.app"
-        minSdkVersion 23
+        minSdkVersion 26 //todo 23
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
@@ -83,5 +84,7 @@ dependencies {
     implementation "com.airbnb.android:lottie:3.4.0"
 
     implementation 'com.vmadalin:easypermissions-ktx:0.1.0'
+    implementation 'org.apache.poi:poi:5.2.2'
+    implementation 'org.apache.poi:poi-ooxml:5.2.2'
 }
 

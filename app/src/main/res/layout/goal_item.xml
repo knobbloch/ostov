@@ -98,21 +98,4 @@
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
-    <!--    <com.google.android.material.textview.MaterialTextView-->
-    <!--        android:id="@+id/txtNamegoal"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginBottom="8dp"-->
-    <!--        android:text="@string/lbl_1"-->
-    <!--        android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/txtAboutgoal"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_marginBottom="8dp"-->
-    <!--        android:text="@string/lbl2"-->
-    <!--        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"-->
-    <!--        tools:text="@string/msg4" />-->
-
 </LinearLayout>

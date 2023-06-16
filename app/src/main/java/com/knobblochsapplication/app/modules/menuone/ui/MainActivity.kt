@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
+import com.knobblochsapplication.app.appcomponents.utility.AppStorage
+import com.knobblochsapplication.app.appcomponents.utility.Node
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
@@ -21,9 +23,12 @@ import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
 import org.koin.android.ext.android.inject
 
+
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainMenuBinding
     private val preferenceHelper: PreferenceHelper by inject()
+    private val appStorage: AppStorage by inject()
+    lateinit var lastSelectedGoalUid: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
@@ -59,7 +64,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.include.addGoalBtn.setOnClickListener {
-
             MaterialAlertDialogBuilder(this)
                 .setNeutralButton(R.string.lbl21) { dialog, _ ->
                     dialog.dismiss()
@@ -134,6 +138,42 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val uid = preferenceHelper.getLastSelectedGoal()
+        //todo перерисовать рыбу
+        if (uid !== null) {
+            lastSelectedGoalUid = uid
+            updateTree()
+        } else {
+            binding.include.goalName.text = ""
+        }
+
+    }
+
+    fun updateTree() {
+        //todo debug
+        val goal = appStorage.getGoalByUid(lastSelectedGoalUid)
+        if (goal !== null) {
+            binding.include.goalName.text = PrintTree(goal, "", false)
+        }
+    }
+
+    fun PrintTree(
+        tree: Node,
+        indent: String,
+        last: Boolean
+    ):String {
+        //todo debug
+        var indent = indent
+        var s = ""
+        s+= indent + "+- p:" + tree.priority+" "+tree.name+"\n"
+        indent += if (last) "   " else "|  "
+        for (i in 0 until tree.tasks.count()) {
+            s+=PrintTree(tree.tasks[i], indent, i == tree.tasks.count() - 1)
+        }
+        return s
+    }
     fun onClickGoSettings(item: MenuItem) {
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
