@@ -21,6 +21,7 @@ import com.knobblochsapplication.app.modules.goals.ui.GoalsActivity
 import com.knobblochsapplication.app.modules.helpscreenone.ui.HelpScreenOneActivity
 import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
+import okhttp3.internal.notify
 import org.koin.android.ext.android.inject
 
 
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(myIntent)
                     true
                 }
+
                 else -> false
             }
         }
@@ -107,9 +109,14 @@ class MainActivity : AppCompatActivity() {
 
     fun updateView() {
         val allFragments: List<Fragment> = supportFragmentManager.fragments
-        for(fragment in allFragments) {
+        for (fragment in allFragments) {
             if (fragment is ListViewFragment) {
                 fragment.updateTree()
+                continue
+            }
+            if (fragment is DiagramViewFragment) {
+                fragment.adapter.notifyDataSetChanged()
+                fragment.adapterRight.notifyDataSetChanged()
             }
         }
     }
@@ -125,13 +132,16 @@ class MainActivity : AppCompatActivity() {
                         showCreateTaskDialogFragment()
                         dialog.dismiss()
                     }
+
                     1 -> {
                         dialog.dismiss()
                     }
+
                     2 -> {
                         showDialogDeleteTask()
                         dialog.dismiss()
                     }
+
                     3 -> {
                         showDialogSeparateTarget()
                         dialog.dismiss()

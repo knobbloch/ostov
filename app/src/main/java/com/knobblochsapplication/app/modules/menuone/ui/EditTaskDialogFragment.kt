@@ -9,6 +9,7 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.utility.AppStorage
+import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.FragmentEditTaskBinding
 import com.knobblochsapplication.app.modules.menuone.ui.MainActivity
 import org.koin.android.ext.android.inject
@@ -18,7 +19,9 @@ import java.util.*
 class EditTaskDialogFragment : DialogFragment() {
     lateinit var binding: FragmentEditTaskBinding
     private val appStorage: AppStorage by inject()
+    private val preferenceHelper: PreferenceHelper by inject()
     var position = 0
+    var uid: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // for fullscreen
@@ -37,13 +40,25 @@ class EditTaskDialogFragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val goalUid = preferenceHelper.getLastSelectedGoal()
         binding = FragmentEditTaskBinding.inflate(layoutInflater)
-        var task = appStorage.goals[position]
-        binding.goalName.setText(task.name)
-        binding.goalDeadline.setText(task.deadline)
-        binding.editPriority.text = task.priority.toString()
-        binding.finished.isChecked = task.isDone
-        binding.goalDescription.setText(task.description)
+        if (goalUid != null && uid != null) {
+            val goal = appStorage.getGoalByUid(goalUid)
+            if (goal != null) {
+                val task = goal.getTaskByUid(uid!!)
+                if (task != null) {
+                    binding.goalDeadline.setText(task.deadline)
+                    binding.editPriority.text = task.priority.toString()
+                    binding.finished.isChecked = task.isDone
+                    binding.goalDescription.setText(task.description)
+
+                }
+
+            }
+
+        }
+        binding.goalName.setText(uid)
+
 
         return binding.root
     }
@@ -110,10 +125,11 @@ class EditTaskDialogFragment : DialogFragment() {
     }
 
     companion object {
-        fun newInstance(position:Int): EditGoalDialogFragment {
-            val f = EditGoalDialogFragment()
+        fun newInstance(position:Int, uid: String): EditTaskDialogFragment {
+            val f = EditTaskDialogFragment()
             val args = Bundle()
             args.putInt("position", position)
+            args.putString("uid", uid)
             f.arguments = args
             return f
         }

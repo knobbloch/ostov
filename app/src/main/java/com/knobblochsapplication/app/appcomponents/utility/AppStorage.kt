@@ -81,6 +81,7 @@ class AppStorage(val context: Context) {
             tasks = mutableListOf()
         )
         goal.tasks.add(task)
+        goal.separete()
         saveToFile(goal)
     }
 
