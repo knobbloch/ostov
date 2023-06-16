@@ -1,6 +1,7 @@
 package com.knobblochsapplication.app.appcomponents.di
 
 import android.app.Application
+import android.content.SharedPreferences
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -14,9 +15,12 @@ import org.koin.dsl.module
  */
 class MyApp : Application() {
 
+
     override fun onCreate(): Unit {
         super.onCreate()
         instance = this
+        pref = getSharedPreferences("id", MODE_PRIVATE)
+        put(1)
         startKoin {
             androidLogger()
             androidContext(this@MyApp)
@@ -50,11 +54,20 @@ class MyApp : Application() {
     companion object {
 
         // the application instance
-        private lateinit var instance: MyApp
+        lateinit var instance: MyApp
+
+        lateinit var pref: SharedPreferences
+
 
         /**
          * method to get instance of application object
          */
+        @JvmName("getInstance1")
         fun getInstance(): MyApp = instance
+    }
+
+    fun put(inter: Int) {
+        val edit: SharedPreferences.Editor = pref.edit()
+        edit.putInt("id", inter)
     }
 }

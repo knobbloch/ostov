@@ -29,14 +29,14 @@ public class Doxc_File{
 
             xwpfRun = Doxc_File.collecting_information(context, goal_id, goal_id, "1.", xwpfRun);
 
-            Doxc_File.writeing(context, xwpfDocument, File_Manager.Find_task_by_id(context,goal_id,goal_id).getName());
+            Doxc_File.writeing(context, xwpfDocument, File_Manager.Find_task_by_id(goal_id,goal_id).getName());
         }else{
             PermissionUtils.requestPermissions((Activity) context, PERMISSION_STORAGE);
         }
     }
 
     public static XWPFRun collecting_information(Context context,int goal_id,int task_id,String nomber,XWPFRun xwpfRun ) throws IOException {
-        Goal finder=File_Manager.Find_task_by_id(context,goal_id,task_id);
+        Goal finder=File_Manager.Find_task_by_id(goal_id,task_id);
 
         xwpfRun.setText(nomber+" "+finder.getName());xwpfRun.addBreak();
         xwpfRun.setText("ранг важности:" +finder.getRank());xwpfRun.addBreak();
