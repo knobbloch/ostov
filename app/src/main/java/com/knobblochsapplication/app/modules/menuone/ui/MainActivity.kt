@@ -66,9 +66,14 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
         File_Manager.Write_task(1,  "Третья задача", "Это третья задача", 200, 7);
         File_Manager.Write_task(1,  "Четвёртая задача", "Это четвёртая задача", 40, 3);
 
+        File_Manager.Write_task(1,  "пятая задача", "Это вторая задача", 20, 10);
+        File_Manager.Write_task(1,  "Шестая задача", "Это третья задача", 200, 7);
+        File_Manager.Write_task(1,  "Седьмая задача", "Это четвёртая задача", 40, 3);
+
         File_Manager.connect_children_to_parent(1, 2, 1);
         File_Manager.connect_children_to_parent(1, 3, 1);
         File_Manager.connect_children_to_parent(1, 4, 2);
+
 
         for (i in File_Manager.Find_task_by_id(File_Manager.listFiles().get(0), File_Manager.listFiles().get(0)).children){
             goalsList.add(File_Manager.Find_task_by_id(File_Manager.listFiles().get(0), i))
@@ -162,13 +167,79 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
         }
     }
 
-    override fun onBranchClick(position: Int, goal: Goal) {
-        val a = 3
-        val dialog: Dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.activity_menu_two)
+    override fun onBranchClick(position: Int, goal: Int) {
+        //this.goalId
+        MaterialAlertDialogBuilder(this)
+            .setNeutralButton(R.string.lbl21) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setItems(R.array.dialog_actions_with_task) { dialog, which ->
+                when (which) {
+                    0 -> {
+                        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+                        ft.addToBackStack(null)
+                        val newFragment: DialogFragment = CreateTaskDialogFragment.newInstance()
+                        newFragment.show(ft, "dialog")
 
-        dialog.show()
+                        dialog.dismiss()
+                    }
+
+                    1 -> {
+                        dialog.dismiss()
+                    }
+
+                    2 -> {
+                        MaterialAlertDialogBuilder(this)
+                            .setNegativeButton(R.string.lbl21) { dialog, _ ->
+                                dialog.dismiss()
+                            }
+                            .setPositiveButton(R.string.lbl22) { dialog, _ ->
+                                dialog.dismiss()
+                            }
+                            .setSingleChoiceItems(
+                                R.array.dialog_delete_task,
+                                0
+                            ) { dialog, which ->
+                                when (which) {
+                                    0 -> {}
+
+                                    1 -> {}
+                                }
+                            }
+                            .setTitle(R.string.lbl34)
+                            .show()
+                        dialog.dismiss()
+
+                    }
+
+                    3 -> {
+                        MaterialAlertDialogBuilder(this)
+                            .setNegativeButton(R.string.lbl21) { dialog, _ ->
+                                dialog.dismiss()
+                            }
+                            .setPositiveButton(R.string.lbl36) { dialog, _ ->
+                                dialog.dismiss()
+                            }
+                            .setSingleChoiceItems(
+                                R.array.dialog_separate_target,
+                                0
+                            ) { dialog, which ->
+                                when (which) {
+                                    0 -> {}
+                                    1 -> {}
+                                    2 -> {}
+                                }
+                            }
+                            .setTitle(R.string.choise_action_when_separate_target)
+                            .show()
+                        dialog.dismiss()
+
+                    }
+                }
+            }
+            .setTitle(R.string.change_action)
+            .create()
+            .show()
     }
 
     override fun onLongBranchClick(position: Int, goal: Goal) {
@@ -215,6 +286,7 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
 
     fun onClickGoDownloadList(item: MenuItem) {
         val intent = Intent(this, DownloadListActivity::class.java)
+        intent.putExtra("goalId", goalId)
         startActivity(intent)
     }
 
