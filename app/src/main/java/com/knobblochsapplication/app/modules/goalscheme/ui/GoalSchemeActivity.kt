@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityGoalSchemeBinding
-import com.knobblochsapplication.app.modules.goalscheme.data.viewmodel.GoalSchemeVM
+//import com.knobblochsapplication.app.modules.goalscheme.data.viewmodel.GoalSchemeVM
 
 class GoalSchemeActivity {
   /*private val viewModel: GoalSchemeVM by viewModels<GoalSchemeVM>()
