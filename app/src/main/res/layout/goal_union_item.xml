@@ -45,6 +45,7 @@
             <LinearLayout
                 android:id="@+id/linearColumnaboutgoal"
                 style="@style/groupStylegray_50cornerRadius"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8pxv"

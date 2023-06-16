@@ -7,86 +7,49 @@
         <variable name="goalsVM" type="com.knobblochsapplication.app.modules.goals.data.viewmodel.GoalsVM"/>
     </data>
 
-    <FrameLayout
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:paddingStart="8dp"
+                app:navigationIcon="@drawable/img_arrowback"
+                app:title="@string/lbl"
+                app:titleCentered="true" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/linearHeader"
-                style="@style/groupStyleindigo_50"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/_7pxh"
-                android:paddingBottom="@dimen/_6pxh">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/txtText"
-                        style="@style/txtABeeZeeregular20"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="end"
-                        android:letterSpacing="0.01"
-                        android:lineSpacingExtra="@dimen/_4pxh"
-                        android:singleLine="true"
-                        android:text="@string/lbl"
-                        tools:text="@string/lbl" />
-
-                    <FrameLayout
-                        android:id="@+id/frameContainer"
-                        style="@style/groupStyleindigo_300cornerRadius"
-                        android:layout_width="@dimen/_35pxh"
-                        android:layout_height="@dimen/_35pxh"
-                        android:layout_gravity="start
-"
-                        android:layout_marginStart="@dimen/_10pxh">
-
-                        <ImageView
-                            android:id="@+id/imageArrowleft"
-                            android:layout_width="@dimen/_12pxh"
-                            android:layout_height="@dimen/_12pxh"
-                            android:layout_gravity="center"
-                            android:layout_marginHorizontal="@dimen/_12pxh"
-                            android:layout_marginVertical="@dimen/_12pxv"
-                            android:scaleX="-1"
-                            android:src="@drawable/img_arrowleft_white_a700"
-                            tools:src="@drawable/img_arrowleft_white_a700" />
-                    </FrameLayout>
-                </FrameLayout>
-
-            </LinearLayout>
+            android:gravity="start"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/goal_item" />
 
-        </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/addGoalBtn"
-            android:layout_width="@dimen/_68pxh"
-            android:layout_height="@dimen/_66pxh"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="@dimen/_31pxh"
-            android:layout_marginBottom="@dimen/_31pxh"
-            android:background="@drawable/rectangle_bg_indigo_400_cc_radius_33"
-            android:paddingHorizontal="@dimen/_21pxh"
-            android:paddingVertical="@dimen/_21pxv"
-            android:scaleType="fitCenter"
-            android:src="@drawable/img_plus" />
-
-    </FrameLayout>
-
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addGoalBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/lbl30"
+                app:srcCompat="@drawable/ic_add" />
+        </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

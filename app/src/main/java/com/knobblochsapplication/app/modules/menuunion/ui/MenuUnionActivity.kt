@@ -8,7 +8,7 @@ import androidx.activity.viewModels
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityMenuUnionBinding
-import com.knobblochsapplication.app.modules.addinganewgoal.ui.AddingANewGoalActivity
+//import com.knobblochsapplication.app.modules.addinganewgoal.ui.AddingANewGoalActivity
 import com.knobblochsapplication.app.modules.goals.ui.GoalsActivity
 import com.knobblochsapplication.app.modules.goalschange.ui.GoalsChangeActivity
 import com.knobblochsapplication.app.modules.goalsdelete.ui.GoalsDeleteActivity

@@ -14,10 +14,16 @@ import android.view.Window
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
+import androidx.activity.viewModels
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.divider.MaterialDividerItemDecoration
+import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityGoalsBinding
@@ -32,6 +38,7 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
     private val viewModel: GoalsVM by viewModels<GoalsVM>()
     private val goalsList = ArrayList<Goal>()
     private val adapter = GoalsAdapter(this, goalsList)
+
 
     override fun onInitialized(): Unit {
         viewModel.navArguments = intent.extras?.getBundle("bundle")
@@ -109,9 +116,9 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
 
             }
 
-            frameContainer.setOnClickListener {
-                finish()
-            }
+            //frameContainer.setOnClickListener {
+            //    finish()
+            //}
 
         }
     }
@@ -217,5 +224,50 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
             bottomSheetDialog.show()
         }
         dialog.show()
+        window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
+        setContentView(binding.root)
+        val divider = MaterialDividerItemDecoration(this, LinearLayoutManager.HORIZONTAL)
+        divider.isLastItemDecorated = false
+        binding.rcView.addItemDecoration(divider)
+    }
+
+    /*override fun setUpClicks(): Unit {
+        binding.topAppBar.setNavigationOnClickListener {
+            finish()
+        }
+        binding.addGoalBtn.setOnClickListener {
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            ft.addToBackStack(null)
+            val newFragment: DialogFragment = CreateGoalDialogFragment.newInstance()
+            newFragment.show(ft, "dialog")
+        }
+        binding.rcView.layoutManager = LinearLayoutManager(this@GoalsActivity)
+        binding.rcView.adapter = adapter
+    }*/
+
+    override fun onBtnDeleteClick(position: Int) {
+        MaterialAlertDialogBuilder(this)
+            .setMessage(getString(R.string.msg6))
+            .setNegativeButton(R.string.lbl21) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(R.string.lbl22) { dialog, _ ->
+                this.goalsList.removeAt(position)
+                adapter.notifyItemRemoved(position)
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    override fun onBtnEditClick(position: Int) {
+        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+        ft.addToBackStack(null)
+        val newFragment: DialogFragment = EditGoalDialogFragment.newInstance(position)
+        newFragment.show(ft, "dialog")
+
+    }
+
+    override fun onBtnChangeLevelClick(position: Int) {
+
     }
 }

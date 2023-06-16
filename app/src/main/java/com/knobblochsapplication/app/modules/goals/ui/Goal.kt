@@ -19,6 +19,7 @@ data class Goal (
         parcel.readString()
     )
 
+
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(goalName)
         parcel.writeString(goalDeadline)
