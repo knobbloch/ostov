@@ -57,10 +57,13 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        File_Manager.Find_task_by_id(1, 1)
-        for (i in File_Manager.Find_task_by_id(File_Manager.listFiles()[1], File_Manager.listFiles()[1]).children){
-            goalsList.add(File_Manager.Find_task_by_id(File_Manager.listFiles()[1], i))
-        }
+        File_Manager.Write_goal("1","1",1,1)
+        File_Manager.Write_goal("2","2",1,1)
+
+//        File_Manager.Find_task_by_id(1, 1)
+//        for (i in File_Manager.Find_task_by_id(File_Manager.listFiles()[1], File_Manager.listFiles()[1]).children){
+//            goalsList.add(File_Manager.Find_task_by_id(File_Manager.listFiles()[1], i))
+//        }
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)

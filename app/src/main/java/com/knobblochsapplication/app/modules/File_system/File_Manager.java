@@ -35,7 +35,7 @@ public class File_Manager {
         bufferedWriter.close();
     }
 
-    public static void Write_goal(int _id, String _name, String _description, long _datetime, int _rang) throws IOException {
+    public static void Write_goal(String _name, String _description, long _datetime, int _rang) throws IOException {
         // Создадим гсон объект
         Gson prettyGson = new GsonBuilder()
                 .setPrettyPrinting() // можно генерировать красивый жсон этим параметром
@@ -50,7 +50,7 @@ public class File_Manager {
         String jsonContent = prettyGson.toJson(goal_list); // просто суем гсону джава объект и получаем жсон контент
 
         //Записываем файл
-        File file = new File(MyApp.instance.getApplicationContext().getFilesDir(), _id + ".json");
+        File file = new File(MyApp.instance.getApplicationContext().getFilesDir(), MyApp.pref.getInt("id",-1) + ".json");
         FileWriter fileWriter = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(jsonContent);
@@ -58,6 +58,7 @@ public class File_Manager {
 
         SharedPreferences.Editor edit = MyApp.pref.edit();
         edit.putInt("id",MyApp.pref.getInt("id",-1)+1);
+        edit.apply();
     }
 
     public static List<Goal> Find_goal_by_id(int id) throws IOException {
@@ -82,7 +83,7 @@ public class File_Manager {
         return readData;
     }
 
-    public static void Write_task(int goal_id, int _id, String _name, String _description, long _datetime, int _rang) throws IOException {
+    public static void Write_task(int goal_id, String _name, String _description, long _datetime, int _rang) throws IOException {
         Gson prettyGson = new GsonBuilder()
                 .setPrettyPrinting() // можно генерировать красивый жсон этим параметром
                 .create();
@@ -107,13 +108,10 @@ public class File_Manager {
 
         SharedPreferences.Editor edit = MyApp.pref.edit();
         edit.putInt("id",MyApp.pref.getInt("id",-1)+1);
+        edit.apply();
     }
 
     public static Goal Find_task_by_id(int goal_id, int id) throws IOException {
-        Gson prettyGson = new GsonBuilder()
-                .setPrettyPrinting() // можно генерировать красивый жсон этим параметром
-                .create();
-
         //Находим цель
         List<Goal> goal_list = File_Manager.Find_goal_by_id(goal_id);
 

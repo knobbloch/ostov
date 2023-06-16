@@ -21,6 +21,7 @@ class MyApp : Application() {
         instance = this
         pref = getSharedPreferences("id", MODE_PRIVATE)
         put(1)
+
         startKoin {
             androidLogger()
             androidContext(this@MyApp)
@@ -59,6 +60,7 @@ class MyApp : Application() {
         lateinit var pref: SharedPreferences
 
 
+
         /**
          * method to get instance of application object
          */
@@ -69,5 +71,6 @@ class MyApp : Application() {
     fun put(inter: Int) {
         val edit: SharedPreferences.Editor = pref.edit()
         edit.putInt("id", inter)
+        edit.apply();
     }
 }
