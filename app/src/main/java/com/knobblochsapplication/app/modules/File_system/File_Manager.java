@@ -39,7 +39,7 @@ public class File_Manager {
                 .create();
 
         //Создаём объект типа цель
-        Goal goal = new Goal(_id, _name, _description, _rang, _datetime);
+        Goal goal = new Goal(_id, _name, _description, _rang, _datetime, null);
         //Создаём список чтобы упаковать его
         List<Goal> goal_list = new ArrayList<>();
         goal_list.add(goal);
@@ -82,7 +82,7 @@ public class File_Manager {
                 .create();
 
         //Создаём объект типа цель
-        Goal goal = new Goal(_id, _name, _description, _rang, _datetime);
+        Goal goal = new Goal(_id, _name, _description, _rang, _datetime, null);
         //Находим цель и упаковываем задачу туда
         List<Goal> goal_list = File_Manager.Find_goal_by_id(context, goal_id);
         goal_list.add(goal);

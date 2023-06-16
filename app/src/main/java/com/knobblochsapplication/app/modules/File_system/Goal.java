@@ -14,8 +14,9 @@ public final class Goal {
     private boolean complete=false;
 
     private Integer parentId=0;
-    private ArrayList<Integer> children=new ArrayList<>();
+    private ArrayList<Integer> children = new ArrayList<>();
 
+    public ArrayList<Goal> childList = new ArrayList<>();
 
     // @AllArgsConstructor - конструктор для всех полей
     public Goal(
@@ -23,13 +24,15 @@ public final class Goal {
             String name,
             String description,
             int rank,
-            long expiresAt
+            long expiresAt,
+            ArrayList<Goal> childList
     ) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.rank = rank;
         this.expiresAt = expiresAt;
+        this.childList = childList;
     }
 
     // @Getter - метод для получения значения поля, сами поля private по соображениям принципа инкапсуляции.
