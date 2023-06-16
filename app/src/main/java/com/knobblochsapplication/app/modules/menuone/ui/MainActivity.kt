@@ -1,35 +1,67 @@
 package com.knobblochsapplication.app.modules.menuone.ui
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.GestureDetector
+import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.ScaleGestureDetector
+import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener
+import android.view.View
+import android.view.Window
+import android.view.animation.ScaleAnimation
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.elevation.SurfaceColors
+import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
+import com.knobblochsapplication.app.databinding.ActivityGoalSchemeBinding
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
+import com.knobblochsapplication.app.modules.File_system.File_Manager
+import com.knobblochsapplication.app.modules.File_system.Goal
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
+import com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity
 import com.knobblochsapplication.app.modules.helpscreenone.ui.HelpScreenOneActivity
 import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
 import org.koin.android.ext.android.inject
-import android.view.GestureDetector.SimpleOnGestureListener
-import android.view.ScaleGestureDetector
-import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener
-import android.view.animation.ScaleAnimation
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
     lateinit var binding: ActivityMainMenuBinding
+
     private val preferenceHelper: PreferenceHelper by inject()
+
     private var mScale = 1f
     private var mScaleGestureDetector: ScaleGestureDetector? = null
     var gestureDetector: GestureDetector? = null
+    lateinit var bindLayout: ActivityGoalSchemeBinding
+    val goalId: Int = 1
+
+    private val goalsList = ArrayList<Goal>()
+    ///private val goalsList = ParentItemList()
+
+    //private val goalsList = ArrayList<Goal>()
+    private val adapter = MenuAdapter(this, goalsList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        File_Manager.Find_task_by_id(1, 1)
+        for (i in File_Manager.Find_task_by_id(File_Manager.listFiles()[1], File_Manager.listFiles()[1]).children){
+            goalsList.add(File_Manager.Find_task_by_id(File_Manager.listFiles()[1], i))
+        }
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -85,13 +117,43 @@ class MainActivity : AppCompatActivity() {
                 scaleAnimation.fillAfter = true
 
                 // initialising the scrollview
-                val layout = binding.l2.scrollView11
+                val layout = binding.l2.rcView
 
                 // we are setting it as animation
                 layout.startAnimation(scaleAnimation)
                 return true
             }
         })
+        bindLayout = binding.l2
+        InitFish()
+    }
+
+    private fun InitFish() {
+
+        val ParentRecyclerViewItem: RecyclerView = bindLayout.rcView
+        val layoutManager = LinearLayoutManager(this@MainActivity)
+        val parentItemAdapter = MenuAdapter(this, goalsList)
+        ParentRecyclerViewItem.setAdapter(parentItemAdapter)
+        ParentRecyclerViewItem.setLayoutManager(layoutManager)
+
+
+
+        bindLayout.apply {
+            rcView.layoutManager = LinearLayoutManager(bindLayout.l2.context)
+            rcView.adapter = adapter
+            adapter.notifyDataSetChanged()
+        }
+    }
+
+    override fun onBranchClick(position: Int, goal: Goal) {
+       val a = 3
+        //Toast.makeText(this, "переходим к просмотру подзадач", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onLongBranchClick(position: Int, goal: Goal) {
+        val a = 3
+        //goalsList.removeAt(position)
+        //adapter.notifyItemRemoved(position)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
