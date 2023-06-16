@@ -33,13 +33,13 @@ class EditGoalDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentEditGoalBinding.inflate(layoutInflater)
-        var goalsActivity:GoalsActivity = this.activity as GoalsActivity
+        /*var goalsActivity:GoalsActivity = this.activity as GoalsActivity
         var goal = goalsActivity.goalsList[position]
         binding.goalName.setText(goal.goalName)
         binding.goalDeadline.setText(goal.goalDeadline)
         binding.editPriority.text = goal.goalPriority.toString()
         binding.finished.isChecked = goal.goalIsDone
-        binding.goalDescription.setText(goal.goalDescription)
+        binding.goalDescription.setText(goal.goalDescription)*/
 
         return binding.root
     }
@@ -62,9 +62,9 @@ class EditGoalDialogFragment : DialogFragment() {
                 binding.finished.isChecked,
                 binding.goalDescription.text.toString()
             )
-            goalsActivity.goalsList[position] = goal
+            /*goalsActivity.goalsList[position] = goal
             goalsActivity.adapter.notifyItemChanged(position)
-            dismiss()
+            dismiss()*/
         }
         binding.editDate.setEndIconOnClickListener {
             binding.editDate.editText?.setText("")

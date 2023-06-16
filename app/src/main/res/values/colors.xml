@@ -9,7 +9,10 @@
     <color name="indigo_300">#7c89c5</color>
     <color name="indigo_900">#253368</color>
     <color name="white_A700">#ffffff</color>
+    <color name="white">#FFFFFFFF</color>
 
+    <color name="indigo_400_cc">#cc5b6bb6</color>
+    <color name="gray_50">#f5f8ff</color>
     <color name="md_theme_light_primary">#7E89C0</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#7C89C5</color>
@@ -70,6 +73,7 @@
     <color name="md_theme_dark_surfaceTint">#D0BCFF</color>
     <color name="md_theme_dark_outlineVariant">#49454F</color>
     <color name="md_theme_dark_scrim">#000000</color>
+    <color name="gray_800">#49454f</color>
 </resources>
 
 
