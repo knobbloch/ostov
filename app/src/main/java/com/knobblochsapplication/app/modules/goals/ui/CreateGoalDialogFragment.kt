@@ -16,7 +16,6 @@ class CreateGoalDialogFragment : DialogFragment() {
     lateinit var binding: FragmentCreateGoalBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onStart() {

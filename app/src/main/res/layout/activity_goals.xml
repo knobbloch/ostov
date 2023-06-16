@@ -23,7 +23,8 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:navigationIcon="@drawable/img_arrowleft"
+                android:paddingStart="8dp"
+                app:navigationIcon="@drawable/img_arrowback"
                 app:title="@string/lbl"
                 app:titleCentered="true" />
         </com.google.android.material.appbar.AppBarLayout>

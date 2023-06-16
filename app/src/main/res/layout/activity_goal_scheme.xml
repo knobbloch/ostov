@@ -22,7 +22,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
-            android:background="@drawable/img_arrowback"
             android:contentDescription="@string/lbl30"
             app:srcCompat="@drawable/ic_add" />
 

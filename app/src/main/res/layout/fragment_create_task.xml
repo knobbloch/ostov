@@ -49,140 +49,144 @@
 
 
         </LinearLayout>
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingHorizontal="32dp"
-            android:paddingTop="16dp">
-
+            android:layout_height="match_parent">
             <LinearLayout
-                android:id="@+id/linearRowlanguage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="16dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingHorizontal="32dp"
+                android:paddingTop="16dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/editName"
-                    style="?attr/textInputFilledStyle"
+                <LinearLayout
+                    android:id="@+id/linearRowlanguage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl16"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="50"
-                    app:errorEnabled="true">
+                    android:orientation="horizontal"
+                    android:paddingBottom="16dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/goalName"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/editName"
+                        style="?attr/textInputFilledStyle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl16"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="50"
+                        app:errorEnabled="true">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/goalName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-            </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:id="@+id/linearBlockdate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="32dp">
+                </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/editDate"
-                    style="?attr/textInputFilledStyle"
+                <LinearLayout
+                    android:id="@+id/linearBlockdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl17"
-                    app:endIconDrawable="@drawable/ic_close"
-                    app:helperTextEnabled="true"
-                    app:endIconMode="custom"
-                    app:startIconDrawable="@drawable/ic_date_picker">
+                    android:orientation="horizontal"
+                    android:paddingBottom="32dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/goalDeadline"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/editDate"
+                        style="?attr/textInputFilledStyle"
                         android:layout_width="match_parent"
-                        android:focusable="false"
-                        android:clickable="true"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl17"
+                        app:endIconDrawable="@drawable/ic_close"
+                        app:helperTextEnabled="true"
+                        app:endIconMode="custom"
+                        app:startIconDrawable="@drawable/ic_date_picker">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/goalDeadline"
+                            android:layout_width="match_parent"
+                            android:focusable="false"
+                            android:clickable="true"
+                            android:layout_height="wrap_content" />
 
-            </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:id="@+id/linearBlockimpotance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="32dp">
+                </LinearLayout>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/txtRang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:layout_marginEnd="32dp"
-                    android:text="@string/lbl29"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
-
-                <ImageView
-                    android:id="@+id/btnArrowLeft"
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:layout_gravity="end"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/img_left" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/editPriority"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/default_priority_value"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                    tools:text="1" />
-
-                <ImageView
-                    android:id="@+id/btnArrowRight"
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:scaleX="-1"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/img_left" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearBlockabout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/editDescription"
-                    style="?attr/textInputFilledStyle"
+                <LinearLayout
+                    android:id="@+id/linearBlockimpotance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl19"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="100">
+                    android:orientation="horizontal"
+                    android:paddingBottom="32dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/goalDescription"
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtRang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:layout_marginEnd="32dp"
+                        android:text="@string/lbl29"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                    <ImageView
+                        android:id="@+id/btnArrowLeft"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_gravity="end"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/img_left" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/editPriority"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/default_priority_value"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        tools:text="1" />
+
+                    <ImageView
+                        android:id="@+id/btnArrowRight"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:scaleX="-1"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/img_left" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearBlockabout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/editDescription"
+                        style="?attr/textInputFilledStyle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl19"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="100">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/goalDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
 
             </LinearLayout>
+        </ScrollView>
 
-        </LinearLayout>
     </LinearLayout>
 
 </layout>

@@ -15,7 +15,6 @@ import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
-import com.knobblochsapplication.app.modules.goals.ui.CreateGoalDialogFragment
 import com.knobblochsapplication.app.modules.goals.ui.GoalsActivity
 import com.knobblochsapplication.app.modules.helpscreenone.ui.HelpScreenOneActivity
 import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
@@ -93,13 +92,9 @@ class MainActivity : AppCompatActivity() {
                                     0
                                 ) { dialog, which ->
                                     when (which) {
-                                        0 -> {
+                                        0 -> {}
 
-                                        }
-
-                                        1 -> {
-
-                                        }
+                                        1 -> {}
                                     }
                                 }
                                 .setTitle(R.string.lbl34)
@@ -109,6 +104,25 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         3 -> {
+                            MaterialAlertDialogBuilder(this)
+                                .setNegativeButton(R.string.lbl21) { dialog, _ ->
+                                    dialog.dismiss()
+                                }
+                                .setPositiveButton(R.string.lbl36) { dialog, _ ->
+                                    dialog.dismiss()
+                                }
+                                .setSingleChoiceItems(
+                                    R.array.dialog_separate_target,
+                                    0
+                                ) { dialog, which ->
+                                    when (which) {
+                                        0 -> {}
+                                        1 -> {}
+                                        2 -> {}
+                                    }
+                                }
+                                .setTitle(R.string.choise_action_when_separate_target)
+                                .show()
                             dialog.dismiss()
 
                         }

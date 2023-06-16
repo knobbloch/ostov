@@ -19,7 +19,7 @@
     <string name="msg21">Потомков оставить, саму задачу сделать целью</string>
     <string name="lbl33">Сохранить</string>
     <string name="lbl">Мои цели</string>
-    <string name="lbl34">При удалении</string>
+    <string name="lbl34">Удаление ветки</string>
     <string name="msg23">Сохранить дочерние ветки</string>
     <string name="lbl35">Удалить всё</string>
     <string name="lbl_1">Цель 1</string>
@@ -85,6 +85,14 @@
         <item>Сохранить дочерние ветки</item>
     </string-array>
     <string name="change_action">Выберите действие</string>
+    <string-array name="dialog_separate_target">
+        <item>Дублировать</item>
+        <item>Переместить с потомками</item>
+        <item>Потомков оставить, саму задачу сделать целью</item>
+    </string-array>
+    <string name="choise_action_when_separate_target">Вынесение в отдельную цель</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
