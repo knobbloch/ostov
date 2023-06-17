@@ -16,20 +16,20 @@
         android:title="Вид диаграммы">
 
     </item>
-    <item
-        android:id="@+id/nav_sorttype"
-        android:icon="@drawable/ic_menu_sort"
-        android:onClick="onClickGoSortType"
-        android:title="Тип сортировки">
+<!--    <item-->
+<!--        android:id="@+id/nav_sorttype"-->
+<!--        android:icon="@drawable/ic_menu_sort"-->
+<!--        android:onClick="onClickGoSortType"-->
+<!--        android:title="Тип сортировки">-->
 
-    </item>
-    <item
-        android:id="@+id/nav_downloadlist"
-        android:icon="@drawable/img_download"
-        android:onClick="onClickGoDownloadList"
-        android:title="Скачать список .docx">
+<!--    </item>-->
+<!--    <item-->
+<!--        android:id="@+id/nav_downloadlist"-->
+<!--        android:icon="@drawable/img_download"-->
+<!--        android:onClick="onClickGoDownloadList"-->
+<!--        android:title="Скачать список .docx">-->
 
-    </item>
+<!--    </item>-->
 </menu>
 
 

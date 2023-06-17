@@ -136,6 +136,7 @@ class AppStorage(val context: Context) {
         saveToFile(goal)
 
         deleteFile(task.uid)
+        goal.separete()
         goals.remove(task)
     }
 

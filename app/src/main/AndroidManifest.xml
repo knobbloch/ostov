@@ -33,21 +33,22 @@
             android:name=".modules.sort.ui.SortActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".modules.menuone.ui.MainActivity"
-            android:exported="true"
+            android:name=".modules.goal.ui.GoalActivity"
             android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.goalsunion.ui.GoalsUnionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.main.ui.MainActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".modules.goalsunion.ui.GoalsUnionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".modules.goals.ui.GoalsActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.helpscreenone.ui.HelpScreenOneActivity"
             android:screenOrientation="portrait" />
