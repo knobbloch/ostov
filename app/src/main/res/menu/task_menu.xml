@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_diagramview"
+        android:icon="@drawable/ic_menu"
+        android:onClick="onClickGoDiagramView"
+        android:title="Вид диаграммы">
+    </item>
+    <item
+        android:id="@+id/nav_sorttype"
+        android:icon="@drawable/ic_menu_sort"
+        android:onClick="onClickGoSortType"
+        android:title="Тип сортировки">
+    </item>
+    <item
+        android:id="@+id/nav_downloadlist"
+        android:icon="@drawable/img_download"
+        android:onClick="onClickGoDownloadList"
+        android:title="Скачать список .docx">
+    </item>
+</menu>
