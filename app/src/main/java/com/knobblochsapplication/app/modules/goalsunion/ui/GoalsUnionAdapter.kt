@@ -3,21 +3,20 @@ package com.knobblochsapplication.app.modules.goalsunion.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.databinding.GoalUnionItemBinding
-import com.knobblochsapplication.app.modules.goals.ui.Goal
+import com.knobblochsapplication.app.modules.File_system.Goal
 
-class GoalsUnionAdapter(private val goalsUnionList: ArrayList<Goal>) :
+class GoalsUnionAdapter(val listener: Listener, private val goalsUnionList: ArrayList<Goal>) :
     RecyclerView.Adapter<GoalsUnionAdapter.GoalHolder>() {
 
     class GoalHolder(item: View) : RecyclerView.ViewHolder(item) {
         val binding = GoalUnionItemBinding.bind(item)
 
         fun bind(goal: Goal) = with(binding) {
-            txtNamegoal.text = goal.goalName
-            txtAboutgoal.text = goal.goalDescription
+            txtNamegoal.text = goal.name
+            txtAboutgoal.text = goal.description
         }
     }
 
@@ -35,6 +34,9 @@ class GoalsUnionAdapter(private val goalsUnionList: ArrayList<Goal>) :
         holder.bind(goalsUnionList[position])
     }
 
+    interface Listener {
+        fun onButtonRadioClick(position: Int, uid: Int)
+    }
 
 
 }

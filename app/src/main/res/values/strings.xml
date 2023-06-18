@@ -101,5 +101,6 @@
         <item>Потомков оставить, саму задачу сделать целью</item>
     </string-array>
     <string name="choise_action_when_separate_target">Вынесение в отдельную цель</string>
+    <string name="toast_select_goal">Необходимо выбрать цель, чтобы продолжить</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

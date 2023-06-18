@@ -501,5 +501,62 @@ public class File_Manager {
         return files;
     }
 
+    public static void change_date(int goal_id, int id, long change) throws IOException {
+        //Находим файл цели
+        List<Goal> goal_list = File_Manager.Find_goal_by_id(goal_id);
+
+        //Находим задачу по id
+        Goal task = File_Manager.Find_task_by_id(goal_id, id);
+
+        //Сохраняем индекс
+        int task_ind = 0;
+        for (int i = 0; i < goal_list.size(); i++) {
+            if (goal_list.get(i).getId() == task.getId()) {
+                task_ind = i;
+            }
+        }
+
+        //Меняем ранг
+        task.setExpiresAt(change);
+
+        //Добавляем изменения и записываем в файл
+        goal_list.set(task_ind, task);
+
+        File_Manager.Write_goal_by_list(goal_list, goal_id);
+    }
+    public static void Connect_goals(int goal1_id,int goal2_id,int connect_to_id) throws IOException {
+        //Находим файлы целей 1 и 2
+        List<Goal> goal_list1 = File_Manager.Find_goal_by_id(goal1_id);
+        List<Goal> goal_list2 = File_Manager.Find_goal_by_id(goal2_id);
+
+        //Помещаем все подцели из цели 1 в цель 2
+        for(int i=0;i<goal_list2.size();i++){
+            goal_list1.add(goal_list2.get(i));
+        }
+
+        //удаляем файл цели 2
+        File_Manager.Delete_goal(goal2_id);
+
+        //Записываем изменённую цель 1
+        File_Manager.Write_goal_by_list(goal_list1,goal1_id);
+
+        //Создаём связь между подцелями в файле цели 1
+        File_Manager.connect_children_to_parent(goal1_id,goal2_id,connect_to_id);
+    }
+
+    public static ArrayList<Goal> filter(int id) throws IOException {
+        ArrayList<Integer> files_list=File_Manager.listFiles();
+
+        files_list.remove(files_list.indexOf(id));
+
+        ArrayList<Goal> goal_list=new ArrayList<>();
+
+        for(int i=0;i<files_list.size();i++){
+            goal_list.add(Find_task_by_id(files_list.get(i),files_list.get(i)));
+        }
+
+        return goal_list;
+    }
+
 
 }

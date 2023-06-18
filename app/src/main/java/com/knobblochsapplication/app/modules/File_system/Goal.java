@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public final class Goal {
 
     private final int id;
-
     private String name;
     private String description;
     private int rank;

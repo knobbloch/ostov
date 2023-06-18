@@ -9,6 +9,8 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.databinding.FragmentCreateGoalBinding
+import com.knobblochsapplication.app.modules.File_system.File_Manager
+import com.knobblochsapplication.app.modules.File_system.Goal
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -40,20 +42,20 @@ class CreateGoalDialogFragment : DialogFragment() {
             dismiss()
         }
         binding.btnAdd.setOnClickListener {
-            var goalsActivity = this.activity as GoalsActivity
+            val goalsActivity = this.activity as GoalsActivity
             if (binding.goalName.text.toString().isEmpty()){
                 binding.editName.error = getString(R.string.error_empty_goal_name)
                 return@setOnClickListener
             }
-            val goal = Goal(
+            File_Manager.Write_goal(
                 binding.goalName.text.toString(),
-                binding.goalDeadline.text.toString(),
-                binding.editPriority.text.toString().toInt(),
-                false,
-                binding.goalDescription.text.toString()
+                binding.goalDescription.text.toString(),
+                if (binding.goalDeadline.text.toString() != "")
+                    SimpleDateFormat("dd.MM.yyyy").parse(binding.goalDeadline.text.toString()).time
+                else 0,
+                binding.editPriority.text.toString().toInt()
             )
-            goalsActivity.goalsList.add(goal)
-            goalsActivity.adapter.notifyDataSetChanged()
+            goalsActivity.rebuildList()
             dismiss()
         }
         binding.editDate.setEndIconOnClickListener {
@@ -94,6 +96,8 @@ class CreateGoalDialogFragment : DialogFragment() {
             binding.editDate.editText?.setText(outputDateFormat.format(it))
         }
     }
+
+
 
     companion object {
         fun newInstance(): CreateGoalDialogFragment {
