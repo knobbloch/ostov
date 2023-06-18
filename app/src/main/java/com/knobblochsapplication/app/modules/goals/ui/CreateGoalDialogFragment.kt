@@ -52,8 +52,8 @@ class CreateGoalDialogFragment : DialogFragment() {
                 false,
                 binding.goalDescription.text.toString()
             )
-            //goalsActivity.goalsList.add(goal)
-            //goalsActivity.adapter.notifyDataSetChanged()
+            goalsActivity.goalsList.add(goal)
+            goalsActivity.adapter.notifyDataSetChanged()
             dismiss()
         }
         binding.editDate.setEndIconOnClickListener {

@@ -36,8 +36,8 @@ import javax.xml.datatype.DatatypeConstants.MONTHS
 class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals),
     GoalsAdapter.Listener {
     private val viewModel: GoalsVM by viewModels<GoalsVM>()
-    private val goalsList = ArrayList<Goal>()
-    private val adapter = GoalsAdapter(this, goalsList)
+    val goalsList = ArrayList<Goal>()
+    val adapter = GoalsAdapter(this, goalsList)
 
 
     override fun onInitialized(): Unit {
@@ -58,18 +58,12 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
             rcView.layoutManager = LinearLayoutManager(this@GoalsActivity)
             rcView.adapter = adapter
             addGoalBtn.setOnClickListener {
-                val bottomSheetDialog: BottomSheetDialog =
-                    BottomSheetDialog(this@GoalsActivity, R.style.BottomSheetDialogTheme)
-                val bottomSheetView: View = LayoutInflater.from(applicationContext).inflate(
-                    R.layout.activity_adding_a_new_goal,
-                    findViewById(R.id.linearAddinganewgo)
-                )
-                val name: EditText = bottomSheetView.findViewById(R.id.editName)
-                val deadline: TextView = bottomSheetView.findViewById(R.id.editDate)
-                val priority: TextView = bottomSheetView.findViewById(R.id.editPriority)
-                val description: EditText = bottomSheetView.findViewById(R.id.editDescription)
+                val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+                ft.addToBackStack(null)
+                val newFragment: DialogFragment = CreateGoalDialogFragment.newInstance()
+                newFragment.show(ft, "dialog")
 
-                bottomSheetView.findViewById<View>(R.id.imageClose3).setOnClickListener {
+              /*  bottomSheetView.findViewById<View>(R.id.imageClose3).setOnClickListener {
                     bottomSheetDialog.dismiss()
                 }
                 bottomSheetView.findViewById<View>(R.id.btn2).setOnClickListener {
@@ -109,10 +103,8 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
                     }, year, month, day)
 
                     dpd.show()
-                }
+                } */
 
-                bottomSheetDialog.setContentView(bottomSheetView)
-                bottomSheetDialog.show()
 
             }
 
@@ -136,11 +128,11 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
 
 
     override fun onGoalClick(position: Int) {
-        Toast.makeText(this, "переходим к просмотру подзадач", Toast.LENGTH_LONG).show()
+        //Toast.makeText(this, "переходим к просмотру подзадач", Toast.LENGTH_LONG).show()
     }
 
     override fun onLongGoalClick(position: Int) {
-        val dialog: Dialog = Dialog(this)
+        /* val dialog: Dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.activity_menu_union)
 
@@ -228,7 +220,7 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
         setContentView(binding.root)
         val divider = MaterialDividerItemDecoration(this, LinearLayoutManager.HORIZONTAL)
         divider.isLastItemDecorated = false
-        binding.rcView.addItemDecoration(divider)
+        binding.rcView.addItemDecoration(divider) */
     }
 
     /*override fun setUpClicks(): Unit {
@@ -246,7 +238,7 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
     }*/
 
     override fun onBtnDeleteClick(position: Int) {
-        MaterialAlertDialogBuilder(this)
+        /* MaterialAlertDialogBuilder(this)
             .setMessage(getString(R.string.msg6))
             .setNegativeButton(R.string.lbl21) { dialog, _ ->
                 dialog.dismiss()
@@ -256,14 +248,14 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
                 adapter.notifyItemRemoved(position)
                 dialog.dismiss()
             }
-            .show()
+            .show() */
     }
 
     override fun onBtnEditClick(position: Int) {
-        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+        /* val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         ft.addToBackStack(null)
         val newFragment: DialogFragment = EditGoalDialogFragment.newInstance(position)
-        newFragment.show(ft, "dialog")
+        newFragment.show(ft, "dialog") */
 
     }
 
