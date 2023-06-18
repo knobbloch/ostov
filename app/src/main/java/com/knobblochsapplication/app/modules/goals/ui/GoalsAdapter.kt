@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.databinding.GoalItemBinding
+import com.knobblochsapplication.app.modules.File_system.Goal
+import java.text.SimpleDateFormat
 
 class GoalsAdapter(val listener: Listener, private val goalsList: ArrayList<Goal>) :
     RecyclerView.Adapter<GoalsAdapter.GoalHolder>() {
@@ -16,17 +18,16 @@ class GoalsAdapter(val listener: Listener, private val goalsList: ArrayList<Goal
 
 
         fun bind(goal: Goal, listener: Listener) = with(binding) {
-            txtNamegoal.text = goal.goalName
-            txtAboutgoal.text = goal.goalDescription
+            txtNamegoal.text = goal.name
+            txtAboutgoal.text = goal.description
             itemView.setOnClickListener {
                 listener.onGoalClick(adapterPosition)
             }
-            itemView.setOnLongClickListener(View.OnLongClickListener {
-                listener.onLongGoalClick(adapterPosition)
-                return@OnLongClickListener true
-            })
-
-            deadline.text = goal.goalDeadline
+            deadline.text =
+                if (goal.expiresAt != 0L)
+                    SimpleDateFormat("dd.MM.yyyy").format(goal.expiresAt)
+                else
+                    ""
             itemView.setOnClickListener {
                 listener.onGoalClick(adapterPosition)
             }
@@ -58,7 +59,6 @@ class GoalsAdapter(val listener: Listener, private val goalsList: ArrayList<Goal
 
     interface Listener {
         fun onGoalClick(position: Int)
-        fun onLongGoalClick(position: Int)
         fun onBtnDeleteClick(position: Int)
         fun onBtnEditClick(position: Int)
         fun onBtnChangeLevelClick(position: Int)

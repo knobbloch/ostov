@@ -20,7 +20,9 @@ class MyApp : Application() {
         super.onCreate()
         instance = this
         pref = getSharedPreferences("id", MODE_PRIVATE)
-        put(1)
+        if (pref.getInt("id", -1)==-1) {
+            put(1)
+        }
 
         startKoin {
             androidLogger()

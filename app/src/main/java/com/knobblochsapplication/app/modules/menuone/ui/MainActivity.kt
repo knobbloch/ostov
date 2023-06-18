@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        File_Manager.Write_goal( "Первая зddадача", "Это первая задача", 1000, 1);
+    /*    File_Manager.Write_goal( "Первая зddадача", "Это первая задача", 1000, 1);
         File_Manager.Write_task(1,  "Вторая задача", "Это вторая задача", 20, 10);
         File_Manager.Write_task(1,  "Третья задача", "Это третья задача", 200, 7);
         File_Manager.Write_task(1,  "Четвёртая задача", "Это четвёртая задача", 40, 3);
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
 
         File_Manager.connect_children_to_parent(1, 2, 1);
         File_Manager.connect_children_to_parent(1, 3, 1);
-        File_Manager.connect_children_to_parent(1, 4, 2);
+        File_Manager.connect_children_to_parent(1, 4, 2); */
 
 
         for (i in File_Manager.Find_task_by_id(File_Manager.listFiles().get(0), File_Manager.listFiles().get(0)).children){
