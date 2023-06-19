@@ -18,7 +18,7 @@ class MenuAdapter(val listener: Listener, private val goalsList: ArrayList<Goal>
         fun bind(goal: com.knobblochsapplication.app.modules.File_system.Goal, listener: Listener) = with(binding) {
             txtNamegoal.text = goal.name
             txtNamegoal.setOnClickListener (View.OnClickListener {
-                listener.onBranchClick(adapterPosition, goal)
+                listener.onBranchClick(adapterPosition, goal.id)
                 //return@OnClickListener true
             })
             txtNamegoal.setOnLongClickListener(View.OnLongClickListener {
@@ -61,7 +61,7 @@ class MenuAdapter(val listener: Listener, private val goalsList: ArrayList<Goal>
 
 
     interface Listener {
-        fun onBranchClick(position: Int, goal: Goal)
+        fun onBranchClick(position: Int, goal: Int)
         fun onLongBranchClick(position: Int, goal: Goal)
     }
 

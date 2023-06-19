@@ -9,6 +9,8 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.databinding.FragmentEditGoalBinding
+import com.knobblochsapplication.app.modules.File_system.File_Manager
+import com.knobblochsapplication.app.modules.File_system.Goal
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -32,14 +34,19 @@ class EditGoalDialogFragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        position = arguments?.getInt("position") ?: 0
+
         binding = FragmentEditGoalBinding.inflate(layoutInflater)
-        /*var goalsActivity:GoalsActivity = this.activity as GoalsActivity
+        var goalsActivity:GoalsActivity = this.activity as GoalsActivity
         var goal = goalsActivity.goalsList[position]
-        binding.goalName.setText(goal.goalName)
-        binding.goalDeadline.setText(goal.goalDeadline)
-        binding.editPriority.text = goal.goalPriority.toString()
-        binding.finished.isChecked = goal.goalIsDone
-        binding.goalDescription.setText(goal.goalDescription)*/
+        binding.goalName.setText(goal.name)
+        binding.goalDeadline.setText(if (goal.expiresAt != 0L)
+            SimpleDateFormat("dd.MM.yyyy").format(goal.expiresAt)
+        else
+            "")
+        binding.editPriority.text = goal.rank.toString()
+        binding.finished.isChecked = goal.isComplete
+        binding.goalDescription.setText(goal.description)
 
         return binding.root
     }
@@ -55,16 +62,16 @@ class EditGoalDialogFragment : DialogFragment() {
                 binding.editName.error = getString(R.string.error_empty_goal_name)
                 return@setOnClickListener
             }
-            val goal = Goal(
-                binding.goalName.text.toString(),
-                binding.goalDeadline.text.toString(),
-                binding.editPriority.text.toString().toInt(),
-                binding.finished.isChecked,
-                binding.goalDescription.text.toString()
-            )
-            /*goalsActivity.goalsList[position] = goal
-            goalsActivity.adapter.notifyItemChanged(position)
-            dismiss()*/
+            val currentId = goalsActivity.goalsList[position].id
+            File_Manager.change_info(currentId, currentId, 1, binding.goalName.text.toString())
+            File_Manager.change_info(currentId, currentId, 2, binding.goalDescription.text.toString())
+            File_Manager.change_date(currentId, currentId, if (binding.goalDeadline.text.toString() != "")
+                SimpleDateFormat("dd.MM.yyyy").parse(binding.goalDeadline.text.toString()).time
+            else 0,)
+            File_Manager.change_rang(currentId, currentId, binding.editPriority.text.toString().toInt())
+            File_Manager.change_complete(currentId, currentId, binding.finished.isChecked)
+            goalsActivity.rebuildList()
+            dismiss()
         }
         binding.editDate.setEndIconOnClickListener {
             binding.editDate.editText?.setText("")
