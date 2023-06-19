@@ -1,11 +1,14 @@
 package com.knobblochsapplication.app.modules.downloadlist.ui
 
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.databinding.ActivityDownloadListBinding
+import com.knobblochsapplication.app.modules.Docx.Doxc_File
+import com.knobblochsapplication.app.modules.File_system.File_Manager
 import com.knobblochsapplication.app.modules.downloadlist.`data`.model.DownloadListRowModel
 import com.knobblochsapplication.app.modules.downloadlist.`data`.viewmodel.DownloadListVM
 import kotlin.Int
@@ -38,6 +41,67 @@ class DownloadListActivity :
   override fun setUpClicks(): Unit {
     binding.topAppBar.setNavigationOnClickListener {
       finish()
+    }
+    binding.buttonDownload.setOnClickListener {
+        //Здесь написан код для того,чтобы скачивать докс(вместе с сортировками), но так как я не могу
+        //его пока проверить,то он будет закомментирован
+        //Миша из будущего,не забудь,что нужно поменять все 1 на передаваемое значение с прошлого экрана!
+
+//      var goal_id: Int = intent.extras!!.getInt("goalId",-1)
+//      System.out.println(goal_id)
+
+//      val important_check_box = binding.importantCheckBox.isChecked
+//      val readiness_check_box = binding.readinessCheckBox.isChecked
+//      val date_check_box = binding.dateCheckBox.isChecked
+//
+//      val radio_button_important = binding.radioButton3.isChecked
+//      val radio_button_readiness = binding.radioButton4.isChecked
+//
+//
+//
+//      if (important_check_box == false && readiness_check_box == false && date_check_box == false) {
+//        Toast.makeText(this@DownloadListActivity, R.string.you_did_not_chose_parametrs, Toast.LENGTH_LONG)
+//          .show()
+//      }
+//          if (important_check_box && readiness_check_box == false && date_check_box == false) {
+//              File_Manager.sort_by_rang(1)
+//          }
+//          if (important_check_box == false && readiness_check_box && date_check_box == false) {
+//              File_Manager.sort_by_complete(1)
+//          }
+//          if (important_check_box == false && readiness_check_box == false && date_check_box) {
+//              File_Manager.sort_by_expires(1)
+//          }
+//          if (important_check_box && readiness_check_box == false && date_check_box) {
+//              File_Manager.sort_by_rang(1)
+//              File_Manager.sort_by_expires(1)
+//          }
+//          if (important_check_box == false && readiness_check_box && date_check_box) {
+//              File_Manager.sort_by_expires(1)
+//              File_Manager.sort_by_complete(1)
+//          }
+//          if (important_check_box && readiness_check_box && date_check_box == false) {
+//              if (radio_button_important) {
+//                  File_Manager.sort_by_complete(1)
+//                  File_Manager.sort_by_rang(1)
+//              } else {
+//                  File_Manager.sort_by_rang(1)
+//                  File_Manager.sort_by_complete(1)
+//              }
+//          }
+//          if (important_check_box && readiness_check_box && date_check_box) {
+//              if (radio_button_important) {
+//                  File_Manager.sort_by_complete(1)
+//                  File_Manager.sort_by_rang(1)
+//                  File_Manager.sort_by_expires(1)
+//              } else {
+//                  File_Manager.sort_by_rang(1)
+//                  File_Manager.sort_by_expires(1)
+//                  File_Manager.sort_by_complete(1)
+//              }
+//          }
+//      //Надо получть переменную
+//      Doxc_File.make_docx(this,1)
     }
   }
 
