@@ -15,6 +15,7 @@ import com.knobblochsapplication.app.modules.File_system.File_Manager
 import com.knobblochsapplication.app.modules.File_system.Goal
 import com.knobblochsapplication.app.modules.goals.data.viewmodel.GoalsVM
 import com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity
+import com.knobblochsapplication.app.modules.menuone.ui.MainActivity
 
 
 class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals),
@@ -63,7 +64,9 @@ class GoalsActivity : BaseActivity<ActivityGoalsBinding>(R.layout.activity_goals
     }
 
     override fun onGoalClick(position: Int) {
-        TODO("Not yet implemented")
+        val destIntent = Intent(this@GoalsActivity, MainActivity::class.java)
+        destIntent.putExtra("goalId", goalsList[position].id as Int)
+        startActivity(destIntent)
     }
 
 

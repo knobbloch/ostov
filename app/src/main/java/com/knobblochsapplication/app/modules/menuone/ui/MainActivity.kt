@@ -59,6 +59,8 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
     //private val goalsList = ArrayList<Goal>()
     private val adapter = MenuAdapter(this, goalsList)
 
+    private var chosenGoalId = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
     /*    File_Manager.Write_goal( "Первая зddадача", "Это первая задача", 1000, 1);
@@ -72,19 +74,21 @@ class MainActivity : AppCompatActivity(), MenuAdapter.Listener {
 
         File_Manager.connect_children_to_parent(1, 2, 1);
         File_Manager.connect_children_to_parent(1, 3, 1);
-        File_Manager.connect_children_to_parent(1, 4, 2); */
+        File_Manager.connect_children_to_parent(1, 4, 2);
 
 
         for (i in File_Manager.Find_task_by_id(File_Manager.listFiles().get(0), File_Manager.listFiles().get(0)).children){
             goalsList.add(File_Manager.Find_task_by_id(File_Manager.listFiles().get(0), i))
-        }
+        }*/
 
         super.onCreate(savedInstanceState)
+        chosenGoalId = intent.getIntExtra("goalId", 0)
+
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
-//        window.navigationBarColor = SurfaceColors.SURFACE_2.getColor(this)
+        window.navigationBarColor = SurfaceColors.SURFACE_2.getColor(this)
 
         if (savedInstanceState == null) {
             if (!preferenceHelper.isHelpPageShowed()) {
