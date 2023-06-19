@@ -1,4 +1,4 @@
-package com.knobblochsapplication.app.modules.menuone.`data`.viewmodel
+package com.knobblochsapplication.app.modules.menuone.ui.viewmodel
 
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
