@@ -75,7 +75,6 @@
     <string name="error_empty_goal_name">Название не может быть пустым</string>
     <string name="goal_change_level">Сделать задачей</string>
     <string-array name="dialog_actions_with_task">
-        <item>Добавить</item>
         <item>Изменить</item>
         <item>Удалить</item>
         <item>Вынести в отдельную цель</item>

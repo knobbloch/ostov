@@ -23,20 +23,14 @@
                 app:title="@string/activity_goal_union_title"
                 app:titleCentered="true" />
         </com.google.android.material.appbar.AppBarLayout>
+
         <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="start"
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical"
-                app:layoutManager="LinearLayoutManager"
-                tools:listitem="@layout/goal_item" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btnNext"
@@ -46,6 +40,15 @@
                 android:layout_margin="16dp"
                 android:contentDescription="@string/lbl37"
                 app:srcCompat="@drawable/ic_right" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/goal_item" />
         </FrameLayout>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

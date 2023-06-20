@@ -15,6 +15,7 @@ import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
+import com.knobblochsapplication.app.modules.main.ui.GoalsAdapter
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
 import org.koin.android.ext.android.inject
 
@@ -24,6 +25,9 @@ class GoalActivity : AppCompatActivity() {
     private val preferenceHelper: PreferenceHelper by inject()
     private val appStorage: AppStorage by inject()
     lateinit var lastSelectedGoalUid: String
+    lateinit var lastSelectedTaskUid: String
+    lateinit var adapter: TaskTreeViewAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
@@ -35,7 +39,7 @@ class GoalActivity : AppCompatActivity() {
         }
 
         binding.addGoalBtn.setOnClickListener {
-            showTaskDialog()
+            showCreateTaskDialogFragment()
         }
     }
 
@@ -75,7 +79,14 @@ class GoalActivity : AppCompatActivity() {
         val allFragments: List<Fragment> = supportFragmentManager.fragments
         for (fragment in allFragments) {
             if (fragment is ListViewFragment) {
-                fragment.updateTree()
+                val uid = preferenceHelper.getLastSelectedGoal()
+                if (uid !== null) {
+                    val goal = appStorage.getGoalByUid(lastSelectedGoalUid)
+                    if (goal == null) {
+                        continue
+                    }
+                    fragment.treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter());
+                }
                 continue
             }
             if (fragment is DiagramViewFragment) {
@@ -85,7 +96,8 @@ class GoalActivity : AppCompatActivity() {
         }
     }
 
-    fun showTaskDialog() {
+    fun showTaskDialog(taskUid: String) {
+        lastSelectedTaskUid = taskUid
         MaterialAlertDialogBuilder(this)
             .setNeutralButton(R.string.lbl21) { dialog, _ ->
                 dialog.dismiss()
@@ -93,20 +105,14 @@ class GoalActivity : AppCompatActivity() {
             .setItems(R.array.dialog_actions_with_task) { dialog, which ->
                 when (which) {
                     0 -> {
-                        showCreateTaskDialogFragment()
+                        showEditTaskDialogFragment()
                         dialog.dismiss()
                     }
-
                     1 -> {
-                        dialog.dismiss()
-                    }
-
-                    2 -> {
                         showDialogDeleteTask()
                         dialog.dismiss()
                     }
-
-                    3 -> {
+                    2 -> {
                         showDialogSeparateTarget()
                         dialog.dismiss()
                     }
@@ -122,7 +128,13 @@ class GoalActivity : AppCompatActivity() {
         ft.addToBackStack(null)
         val newFragment: DialogFragment = CreateTaskDialogFragment.newInstance()
         newFragment.show(ft, "dialog")
+    }
 
+    fun showEditTaskDialogFragment() {
+        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+        ft.addToBackStack(null)
+        val newFragment: DialogFragment = EditTaskDialogFragment.newInstance(lastSelectedTaskUid)
+        newFragment.show(ft, "dialog")
     }
 
     fun showDialogSeparateTarget() {
@@ -153,6 +165,11 @@ class GoalActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             .setPositiveButton(R.string.lbl22) { dialog, _ ->
+                if (lastSelectedTaskUid != null) {
+//                    appStorage.remove(lastSelectedTaskUid)
+//                    preferenceHelper.setLastSelectedGoal(null)
+//                    TaskTreeViewAdapter.setTreeNodes()
+                }
                 dialog.dismiss()
             }
             .setSingleChoiceItems(
@@ -168,5 +185,21 @@ class GoalActivity : AppCompatActivity() {
             .setTitle(R.string.lbl34)
             .show()
     }
+
+
+//    override fun onBtnDeleteClick(position: Int, uid: String) {
+//        MaterialAlertDialogBuilder(this)
+//            .setMessage(getString(R.string.msg6))
+//            .setNegativeButton(R.string.lbl21) { dialog, _ ->
+//                dialog.dismiss()
+//            }
+//            .setPositiveButton(R.string.lbl22) { dialog, _ ->
+//                appStorage.remove(uid)
+//                adapter.notifyItemRemoved(position)
+//                preferenceHelper.setLastSelectedGoal(null)
+//                dialog.dismiss()
+//            }
+//            .show()
+//    }
 
 }

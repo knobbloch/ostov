@@ -13,7 +13,7 @@ TaskLeftSideAdapter.Listener {
     private val appStorage: AppStorage by inject()
     private val preferenceHelper: PreferenceHelper by inject()
     lateinit var adapter: TaskLeftSideAdapter
-    lateinit var adapterRight: TaskLeftSideAdapter
+    lateinit var adapterRight: TaskRightSideAdapter
 
 
     override fun addObservers(): Unit {
@@ -21,9 +21,8 @@ TaskLeftSideAdapter.Listener {
         if (uid != null) {
             val goal = appStorage.getGoalByUid(uid)
             if (goal != null) {
-
                 adapter = TaskLeftSideAdapter(this, goal.left)
-                adapterRight = TaskLeftSideAdapter(this, goal.right)
+                adapterRight = TaskRightSideAdapter(this, goal.right)
 
             }
         }

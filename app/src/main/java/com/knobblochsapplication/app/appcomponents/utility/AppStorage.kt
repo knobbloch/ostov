@@ -61,13 +61,13 @@ class AppStorage(val context: Context) {
     }
 
     fun addTask(
-        uid: String,
+        goalUid: String,
         name: String,
         deadline: String?,
         priority: Int,
         description: String?
     ) {
-        val goal = getGoalByUid(uid)
+        val goal = getGoalByUid(goalUid)
         if (goal == null) {
             return
         }
@@ -83,6 +83,32 @@ class AppStorage(val context: Context) {
         goal.tasks.add(task)
         goal.separete()
         saveToFile(goal)
+    }
+
+    fun changeTask(
+        goalUid: String,
+        taskUid: String,
+        name: String,
+        deadline: String?,
+        isDone: Boolean,
+        priority: Int,
+        description: String?
+    ) {
+        val goal = getGoalByUid(goalUid)
+        if (goal == null) {
+            return
+        }
+        for (task in goal.tasks) {
+            if (task.uid != taskUid) {
+                continue
+            }
+            task.name = name
+            task.description = description
+            task.deadline = deadline
+            task.isDone = isDone
+            task.priority = priority
+            saveToFile(goal)
+        }
     }
 
     private fun loadByUid(uid: String): Node? {
@@ -163,5 +189,9 @@ class AppStorage(val context: Context) {
         if (file.exists()) {
             file.delete()
         }
+    }
+
+    private fun give_percent(goal: Node) {
+
     }
 }

@@ -1,4 +1,4 @@
-package com.knobblochsapplication.app.modules.main.ui
+package com.knobblochsapplication.app.modules.goal.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,7 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.utility.AppStorage
-import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.FragmentEditTaskBinding
-import com.knobblochsapplication.app.modules.goal.ui.GoalActivity
 import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,9 +17,7 @@ import java.util.*
 class EditTaskDialogFragment : DialogFragment() {
     lateinit var binding: FragmentEditTaskBinding
     private val appStorage: AppStorage by inject()
-    private val preferenceHelper: PreferenceHelper by inject()
-    var position = 0
-    var uid: String? = null
+    var taskUid: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // for fullscreen
@@ -30,6 +26,7 @@ class EditTaskDialogFragment : DialogFragment() {
             ViewGroup.LayoutParams.MATCH_PARENT
         )
         setStyle(STYLE_NO_TITLE, R.style.fullscreendialog)
+        taskUid = arguments?.getString("taskUid")
     }
 
     override fun onStart() {
@@ -40,26 +37,7 @@ class EditTaskDialogFragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val goalUid = preferenceHelper.getLastSelectedGoal()
         binding = FragmentEditTaskBinding.inflate(layoutInflater)
-        if (goalUid != null && uid != null) {
-            val goal = appStorage.getGoalByUid(goalUid)
-            if (goal != null) {
-                val task = goal.getTaskByUid(uid!!)
-                if (task != null) {
-                    binding.goalDeadline.setText(task.deadline)
-                    binding.editPriority.text = task.priority.toString()
-                    binding.finished.isChecked = task.isDone
-                    binding.goalDescription.setText(task.description)
-
-                }
-
-            }
-
-        }
-        binding.goalName.setText(uid)
-
-
         return binding.root
     }
 
@@ -70,19 +48,20 @@ class EditTaskDialogFragment : DialogFragment() {
         }
         binding.btnSave.setOnClickListener {
             var goalActivity = this.activity as GoalActivity
-            if (binding.goalName.text.toString().isEmpty()){
+            if (binding.goalName.text.toString().isEmpty()) {
                 binding.editName.error = getString(R.string.error_empty_goal_name)
                 return@setOnClickListener
             }
-            var task = appStorage.getGoalByUid(goalActivity.lastSelectedGoalUid)
-            if (task == null) {
-                return@setOnClickListener
-            }
-            task.name = binding.goalName.text.toString()
-            task.deadline = binding.goalDeadline.text.toString()
-            task.priority = binding.editPriority.text.toString().toInt()
-            task.isDone = binding.finished.isChecked
-            task.description = binding.goalDescription.text.toString()
+            appStorage.changeTask(
+                (activity as GoalActivity).lastSelectedGoalUid,
+                taskUid!!,
+                binding.goalName.text.toString(),
+                binding.goalDeadline.text.toString(),
+                binding.finished.isChecked,
+                binding.editPriority.text.toString().toInt(),
+                binding.goalDescription.text.toString()
+            )
+            goalActivity.updateView()
             dismiss()
         }
         binding.editDate.setEndIconOnClickListener {
@@ -104,6 +83,19 @@ class EditTaskDialogFragment : DialogFragment() {
             if (number > 1) number--
             binding.editPriority.text = number.toString()
         }
+        val goal = appStorage.getGoalByUid((activity as GoalActivity).lastSelectedGoalUid)
+        if (goal == null || taskUid == null) {
+            return
+        }
+        val task = goal.getTaskByUid(taskUid!!)
+        if (task != null) {
+            binding.goalDeadline.setText(task.deadline)
+            binding.editPriority.text = task.priority.toString()
+            binding.finished.isChecked = task.isDone
+            binding.goalName.setText(task.name)
+            binding.goalDescription.setText(task.description)
+        }
+
     }
 
     fun showDatePicker() {
@@ -125,11 +117,10 @@ class EditTaskDialogFragment : DialogFragment() {
     }
 
     companion object {
-        fun newInstance(position:Int, uid: String): EditTaskDialogFragment {
+        fun newInstance(taskUid: String): EditTaskDialogFragment {
             val f = EditTaskDialogFragment()
             val args = Bundle()
-            args.putInt("position", position)
-            args.putString("uid", uid)
+            args.putString("taskUid", taskUid)
             f.arguments = args
             return f
         }

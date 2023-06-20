@@ -1,54 +1,66 @@
 package com.knobblochsapplication.app.modules.goal.ui
 
+import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.amrdeveloper.treeview.TreeViewHolderFactory
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseFragment
 import com.knobblochsapplication.app.appcomponents.utility.AppStorage
-import com.knobblochsapplication.app.appcomponents.utility.Node
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.FragmentListViewBinding
 import org.koin.android.ext.android.inject
 
-class ListViewFragment: BaseFragment<FragmentListViewBinding>(R.layout.fragment_list_view) {
+
+class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment_list_view), TaskTreeViewAdapter.Listener {
     private val preferenceHelper: PreferenceHelper by inject()
     private val appStorage: AppStorage by inject()
-    lateinit var lastSelectedGoalUid: String
+    var lastSelectedGoalUid: String? = null
+    var treeViewAdapter: TaskTreeViewAdapter? = null
+    override fun addObservers() {
+        super.addObservers()
+        lastSelectedGoalUid = preferenceHelper.getLastSelectedGoal()
+        if (lastSelectedGoalUid == null) {
+            return
+        }
+
+        val goal = appStorage.getGoalByUid(lastSelectedGoalUid!!)
+        if (goal == null) {
+            return
+        }
+        binding.goalName.text = goal.name
+
+        //tree view
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.isNestedScrollingEnabled = false
+        val factory =
+            TreeViewHolderFactory { v: View, layout: Int ->
+                treeViewAdapter!!.createViewHolder(v)
+            }
+        treeViewAdapter = TaskTreeViewAdapter(this, factory)
+        binding.recyclerView.adapter = treeViewAdapter
+        treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter());
+
+    }
+
 
     override fun onResume() {
         super.onResume()
         val uid = preferenceHelper.getLastSelectedGoal()
         if (uid !== null) {
+            val goal = appStorage.getGoalByUid(lastSelectedGoalUid!!)
+            if (goal == null) {
+                return
+            }
             lastSelectedGoalUid = uid
-            updateTree()
-        } else {
-            binding.goalName.text = ""
+            treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter());
         }
-    }
-
-    fun updateTree() {
-        //todo debug
-        val goal = appStorage.getGoalByUid(lastSelectedGoalUid)
-        if (goal !== null) {
-            binding.goalName.text = PrintTree(goal, "", false)
-        }
-    }
-
-    fun PrintTree(
-        tree: Node,
-        indent: String,
-        last: Boolean
-    ):String {
-        //todo debug
-        var indent = indent
-        var s = ""
-        s+= indent + "+- p:" + tree.priority+" "+tree.name+"\n"
-        indent += if (last) "   " else "|  "
-        for (i in 0 until tree.tasks.count()) {
-            s+=PrintTree(tree.tasks[i], indent, i == tree.tasks.count() - 1)
-        }
-        return s
     }
 
     override fun setUpClicks() {
-//        TODO("Not yet implemented")
+
+    }
+
+    override fun onTaskClick(uid: String) {
+        (activity as GoalActivity).showTaskDialog(uid)
     }
 }

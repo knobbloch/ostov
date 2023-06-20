@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/state"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_arrow_right" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:layout_marginEnd="8dp"
+        android:layout_gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:text="@string/app_name"
+        />
+
+    <ImageView
+        android:id="@+id/btnTaskMenu"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_edit" />
+</LinearLayout>

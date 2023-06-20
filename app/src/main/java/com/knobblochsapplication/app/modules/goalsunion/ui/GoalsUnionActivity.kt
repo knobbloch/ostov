@@ -58,7 +58,6 @@ class GoalsUnionActivity : BaseActivity<ActivityGoalsUnionBinding>(R.layout.acti
     override fun onBtnRadioClick(position: Int, uid: String) {
         this.selectedGoalUid = uid
     }
-
     companion object {
         const val TAG: String = "GOALS_UNION_ACTIVITY"
     }
