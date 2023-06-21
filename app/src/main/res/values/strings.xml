@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+<<<<<<< Updated upstream
     <string name="you_did_not_chose_parametrs">Вы не выбрали параметры</string>
     <string name="app_name">knobbloch_s_application10</string>
     <string name="loading">Loading?</string>
     <string name="no_internet_connection">No internet connection!</string>
+=======
+    <string name="you_did_not_chose_pref">Выберите приоритет сортировки</string>
+    <string name="you_did_not_chose_parametrs">Вы не выбрали параметры</string>
+    <string name="app_name">Фишлист</string>
+>>>>>>> Stashed changes
     <string name="msg">Диаграмма Исикавы:</string>
     <string name="lbl_23">Задача 2</string>
     <string name="lbl_24">Ветка 2:</string>
