@@ -262,4 +262,11 @@ class AppStorage(val context: Context) {
         }
     }
 
+    fun downloadDocxFile(uid: String) {
+        var goal = getGoalByUid(uid)
+        if (goal == null) {
+            return
+        }
+        DocxFile.make_docx(goal)
+    }
 }

@@ -84,8 +84,7 @@ dependencies {
     implementation "com.airbnb.android:lottie:3.4.0"
 
     implementation 'com.vmadalin:easypermissions-ktx:0.1.0'
-    implementation 'org.apache.poi:poi:5.2.2'
-    implementation 'org.apache.poi:poi-ooxml:5.2.2'
+    implementation files('libs/poishadow-all.jar')
     implementation 'io.github.amrdeveloper:treeview:1.1.4'
 }
 

@@ -2,7 +2,10 @@ package com.knobblochsapplication.app.modules.goal.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.GestureDetector
 import android.view.MenuItem
+import android.view.MotionEvent
+import android.view.ScaleGestureDetector
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
@@ -207,6 +210,39 @@ class GoalActivity : AppCompatActivity() {
             }
             .setTitle(R.string.lbl34)
             .show()
+    }
+
+
+//    override fun onBtnDeleteClick(position: Int, uid: String) {
+//        MaterialAlertDialogBuilder(this)
+//            .setMessage(getString(R.string.msg6))
+//            .setNegativeButton(R.string.lbl21) { dialog, _ ->
+//                dialog.dismiss()
+//            }
+//            .setPositiveButton(R.string.lbl22) { dialog, _ ->
+//                appStorage.remove(uid)
+//                adapter.notifyItemRemoved(position)
+//                preferenceHelper.setLastSelectedGoal(null)
+//                dialog.dismiss()
+//            }
+//            .show()
+//    }
+
+    companion object{
+        //zoom
+        var mScaleGestureDetector: ScaleGestureDetector? = null
+        var gestureDetector: GestureDetector? = null
+    }
+
+    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        super.dispatchTouchEvent(event)
+
+        // special types of touch screen events such as pinch ,
+        // double tap, scrolls , long presses and flinch,
+        // onTouch event is called if found any of these
+        mScaleGestureDetector!!.onTouchEvent(event!!)
+        gestureDetector!!.onTouchEvent(event)
+        return gestureDetector!!.onTouchEvent(event)
     }
 
 }
