@@ -31,6 +31,15 @@ class AppStorage(val context: Context) {
         saveToFile(goal)
     }
 
+    fun deleteGoal(uid: String) {
+        var goal = getGoalByUid(uid)
+        if (goal == null) {
+            return
+        }
+        deleteFile(uid)
+        goals.remove(goal)
+    }
+
     fun getGoalByUid(uid: String): Node? {
         var goal = goals.find {
             it.uid == uid
@@ -41,23 +50,54 @@ class AppStorage(val context: Context) {
         return null
     }
 
-    fun loadAll(): AppStorage {
-        val files = context.filesDir.listFiles()
-        if (files == null) {
-            println("!!!error")
-            return this
+    fun duplicateGoal(goalUid: String, taskUid: String) {
+        val goal = getGoalByUid(goalUid)
+        if (goal == null) {
+            return
         }
-        for (file in files) {
-            println("!!!" + files.size)
-            if (!file.name.endsWith(".json")) {
-                continue
-            }
-            var goal = loadByUid(file)
-            if (goal !== null) {
-                goals.add(goal)
-            }
+        val task = goal.getTaskByUid(taskUid)
+        if (task == null) {
+            return
         }
-        return this
+        var newGoal = task.duplicate()
+        goals.add(newGoal)
+        newGoal.separate()
+        saveToFile(newGoal)
+    }
+
+    fun createGoalFromTask(goalUid: String, taskUid: String) {
+        val goal = getGoalByUid(goalUid)
+        if (goal == null) {
+            return
+        }
+        val task = goal.getTaskByUid(taskUid)
+        if (task == null) {
+            return
+        }
+        goal.deleteTask(taskUid)
+        goals.add(task)
+        goal.separate()
+        task.separate()
+        saveToFile(task)
+        saveToFile(goal)
+    }
+
+    fun createGoalFromTaskWithoutChild(goalUid: String, taskUid: String) {
+        val goal = getGoalByUid(goalUid)
+        if (goal == null) {
+            return
+        }
+        val task = goal.getTaskByUid(taskUid)
+        if (task == null) {
+            return
+        }
+        goal.deleteTaskTransferChild(taskUid)
+        goals.add(task)
+        task.tasks.clear()
+        goal.separate()
+        task.separate()
+        saveToFile(task)
+        saveToFile(goal)
     }
 
     fun addTask(
@@ -81,7 +121,27 @@ class AppStorage(val context: Context) {
             tasks = mutableListOf()
         )
         goal.tasks.add(task)
-        goal.separete()
+        goal.separate()
+        saveToFile(goal)
+    }
+
+    fun deleteTask(goalUid: String, taskUid: String) {
+        val goal = getGoalByUid(goalUid)
+        if (goal == null) {
+            return
+        }
+        goal.deleteTask(taskUid)
+        goal.separate()
+        saveToFile(goal)
+    }
+
+    fun deleteTaskTransferChild(goalUid: String, taskUid: String) {
+        val goal = getGoalByUid(goalUid)
+        if (goal == null) {
+            return
+        }
+        goal.deleteTaskTransferChild(taskUid)
+        goal.separate()
         saveToFile(goal)
     }
 
@@ -136,15 +196,6 @@ class AppStorage(val context: Context) {
         }
     }
 
-    fun remove(uid: String) {
-        var goal = getGoalByUid(uid)
-        if (goal == null) {
-            return
-        }
-        deleteFile(uid)
-        goals.remove(goal)
-    }
-
     fun filter(uid: String): MutableList<Node> {
         return goals.filterNot {
             it.uid == uid
@@ -162,8 +213,28 @@ class AppStorage(val context: Context) {
         saveToFile(goal)
 
         deleteFile(task.uid)
-        goal.separete()
+        goal.separate()
         goals.remove(task)
+    }
+
+    fun loadAll(): AppStorage {
+        val files = context.filesDir.listFiles()
+        if (files == null) {
+            println("!!!error")
+            return this
+        }
+        for (file in files) {
+            println("!!!" + files.size)
+            if (!file.name.endsWith(".json")) {
+                continue
+            }
+            var goal = loadByUid(file)
+            if (goal !== null) {
+                goals.add(goal)
+                goal.separate()
+            }
+        }
+        return this
     }
 
     private fun getFilename(uid: String): String {
@@ -191,7 +262,4 @@ class AppStorage(val context: Context) {
         }
     }
 
-    private fun give_percent(goal: Node) {
-
-    }
 }

@@ -9,8 +9,8 @@ import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.databinding.TaskListItemBinding
 
 
-class TaskTreeViewAdapter(
-    val listener: TaskTreeViewAdapter.Listener,
+class TaskListTreeViewAdapter(
+    val listener: TaskListTreeViewAdapter.Listener,
     factory: TreeViewHolderFactory
 ) : TreeViewAdapter(factory) {
 
@@ -24,8 +24,8 @@ class TaskTreeViewAdapter(
 
         override fun bindTreeNode(node: TreeNode) = with(binding) {
             super.bindTreeNode(node)
-            val pair = node.value as Pair<String, String>
-            name.text = pair.first
+            val pair = node.value as TreeTask
+            name.text = pair.name
 
             // change state icon
             if (node.children.isEmpty()) {
@@ -37,7 +37,7 @@ class TaskTreeViewAdapter(
                 state.setImageResource(stateIcon)
             }
             btnTaskMenu.setOnClickListener {
-                listener.onTaskClick(pair.second)
+                listener.onTaskClick(pair.uid)
             }
         }
     }

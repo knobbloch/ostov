@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity(),
                 dialog.dismiss()
             }
             .setPositiveButton(R.string.lbl22) { dialog, _ ->
-                appStorage.remove(uid)
+                appStorage.deleteGoal(uid)
                 adapter.notifyItemRemoved(position)
                 preferenceHelper.setLastSelectedGoal(null)
                 dialog.dismiss()

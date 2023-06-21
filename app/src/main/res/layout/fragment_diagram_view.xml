@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -19,53 +20,57 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/goal_name"
-            android:textColor="?attr/colorSurface"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-            app:layout_constraintEnd_toEndOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="@+id/imageView3" />
+            android:textColor="?attr/colorSurface"
+            app:layout_constraintBottom_toBottomOf="@+id/head"
+            app:layout_constraintEnd_toEndOf="@+id/head"
+            app:layout_constraintStart_toStartOf="@+id/head" />
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="7dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/recycler_left"
+            app:layout_constraintBottom_toBottomOf="@+id/barrier"
             app:layout_constraintEnd_toStartOf="@+id/recycler_right"
             app:layout_constraintStart_toEndOf="@+id/recycler_left"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/head"
             app:srcCompat="@drawable/bone_forme" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/head"
+            tools:listitem="@layout/bone_right_root" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3">
+            app:layout_constraintTop_toBottomOf="@+id/head"
+            tools:listitem="@layout/bone_left_root">
 
         </androidx.recyclerview.widget.RecyclerView>
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/tail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/barrier"
             app:srcCompat="@drawable/tail" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -73,6 +78,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:barrierMargin="20dp"
+            app:constraint_referenced_ids="recycler_left,recycler_right" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

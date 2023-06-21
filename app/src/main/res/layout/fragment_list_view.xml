@@ -5,15 +5,93 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="16dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/vname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/lbl16"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                tools:text="@string/lbl16" />
+            <TextView
+                android:id="@+id/goalName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="16dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/vdeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/lbl17"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                tools:text="@string/lbl17" />
+            <TextView
+                android:id="@+id/deadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="16dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/vpriority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/lbl29"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+            <TextView
+                android:id="@+id/priority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="16dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/vstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/lbl12"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+            <TextView
+                android:id="@+id/is_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/goalName"
+            android:id="@+id/vtasks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@string/app_name" />
+            android:paddingBottom="8dp"
+            android:text="@string/lbl7"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
         <HorizontalScrollView
+            android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true">
@@ -31,6 +109,15 @@
                 android:scrollbars="vertical" />
             <!--        </LinearLayout>-->
         </HorizontalScrollView>
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_tasks"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
     </LinearLayout>
 
 </layout>
