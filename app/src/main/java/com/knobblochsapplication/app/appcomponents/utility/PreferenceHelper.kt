@@ -9,7 +9,7 @@ import com.knobblochsapplication.app.appcomponents.di.MyApp
 /**
  * class which used to manage application shared preference
  */
-class PreferenceHelper {
+class PreferenceHelper() {
     private val masterKeyAlias: String = createGetMasterKey()
 
     private val sharedPreference: SharedPreferences = EncryptedSharedPreferences.create(
@@ -26,7 +26,6 @@ class PreferenceHelper {
      *
      * @return the string value of encrypted key
      */
-
     private fun createGetMasterKey(): String {
         return MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
     }
@@ -54,9 +53,28 @@ class PreferenceHelper {
             .putBoolean(IS_HELP_PAGE_SHOWED, isShowed)
             .apply()
     }
-    
+
     private val LAST_SELECTED_GOAL = "last_selected_goal"
 
     fun getLastSelectedGoal() =
-        sharedPreference.getInt(LAST_SELECTED_GOAL, 0)
+        sharedPreference.getString(LAST_SELECTED_GOAL, null)
+
+    fun setLastSelectedGoal(lastSelectedGoal: String?) {
+        sharedPreference
+            .edit()
+            .putString(LAST_SELECTED_GOAL, lastSelectedGoal)
+            .apply()
+    }
+
+    private val DIAGRAM_VIEW_TYPE = "diagram_view_type"
+
+    fun isDiagramSelected() =
+        sharedPreference.getBoolean(DIAGRAM_VIEW_TYPE, false)
+
+    fun setDiagramSelected(isDiagramSelected: Boolean) {
+        sharedPreference
+            .edit()
+            .putBoolean(DIAGRAM_VIEW_TYPE, isDiagramSelected)
+            .apply()
+    }
 }

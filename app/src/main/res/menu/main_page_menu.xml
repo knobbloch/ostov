@@ -2,9 +2,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/list"
-        android:icon="@drawable/ic_checklist"
-        android:title="@string/app_name"
+        android:id="@+id/completionPercentage"
+        android:title="@string/lbl_75"
         android:contentDescription="@string/app_name"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/nav_diagramview"
+        android:icon="@drawable/ic_menu"
+        android:onClick="onClickGoDiagramView"
+        android:title="Вид диаграммы"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/nav_sorttype"
+        android:icon="@drawable/ic_menu_sort"
+        android:onClick="onClickGoSortType"
+        android:title="Тип сортировки"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/nav_downloadlist"
+        android:icon="@drawable/img_download"
+        android:onClick="onClickGoDownloadList"
+        android:title="Скачать список .docx"
+        app:showAsAction="never">
+    </item>
 </menu>

@@ -1,7 +1,7 @@
 package com.knobblochsapplication.app.appcomponents.di
 
 import android.app.Application
-import android.content.SharedPreferences
+import com.knobblochsapplication.app.appcomponents.utility.AppStorage
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -15,15 +15,9 @@ import org.koin.dsl.module
  */
 class MyApp : Application() {
 
-
-    override fun onCreate(): Unit {
+    public override fun onCreate(): Unit {
         super.onCreate()
         instance = this
-        pref = getSharedPreferences("id", MODE_PRIVATE)
-        if (pref.getInt("id", -1)==-1) {
-            put(1)
-        }
-
         startKoin {
             androidLogger()
             androidContext(this@MyApp)
@@ -44,6 +38,15 @@ class MyApp : Application() {
         return prefsModule
     }
 
+    private fun storageModule(): Module {
+        val storageModule = module {
+            single {
+                AppStorage(this@MyApp).loadAll()
+            }
+        }
+        return storageModule
+    }
+
     /**
      * method which returns the list of koin module to register
      * @return MutableList<Module> - list of koin modules
@@ -51,28 +54,18 @@ class MyApp : Application() {
     private fun getKoinModules(): MutableList<Module> {
         val koinModules = mutableListOf<Module>()
         koinModules.add(preferenceModule()) //register preference module
+        koinModules.add(storageModule())
         return koinModules
     }
 
-    companion object {
+    public companion object {
 
         // the application instance
-        lateinit var instance: MyApp
-
-        lateinit var pref: SharedPreferences
-
-
+        private lateinit var instance: MyApp
 
         /**
          * method to get instance of application object
          */
-        @JvmName("getInstance1")
-        fun getInstance(): MyApp = instance
-    }
-
-    fun put(inter: Int) {
-        val edit: SharedPreferences.Editor = pref.edit()
-        edit.putInt("id", inter)
-        edit.apply();
+        public fun getInstance(): MyApp = instance
     }
 }

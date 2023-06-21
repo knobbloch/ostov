@@ -1,86 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="start"
+    android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/frameLayout2"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/_18pxv" />
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
 
         <LinearLayout
-            android:id="@+id/linearBlockgoal1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="false"
-            android:gravity="start"
-            android:orientation="vertical"
-            android:paddingStart="@dimen/_50pxh"
-            android:paddingTop="@dimen/_20pxv"
-            android:paddingEnd="@dimen/_35pxh"
-            android:paddingBottom="@dimen/_15pxv">
-
-            <TextView
-                android:id="@+id/txtNamegoal"
-                style="@style/txtABeeZeeregular25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:ellipsize="end"
-                android:lineSpacingExtra="@dimen/_5pxh"
-                android:singleLine="false"
-                android:text="@string/lbl_1"
-                tools:text="@string/lbl_1" />
+            android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/linearColumnaboutgoal"
-                style="@style/groupStylegray_50cornerRadius"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8pxv"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/txtAboutgoal"
-                    style="@style/txtABeeZeeregular15"
+                <!-- Title, secondary and supporting text -->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_15pxh"
-                    android:layout_marginTop="@dimen/_15pxv"
-                    android:layout_marginEnd="@dimen/_15pxh"
-                    android:layout_marginBottom="@dimen/_15pxv"
-                    android:background="@null"
-                    android:ellipsize="end"
-                    android:gravity="start"
-                    android:lineSpacingExtra="@dimen/_3pxh"
-                    android:singleLine="false"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtNamegoal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:text="@string/lbl_1"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:layoutDirection="rtl"
+                        android:textColor="?attr/colorOnBackground" />
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtAboutgoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="@string/lbl2"
-                    tools:text="@string/lbl2" />
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/lbl17"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/deadline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?android:attr/textColorSecondary"
+                        tools:text="22.07.2023" />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
-    </FrameLayout>
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="@color/blue_900"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

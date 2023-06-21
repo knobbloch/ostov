@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="app_name">knobbloch_s_application10</string>
-    <string name="loading">Loading?</string>
-    <string name="no_internet_connection">No internet connection!</string>
+    <string name="app_name">Фишлист</string>
     <string name="msg">Диаграмма Исикавы:</string>
     <string name="lbl_23">Задача 2</string>
     <string name="lbl_24">Ветка 2:</string>
@@ -31,14 +29,13 @@
     <string name="msg17">Новая задача</string>
     <string name="msg16">Ваш процент достижения задачи составляет 75%</string>
     <string name="lbl20">Вид диаграммы</string>
-    <string name="msg11">Добро пожаловать в "Фишлист"!
-        Мы поможем вам сфокусироваться и достичь ваших целей.</string>
+    <string name="msg11">Добро пожаловать в "Фишлист"!\nМы поможем вам сфокусироваться и достичь ваших целей.</string>
     <string name="lbl21">Отмена</string>
     <string name="msg10">Включить уведомления вы можете в настройках</string>
     <string name="lbl22">Удалить</string>
-    <string name="msg13">Сортируйте список дел по степени важности и  завершённости!  Следите за процентом выполнения задач, он поможет оценить ваш прогресс.</string>
+    <string name="msg13">Сортируйте список дел по степени важности и  завершённости!\nСледите за процентом выполнения задач, он поможет оценить ваш прогресс.</string>
     <string name="lbl23">Изменить</string>
-    <string name="msg12">Визуализируйте путь к намеченным целям с помощью диаграммы Исикавы! Она поможет разбить глобальные цели на более мелкие.</string>
+    <string name="msg12">Визуализируйте путь к намеченным целям с помощью диаграммы Исикавы!\nОна поможет разбить глобальные цели на более мелкие.</string>
     <string name="lbl24">Объединить</string>
     <string name="lbl25">Ваша цель</string>
     <string name="lbl26">Начать</string>
@@ -51,7 +48,7 @@
     <string name="msg3">Выберите по каким критериям вы бы хотели отсортировать скачиваемый список</string>
     <string name="msg2">Скачивание списка</string>
     <string name="msg8">Ваш процент достижения цели составляет 75%</string>
-    <string name="lbl_75">75%</string>
+    <string name="lbl_75">0%</string>
     <string name="lbl_3_1">48</string>
     <string name="msg7">Процент достижения цели</string>
     <string name="msg6">Вы уверены, что хотите удалить цель?</string>
@@ -59,11 +56,9 @@
     <string name="lbl_32">Задача 3</string>
     <string name="msg9">Система дедлайнов поможет вам грамотно распределить время на работу, а уведомления всегда напомнят о задачах!</string>
     <string name="lbl8">По важности:</string>
-    <string name="lbl9">55</string>
     <string name="lbl6">Вид диаграммы</string>
     <string name="lbl_752">75</string>
     <string name="lbl7">Список:</string>
-    <string name="lbl10">58</string>
     <string name="lbl11">Важность</string>
     <string name="lbl12">Завершенность</string>
     <string name="lbl13">Скачать</string>
@@ -73,19 +68,13 @@
     <string name="lbl17">Дата дедлайна:</string>
     <string name="lbl18">Завершено:</string>
     <string name="lbl19">Описание:</string>
-    <string name="msg_this_contact_has_no_phone_nu">This contact has no phone number</string>
-    <string name="msg_camera_storage_permission">This Application need permission\n1.Camera permission to capture the image.\n2.Storage Access permission to save the captured image.</string>
-    <string name="lbl_camera">Camera</string>
-    <string name="lbl_gallery">Gallery</string>
     <string name="lbl36">Применить</string>
     <string name="lbl37">Дальше</string>
     <string name="lbl40">Добавить</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_priority_value">1</string>
     <string name="error_empty_goal_name">Название не может быть пустым</string>
-    <string name="goal_change_level">Сделать подцелью</string>
+    <string name="goal_change_level">Сделать задачей</string>
     <string-array name="dialog_actions_with_task">
-        <item>Добавить</item>
         <item>Изменить</item>
         <item>Удалить</item>
         <item>Вынести в отдельную цель</item>
@@ -101,6 +90,7 @@
         <item>Потомков оставить, саму задачу сделать целью</item>
     </string-array>
     <string name="choise_action_when_separate_target">Вынесение в отдельную цель</string>
+    <string name="activity_goal_union_title">Выберите цель</string>
     <string name="toast_select_goal">Необходимо выбрать цель, чтобы продолжить</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="toast_union_goal">Необходимо минимум две цили</string>
 </resources>

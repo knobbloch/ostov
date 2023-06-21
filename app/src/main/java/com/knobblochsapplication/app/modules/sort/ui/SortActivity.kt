@@ -15,7 +15,7 @@ class SortActivity : BaseActivity<ActivitySortBinding>(R.layout.activity_sort) {
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
-    val sortAdapter = SortAdapter(viewModel.sortList.value?:mutableListOf())
+//    val sortAdapter = SortAdapter(viewModel.sortList.value?:mutableListOf())
 //    binding.recyclerSort.adapter = sortAdapter
 //    sortAdapter.setOnItemClickListener(
 //    object : SortAdapter.OnItemClickListener {
@@ -25,7 +25,7 @@ class SortActivity : BaseActivity<ActivitySortBinding>(R.layout.activity_sort) {
 //    }
 //    )
     viewModel.sortList.observe(this) {
-      sortAdapter.updateData(it)
+//      sortAdapter.updateData(it)
     }
     binding.sortVM = viewModel
   }
