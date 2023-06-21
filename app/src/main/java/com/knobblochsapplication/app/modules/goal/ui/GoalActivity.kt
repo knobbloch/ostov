@@ -2,10 +2,7 @@ package com.knobblochsapplication.app.modules.goal.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.GestureDetector
 import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.ScaleGestureDetector
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
@@ -36,7 +33,6 @@ class GoalActivity : AppCompatActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
         window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
-//        window.navigationBarColor = SurfaceColors.SURFACE_2.getColor(this)
         binding.topAppBar.setNavigationOnClickListener {
             finish()
         }
@@ -208,23 +204,6 @@ class GoalActivity : AppCompatActivity() {
             }
             .setTitle(R.string.lbl34)
             .show()
-    }
-
-    companion object{
-        //zoom
-        var mScaleGestureDetector: ScaleGestureDetector? = null
-        var gestureDetector: GestureDetector? = null
-    }
-
-    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-        super.dispatchTouchEvent(event)
-
-        // special types of touch screen events such as pinch ,
-        // double tap, scrolls , long presses and flinch,
-        // onTouch event is called if found any of these
-        mScaleGestureDetector!!.onTouchEvent(event!!)
-        gestureDetector!!.onTouchEvent(event)
-        return gestureDetector!!.onTouchEvent(event)
     }
 
 }

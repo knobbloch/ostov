@@ -78,4 +78,7 @@ class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment
     override fun onTaskClick(uid: String) {
         (activity as GoalActivity).showTaskDialog(uid)
     }
+    override fun addTask(uid: String) {
+        (activity as GoalActivity).showCreateTaskDialogFragment(uid)
+    }
 }

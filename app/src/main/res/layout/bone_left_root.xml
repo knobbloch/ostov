@@ -24,6 +24,13 @@
             android:layout_gravity="end"
             android:src="@drawable/ic_edit" />
 
+        <ImageView
+            android:id="@+id/state"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow_right" />
+
         <TextView
             android:id="@+id/name"
             android:layout_width="0dp"

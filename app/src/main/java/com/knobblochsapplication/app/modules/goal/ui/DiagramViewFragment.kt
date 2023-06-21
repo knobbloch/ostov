@@ -1,10 +1,6 @@
 package com.knobblochsapplication.app.modules.goal.ui
 
-import android.view.GestureDetector
-import android.view.MotionEvent
-import android.view.ScaleGestureDetector
 import android.view.View
-import android.view.animation.ScaleAnimation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amrdeveloper.treeview.TreeViewHolderFactory
 import com.knobblochsapplication.app.R
@@ -23,8 +19,6 @@ class DiagramViewFragment :
     lateinit var adapterLeft: TaskLeftSideAdapter
     lateinit var adapterRight: TaskRightSideAdapter
     lateinit var goal2: Node
-
-    private var mScale = 1f
 
     override fun addObservers(): Unit {
         val uid = preferenceHelper.getLastSelectedGoal()
@@ -45,7 +39,6 @@ class DiagramViewFragment :
                 binding.goalName.text = goal.name
             }
         }
-        zoom()
     }
 
     override fun onResume() {
@@ -123,50 +116,4 @@ class DiagramViewFragment :
         (activity as GoalActivity).showCreateTaskDialogFragment(uid)
     }
 
-    private fun zoom(){
-        GoalActivity.gestureDetector = GestureDetector(this.requireContext(), GestureListener())
-        GoalActivity.mScaleGestureDetector = ScaleGestureDetector(this.requireContext(), object : ScaleGestureDetector.SimpleOnScaleGestureListener() {
-            override fun onScale(detector: ScaleGestureDetector): Boolean {
-
-                // firstly we will get the scale factor
-                val scale = 1 - detector.scaleFactor
-                val prevScale = mScale
-                mScale += scale
-
-                // we can maximise our focus to 10f only
-                if (mScale > 1f) mScale = 1f
-                if (mScale < 0f) mScale = 0.01f
-                val scaleAnimation = ScaleAnimation(
-                    1f / prevScale,
-                    1f / mScale,
-                    1f / prevScale,
-                    1f / mScale,
-                    detector.focusX,
-                    detector.focusY
-                )
-
-                // duration of animation will be 0.It will
-                // not change by self after that
-                scaleAnimation.duration = 0
-                scaleAnimation.fillAfter = true
-
-                // initialising the scrollview
-                val layout = binding.forZoom
-
-                // we are setting it as animation
-                layout.startAnimation(scaleAnimation)
-                return true
-            }
-        })
-    }
-
-    private class GestureListener : GestureDetector.SimpleOnGestureListener() {
-        override fun onDown(e: MotionEvent): Boolean {
-            return true
-        }
-
-        override fun onDoubleTap(e: MotionEvent): Boolean {
-            return true
-        }
-    }
 }

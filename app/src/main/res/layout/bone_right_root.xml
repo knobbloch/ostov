@@ -21,6 +21,14 @@
             android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
         <ImageView
+            android:id="@+id/state"
+            android:rotation="90"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow_drop_down" />
+
+        <ImageView
             android:id="@+id/btnTaskMenu"
             android:layout_width="20dp"
             android:layout_height="20dp"

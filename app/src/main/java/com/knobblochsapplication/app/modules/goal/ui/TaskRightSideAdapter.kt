@@ -5,6 +5,7 @@ import com.amrdeveloper.treeview.TreeNode
 import com.amrdeveloper.treeview.TreeViewAdapter
 import com.amrdeveloper.treeview.TreeViewHolder
 import com.amrdeveloper.treeview.TreeViewHolderFactory
+import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.databinding.BoneRightChildBinding
 import com.knobblochsapplication.app.databinding.BoneRightRootBinding
 
@@ -34,6 +35,16 @@ class TaskRightSideAdapter(
             val pair = node.value as TreeTask
             name.text = pair.name
 
+            // change state icon
+            if (node.children.isEmpty()) {
+                state.visibility = View.INVISIBLE
+            } else {
+                state.visibility = View.VISIBLE
+                val stateIcon =
+                    if (node.isExpanded) R.drawable.ic_arrow_right else R.drawable.ic_arrow_drop_down
+                state.setImageResource(stateIcon)
+            }
+
             btnTaskMenu.setOnClickListener {
                 listener.onTaskClick(pair.uid)
             }
@@ -51,6 +62,16 @@ class TaskRightSideAdapter(
             super.bindTreeNode(node)
             val pair = node.value as TreeTask
             name.text = pair.name
+
+            // change state icon
+            if (node.children.isEmpty()) {
+                state.visibility = View.INVISIBLE
+            } else {
+                state.visibility = View.VISIBLE
+                val stateIcon =
+                    if (node.isExpanded) R.drawable.ic_arrow_right else R.drawable.ic_arrow_drop_down
+                state.setImageResource(stateIcon)
+            }
 
             btnTaskMenu.setOnClickListener {
                 listener.onTaskClick(pair.uid)

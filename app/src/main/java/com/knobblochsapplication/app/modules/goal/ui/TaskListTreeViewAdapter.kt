@@ -39,10 +39,15 @@ class TaskListTreeViewAdapter(
             btnTaskMenu.setOnClickListener {
                 listener.onTaskClick(pair.uid)
             }
+
+            btnAdd.setOnClickListener {
+                listener.addTask(pair.uid)
+            }
         }
     }
 
     interface Listener {
         fun onTaskClick(uid: String)
+        fun addTask(uid: String)
     }
 }
