@@ -26,6 +26,7 @@ class EditGoalDialogFragment : DialogFragment() {
             ViewGroup.LayoutParams.MATCH_PARENT
         )
         setStyle(STYLE_NO_TITLE, R.style.fullscreendialog)
+        position = arguments?.getInt("position")!!
     }
 
     override fun onStart() {

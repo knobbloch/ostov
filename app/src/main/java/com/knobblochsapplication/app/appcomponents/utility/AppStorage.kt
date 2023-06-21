@@ -158,17 +158,16 @@ class AppStorage(val context: Context) {
         if (goal == null) {
             return
         }
-        for (task in goal.tasks) {
-            if (task.uid != taskUid) {
-                continue
-            }
-            task.name = name
-            task.description = description
-            task.deadline = deadline
-            task.isDone = isDone
-            task.priority = priority
-            saveToFile(goal)
+        val task = goal.getTaskByUid(taskUid)
+        if (task == null) {
+            return
         }
+        task.name = name
+        task.description = description
+        task.deadline = deadline
+        task.isDone = isDone
+        task.priority = priority
+        saveToFile(goal)
     }
 
     private fun loadByUid(uid: String): Node? {
