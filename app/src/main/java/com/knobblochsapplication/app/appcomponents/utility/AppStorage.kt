@@ -2,11 +2,11 @@ package com.knobblochsapplication.app.appcomponents.utility
 
 import android.content.Context
 import com.google.gson.GsonBuilder
+import com.knobblochsapplication.app.appcomponents.utility.Docx.DocxFile
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileWriter
-import com.knobblochsapplication.app.appcomponents.utility.Docx.DocxFile
 import java.nio.file.Files
 import java.util.*
 
@@ -103,6 +103,7 @@ class AppStorage(val context: Context) {
 
     fun addTask(
         goalUid: String,
+        taskUid: String?,
         name: String,
         deadline: String?,
         priority: Int,
@@ -112,7 +113,26 @@ class AppStorage(val context: Context) {
         if (goal == null) {
             return
         }
-        val task = Node(
+        if (taskUid == null) {
+            val newTask = Node(
+                UUID.randomUUID().toString(),
+                name = name,
+                deadline = deadline,
+                priority = priority,
+                isDone = false,
+                description = description,
+                tasks = mutableListOf()
+            )
+            goal.tasks.add(newTask)
+            goal.separate()
+            saveToFile(goal)
+            return
+        }
+        val parentTask = goal.getTaskByUid(taskUid)
+        if (parentTask == null) {
+            return
+        }
+        val newTask = Node(
             UUID.randomUUID().toString(),
             name = name,
             deadline = deadline,
@@ -121,7 +141,7 @@ class AppStorage(val context: Context) {
             description = description,
             tasks = mutableListOf()
         )
-        goal.tasks.add(task)
+        parentTask.tasks.add(newTask)
         goal.separate()
         saveToFile(goal)
     }

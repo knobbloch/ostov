@@ -40,9 +40,8 @@ class GoalActivity : AppCompatActivity() {
         binding.topAppBar.setNavigationOnClickListener {
             finish()
         }
-
         binding.addGoalBtn.setOnClickListener {
-            showCreateTaskDialogFragment()
+            showCreateTaskDialogFragment(null)
         }
     }
 
@@ -138,10 +137,10 @@ class GoalActivity : AppCompatActivity() {
             .show()
     }
 
-    fun showCreateTaskDialogFragment() {
+    fun showCreateTaskDialogFragment(uid: String?) {
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         ft.addToBackStack(null)
-        val newFragment: DialogFragment = CreateTaskDialogFragment.newInstance()
+        val newFragment: DialogFragment = CreateTaskDialogFragment.newInstance(uid)
         newFragment.show(ft, "dialog")
     }
 
@@ -206,27 +205,10 @@ class GoalActivity : AppCompatActivity() {
                 0
             ) { dialog, which ->
                 checkedId = which
-
             }
             .setTitle(R.string.lbl34)
             .show()
     }
-
-
-//    override fun onBtnDeleteClick(position: Int, uid: String) {
-//        MaterialAlertDialogBuilder(this)
-//            .setMessage(getString(R.string.msg6))
-//            .setNegativeButton(R.string.lbl21) { dialog, _ ->
-//                dialog.dismiss()
-//            }
-//            .setPositiveButton(R.string.lbl22) { dialog, _ ->
-//                appStorage.remove(uid)
-//                adapter.notifyItemRemoved(position)
-//                preferenceHelper.setLastSelectedGoal(null)
-//                dialog.dismiss()
-//            }
-//            .show()
-//    }
 
     companion object{
         //zoom

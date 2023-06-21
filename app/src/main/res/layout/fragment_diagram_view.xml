@@ -59,7 +59,7 @@
                             app:layout_constraintEnd_toStartOf="@+id/recycler_right"
                             app:layout_constraintStart_toEndOf="@+id/recycler_left"
                             app:layout_constraintTop_toBottomOf="@+id/head"
-                            app:srcCompat="@drawable/bone_forme" />
+                            app:srcCompat="@drawable/bone_form" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recycler_right"

@@ -3,8 +3,8 @@ package com.knobblochsapplication.app.modules.goal.ui
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
-import android.view.animation.ScaleAnimation
 import android.view.View
+import android.view.animation.ScaleAnimation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amrdeveloper.treeview.TreeViewHolderFactory
 import com.knobblochsapplication.app.R
@@ -120,7 +120,7 @@ class DiagramViewFragment :
     }
 
     override fun addChildTask(uid: String) {
-        (activity as GoalActivity).showCreateTaskDialogFragment()
+        (activity as GoalActivity).showCreateTaskDialogFragment(uid)
     }
 
     private fun zoom(){

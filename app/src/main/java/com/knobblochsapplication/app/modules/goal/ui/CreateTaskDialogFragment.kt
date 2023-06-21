@@ -18,6 +18,7 @@ import java.util.*
 class CreateTaskDialogFragment : DialogFragment() {
     lateinit var binding: FragmentCreateTaskBinding
     private val appStorage: AppStorage by inject()
+    var uid: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dialog?.window?.setLayout(
@@ -25,6 +26,7 @@ class CreateTaskDialogFragment : DialogFragment() {
             ViewGroup.LayoutParams.MATCH_PARENT
         )
         setStyle(STYLE_NO_TITLE, R.style.fullscreendialog)
+        uid = arguments?.getString("uid")
     }
 
     override fun onCreateView(
@@ -48,6 +50,7 @@ class CreateTaskDialogFragment : DialogFragment() {
             }
             appStorage.addTask(
                 goalActivity.lastSelectedGoalUid,
+                uid,
                 binding.goalName.text.toString(),
                 binding.goalDeadline.text.toString(),
                 binding.editPriority.text.toString().toInt(),
@@ -97,9 +100,11 @@ class CreateTaskDialogFragment : DialogFragment() {
     }
 
     companion object {
-        fun newInstance(): CreateTaskDialogFragment {
+        fun newInstance(uid: String?): CreateTaskDialogFragment {
             val f = CreateTaskDialogFragment()
-
+            val args = Bundle()
+            args.putString("uid", uid)
+            f.arguments = args
             return f
         }
     }
