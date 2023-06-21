@@ -111,4 +111,8 @@ class DiagramViewFragment :
     override fun onTaskClick(uid: String) {
         (activity as GoalActivity).showTaskDialog(uid)
     }
+
+    override fun addChildTask(uid: String) {
+        (activity as GoalActivity).showCreateTaskDialogFragment()
+    }
 }

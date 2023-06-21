@@ -16,7 +16,7 @@ class AppStorage(val context: Context) {
         name: String?,
         deadline: String?,
         priority: Int,
-        description: String?
+        description: String?,
     ) {
         val goal = Node(
             UUID.randomUUID().toString(),
@@ -105,7 +105,7 @@ class AppStorage(val context: Context) {
         name: String,
         deadline: String?,
         priority: Int,
-        description: String?
+        description: String?,
     ) {
         val goal = getGoalByUid(goalUid)
         if (goal == null) {
@@ -152,7 +152,7 @@ class AppStorage(val context: Context) {
         deadline: String?,
         isDone: Boolean,
         priority: Int,
-        description: String?
+        description: String?,
     ) {
         val goal = getGoalByUid(goalUid)
         if (goal == null) {
@@ -216,6 +216,7 @@ class AppStorage(val context: Context) {
         goal.separate()
         goals.remove(task)
     }
+
 
     fun loadAll(): AppStorage {
         val files = context.filesDir.listFiles()

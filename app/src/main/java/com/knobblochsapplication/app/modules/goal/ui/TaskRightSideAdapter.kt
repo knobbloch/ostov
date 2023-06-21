@@ -37,6 +37,9 @@ class TaskRightSideAdapter(
             btnTaskMenu.setOnClickListener {
                 listener.onTaskClick(pair.uid)
             }
+            btnAdd.setOnClickListener {
+                listener.addChildTask(pair.uid)
+            }
         }
     }
 
@@ -52,10 +55,15 @@ class TaskRightSideAdapter(
             btnTaskMenu.setOnClickListener {
                 listener.onTaskClick(pair.uid)
             }
+            btnAdd.setOnClickListener {
+                listener.addChildTask(pair.uid)
+            }
         }
     }
 
     interface Listener {
         fun onTaskClick(uid: String)
+        fun addChildTask(uid: String)
+
     }
 }

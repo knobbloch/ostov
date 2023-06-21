@@ -184,4 +184,30 @@ data class Node(
         }
         return treeNode
     }
+
+//    fun addChildTask(
+//        taskUid: String,
+//        name: String,
+//        deadline: String?,
+//        priority: Int,
+//        description: String?,
+//    ) {
+//        val taskOld = getTaskByUid(taskUid)
+//        if (taskOld == null) {
+//            return
+//        }
+//        val task = Node(
+//            UUID.randomUUID().toString(),
+//            name = name,
+//            deadline = deadline,
+//            priority = priority,
+//            isDone = false,
+//            description = description,
+//            tasks = mutableListOf()
+//        )
+//        taskOld.tasks.add(task)
+//        taskOld.separate()
+//        saveToFile(taskOld)
+//    }
+
 }
