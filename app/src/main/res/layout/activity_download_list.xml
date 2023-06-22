@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="downloadListVM" type="com.knobblochsapplication.app.modules.downloadlist.data.viewmodel.DownloadListVM"/>
+        <variable name="downloadListVM" type="com.knobblochsapplication.app.modules.diagramview.data.downloadlist.data.viewmodel.DownloadListVM"/>
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

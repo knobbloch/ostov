@@ -18,7 +18,7 @@ import com.knobblochsapplication.app.appcomponents.utility.AppStorage
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityGoalsBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
-import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
+import com.knobblochsapplication.app.modules.diagramview.data.downloadlist.ui.DownloadListActivity
 import com.knobblochsapplication.app.modules.goal.ui.GoalActivity
 import com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity
 import com.knobblochsapplication.app.modules.helpscreenone.ui.HelpScreenOneActivity

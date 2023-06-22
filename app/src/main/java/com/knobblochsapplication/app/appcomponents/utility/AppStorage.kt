@@ -9,7 +9,6 @@ import java.io.FileNotFoundException
 import java.io.FileWriter
 import java.nio.file.Files
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
@@ -194,7 +193,7 @@ class AppStorage(val context: Context) {
         saveToFile(goal)
     }
 
-    private fun loadByUid(uid: String): Node? {
+    fun loadByUid(uid: String): Node? {
         val prettyGson = GsonBuilder()
             .setPrettyPrinting()
             .create()

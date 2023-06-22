@@ -1,10 +1,10 @@
-package com.knobblochsapplication.app.modules.downloadlist.`data`.viewmodel
+package com.knobblochsapplication.app.modules.diagramview.data.downloadlist.data.viewmodel
 
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.knobblochsapplication.app.modules.downloadlist.`data`.model.DownloadListModel
-import com.knobblochsapplication.app.modules.downloadlist.`data`.model.DownloadListRowModel
+import com.knobblochsapplication.app.modules.diagramview.data.downloadlist.data.model.DownloadListModel
+import com.knobblochsapplication.app.modules.diagramview.data.downloadlist.data.model.DownloadListRowModel
 import kotlin.collections.MutableList
 import org.koin.core.KoinComponent
 

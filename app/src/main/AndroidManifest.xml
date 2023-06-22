@@ -2,10 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.knobblochsapplication.app">
 
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".appcomponents.di.MyApp"
@@ -27,7 +30,7 @@
             android:name=".modules.settings.ui.SettingsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".modules.downloadlist.ui.DownloadListActivity"
+            android:name=".modules.diagramview.data.downloadlist.ui.DownloadListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.sort.ui.SortActivity"

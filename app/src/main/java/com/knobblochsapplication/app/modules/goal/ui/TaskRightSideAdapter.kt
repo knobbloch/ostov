@@ -9,7 +9,7 @@ import com.knobblochsapplication.app.databinding.BoneRightChildBinding
 import com.knobblochsapplication.app.databinding.BoneRightRootBinding
 
 class TaskRightSideAdapter(
-    val listener: TaskRightSideAdapter.Listener,
+    val listener: Listener,
     factory: TreeViewHolderFactory,
 ) : TreeViewAdapter(factory) {
 

@@ -11,7 +11,8 @@ import com.knobblochsapplication.app.databinding.FragmentListViewBinding
 import org.koin.android.ext.android.inject
 
 
-class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment_list_view), TaskListTreeViewAdapter.Listener {
+class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment_list_view),
+    TaskListTreeViewAdapter.Listener {
     private val preferenceHelper: PreferenceHelper by inject()
     private val appStorage: AppStorage by inject()
     var lastSelectedGoalUid: String? = null

@@ -1,4 +1,4 @@
-package com.knobblochsapplication.app.modules.downloadlist.`data`.model
+package com.knobblochsapplication.app.modules.diagramview.data.downloadlist.data.model
 
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.di.MyApp

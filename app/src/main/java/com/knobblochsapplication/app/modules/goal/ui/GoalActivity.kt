@@ -18,7 +18,7 @@ import com.knobblochsapplication.app.appcomponents.utility.Node
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
-import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
+import com.knobblochsapplication.app.modules.diagramview.data.downloadlist.ui.DownloadListActivity
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
 import org.koin.android.ext.android.inject
 
@@ -69,11 +69,13 @@ class GoalActivity : AppCompatActivity() {
 
     fun onClickGoSortType(item: MenuItem) {
         val intent = Intent(this, SortActivity::class.java)
+        System.out.println("kit")
         startActivity(intent)
     }
 
     fun onClickGoDownloadList(item: MenuItem) {
         val intent = Intent(this, DownloadListActivity::class.java)
+        System.out.println("kit")
         startActivity(intent)
     }
 

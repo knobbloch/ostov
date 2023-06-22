@@ -1,4 +1,4 @@
-package com.knobblochsapplication.app.modules.downloadlist.ui
+package com.knobblochsapplication.app.modules.diagramview.data.downloadlist.ui
 
 import android.Manifest
 import android.app.Activity
@@ -9,13 +9,17 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.Settings
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 
 class PermissionUtilits {
 
+
     companion object {
+
         fun hasPermissions(context: Context?): Boolean {
             return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 Environment.isExternalStorageManager()

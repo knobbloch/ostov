@@ -10,7 +10,7 @@ import com.knobblochsapplication.app.databinding.TaskListItemBinding
 
 
 class TaskListTreeViewAdapter(
-    val listener: TaskListTreeViewAdapter.Listener,
+    val listener: Listener,
     factory: TreeViewHolderFactory
 ) : TreeViewAdapter(factory) {
 
