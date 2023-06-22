@@ -3,6 +3,7 @@ package com.knobblochsapplication.app.modules.settings.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.CheckBox
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -38,6 +39,8 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding>(R.layout.activity
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
+
+
     }
 
     companion object {

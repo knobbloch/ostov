@@ -1,90 +1,43 @@
 package com.knobblochsapplication.app.modules.goal.ui
 
+import android.view.LayoutInflater
 import android.view.View
-import com.amrdeveloper.treeview.TreeNode
-import com.amrdeveloper.treeview.TreeViewAdapter
-import com.amrdeveloper.treeview.TreeViewHolder
-import com.amrdeveloper.treeview.TreeViewHolderFactory
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.knobblochsapplication.app.R
-import com.knobblochsapplication.app.databinding.BoneRightChildBinding
-import com.knobblochsapplication.app.databinding.BoneRightRootBinding
+import com.knobblochsapplication.app.appcomponents.utility.Node
+import com.knobblochsapplication.app.databinding.BoneBinding
 
-class TaskRightSideAdapter(
-    val listener: TaskRightSideAdapter.Listener,
-    factory: TreeViewHolderFactory,
-) : TreeViewAdapter(factory) {
+class TaskRightSideAdapter(val listener: TaskLeftSideAdapter.Listener, private val tasksList: MutableList<Node>) :
+    RecyclerView.Adapter<TaskRightSideAdapter.TaskRightSideHolder>() {
 
-    fun createViewHolderForChild(itemView: View): TaskViewHolderChild {
-        var i = TaskViewHolderChild(itemView)
-//        i.nodePadding = 50
-        return i
-    }
+    class TaskRightSideHolder(item: View) : RecyclerView.ViewHolder(item) {
+        val binding = BoneBinding.bind(item)
 
-    fun createViewHolderForRoot(itemView: View): TaskViewHolderRoot {
-        var i = TaskViewHolderRoot(itemView)
-//        i.nodePadding = 0
-        return i
-    }
-
-    inner class TaskViewHolderChild(itemView: View) : TreeViewHolder(itemView) {
-
-        val binding = BoneRightChildBinding.bind(itemView)
-
-        override fun bindTreeNode(node: TreeNode) = with(binding) {
-            super.bindTreeNode(node)
-            val pair = node.value as TreeTask
-            name.text = pair.name
-
-            // change state icon
-            if (node.children.isEmpty()) {
-                state.visibility = View.INVISIBLE
-            } else {
-                state.visibility = View.VISIBLE
-                val stateIcon =
-                    if (node.isExpanded) R.drawable.ic_arrow_right else R.drawable.ic_arrow_drop_down
-                state.setImageResource(stateIcon)
+        fun bind(task: Node, listener: TaskLeftSideAdapter.Listener) = with(binding) {
+            nameTask.text = task.name
+            itemView.setOnClickListener {
+                listener.onTaskClick(adapterPosition, task.uid)
             }
 
-            btnTaskMenu.setOnClickListener {
-                listener.onTaskClick(pair.uid)
-            }
-            btnAdd.setOnClickListener {
-                listener.addChildTask(pair.uid)
-            }
         }
     }
 
-    inner class TaskViewHolderRoot(itemView: View) : TreeViewHolder(itemView) {
-
-        val binding = BoneRightRootBinding.bind(itemView)
-
-        override fun bindTreeNode(node: TreeNode) = with(binding) {
-            super.bindTreeNode(node)
-            val pair = node.value as TreeTask
-            name.text = pair.name
-
-            // change state icon
-            if (node.children.isEmpty()) {
-                state.visibility = View.INVISIBLE
-            } else {
-                state.visibility = View.VISIBLE
-                val stateIcon =
-                    if (node.isExpanded) R.drawable.ic_arrow_right else R.drawable.ic_arrow_drop_down
-                state.setImageResource(stateIcon)
-            }
-
-            btnTaskMenu.setOnClickListener {
-                listener.onTaskClick(pair.uid)
-            }
-            btnAdd.setOnClickListener {
-                listener.addChildTask(pair.uid)
-            }
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskRightSideAdapter.TaskRightSideHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.right_bone, parent, false)
+        return TaskRightSideAdapter.TaskRightSideHolder(view)
     }
+
+    override fun getItemCount(): Int {
+        return tasksList.size
+    }
+
+    override fun onBindViewHolder(holder: TaskRightSideAdapter.TaskRightSideHolder, position: Int) {
+        holder.bind(tasksList[position], listener)
+    }
+
 
     interface Listener {
-        fun onTaskClick(uid: String)
-        fun addChildTask(uid: String)
-
+        fun onTaskClick(position: Int, uid: String)
     }
 }

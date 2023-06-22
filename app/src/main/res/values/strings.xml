@@ -72,9 +72,6 @@
     <string name="lbl37">Дальше</string>
     <string name="lbl40">Добавить</string>
     <string name="default_priority_value">1</string>
-    <string name="yes">Да</string>
-    <string name="no">Нет</string>
-    <string name="no_tasks">Пусто</string>
     <string name="error_empty_goal_name">Название не может быть пустым</string>
     <string name="goal_change_level">Сделать задачей</string>
     <string-array name="dialog_actions_with_task">
@@ -88,7 +85,7 @@
     </string-array>
     <string name="change_action">Выберите действие</string>
     <string-array name="dialog_separate_target">
-        <item>Дублировать новой целью</item>
+        <item>Дублировать</item>
         <item>Переместить с потомками</item>
         <item>Потомков оставить, саму задачу сделать целью</item>
     </string-array>

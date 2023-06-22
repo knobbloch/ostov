@@ -19,16 +19,16 @@ class GoalsAdapter(val listener: Listener, private val goalsList: MutableList<No
             txtAboutgoal.text = goal.description
             deadline.text = goal.deadline
             itemView.setOnClickListener {
-                listener.onGoalClick(bindingAdapterPosition)
+                listener.onGoalClick(adapterPosition)
             }
             btnDelete.setOnClickListener {
-                listener.onBtnDeleteClick(bindingAdapterPosition, goal.uid)
+                listener.onBtnDeleteClick(adapterPosition, goal.uid)
             }
             btnEdit.setOnClickListener {
-                listener.onBtnEditClick(bindingAdapterPosition)
+                listener.onBtnEditClick(adapterPosition)
             }
             btnChangeLevel.setOnClickListener {
-                listener.onBtnChangeLevelClick(bindingAdapterPosition)
+                listener.onBtnChangeLevelClick(adapterPosition)
             }
         }
     }

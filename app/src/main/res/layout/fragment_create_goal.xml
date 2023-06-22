@@ -88,33 +88,74 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearBlockdate"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="32dp">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/editDate"
-                        style="?attr/textInputFilledStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/lbl17"
-                        app:endIconDrawable="@drawable/ic_close"
-                        app:helperTextEnabled="true"
-                        app:endIconMode="custom"
-                        app:startIconDrawable="@drawable/ic_date_picker">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/goalDeadline"
-                            android:layout_width="match_parent"
-                            android:focusable="false"
-                            android:clickable="true"
-                            android:layout_height="wrap_content" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/goalDeadline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:layout_marginEnd="32dp"
+                        android:text="@string/lbl17"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <DatePicker
+                        android:id="@+id/datePicker"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:datePickerMode="spinner"
+                        android:calendarViewShown="false"
+                        android:layout_gravity="center"
+                        android:scaleY="0.7"
+                        android:scaleX="0.7"
+                        android:layout_marginLeft="-30dp"
+                        android:layout_marginRight="-30dp"
+                        />
+                    <TimePicker
+                        android:id="@+id/timePicker"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:timePickerMode="spinner"
+                        android:layout_gravity="center"
+                        android:scaleY="0.7"
+                        android:scaleX="0.7"
+                        android:layout_marginLeft="-30dp"
+                        android:layout_marginRight="-30dp"/>
+                </LinearLayout>
+                <!--                <LinearLayout-->
+                <!--                    android:id="@+id/linearBlockdate"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    android:paddingBottom="32dp">-->
+
+                <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                <!--                        android:id="@+id/editDate"-->
+                <!--                        style="?attr/textInputFilledStyle"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:hint="@string/lbl17"-->
+                <!--                        app:endIconDrawable="@drawable/ic_close"-->
+                <!--                        app:helperTextEnabled="true"-->
+                <!--                        app:endIconMode="custom"-->
+                <!--                        app:startIconDrawable="@drawable/ic_date_picker">-->
+
+                <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                <!--                            android:id="@+id/goalDeadline"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:focusable="false"-->
+                <!--                            android:clickable="true"-->
+                <!--                            android:layout_height="wrap_content" />-->
+
+                <!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
+                <!--                </LinearLayout>-->
 
                 <LinearLayout
                     android:id="@+id/linearBlockimpotance"

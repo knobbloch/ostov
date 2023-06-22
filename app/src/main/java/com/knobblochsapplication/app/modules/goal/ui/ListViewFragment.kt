@@ -11,11 +11,11 @@ import com.knobblochsapplication.app.databinding.FragmentListViewBinding
 import org.koin.android.ext.android.inject
 
 
-class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment_list_view), TaskListTreeViewAdapter.Listener {
+class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment_list_view), TaskTreeViewAdapter.Listener {
     private val preferenceHelper: PreferenceHelper by inject()
     private val appStorage: AppStorage by inject()
     var lastSelectedGoalUid: String? = null
-    var treeViewAdapter: TaskListTreeViewAdapter? = null
+    var treeViewAdapter: TaskTreeViewAdapter? = null
     override fun addObservers() {
         super.addObservers()
         lastSelectedGoalUid = preferenceHelper.getLastSelectedGoal()
@@ -28,21 +28,6 @@ class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment
             return
         }
         binding.goalName.text = goal.name
-        binding.deadline.text = goal.deadline
-        binding.priority.text = goal.priority.toString()
-        if (!goal.isDone) {
-            binding.isDone.setText(R.string.no)
-        } else {
-            binding.isDone.setText(R.string.yes)
-        }
-        if (goal.tasks.size == 0) {
-            binding.empty.visibility = View.VISIBLE
-            binding.list.visibility = View.GONE
-        } else {
-            binding.empty.visibility = View.GONE
-            binding.list.visibility = View.VISIBLE
-        }
-
 
         //tree view
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -51,9 +36,9 @@ class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment
             TreeViewHolderFactory { v: View, layout: Int ->
                 treeViewAdapter!!.createViewHolder(v)
             }
-        treeViewAdapter = TaskListTreeViewAdapter(this, factory)
+        treeViewAdapter = TaskTreeViewAdapter(this, factory)
         binding.recyclerView.adapter = treeViewAdapter
-        treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter(R.layout.task_list_item));
+        treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter());
 
     }
 
@@ -67,7 +52,7 @@ class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment
                 return
             }
             lastSelectedGoalUid = uid
-            treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter(R.layout.task_list_item));
+            treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter());
         }
     }
 
@@ -77,8 +62,5 @@ class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment
 
     override fun onTaskClick(uid: String) {
         (activity as GoalActivity).showTaskDialog(uid)
-    }
-    override fun addTask(uid: String) {
-        (activity as GoalActivity).showCreateTaskDialogFragment(uid)
     }
 }

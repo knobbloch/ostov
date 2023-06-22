@@ -11,11 +11,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.utility.AppStorage
-import com.knobblochsapplication.app.appcomponents.utility.Node
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.ActivityMainMenuBinding
 import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
+import com.knobblochsapplication.app.modules.main.ui.GoalsAdapter
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
 import org.koin.android.ext.android.inject
 
@@ -26,18 +26,20 @@ class GoalActivity : AppCompatActivity() {
     private val appStorage: AppStorage by inject()
     lateinit var lastSelectedGoalUid: String
     lateinit var lastSelectedTaskUid: String
-    lateinit var adapter: TaskListTreeViewAdapter
+    lateinit var adapter: TaskTreeViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
         window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
+//        window.navigationBarColor = SurfaceColors.SURFACE_2.getColor(this)
         binding.topAppBar.setNavigationOnClickListener {
             finish()
         }
+
         binding.addGoalBtn.setOnClickListener {
-            showCreateTaskDialogFragment(null)
+            showCreateTaskDialogFragment()
         }
     }
 
@@ -74,34 +76,22 @@ class GoalActivity : AppCompatActivity() {
     }
 
     fun updateView() {
-        val uid = preferenceHelper.getLastSelectedGoal()
-        var goal: Node?
-        if (uid == null) {
-            return
-        }
-        goal = appStorage.getGoalByUid(lastSelectedGoalUid)
-        if (goal == null) {
-            return
-        }
         val allFragments: List<Fragment> = supportFragmentManager.fragments
         for (fragment in allFragments) {
             if (fragment is ListViewFragment) {
-                fragment.treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter(R.layout.task_list_item))
+                val uid = preferenceHelper.getLastSelectedGoal()
+                if (uid !== null) {
+                    val goal = appStorage.getGoalByUid(lastSelectedGoalUid)
+                    if (goal == null) {
+                        continue
+                    }
+                    fragment.treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter());
+                }
                 continue
             }
             if (fragment is DiagramViewFragment) {
-                fragment.adapterLeft.updateTreeNodes(
-                    goal.treeViewAdapterLeft(
-                        R.layout.bone_left_root,
-                        R.layout.bone_left_child
-                    )
-                )
-                fragment.adapterRight.updateTreeNodes(
-                    goal.treeViewAdapterRight(
-                        R.layout.bone_right_root,
-                        R.layout.bone_right_child
-                    )
-                )
+                fragment.adapter.notifyDataSetChanged()
+                fragment.adapterRight.notifyDataSetChanged()
             }
         }
     }
@@ -133,10 +123,10 @@ class GoalActivity : AppCompatActivity() {
             .show()
     }
 
-    fun showCreateTaskDialogFragment(uid: String?) {
+    fun showCreateTaskDialogFragment() {
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         ft.addToBackStack(null)
-        val newFragment: DialogFragment = CreateTaskDialogFragment.newInstance(uid)
+        val newFragment: DialogFragment = CreateTaskDialogFragment.newInstance()
         newFragment.show(ft, "dialog")
     }
 
@@ -148,62 +138,68 @@ class GoalActivity : AppCompatActivity() {
     }
 
     fun showDialogSeparateTarget() {
-        var checkedId: Int = 0
         MaterialAlertDialogBuilder(this)
             .setNegativeButton(R.string.lbl21) { dialog, _ ->
                 dialog.dismiss()
             }
             .setPositiveButton(R.string.lbl36) { dialog, _ ->
-                when (checkedId) {
-                    0 -> {
-                        appStorage.duplicateGoal(lastSelectedGoalUid, lastSelectedTaskUid)
-                    }
-                    1 -> {
-                        appStorage.createGoalFromTask(lastSelectedGoalUid, lastSelectedTaskUid)
-                    }
-                    2 -> {
-                        appStorage.createGoalFromTaskWithoutChild(lastSelectedGoalUid, lastSelectedTaskUid)
-                    }
-                }
-                updateView()
                 dialog.dismiss()
             }
             .setSingleChoiceItems(
                 R.array.dialog_separate_target,
                 0
             ) { dialog, which ->
-                checkedId = which
+                when (which) {
+                    0 -> {}
+                    1 -> {}
+                    2 -> {}
+                }
             }
             .setTitle(R.string.choise_action_when_separate_target)
             .show()
     }
 
     fun showDialogDeleteTask() {
-        var checkedId: Int = 0
         MaterialAlertDialogBuilder(this)
             .setNegativeButton(R.string.lbl21) { dialog, _ ->
                 dialog.dismiss()
             }
             .setPositiveButton(R.string.lbl22) { dialog, _ ->
-                when (checkedId) {
-                    0 -> {
-                        appStorage.deleteTask(lastSelectedGoalUid, lastSelectedTaskUid)
-                    }
-                    1 -> {
-                        appStorage.deleteTaskTransferChild(lastSelectedGoalUid, lastSelectedTaskUid)
-                    }
+                if (lastSelectedTaskUid != null) {
+//                    appStorage.remove(lastSelectedTaskUid)
+//                    preferenceHelper.setLastSelectedGoal(null)
+//                    TaskTreeViewAdapter.setTreeNodes()
                 }
-                updateView()
                 dialog.dismiss()
             }
             .setSingleChoiceItems(
                 R.array.dialog_delete_task,
                 0
             ) { dialog, which ->
-                checkedId = which
+                when (which) {
+                    0 -> {}
+
+                    1 -> {}
+                }
             }
             .setTitle(R.string.lbl34)
             .show()
     }
+
+
+//    override fun onBtnDeleteClick(position: Int, uid: String) {
+//        MaterialAlertDialogBuilder(this)
+//            .setMessage(getString(R.string.msg6))
+//            .setNegativeButton(R.string.lbl21) { dialog, _ ->
+//                dialog.dismiss()
+//            }
+//            .setPositiveButton(R.string.lbl22) { dialog, _ ->
+//                appStorage.remove(uid)
+//                adapter.notifyItemRemoved(position)
+//                preferenceHelper.setLastSelectedGoal(null)
+//                dialog.dismiss()
+//            }
+//            .show()
+//    }
 
 }
