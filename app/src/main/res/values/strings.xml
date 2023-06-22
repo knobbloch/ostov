@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="you_did_not_chose_pref">Выберите приоритет сортировки</string>
+    <string name="you_did_not_chose_parametrs">Вы не выбрали параметры</string>
     <string name="app_name">Фишлист</string>
     <string name="msg">Диаграмма Исикавы:</string>
     <string name="lbl_23">Задача 2</string>

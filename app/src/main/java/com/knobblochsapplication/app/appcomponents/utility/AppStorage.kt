@@ -8,6 +8,9 @@ import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileWriter
 import java.nio.file.Files
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class AppStorage(val context: Context) {
@@ -262,7 +265,7 @@ class AppStorage(val context: Context) {
         return "app_${uid}.json"
     }
 
-    private fun saveToFile(goal: Node) {
+    fun saveToFile(goal: Node) {
         val prettyGson = GsonBuilder()
             .setPrettyPrinting()
             .create()
@@ -289,5 +292,118 @@ class AppStorage(val context: Context) {
             return
         }
         DocxFile.make_docx(goal)
+    }
+
+    private fun give_percent(goal: Node): Int {
+        //Проверяем есть ли подзадачи у объекта
+        if(goal.tasks.size!=0){
+            //Рассчитываем сколько процентов даётся за выполнение 1 задания
+
+            var one_task_per=100/goal.tasks.size
+            var count_completed = 0
+
+            //Считаем сколько заданий выполнено
+            for(i in goal.tasks){
+                if(i.isDone){
+                    count_completed+=1
+                }
+            }
+
+            //Возвращаем получившееся число
+            if(count_completed==goal.tasks.size){
+                return 100
+            }else{
+                return one_task_per*count_completed
+            }
+
+        }
+        else{
+            if(goal.isDone){
+                return 100;
+            }else{
+                return 0;
+            }
+        }
+    }
+
+    private fun sort_by_rang_ins(need_to_sort: Node): Node {
+        if(need_to_sort.tasks.size!=0){
+            need_to_sort.tasks.sortBy{it.priority}
+            for (t in 0..need_to_sort.tasks.size-1){
+                var changed=sort_by_rang_ins(need_to_sort.tasks.get(t))
+                need_to_sort.tasks.set(t,changed)
+            }
+        }
+        return need_to_sort
+    }
+
+    fun sort_by_rang(uid:String){
+        var test= loadByUid(uid)
+            ?.let { it1 -> sort_by_rang_ins(it1) }
+        if (test != null) {
+            test.separate()
+            saveToFile(test)
+        }
+    }
+
+    private fun sort_by_complete_ins(need_to_sort: Node): Node {
+        if(need_to_sort.tasks.size!=0){
+            need_to_sort.tasks.sortBy{it.isDone}
+            for (t in 0..need_to_sort.tasks.size-1){
+                var changed=sort_by_complete_ins(need_to_sort.tasks.get(t))
+                need_to_sort.tasks.set(t,changed)
+            }
+        }
+        return need_to_sort
+    }
+
+    fun sort_by_complete(uid:String){
+        var test= loadByUid(uid)
+            ?.let { it1 -> sort_by_complete_ins(it1) }
+        if (test != null) {
+            test.separate()
+            saveToFile(test)
+        }
+    }
+
+    private fun sort_by_deadline_ins(need_to_sort: Node): Node {
+        if(need_to_sort.tasks.size!=0){
+            need_to_sort.tasks.sortWith(by_deadline())
+            for (t in 0..need_to_sort.tasks.size-1){
+                var changed=sort_by_deadline_ins(need_to_sort.tasks.get(t))
+                need_to_sort.tasks.set(t,changed)
+            }
+        }
+        return need_to_sort
+    }
+
+    fun sort_by_deadline(uid:String){
+        var test= loadByUid(uid)
+            ?.let { it1 -> sort_by_deadline_ins(it1) }
+        if (test != null) {
+            test.separate()
+            saveToFile(test)
+        }
+    }
+}
+
+////Компараторор для сортировки даты
+internal class by_deadline: Comparator<Node> {
+    override fun compare(x: Node, y: Node): Int {
+        //Пример строки,которая должна быть во времени "Jan 01 2017, 07:34:27 pm"
+        if(x.deadline!="" && y.deadline!="") {
+            val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+            val date_x = LocalDate.parse(x.deadline, formatter)
+            val date_y = LocalDate.parse(y.deadline, formatter)
+            return (date_x).compareTo(date_y)
+        }
+        if(x.deadline==y.deadline){
+            return 0
+        }
+        if (x.deadline=="" && y.deadline!=""){
+            return -1
+        }else{
+            return 1
+        }
     }
 }

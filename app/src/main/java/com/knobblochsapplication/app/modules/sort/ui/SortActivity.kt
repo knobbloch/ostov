@@ -1,13 +1,16 @@
 package com.knobblochsapplication.app.modules.sort.ui
 
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
+import com.knobblochsapplication.app.appcomponents.utility.AppStorage
 import com.knobblochsapplication.app.databinding.ActivitySortBinding
 import com.knobblochsapplication.app.modules.sort.data.model.SortRowModel
 import com.knobblochsapplication.app.modules.sort.data.viewmodel.SortVM
+import org.koin.ext.getScopeId
 
 class SortActivity : BaseActivity<ActivitySortBinding>(R.layout.activity_sort) {
   private val viewModel: SortVM by viewModels<SortVM>()
@@ -33,6 +36,66 @@ class SortActivity : BaseActivity<ActivitySortBinding>(R.layout.activity_sort) {
   override fun setUpClicks(): Unit {
     binding.topAppBar.setNavigationOnClickListener {
       finish()
+    }
+
+    binding.buttonDownload.setOnClickListener {
+      val important_check_box = binding.importantCheckBox.isChecked
+      val readiness_check_box = binding.readinessCheckBox.isChecked
+      val date_check_box = binding.dateCheckBox.isChecked
+
+      val radio_button_important = binding.radioButton3.isChecked
+      val radio_button_readiness = binding.radioButton4.isChecked
+      val app_storage:AppStorage= AppStorage(this)
+
+      if (important_check_box == false && readiness_check_box == false && date_check_box == false) {
+        Toast.makeText(this@SortActivity, R.string.you_did_not_chose_parametrs, Toast.LENGTH_LONG)
+          .show()
+      }
+      if (important_check_box && readiness_check_box == false && date_check_box == false) {
+//        app_storage.sort_by_deadline("53c145f5-20d3-4d49-b511-f8f59306e996")
+      }
+      if (important_check_box == false && readiness_check_box && date_check_box == false) {
+        //Сортировать по выполненности
+      }
+      if (important_check_box == false && readiness_check_box == false && date_check_box) {
+        //Сортировать по дедлайну
+      }
+      if (important_check_box && readiness_check_box == false && date_check_box) {
+        //Сортировать по рангу
+        //Сортировать по дедлайну
+      }
+      if (important_check_box == false && readiness_check_box && date_check_box) {
+        //Сортировать по дедлайну
+        //Сортировать по выполненности
+      }
+      if (important_check_box && readiness_check_box && date_check_box == false) {
+        if (radio_button_important) {
+          //Сортировать по выполненности
+          //Сортировать по рангу
+        }
+        if (radio_button_readiness) {
+          //Сортировать по рангу
+          //Сортировать по выполненности
+        }
+        if(!radio_button_readiness && !radio_button_important) {
+          Toast.makeText(this@SortActivity, R.string.you_did_not_chose_pref, Toast.LENGTH_LONG)
+            .show()
+        }
+      }
+      if (important_check_box && readiness_check_box && date_check_box) {
+        if (radio_button_important) {
+          //Сортировать по выполненности
+          //Сортировать по рангу
+        }
+        if (radio_button_readiness) {
+          //Сортировать по рангу
+          //Сортировать по выполненности
+        }
+        if(!radio_button_readiness && !radio_button_important) {
+          Toast.makeText(this@SortActivity, R.string.you_did_not_chose_pref, Toast.LENGTH_LONG)
+            .show()
+        }
+      }
     }
   }
 
