@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
@@ -37,6 +36,10 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding>(R.layout.activity
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
+        }
+        binding.notifications.isChecked = preferenceHelper.getIsNotificationEnabled()
+        binding.notifications.setOnCheckedChangeListener { _, isChecked ->
+            preferenceHelper.setIsNotificationEnabled(isChecked)
         }
     }
 

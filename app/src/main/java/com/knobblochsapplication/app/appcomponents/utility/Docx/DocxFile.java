@@ -34,7 +34,6 @@ public class DocxFile {
             xwpfRun.addBreak();
         }
         xwpfRun.setText(goal.getDescription());
-        xwpfRun.setText(goal.getDescription());
 
         xwpfRun.addBreak();
 

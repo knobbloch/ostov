@@ -21,7 +21,7 @@ object Alerter {
         val workRequest = PeriodicWorkRequestBuilder<AlertWorker>(15, TimeUnit.MINUTES).build()
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(
             "alerter",
-            ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
+            ExistingPeriodicWorkPolicy.KEEP,
             workRequest
         )
     }
@@ -31,6 +31,10 @@ object Alerter {
 
         override fun doWork(): Result {
             val storage = (context.applicationContext as MyApp).st
+            val preferenceHelper = (context.applicationContext as MyApp).pr
+            if (!preferenceHelper.getIsNotificationEnabled()) {
+                return Result.success()
+            }
             val list = storage.getDeadlineToday()
             for (item in list) {
                 val notificationManagerCompat: NotificationManagerCompat =

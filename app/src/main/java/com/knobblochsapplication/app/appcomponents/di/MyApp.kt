@@ -17,11 +17,13 @@ import org.koin.dsl.module
 class MyApp : Application() {
 
     lateinit var st: AppStorage
+    lateinit var pr: PreferenceHelper
 
     override fun onCreate() {
         super.onCreate()
         instance = this
         st = AppStorage(this@MyApp).loadAll()
+        pr = PreferenceHelper()
         startKoin {
             androidLogger()
             androidContext(this@MyApp)
@@ -37,7 +39,7 @@ class MyApp : Application() {
     private fun preferenceModule(): Module {
         val prefsModule = module {
             single {
-                PreferenceHelper()
+                pr
             }
         }
         return prefsModule
@@ -48,6 +50,7 @@ class MyApp : Application() {
             single {
                 st
             }
+
         }
         return storageModule
     }

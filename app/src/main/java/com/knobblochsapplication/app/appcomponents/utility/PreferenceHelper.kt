@@ -89,4 +89,16 @@ class PreferenceHelper() {
             .putString(SORT_TYPE, sortType)
             .apply()
     }
+
+    private val NOTIFICATIONS = "notifications"
+
+    fun getIsNotificationEnabled() =
+        sharedPreference.getBoolean(NOTIFICATIONS, false)
+
+    fun setIsNotificationEnabled(notifications: Boolean) {
+        sharedPreference
+            .edit()
+            .putBoolean(NOTIFICATIONS, notifications)
+            .apply()
+    }
 }
