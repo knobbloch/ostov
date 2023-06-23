@@ -16,6 +16,13 @@
         android:title="Вид диаграммы">
 
     </item>
+    <item
+        android:id="@+id/nav_helpcards"
+        android:icon="@drawable/baseline_info_24"
+        android:onClick="onClickGoHelpCards"
+        android:title="Подсказки">
+
+    </item>
 <!--    <item-->
 <!--        android:id="@+id/nav_sorttype"-->
 <!--        android:icon="@drawable/ic_menu_sort"-->

@@ -25,6 +25,7 @@ import com.knobblochsapplication.app.modules.diagramview.ui.DiagramViewActivity
 import com.knobblochsapplication.app.modules.downloadlist.ui.DownloadListActivity
 import com.knobblochsapplication.app.modules.goal.ui.GoalActivity
 import com.knobblochsapplication.app.modules.goalsunion.ui.GoalsUnionActivity
+import com.knobblochsapplication.app.modules.helpcards.HelpCards
 import com.knobblochsapplication.app.modules.helpscreenone.ui.HelpScreenOneActivity
 import com.knobblochsapplication.app.modules.settings.ui.SettingsActivity
 import com.knobblochsapplication.app.modules.sort.ui.SortActivity
@@ -128,6 +129,11 @@ class MainActivity : AppCompatActivity(),
 
     fun onClickGoDownloadList(item: MenuItem) {
         val intent = Intent(this, DownloadListActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun onClickGoHelpCards(item: MenuItem) {
+        val intent = Intent(this, HelpCards::class.java)
         startActivity(intent)
     }
 
