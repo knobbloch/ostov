@@ -6,8 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".appcomponents.di.MyApp"
@@ -19,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".modules.MainActivity"
+            android:exported="false" />
         <activity
             android:name=".modules.diagramview.ui.DiagramViewActivity"
             android:screenOrientation="portrait" />
@@ -36,15 +38,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.goal.ui.GoalActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".modules.goalsunion.ui.GoalsUnionActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.main.ui.MainActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

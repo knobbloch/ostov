@@ -1,7 +1,10 @@
 package com.knobblochsapplication.app.modules.downloadlist.ui
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Environment
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
@@ -33,18 +36,21 @@ class DownloadListActivity :
                 binding.completion.isChecked = false
                 binding.priorityDate.isChecked = false
             }
+
             SortType.BY_DEADLINE -> {
                 binding.date.isChecked = true
                 binding.priority.isChecked = false
                 binding.completion.isChecked = false
                 binding.priorityDate.isChecked = false
             }
+
             SortType.BY_COMPLETION -> {
                 binding.date.isChecked = false
                 binding.priority.isChecked = false
                 binding.completion.isChecked = true
                 binding.priorityDate.isChecked = false
             }
+
             SortType.BY_PRIORITY_DEADLINE -> {
                 binding.date.isChecked = false
                 binding.priority.isChecked = false
@@ -62,17 +68,22 @@ class DownloadListActivity :
                 R.id.priority -> {
                     appStorage.sortByPriority(uid!!)
                 }
+
                 R.id.completion -> {
                     appStorage.sortByCompletion(uid!!)
                 }
+
                 R.id.date -> {
                     appStorage.sortByDeadline(uid!!)
                 }
+
                 R.id.priority_date -> {
                     appStorage.sortByPriorityDeadline(uid!!)
                 }
             }
-            if (PermissionUtils.hasPermissions(this)) {
+            if (!PermissionUtils.hasPermissions(this)) {
+                requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            } else{
                 appStorage.downloadDocxFile(uid!!)
                 Toast.makeText(
                     this,
@@ -81,13 +92,31 @@ class DownloadListActivity :
                     ).name,
                     Toast.LENGTH_LONG
                 ).show()
-            } else {
-                val PERMISSION_STORAGE = 101
-                PermissionUtils.requestPermissions(this, PERMISSION_STORAGE)
+                this.finish()
             }
-            this.finish()
+
         }
     }
+
+    val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                val uid = preferenceHelper.getLastSelectedGoal()
+                appStorage.downloadDocxFile(uid!!)
+                Toast.makeText(
+                    this,
+                    "Документ сохранен в папке " + Environment.getExternalStoragePublicDirectory(
+                        Environment.DIRECTORY_DOWNLOADS
+                    ).name,
+                    Toast.LENGTH_LONG
+                ).show()
+
+            } else {
+
+            }
+        }
 
     companion object {
         const val TAG: String = "DOWNLOAD_LIST_ACTIVITY"
