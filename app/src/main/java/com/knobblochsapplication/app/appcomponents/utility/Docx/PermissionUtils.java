@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.provider.Settings;
 
 import androidx.core.app.ActivityCompat;
@@ -16,12 +15,10 @@ import androidx.core.content.ContextCompat;
 public class PermissionUtils {
     public static boolean hasPermissions(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            return Environment.isExternalStorageManager();
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return true;
+        } else {
             return ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED;
-        } else {
-            return true;
         }
     }
 

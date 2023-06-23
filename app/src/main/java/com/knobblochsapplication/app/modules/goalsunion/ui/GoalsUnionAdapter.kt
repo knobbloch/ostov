@@ -18,6 +18,7 @@ class GoalsUnionAdapter(val listener: Listener, private val goalsList: MutableLi
             txtNamegoal.text = goal.name
             txtAboutgoal.text = goal.description
             deadline.text = goal.deadline
+            radio.isChecked = goal.uid == GoalsUnionActivity.selectedGoalUid
             radio.setOnCheckedChangeListener { _, _ ->
                 listener.onBtnRadioClick(adapterPosition, goal.uid)
             }

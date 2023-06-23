@@ -19,7 +19,6 @@ class GoalsUnionActivity : BaseActivity<ActivityGoalsUnionBinding>(R.layout.acti
     private val appStorage: AppStorage by inject()
     private val preferenceHelper: PreferenceHelper by inject()
     lateinit var adapter: GoalsUnionAdapter
-    private var selectedGoalUid: String? = null
     private lateinit var selectedTaskUid: String
 
     override fun addObservers() {
@@ -56,9 +55,11 @@ class GoalsUnionActivity : BaseActivity<ActivityGoalsUnionBinding>(R.layout.acti
     }
 
     override fun onBtnRadioClick(position: Int, uid: String) {
-        this.selectedGoalUid = uid
+        selectedGoalUid = uid
+        binding.rcView.post(Runnable { adapter.notifyDataSetChanged() })
     }
     companion object {
         const val TAG: String = "GOALS_UNION_ACTIVITY"
+        var selectedGoalUid: String? = null
     }
 }

@@ -3,115 +3,122 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-        <HorizontalScrollView
-            android:id="@+id/h_scroll"
-            android:fillViewport="true"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+    <HorizontalScrollView
+        android:id="@+id/h_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
         <androidx.core.widget.NestedScrollView
             android:id="@+id/g_scroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_vertical"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
 
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/head"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="200dp"
-                    android:foregroundGravity="center_vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/group_13" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/goal_name"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="TextView"
-                    android:maxLines="1"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textColor="?attr/colorSurface"
-                    app:layout_constraintBottom_toBottomOf="@+id/head"
-                    app:layout_constraintEnd_toEndOf="@+id/head"
-                    app:layout_constraintStart_toStartOf="@+id/head" />
+                    android:layout_gravity="center">
 
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="7dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/barrier"
-                    app:layout_constraintEnd_toStartOf="@+id/recycler_right"
-                    app:layout_constraintStart_toEndOf="@+id/recycler_left"
-                    app:layout_constraintTop_toBottomOf="@+id/head"
-                    app:srcCompat="@drawable/bone_form" />
+                    <ImageView
+                        android:id="@+id/head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="200dp"
+                        android:layout_marginTop="16dp"
+                        android:foregroundGravity="center_vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/group_13" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_right"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintStart_toStartOf="@+id/guideline2"
-                    app:layout_constraintTop_toBottomOf="@+id/head"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:listitem="@layout/bone_right_root" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/goal_name"
+                        android:layout_width="200dp"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:text="TextView"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="?attr/colorSurface"
+                        app:layout_constraintBottom_toBottomOf="@+id/head"
+                        app:layout_constraintEnd_toEndOf="@+id/head"
+                        app:layout_constraintStart_toStartOf="@+id/head" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_left"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                    app:layout_constraintTop_toBottomOf="@+id/head"
-                    tools:listitem="@layout/bone_left_root">
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="7dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/barrier"
+                        app:layout_constraintEnd_toStartOf="@+id/recycler_right"
+                        app:layout_constraintStart_toEndOf="@+id/recycler_left"
+                        app:layout_constraintTop_toBottomOf="@+id/head"
+                        app:srcCompat="@drawable/bone_form" />
 
-                </androidx.recyclerview.widget.RecyclerView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_right"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/head"
+                        tools:listitem="@layout/bone_right_root" />
 
-                <ImageView
-                    android:id="@+id/tail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/barrier"
-                    app:srcCompat="@drawable/tail" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_left"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/head"
+                        tools:listitem="@layout/bone_left_root">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <ImageView
+                        android:id="@+id/tail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/barrier"
+                        app:srcCompat="@drawable/tail" />
 
 
-<!--                <androidx.constraintlayout.widget.Guideline-->
-<!--                    android:id="@+id/guideline2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical"-->
-<!--                    app:layout_constraintGuide_percent="0.5" />-->
-                <View
-                    android:id="@+id/guideline2"
-                    android:layout_width="1dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_height="match_parent"/>
+                    <!--                <androidx.constraintlayout.widget.Guideline-->
+                    <!--                    android:id="@+id/guideline2"-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:orientation="vertical"-->
+                    <!--                    app:layout_constraintGuide_percent="0.5" />-->
+                    <View
+                        android:id="@+id/guideline2"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
-                <androidx.constraintlayout.widget.Barrier
-                    android:id="@+id/barrier"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:barrierDirection="bottom"
-                    app:barrierMargin="20dp"
-                    app:constraint_referenced_ids="recycler_left,recycler_right" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="bottom"
+                        app:barrierMargin="20dp"
+                        app:constraint_referenced_ids="recycler_left,recycler_right" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
         </androidx.core.widget.NestedScrollView>
-        </HorizontalScrollView>
+    </HorizontalScrollView>
 </layout>

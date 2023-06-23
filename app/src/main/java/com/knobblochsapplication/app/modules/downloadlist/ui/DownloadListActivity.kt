@@ -7,6 +7,7 @@ import com.google.android.material.elevation.SurfaceColors
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.base.BaseActivity
 import com.knobblochsapplication.app.appcomponents.utility.AppStorage
+import com.knobblochsapplication.app.appcomponents.utility.Docx.PermissionUtils
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.appcomponents.utility.SortType
 import com.knobblochsapplication.app.databinding.ActivityDownloadListBinding
@@ -71,15 +72,19 @@ class DownloadListActivity :
                     appStorage.sortByPriorityDeadline(uid!!)
                 }
             }
-
-            appStorage.downloadDocxFile(uid!!)
-            Toast.makeText(
-                this,
-                "Документ сохранен в папке " + Environment.getExternalStoragePublicDirectory(
-                    Environment.DIRECTORY_DOWNLOADS
-                ).name,
-                Toast.LENGTH_LONG
-            ).show()
+            if (PermissionUtils.hasPermissions(this)) {
+                appStorage.downloadDocxFile(uid!!)
+                Toast.makeText(
+                    this,
+                    "Документ сохранен в папке " + Environment.getExternalStoragePublicDirectory(
+                        Environment.DIRECTORY_DOWNLOADS
+                    ).name,
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                val PERMISSION_STORAGE = 101
+                PermissionUtils.requestPermissions(this, PERMISSION_STORAGE)
+            }
             this.finish()
         }
     }
