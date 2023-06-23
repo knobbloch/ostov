@@ -64,7 +64,7 @@ class DownloadListActivity :
                 R.id.completion -> {
                     appStorage.sortByCompletion(uid!!)
                 }
-                R.id.deadline -> {
+                R.id.date -> {
                     appStorage.sortByDeadline(uid!!)
                 }
                 R.id.priority_date -> {
