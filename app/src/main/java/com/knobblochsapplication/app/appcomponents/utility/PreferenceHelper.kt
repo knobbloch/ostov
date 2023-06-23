@@ -69,12 +69,24 @@ class PreferenceHelper() {
     private val DIAGRAM_VIEW_TYPE = "diagram_view_type"
 
     fun isDiagramSelected() =
-        sharedPreference.getBoolean(DIAGRAM_VIEW_TYPE, false)
+        sharedPreference.getBoolean(DIAGRAM_VIEW_TYPE, true)
 
     fun setDiagramSelected(isDiagramSelected: Boolean) {
         sharedPreference
             .edit()
             .putBoolean(DIAGRAM_VIEW_TYPE, isDiagramSelected)
+            .apply()
+    }
+
+    private val SORT_TYPE = "sort_type"
+
+    fun getSortType() =
+        sharedPreference.getString(SORT_TYPE, SortType.BY_PRIORITY)
+
+    fun setSortType(sortType: String) {
+        sharedPreference
+            .edit()
+            .putString(SORT_TYPE, sortType)
             .apply()
     }
 }

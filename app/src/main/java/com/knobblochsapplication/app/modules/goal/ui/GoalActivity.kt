@@ -26,7 +26,6 @@ class GoalActivity : AppCompatActivity() {
     private val appStorage: AppStorage by inject()
     lateinit var lastSelectedGoalUid: String
     lateinit var lastSelectedTaskUid: String
-    lateinit var adapter: TaskListTreeViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +46,10 @@ class GoalActivity : AppCompatActivity() {
         if (uid !== null) {
             lastSelectedGoalUid = uid
         }
+        appStorage.sortBy(lastSelectedGoalUid, preferenceHelper.getSortType()!!)
+        val percent: Float = appStorage.getCompletion(lastSelectedGoalUid)
+        var percentString = "%.0f".format(percent) + "%"
+        binding.topAppBar.menu.findItem(R.id.completionPercentage).title = percentString
         if (preferenceHelper.isDiagramSelected()) {
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             ft.replace(R.id.fragmentContainer, DiagramViewFragment(), "diagram_view")
@@ -83,6 +86,10 @@ class GoalActivity : AppCompatActivity() {
         if (goal == null) {
             return
         }
+        val percent: Float = appStorage.getCompletion(lastSelectedGoalUid)
+        var percentString = "%.0f".format(percent) + "%"
+        binding.topAppBar.menu.findItem(R.id.completionPercentage).title = percentString
+        appStorage.sortBy(lastSelectedGoalUid, preferenceHelper.getSortType()!!)
         val allFragments: List<Fragment> = supportFragmentManager.fragments
         for (fragment in allFragments) {
             if (fragment is ListViewFragment) {

@@ -1,6 +1,7 @@
 package com.knobblochsapplication.app.appcomponents.di
 
 import android.app.Application
+import com.knobblochsapplication.app.appcomponents.utility.Alerter
 import com.knobblochsapplication.app.appcomponents.utility.AppStorage
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import org.koin.android.ext.koin.androidContext
@@ -15,14 +16,18 @@ import org.koin.dsl.module
  */
 class MyApp : Application() {
 
-    public override fun onCreate(): Unit {
+    lateinit var st: AppStorage
+
+    override fun onCreate() {
         super.onCreate()
         instance = this
+        st = AppStorage(this@MyApp).loadAll()
         startKoin {
             androidLogger()
             androidContext(this@MyApp)
             loadKoinModules(getKoinModules())
         }
+        Alerter.initialize(this)
     }
 
     /**
@@ -41,7 +46,7 @@ class MyApp : Application() {
     private fun storageModule(): Module {
         val storageModule = module {
             single {
-                AppStorage(this@MyApp).loadAll()
+                st
             }
         }
         return storageModule

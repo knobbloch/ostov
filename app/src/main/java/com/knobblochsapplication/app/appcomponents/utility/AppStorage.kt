@@ -241,11 +241,9 @@ class AppStorage(val context: Context) {
     fun loadAll(): AppStorage {
         val files = context.filesDir.listFiles()
         if (files == null) {
-            println("!!!error")
             return this
         }
         for (file in files) {
-            println("!!!" + files.size)
             if (!file.name.endsWith(".json")) {
                 continue
             }
@@ -289,5 +287,75 @@ class AppStorage(val context: Context) {
             return
         }
         DocxFile.make_docx(goal)
+    }
+
+    fun sortByPriority(uid: String) {
+        var goal = getGoalByUid(uid)
+        if (goal == null) {
+            return
+        }
+        goal.sortByPriority()
+    }
+
+    fun sortByDeadline(uid: String) {
+        var goal = getGoalByUid(uid)
+        if (goal == null) {
+            return
+        }
+        goal.sortByDeadline()
+    }
+
+    fun sortByCompletion(uid: String) {
+        var goal = getGoalByUid(uid)
+        if (goal == null) {
+            return
+        }
+        goal.sortByCompletion()
+    }
+
+    fun sortByPriorityDeadline(uid: String) {
+        var goal = getGoalByUid(uid)
+        if (goal == null) {
+            return
+        }
+        goal.sortByPriorityDeadline()
+    }
+
+    fun getDeadlineToday(): MutableList<Node> {
+        var list = mutableListOf<Node>()
+        for (item in goals) {
+            var returned = item.getTaskDeadlineToday()
+            if (returned.size != 0) {
+                list.addAll(returned)
+            }
+        }
+        return list
+    }
+
+    fun sortBy(uid: String, selectedSort: String) {
+        var goal = getGoalByUid(uid)
+        if (goal == null) {
+            return
+        }
+        when (selectedSort) {
+            SortType.BY_PRIORITY -> {
+                goal.sortByPriority()
+            }
+            SortType.BY_DEADLINE -> {
+                goal.sortByDeadline()
+            }
+            SortType.BY_COMPLETION -> {
+                goal.sortByCompletion()
+            }
+        }
+        goal.separate()
+    }
+
+    fun getCompletion(uid: String): Float {
+        var goal = getGoalByUid(uid)
+        if (goal == null) {
+            return 0f
+        }
+        return goal.getCompletion()
     }
 }

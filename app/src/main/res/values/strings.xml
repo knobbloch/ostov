@@ -40,7 +40,7 @@
     <string name="lbl25">Ваша цель</string>
     <string name="lbl26">Начать</string>
     <string name="lbl27">По завершённости:</string>
-    <string name="lbl28">По дате:</string>
+    <string name="lbl28">По дате дедлайна:</string>
     <string name="msg19">Изменение задачи</string>
     <string name="lbl29">Приоритет:</string>
     <string name="msg18">Вынести в отдельную цель</string>
@@ -50,7 +50,7 @@
     <string name="msg8">Ваш процент достижения цели составляет 75%</string>
     <string name="lbl_75">0%</string>
     <string name="lbl_3_1">48</string>
-    <string name="msg7">Процент достижения цели</string>
+    <string name="msg7">Процент достижения цели:</string>
     <string name="msg6">Вы уверены, что хотите удалить цель?</string>
     <string name="msg5">Скачать список  .docx</string>
     <string name="lbl_32">Задача 3</string>
@@ -71,6 +71,7 @@
     <string name="lbl36">Применить</string>
     <string name="lbl37">Дальше</string>
     <string name="lbl40">Добавить</string>
+    <string name="lbl41">По важности и дате дедлайна:</string>
     <string name="default_priority_value">1</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
@@ -95,5 +96,5 @@
     <string name="choise_action_when_separate_target">Вынесение в отдельную цель</string>
     <string name="activity_goal_union_title">Выберите цель</string>
     <string name="toast_select_goal">Необходимо выбрать цель, чтобы продолжить</string>
-    <string name="toast_union_goal">Необходимо минимум две цили</string>
+    <string name="toast_union_goal">Необходимо минимум две цели</string>
 </resources>

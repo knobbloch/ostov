@@ -1,12 +1,16 @@
 package com.knobblochsapplication.app.modules.main.ui
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentTransaction
@@ -32,7 +36,16 @@ class MainActivity : AppCompatActivity(),
     lateinit var binding: ActivityGoalsBinding
     private val appStorage: AppStorage by inject()
     private val preferenceHelper: PreferenceHelper by inject()
-    lateinit var adapter:GoalsAdapter
+    lateinit var adapter: GoalsAdapter
+
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+            } else {
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +81,18 @@ class MainActivity : AppCompatActivity(),
         }
         binding.rcView.layoutManager = LinearLayoutManager(this@MainActivity)
         binding.rcView.adapter = adapter
+
+        if (android.os.Build.VERSION.SDK_INT >= 33) {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestPermissionLauncher.launch(
+                    Manifest.permission.POST_NOTIFICATIONS
+                )
+            }
+        }
     }
 
 

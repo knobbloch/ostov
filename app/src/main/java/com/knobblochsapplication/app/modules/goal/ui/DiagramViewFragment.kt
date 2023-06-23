@@ -1,5 +1,7 @@
 package com.knobblochsapplication.app.modules.goal.ui
 
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amrdeveloper.treeview.TreeViewHolderFactory
@@ -10,6 +12,7 @@ import com.knobblochsapplication.app.appcomponents.utility.Node
 import com.knobblochsapplication.app.appcomponents.utility.PreferenceHelper
 import com.knobblochsapplication.app.databinding.FragmentDiagramViewBinding
 import org.koin.android.ext.android.inject
+
 
 class DiagramViewFragment :
     BaseFragment<FragmentDiagramViewBinding>(R.layout.fragment_diagram_view),
@@ -63,6 +66,19 @@ class DiagramViewFragment :
                 )
             }
         }
+        val mainThreadHandler = Handler(Looper.getMainLooper())
+        mainThreadHandler.post(object : Runnable {
+            override fun run() {
+                if (binding.hScroll.width > 0 && binding.tail.width > 0 && isVisible) {
+                    binding.hScroll.scrollTo(
+                        binding.tail.left - binding.hScroll.width / 2 + binding.tail.width / 2 + (30 * resources.displayMetrics.density).toInt(),
+                        0
+                    );
+                } else {
+                    mainThreadHandler.post(this);
+                }
+            }
+        })
     }
 
 

@@ -18,6 +18,9 @@ class GoalsAdapter(val listener: Listener, private val goalsList: MutableList<No
             txtNamegoal.text = goal.name
             txtAboutgoal.text = goal.description
             deadline.text = goal.deadline
+            val percent: Float = goal.getCompletion()
+            var percentString = "%.0f".format(percent) + "%"
+            completionPercentage.text = percentString
             itemView.setOnClickListener {
                 listener.onGoalClick(bindingAdapterPosition)
             }

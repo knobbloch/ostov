@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.amrdeveloper.treeview.TreeNode
 import com.knobblochsapplication.app.modules.goal.ui.TreeTask
 import kotlinx.parcelize.Parcelize
+import java.text.SimpleDateFormat
 import java.util.*
 
 @Parcelize
@@ -31,7 +32,6 @@ data class Node(
         }
 
     }
-
 
     fun getTaskByUid(uid: String): Node? {
         return getTaskById(uid, this)
@@ -185,29 +185,110 @@ data class Node(
         return treeNode
     }
 
-//    fun addChildTask(
-//        taskUid: String,
-//        name: String,
-//        deadline: String?,
-//        priority: Int,
-//        description: String?,
-//    ) {
-//        val taskOld = getTaskByUid(taskUid)
-//        if (taskOld == null) {
-//            return
-//        }
-//        val task = Node(
-//            UUID.randomUUID().toString(),
-//            name = name,
-//            deadline = deadline,
-//            priority = priority,
-//            isDone = false,
-//            description = description,
-//            tasks = mutableListOf()
-//        )
-//        taskOld.tasks.add(task)
-//        taskOld.separate()
-//        saveToFile(taskOld)
-//    }
+    fun sortByPriority(): Node {
+        return sortByPriority(this)
+    }
 
+    private fun sortByPriority(node: Node): Node {
+        node.tasks.sortBy {
+            it.priority
+        }
+        for (item in node.tasks) {
+            sortByPriority(item)
+        }
+        return node
+    }
+
+    fun sortByDeadline(): Node {
+        return sortByDeadline(this)
+    }
+
+    private fun sortByDeadline(node: Node): Node {
+        val outputDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+        node.tasks.sortBy {
+            if (it.deadline == null || it.deadline == "") {
+                Date(0)
+            } else {
+                outputDateFormat.parse(it.deadline!!)
+            }
+        }
+        for (item in node.tasks) {
+            sortByDeadline(item)
+        }
+        return node
+    }
+
+    fun sortByPriorityDeadline(): Node {
+        return sortByPriorityDeadline(this)
+    }
+
+    private fun sortByPriorityDeadline(node: Node): Node {
+        val outputDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+        node.tasks.sortWith(compareBy({it.priority},{
+            if (it.deadline == null || it.deadline == "") {
+                Date(0)
+            } else {
+                outputDateFormat.parse(it.deadline!!)
+            }
+        }))
+        for (item in node.tasks) {
+            sortByDeadline(item)
+        }
+        return node
+    }
+
+    fun sortByCompletion(): Node {
+        return sortByCompletion(this)
+    }
+
+    private fun sortByCompletion(node: Node): Node {
+        if (node.tasks.size == 0) {
+            return node
+        }
+        node.tasks.sortBy {
+            if (tasks.size == 0) {
+                node.isDone.compareTo(false).toFloat()
+            } else {
+                it.tasks.count { it.isDone }.toFloat() / it.tasks.size
+            }
+        }
+        for (item in node.tasks) {
+            sortByCompletion(item)
+        }
+        return node
+    }
+
+    fun getCompletion(): Float {
+        return getCompletion(this)*100
+    }
+
+    private fun getCompletion(node: Node): Float {
+        if (node.tasks.size == 0) {
+            return node.isDone.compareTo(false).toFloat()
+        }
+        val percent = mutableListOf<Float>()
+        for (item in node.tasks) {
+            percent.add(getCompletion(item))
+        }
+        return percent.sum() / percent.size
+    }
+
+    fun getTaskDeadlineToday(): MutableList<Node> {
+        return getTaskDeadlineToday(this)
+    }
+
+    private fun getTaskDeadlineToday(node: Node): MutableList<Node> {
+        var list = mutableListOf<Node>()
+        val outputDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+        if (outputDateFormat.format(Date()) == node.deadline) {
+            list.add(node)
+        }
+        for (item in node.tasks) {
+            var returned = getTaskDeadlineToday(item)
+            if (returned.size != 0) {
+                list.addAll(returned)
+            }
+        }
+        return list
+    }
 }

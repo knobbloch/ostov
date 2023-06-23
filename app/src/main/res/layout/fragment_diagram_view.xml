@@ -3,25 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ScrollView
-            android:id="@+id/scrollView_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <HorizontalScrollView
+            android:id="@+id/h_scroll"
+            android:fillViewport="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/g_scroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/head"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="200dp"
                     android:foregroundGravity="center_vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -51,20 +55,22 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_right"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     app:layout_constraintStart_toStartOf="@+id/guideline2"
                     app:layout_constraintTop_toBottomOf="@+id/head"
+                    app:layout_constraintEnd_toEndOf="parent"
                     tools:listitem="@layout/bone_right_root" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_left"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/guideline2"
                     app:layout_constraintTop_toBottomOf="@+id/head"
                     tools:listitem="@layout/bone_left_root">
@@ -82,12 +88,18 @@
                     app:srcCompat="@drawable/tail" />
 
 
-                <androidx.constraintlayout.widget.Guideline
+<!--                <androidx.constraintlayout.widget.Guideline-->
+<!--                    android:id="@+id/guideline2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    app:layout_constraintGuide_percent="0.5" />-->
+                <View
                     android:id="@+id/guideline2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.5" />
+                    android:layout_width="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_height="match_parent"/>
 
                 <androidx.constraintlayout.widget.Barrier
                     android:id="@+id/barrier"
@@ -97,8 +109,6 @@
                     app:barrierMargin="20dp"
                     app:constraint_referenced_ids="recycler_left,recycler_right" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </androidx.core.widget.NestedScrollView>
+        </HorizontalScrollView>
 </layout>
