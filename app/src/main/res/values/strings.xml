@@ -72,6 +72,11 @@
     <string name="lbl37">Дальше</string>
     <string name="lbl40">Добавить</string>
     <string name="lbl41">По важности и дате дедлайна:</string>
+    <string name="lbl42">Подсказки</string>
+    <string name="help_card1_title">Создание цели</string>
+    <string name="help_card1">Чтобы создать схему для новой цели нажмите на кнопку</string>
+    <string name="help_card2_title">Редактирование данных</string>
+    <string name="help_card2">Чтобы редактировать данные о задаче нажмите на значок карандаша</string>
     <string name="default_priority_value">1</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
