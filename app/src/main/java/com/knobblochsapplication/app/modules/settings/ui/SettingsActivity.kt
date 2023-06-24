@@ -20,7 +20,6 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding>(R.layout.activity
     override fun onInitialized(): Unit {
         viewModel.navArguments = intent.extras?.getBundle("bundle")
         window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
-//      window.navigationBarColor = SurfaceColors.SURFACE_2.getColor(this)
         binding.settingsVM = viewModel
     }
 

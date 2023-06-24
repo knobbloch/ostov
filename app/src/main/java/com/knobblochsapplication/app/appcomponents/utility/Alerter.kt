@@ -18,7 +18,7 @@ object Alerter {
 
     fun initialize(context: Context) {
         //todo change interval - 1, TimeUnit.DAYS
-        val workRequest = PeriodicWorkRequestBuilder<AlertWorker>(15, TimeUnit.MINUTES).build()
+        val workRequest = PeriodicWorkRequestBuilder<AlertWorker>(2, TimeUnit.HOURS).build()
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(
             "alerter",
             ExistingPeriodicWorkPolicy.KEEP,
