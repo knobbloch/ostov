@@ -1,4 +1,4 @@
-//package com.knobblochsapplication.app.modules.helpcards.ui
+//package com.knobblochsapplication.app.modules.helpcards//package com.knobblochsapplication.app.modules.helpcards.ui
 //
 //import androidx.activity.viewModels
 //import com.google.android.material.elevation.SurfaceColors
@@ -33,6 +33,3 @@
 //    }
 //}
 //
-//class HelpCardsVM {
-//
-//}
