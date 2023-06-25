@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+
     <string name="app_name">Фишлист</string>
     <string name="msg">Диаграмма Исикавы:</string>
     <string name="lbl_23">Задача 2</string>
@@ -83,6 +84,14 @@
     <string name="help_card4">У каждой цели и задачи можно установить приоритет: от 1, самого важного, до 12, самого незначительного.</string>
     <string name="help_card5_title">Процент выполнения</string>
     <string name="help_card5">В верхнем правом углу экрана выбранной цели можно посмотреть на сколько процентов она выполнена</string>
+    <string name="help_card6_title">Добавление подзадачи</string>
+    <string name="help_card6">Чтобы добавить подзадачу к уже существующей задаче,нажмите на значок плюса</string>
+    <string name="help_card7_title">Просмотр подзадач</string>
+    <string name="help_card7">Чтобы посмотреть подзадачи уже существующей задачи, нажмите на значок треугольника</string>
+    <string name="help_card8_title">Завершение задач</string>
+    <string name="help_card8">Чтобы завершить задачу зайдите в её изменение и отметте задачу как выполненную</string>
+    <string name="help_card9_title">Сделать цель задачей</string>
+    <string name="help_card9">При нажатии на кнопку "сделать задачей", выбранную цель можно будет сделать задачей уже существующей цели</string>
     <string name="default_priority_value">1</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>

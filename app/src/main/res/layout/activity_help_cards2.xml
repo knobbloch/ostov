@@ -31,9 +31,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -45,35 +47,38 @@
                             android:id="@+id/helpcard1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
                             android:checkable="true"
                             android:clickable="true"
                             android:focusable="true"
-                            android:orientation="vertical"
-                            android:layout_marginBottom="20dp">
+                            android:orientation="vertical">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:paddingHorizontal="32dp"
                                 android:paddingTop="16dp">
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
                                     android:layout_weight="1"
                                     android:text="@string/help_card1_title"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                                    android:layout_marginTop="20dp"
-                                    android:textStyle="bold"/>
+                                    android:textStyle="bold" />
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard1.2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:gravity="center"
-                                    android:layout_weight="1"
                                     android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
                                     android:text="@string/help_card1"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
@@ -81,8 +86,8 @@
                                     android:id="@+id/imageAdd"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:layout_gravity="center"
+                                    android:layout_weight="1"
                                     android:scaleType="centerCrop"
                                     app:layout_constraintHeight_max="500dp"
                                     app:srcCompat="@drawable/ic_add_background_foreground" />
@@ -93,35 +98,38 @@
                             android:id="@+id/helpcard2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
                             android:checkable="true"
                             android:clickable="true"
                             android:focusable="true"
-                            android:orientation="vertical"
-                            android:layout_marginBottom="20dp">
+                            android:orientation="vertical">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:paddingHorizontal="32dp"
                                 android:paddingTop="16dp">
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
                                     android:layout_weight="1"
                                     android:text="@string/help_card2_title"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                                    android:layout_marginTop="20dp"
-                                    android:textStyle="bold"/>
+                                    android:textStyle="bold" />
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard2.2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:gravity="center"
-                                    android:layout_weight="1"
                                     android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
                                     android:text="@string/help_card2"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
@@ -129,11 +137,11 @@
                                     android:id="@+id/imageAdd2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:layout_gravity="center"
+                                    android:layout_weight="1"
                                     android:scaleType="centerCrop"
                                     app:layout_constraintHeight_max="500dp"
-                                    app:srcCompat="@drawable/ic_add_background_foreground"/>
+                                    app:srcCompat="@drawable/ic_add_background_foreground" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
@@ -141,35 +149,38 @@
                             android:id="@+id/helpcard3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
                             android:checkable="true"
                             android:clickable="true"
                             android:focusable="true"
-                            android:orientation="vertical"
-                            android:layout_marginBottom="20dp">
+                            android:orientation="vertical">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:paddingHorizontal="32dp"
                                 android:paddingTop="16dp">
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
                                     android:layout_weight="1"
                                     android:text="@string/help_card3_title"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                                    android:layout_marginTop="20dp"
-                                    android:textStyle="bold"/>
+                                    android:textStyle="bold" />
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard3.2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:gravity="center"
-                                    android:layout_weight="1"
                                     android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
                                     android:text="@string/help_card3"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
@@ -177,84 +188,89 @@
                                     android:id="@+id/imageEdit"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:layout_weight="1"
                                     android:layout_gravity="center"
+                                    android:layout_margin="15dp"
+                                    android:layout_weight="1"
                                     android:scaleType="centerCrop"
                                     app:layout_constraintHeight_max="500dp"
-                                    app:srcCompat="@drawable/ic_edit"
-                                    android:layout_margin="15dp"/>
+                                    app:srcCompat="@drawable/ic_edit" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/helpcard4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
                             android:checkable="true"
                             android:clickable="true"
                             android:focusable="true"
-                            android:orientation="vertical"
-                            android:layout_marginBottom="20dp">
+                            android:orientation="vertical">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:paddingHorizontal="32dp"
                                 android:paddingTop="16dp">
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
                                     android:layout_weight="1"
                                     android:text="@string/help_card4_title"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                                    android:layout_marginTop="20dp"
-                                    android:textStyle="bold"/>
+                                    android:textStyle="bold" />
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard4.2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:gravity="center"
-                                    android:layout_weight="1"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="20dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
                                     android:text="@string/help_card4"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
                                 <LinearLayout
                                     android:id="@+id/linearBlockimpotance"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingBottom="20dp"
                                     android:layout_marginStart="30dp"
-                                    android:layout_marginEnd="30dp">
+                                    android:layout_marginEnd="30dp"
+                                    android:orientation="horizontal"
+                                    android:paddingBottom="20dp">
 
                                     <ImageView
-                                            android:id="@+id/btnArrowLeft"
-                                            android:layout_width="38dp"
-                                            android:layout_height="38dp"
-                                            android:layout_gravity="start"
-                                            android:contentDescription="@string/app_name"
-                                            android:src="@drawable/img_left" />
+                                        android:id="@+id/btnArrowLeft"
+                                        android:layout_width="38dp"
+                                        android:layout_height="38dp"
+                                        android:layout_gravity="start"
+                                        android:contentDescription="@string/app_name"
+                                        android:src="@drawable/img_left" />
 
-                                        <com.google.android.material.textview.MaterialTextView
-                                            android:id="@+id/editPriority"
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1"
-                                            android:gravity="center"
-                                            android:text="@string/default_priority_value"
-                                            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                                            tools:text="1" />
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:id="@+id/editPriority"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="@string/default_priority_value"
+                                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                        tools:text="1" />
 
-                                        <ImageView
-                                            android:id="@+id/btnArrowRight"
-                                            android:layout_width="38dp"
-                                            android:layout_height="38dp"
-                                            android:scaleX="-1"
-                                            android:contentDescription="@string/app_name"
-                                            android:src="@drawable/img_left" />
+                                    <ImageView
+                                        android:id="@+id/btnArrowRight"
+                                        android:layout_width="38dp"
+                                        android:layout_height="38dp"
+                                        android:contentDescription="@string/app_name"
+                                        android:scaleX="-1"
+                                        android:src="@drawable/img_left" />
                                 </LinearLayout>
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
@@ -263,49 +279,244 @@
                             android:id="@+id/helpcard5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
                             android:checkable="true"
                             android:clickable="true"
                             android:focusable="true"
-                            android:orientation="vertical"
-                            android:layout_marginBottom="20dp">
+                            android:orientation="vertical">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:paddingHorizontal="32dp"
                                 android:paddingTop="16dp">
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
                                     android:layout_weight="1"
                                     android:text="@string/help_card5_title"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                                    android:layout_marginTop="20dp"
-                                    android:textStyle="bold"/>
+                                    android:textStyle="bold" />
+
                                 <com.google.android.material.textview.MaterialTextView
                                     android:id="@+id/textViewHelpCard5.2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:gravity="center"
-                                    android:layout_weight="1"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="30dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
                                     android:text="@string/help_card5"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
-<!--                                <ImageView-->
-<!--                                    android:id="@+id/imageHeader"-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_gravity="center"-->
-<!--                                    android:layout_margin="15dp"-->
-<!--                                    android:layout_weight="1"-->
-<!--                                    android:scaleType="centerCrop"-->
-<!--                                    app:layout_constraintHeight_max="20dp"-->
-<!--                                    app:srcCompat="@drawable/img_header" />-->
+                                <!--                                <ImageView-->
+                                <!--                                    android:id="@+id/imageHeader"-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:layout_gravity="center"-->
+                                <!--                                    android:layout_margin="15dp"-->
+                                <!--                                    android:layout_weight="1"-->
+                                <!--                                    android:scaleType="centerCrop"-->
+                                <!--                                    app:layout_constraintHeight_max="20dp"-->
+                                <!--                                    app:srcCompat="@drawable/img_header" />-->
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/helpcard6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:checkable="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="32dp"
+                                android:paddingTop="16dp">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewHelpCard6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/help_card6_title"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewHelpCard6.2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/help_card6"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                                <ImageView
+                                    android:id="@+id/plus_help_screen"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="15dp"
+                                    android:layout_weight="1"
+                                    android:scaleType="centerCrop"
+                                    app:layout_constraintHeight_max="500dp"
+                                    app:srcCompat="@drawable/ic_add" />
+
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/helpcard7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:checkable="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="32dp"
+                                android:paddingTop="16dp">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewHelpCard7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/help_card7_title"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewHelpCard7.2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/help_card7"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                                <ImageView
+                                    android:id="@+id/tri_help_screen"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="15dp"
+                                    android:layout_weight="1"
+                                    android:scaleType="centerCrop"
+                                    app:layout_constraintHeight_max="500dp"
+                                    app:srcCompat="@drawable/ic_arrow_right" />
+
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/helpcard8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:checkable="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="32dp"
+                                android:paddingTop="16dp">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewHelpCard8"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/help_card8_title"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewHelpCard8.2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginBottom="30dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/help_card8"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/helpcard9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:checkable="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="32dp"
+                                android:paddingTop="16dp">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewHelpCard9"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/help_card9_title"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/textViewHelpCard9.2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginBottom="30dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/help_card9"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
