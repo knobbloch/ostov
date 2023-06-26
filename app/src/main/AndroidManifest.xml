@@ -19,28 +19,31 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".modules.diagramview.ui.DiagramViewActivity"
+            android:parentActivityName=".modules.main.ui.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.helpscreenthree.ui.HelpScreenThreeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.settings.ui.SettingsActivity"
+            android:parentActivityName=".modules.main.ui.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.downloadlist.ui.DownloadListActivity"
+            android:parentActivityName=".modules.main.ui.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.sort.ui.SortActivity"
+            android:parentActivityName=".modules.main.ui.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.goal.ui.GoalActivity"
+            android:parentActivityName=".modules.main.ui.MainActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".modules.goalsunion.ui.GoalsUnionActivity"
+            android:parentActivityName=".modules.main.ui.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.main.ui.MainActivity"

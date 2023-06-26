@@ -280,7 +280,7 @@ data class Node(
     private fun getTaskDeadlineToday(node: Node): MutableList<Node> {
         var list = mutableListOf<Node>()
         val outputDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-        if (outputDateFormat.format(Date()) == node.deadline) {
+        if ((outputDateFormat.format(Date()) == node.deadline) && (node.isDone == false)) {
             list.add(node)
         }
         for (item in node.tasks) {
