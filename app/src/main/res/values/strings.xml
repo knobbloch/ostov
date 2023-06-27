@@ -92,6 +92,8 @@
     <string name="help_card8">Чтобы завершить задачу зайдите в её изменение и отметте задачу как выполненную</string>
     <string name="help_card9_title">Сделать цель задачей</string>
     <string name="help_card9">При нажатии на кнопку "сделать задачей", выбранную цель можно будет сделать задачей уже существующей цели</string>
+    <string name="help_card10_title">Функции</string>
+    <string name="help_card10">Чтобы изменить вид диаграммы, тип сортировки или скачать список текущих задач, нажмите на три точки в верхнем правом углу экрана и выберите нужный пункт</string>
     <string name="default_priority_value">1</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>

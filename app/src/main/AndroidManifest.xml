@@ -19,7 +19,7 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.helpcards.HelpCards"
+            android:name=".modules.helpcards.HelpCards2Activity"
             android:exported="false"
             android:label="@string/title_activity_help_cards"
             android:theme="@style/Theme.MyApp" />
