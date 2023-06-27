@@ -21,6 +21,7 @@ class GoalsAdapter(val listener: Listener, private val goalsList: MutableList<No
             val percent: Float = goal.getCompletion()
             var percentString = "%.0f".format(percent) + "%"
             completionPercentage.text = percentString
+
             itemView.setOnClickListener {
                 listener.onGoalClick(bindingAdapterPosition)
             }
@@ -33,6 +34,7 @@ class GoalsAdapter(val listener: Listener, private val goalsList: MutableList<No
             btnChangeLevel.setOnClickListener {
                 listener.onBtnChangeLevelClick(bindingAdapterPosition)
             }
+
         }
     }
 
@@ -47,6 +49,7 @@ class GoalsAdapter(val listener: Listener, private val goalsList: MutableList<No
 
     override fun onBindViewHolder(holder: GoalHolder, position: Int) {
         holder.bind(goalsList[position], listener)
+
     }
 
 

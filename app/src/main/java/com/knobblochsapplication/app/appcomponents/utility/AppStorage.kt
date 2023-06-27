@@ -191,6 +191,26 @@ class AppStorage(val context: Context) {
         saveToFile(goal)
     }
 
+    fun changeGoal(
+        goalUid: String,
+        name: String,
+        deadline: String?,
+        isDone: Boolean,
+        priority: Int,
+        description: String?,
+    ) {
+        val goal = getGoalByUid(goalUid)
+        if (goal == null) {
+            return
+        }
+        goal.name = name
+        goal.description = description
+        goal.deadline = deadline
+        goal.isDone = isDone
+        goal.priority = priority
+        saveToFile(goal)
+    }
+
     private fun loadByUid(uid: String): Node? {
         val prettyGson = GsonBuilder()
             .setPrettyPrinting()

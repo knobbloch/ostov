@@ -10,6 +10,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.knobblochsapplication.app.R
 import com.knobblochsapplication.app.appcomponents.utility.AppStorage
 import com.knobblochsapplication.app.databinding.FragmentEditGoalBinding
+import com.knobblochsapplication.app.modules.goal.ui.GoalActivity
 import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -27,6 +28,7 @@ class EditGoalDialogFragment : DialogFragment() {
         )
         setStyle(STYLE_NO_TITLE, R.style.fullscreendialog)
         position = arguments?.getInt("position")!!
+
     }
 
     override fun onStart() {
@@ -67,7 +69,17 @@ class EditGoalDialogFragment : DialogFragment() {
             goal.isDone = binding.finished.isChecked
             goal.description = binding.goalDescription.text.toString()
             appStorage.goals[position] = goal
+
+            appStorage.changeGoal(
+                goal.uid,
+                binding.goalName.text.toString(),
+                binding.goalDeadline.text.toString(),
+                binding.finished.isChecked,
+                binding.editPriority.text.toString().toInt(),
+                binding.goalDescription.text.toString()
+            )
             mainActivity.adapter.notifyItemChanged(position)
+
             dismiss()
         }
         binding.editDate.setEndIconOnClickListener {
