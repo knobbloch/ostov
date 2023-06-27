@@ -19,6 +19,15 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".modules.helpscreenhelpcards.HelpScreenHelpCardsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".modules.helpcards.HelpCards2Activity"
+            android:exported="false"
+            android:label="@string/title_activity_help_cards"
+            android:parentActivityName=".modules.main.ui.MainActivity"
+            android:theme="@style/Theme.MyApp" />
+        <activity
             android:name=".modules.diagramview.ui.DiagramViewActivity"
             android:parentActivityName=".modules.main.ui.MainActivity"
             android:screenOrientation="portrait" />
@@ -40,7 +49,7 @@
         <activity
             android:name=".modules.goal.ui.GoalActivity"
             android:parentActivityName=".modules.main.ui.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.goalsunion.ui.GoalsUnionActivity"
             android:parentActivityName=".modules.main.ui.MainActivity"
