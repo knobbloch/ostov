@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Environment
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import com.google.android.material.elevation.SurfaceColors
@@ -22,10 +23,51 @@ class DownloadListActivity :
     private val viewModel: DownloadListVM by viewModels()
     private val appStorage: AppStorage by inject()
     private val preferenceHelper: PreferenceHelper by inject()
+
+    val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            println("!!print")
+            if (isGranted) {
+                val uid = preferenceHelper.getLastSelectedGoal()
+                appStorage.downloadDocxFile(uid!!)
+                Toast.makeText(
+                    this,
+                    "Документ сохранен в папке " + Environment.getExternalStoragePublicDirectory(
+                        Environment.DIRECTORY_DOWNLOADS
+                    ).name,
+                    Toast.LENGTH_LONG
+                ).show()
+
+            } else {
+                this.finish()
+            }
+        }
+
     override fun onInitialized() {
         viewModel.navArguments = intent.extras?.getBundle("bundle")
         window.statusBarColor = SurfaceColors.SURFACE_0.getColor(this)
         binding.downloadListVM = viewModel
+//        requestPermissionLauncher =
+//            registerForActivityResult(
+//                ActivityResultContracts.RequestPermission()
+//            ) { isGranted: Boolean ->
+//                if (isGranted) {
+//                    val uid = preferenceHelper.getLastSelectedGoal()
+//                    appStorage.downloadDocxFile(uid!!)
+//                    Toast.makeText(
+//                        this,
+//                        "Документ сохранен в папке " + Environment.getExternalStoragePublicDirectory(
+//                            Environment.DIRECTORY_DOWNLOADS
+//                        ).name,
+//                        Toast.LENGTH_LONG
+//                    ).show()
+//
+//                } else {
+//                    this.finish()
+//                }
+//            }
     }
 
     override fun setUpClicks() {
@@ -83,7 +125,7 @@ class DownloadListActivity :
             }
             if (!PermissionUtils.hasPermissions(this)) {
                 requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            } else{
+            } else {
                 appStorage.downloadDocxFile(uid!!)
                 Toast.makeText(
                     this,
@@ -92,31 +134,11 @@ class DownloadListActivity :
                     ).name,
                     Toast.LENGTH_LONG
                 ).show()
-                this.finish()
             }
 
         }
     }
 
-    val requestPermissionLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) {
-                val uid = preferenceHelper.getLastSelectedGoal()
-                appStorage.downloadDocxFile(uid!!)
-                Toast.makeText(
-                    this,
-                    "Документ сохранен в папке " + Environment.getExternalStoragePublicDirectory(
-                        Environment.DIRECTORY_DOWNLOADS
-                    ).name,
-                    Toast.LENGTH_LONG
-                ).show()
-
-            } else {
-
-            }
-        }
 
     companion object {
         const val TAG: String = "DOWNLOAD_LIST_ACTIVITY"

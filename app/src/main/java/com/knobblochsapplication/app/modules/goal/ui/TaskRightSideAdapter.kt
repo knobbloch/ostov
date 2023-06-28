@@ -74,6 +74,7 @@ class TaskRightSideAdapter(
             }
 
 
+
             btnTaskMenu.setOnClickListener {
                 listener.onTaskClick(pair.uid)
             }
