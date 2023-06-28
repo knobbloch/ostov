@@ -56,6 +56,7 @@ class CreateGoalDialogFragment : DialogFragment() {
                 binding.editPriority.text.toString().toInt(),
                 binding.goalDescription.text.toString()
             )
+            appStorage.sortByIsDone()
             mainActivity.adapter.notifyDataSetChanged()
             dismiss()
         }

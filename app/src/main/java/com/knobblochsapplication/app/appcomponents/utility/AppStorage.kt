@@ -273,6 +273,7 @@ class AppStorage(val context: Context) {
                 goal.separate()
             }
         }
+        sortByIsDone()
         return this
     }
 
@@ -377,5 +378,11 @@ class AppStorage(val context: Context) {
             return 0f
         }
         return goal.getCompletion()
+    }
+
+    fun sortByIsDone() {
+        goals.sortBy {
+            it.isDone
+        }
     }
 }

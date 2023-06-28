@@ -73,6 +73,7 @@ class TaskRightSideAdapter(
                 state.setImageResource(stateIcon)
             }
 
+
             btnTaskMenu.setOnClickListener {
                 listener.onTaskClick(pair.uid)
             }

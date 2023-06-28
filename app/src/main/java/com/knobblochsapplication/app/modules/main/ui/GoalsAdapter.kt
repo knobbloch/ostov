@@ -22,7 +22,7 @@ class GoalsAdapter(val listener: Listener, private val goalsList: MutableList<No
             var percentString = "%.0f".format(percent) + "%"
             completionPercentage.text = percentString
 
-            itemView.setOnClickListener {
+            card.setOnClickListener {
                 listener.onGoalClick(bindingAdapterPosition)
             }
             btnDelete.setOnClickListener {
@@ -34,7 +34,7 @@ class GoalsAdapter(val listener: Listener, private val goalsList: MutableList<No
             btnChangeLevel.setOnClickListener {
                 listener.onBtnChangeLevelClick(bindingAdapterPosition)
             }
-
+            card.isChecked = goal.isDone
         }
     }
 
