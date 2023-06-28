@@ -266,6 +266,9 @@ data class Node(
         if (node.tasks.size == 0) {
             return node.isDone.compareTo(false).toFloat()
         }
+        if (node.isDone){
+            return node.isDone.compareTo(false).toFloat()
+        }
         val percent = mutableListOf<Float>()
         for (item in node.tasks) {
             percent.add(getCompletion(item))
