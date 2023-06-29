@@ -10,7 +10,7 @@
         android:layout_width="7dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:src="@drawable/bone_form" />
+        android:src="@drawable/bone_priority_3" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,7 +60,7 @@
             android:id="@+id/horizontal_bone"
             android:layout_width="match_parent"
             android:layout_height="7dp"
-            android:src="@drawable/bone_form" />
+            android:src="@drawable/bone_priority_3" />
 
     </LinearLayout>
 

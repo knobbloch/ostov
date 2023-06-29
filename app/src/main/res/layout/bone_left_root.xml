@@ -55,10 +55,10 @@
 
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageBoneRootLeft"
             android:layout_width="match_parent"
             android:layout_height="7dp"
-            android:src="@drawable/bone_form" />
+            android:src="@drawable/bone_priority_3" />
 
     </LinearLayout>
 </LinearLayout>

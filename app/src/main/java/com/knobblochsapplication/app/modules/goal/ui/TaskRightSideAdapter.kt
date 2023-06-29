@@ -1,6 +1,7 @@
 package com.knobblochsapplication.app.modules.goal.ui
 
 import android.view.View
+import androidx.appcompat.content.res.AppCompatResources
 import com.amrdeveloper.treeview.TreeNode
 import com.amrdeveloper.treeview.TreeViewAdapter
 import com.amrdeveloper.treeview.TreeViewHolder
@@ -35,6 +36,20 @@ class TaskRightSideAdapter(
             val pair = node.value as TreeTask
             name.text = pair.name
 
+            if (pair.isDone){
+                verticalBone.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_done))
+                horizontalBone.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_done))
+            } else if ((pair.priority >= 1) && (pair.priority <= 4)){
+                verticalBone.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_priority_1))
+                horizontalBone.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_priority_1))
+            } else if ((pair.priority >= 5) && (pair.priority <= 8)){
+                verticalBone.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_priority_2))
+                horizontalBone.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_priority_2))
+            } else{
+                verticalBone.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_priority_3))
+                horizontalBone.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_priority_3))
+            }
+
             // change state icon
             if (node.children.isEmpty()) {
                 state.visibility = View.INVISIBLE
@@ -62,6 +77,16 @@ class TaskRightSideAdapter(
             super.bindTreeNode(node)
             val pair = node.value as TreeTask
             name.text = pair.name
+
+            if (pair.isDone){
+                image.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_done))
+            } else if ((pair.priority >= 1) && (pair.priority <= 4)){
+                image.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_priority_1))
+            } else if ((pair.priority >= 5) && (pair.priority <= 8)){
+                image.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_priority_2))
+            } else {
+                image.setImageDrawable(AppCompatResources.getDrawable(name.context, R.drawable.bone_priority_3))
+            }
 
             // change state icon
             if (node.children.isEmpty()) {

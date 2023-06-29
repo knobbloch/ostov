@@ -172,9 +172,9 @@ data class Node(
     }
 
     private fun treeNodeAdapter(node: Node, layout: Int, child: Int, height: Int): TreeNode {
-        var treeNode = TreeNode(TreeTask(node.name, node.uid, height), child)
+        var treeNode = TreeNode(TreeTask(node.name, node.uid, height, node.priority, node.isDone), child)
         if (height == 0) {
-            treeNode = TreeNode(TreeTask(node.name, node.uid, height), layout)
+            treeNode = TreeNode(TreeTask(node.name, node.uid, height, node.priority, node.isDone), layout)
         }
         if (node.tasks.isEmpty()) {
             return treeNode
