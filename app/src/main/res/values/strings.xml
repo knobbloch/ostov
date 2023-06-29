@@ -94,6 +94,14 @@
     <string name="help_card9">При нажатии на кнопку "сделать задачей", выбранную цель можно будет сделать задачей уже существующей цели.</string>
     <string name="help_card10_title">Функции</string>
     <string name="help_card10">Чтобы изменить вид диаграммы, тип сортировки или скачать список текущих задач, нажмите на три точки в верхнем правом углу экрана и выберите нужный пункт.</string>
+    <string name="help_card11_title">Цветовые обозначения приоритетов</string>
+    <string name="help_card11_1">Приоритет с 1 по 4 обозначается цветом - </string>
+    <string name="help_card11_2">Приоритет с 5 по 8 обозначается цветом - </string>
+    <string name="help_card11_3">Приоритет с 9 по 12 обозначается цветом - </string>
+    <string name="help_card12_title">Цветовое обозначения выполненной задачи</string>
+    <string name="help_card12">Выполненная задача обозначается цветом - </string>
+
+
     <string name="default_priority_value">1</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>

@@ -35,4 +35,12 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="5dp"
         android:src="@drawable/ic_add" />
+
+    <ImageView
+        android:id="@+id/priority"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/task_priority_3" />
+
 </LinearLayout>
