@@ -300,9 +300,8 @@
                                     android:id="@+id/linearBlockimpotancecolor1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_marginEnd="16dp"
                                     android:gravity="center_vertical"
+                                    android:layout_gravity="center_horizontal"
                                     android:layout_marginVertical="8dp"
                                     android:orientation="horizontal">
 
@@ -325,10 +324,9 @@
 
                                 <LinearLayout
                                     android:id="@+id/linearBlockimpotancecolor2"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_marginEnd="16dp"
+                                    android:layout_gravity="center_horizontal"
                                     android:orientation="horizontal"
                                     android:gravity="center_vertical"
                                     android:paddingVertical="8dp">
@@ -354,9 +352,8 @@
                                     android:id="@+id/linearBlockimpotancecolor3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="16dp"
-                                    android:layout_marginEnd="16dp"
                                     android:gravity="center_vertical"
+                                    android:layout_gravity="center_horizontal"
                                     android:orientation="horizontal"
                                     android:paddingVertical="8dp">
 
@@ -451,6 +448,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
+                                    android:gravity="center_horizontal"
                                     android:layout_weight="1"
                                     android:text="@string/help_card12_title"
                                     android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
