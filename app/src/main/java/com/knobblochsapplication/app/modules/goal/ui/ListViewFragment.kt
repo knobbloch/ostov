@@ -15,9 +15,29 @@ class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment
     private val preferenceHelper: PreferenceHelper by inject()
     private val appStorage: AppStorage by inject()
     var lastSelectedGoalUid: String? = null
-    var treeViewAdapter: TaskListTreeViewAdapter? = null
+    lateinit var treeViewAdapter: TaskListTreeViewAdapter
     override fun addObservers() {
         super.addObservers()
+
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        val uid = preferenceHelper.getLastSelectedGoal()
+        if (uid !== null) {
+            val goal = appStorage.getGoalByUid(lastSelectedGoalUid!!)
+            if (goal == null) {
+                return
+            }
+            updateList(goal.tasks.size)
+            lastSelectedGoalUid = uid
+            treeViewAdapter.updateTreeNodes(goal.treeViewAdapter(R.layout.task_list_item));
+        }
+
+    }
+
+    override fun setUpClicks() {
         lastSelectedGoalUid = preferenceHelper.getLastSelectedGoal()
         if (lastSelectedGoalUid == null) {
             return
@@ -35,44 +55,29 @@ class ListViewFragment : BaseFragment<FragmentListViewBinding>(R.layout.fragment
         } else {
             binding.isDone.setText(R.string.yes)
         }
-        if (goal.tasks.size == 0) {
-            binding.empty.visibility = View.VISIBLE
-            binding.list.visibility = View.GONE
-        } else {
-            binding.empty.visibility = View.GONE
-            binding.list.visibility = View.VISIBLE
-        }
-
+        updateList(goal.tasks.size)
 
         //tree view
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.isNestedScrollingEnabled = false
         val factory =
             TreeViewHolderFactory { v: View, layout: Int ->
-                treeViewAdapter!!.createViewHolder(v)
+                treeViewAdapter.createViewHolder(v)
             }
         treeViewAdapter = TaskListTreeViewAdapter(this, factory)
         binding.recyclerView.adapter = treeViewAdapter
-        treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter(R.layout.task_list_item));
+        treeViewAdapter.updateTreeNodes(goal.treeViewAdapter(R.layout.task_list_item));
 
     }
 
-
-    override fun onResume() {
-        super.onResume()
-        val uid = preferenceHelper.getLastSelectedGoal()
-        if (uid !== null) {
-            val goal = appStorage.getGoalByUid(lastSelectedGoalUid!!)
-            if (goal == null) {
-                return
-            }
-            lastSelectedGoalUid = uid
-            treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter(R.layout.task_list_item));
+    fun updateList(size: Int) {
+        if (size == 0) {
+            binding.empty.visibility = View.VISIBLE
+            binding.list.visibility = View.GONE
+        } else {
+            binding.empty.visibility = View.GONE
+            binding.list.visibility = View.VISIBLE
         }
-    }
-
-    override fun setUpClicks() {
-
     }
 
     override fun onTaskClick(uid: String) {

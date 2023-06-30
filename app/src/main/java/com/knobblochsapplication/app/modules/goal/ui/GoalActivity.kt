@@ -93,8 +93,9 @@ class GoalActivity : AppCompatActivity() {
         val allFragments: List<Fragment> = supportFragmentManager.fragments
         for (fragment in allFragments) {
             if (fragment is ListViewFragment) {
-                fragment.treeViewAdapter!!.updateTreeNodes(goal.treeViewAdapter(R.layout.task_list_item))
-                continue
+                fragment.treeViewAdapter.updateTreeNodes(goal.treeViewAdapter(R.layout.task_list_item))
+                fragment.updateList(goal.tasks.size)
+                return
             }
             if (fragment is DiagramViewFragment) {
                 fragment.adapterLeft.updateTreeNodes(

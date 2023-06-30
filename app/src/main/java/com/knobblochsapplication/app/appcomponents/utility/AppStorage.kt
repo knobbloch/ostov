@@ -183,11 +183,16 @@ class AppStorage(val context: Context) {
         if (task == null) {
             return
         }
+
+        if (task.isDone == false && isDone == true) {
+            task.markIsDone()
+        }
         task.name = name
         task.description = description
         task.deadline = deadline
         task.isDone = isDone
         task.priority = priority
+
         saveToFile(goal)
     }
 
@@ -367,6 +372,9 @@ class AppStorage(val context: Context) {
             }
             SortType.BY_COMPLETION -> {
                 goal.sortByCompletion()
+            }
+            SortType.BY_PRIORITY_DEADLINE -> {
+                goal.sortByPriorityDeadline()
             }
         }
         goal.separate()

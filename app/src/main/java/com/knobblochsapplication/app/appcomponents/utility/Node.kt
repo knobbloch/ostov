@@ -242,19 +242,35 @@ data class Node(
     }
 
     private fun sortByCompletion(node: Node): Node {
-        if (node.tasks.size == 0) {
-            return node
-        }
         node.tasks.sortBy {
-            if (tasks.size == 0) {
-                node.isDone.compareTo(false).toFloat()
+            if (it.tasks.size == 0) {
+                it.isDone.compareTo(false).toFloat()
             } else {
                 it.tasks.count { it.isDone }.toFloat() / it.tasks.size
             }
         }
+        if (node.tasks.size == 0) {
+            return node
+        }
         for (item in node.tasks) {
             sortByCompletion(item)
         }
+        return node
+    }
+
+    fun markIsDone(): Node {
+        return markIsDone(this)
+    }
+
+    private fun markIsDone(node: Node): Node {
+        if (node.tasks.size == 0) {
+            node.isDone = true
+            return node
+        }
+        for (item in node.tasks) {
+            markIsDone(item)
+        }
+        node.isDone = true
         return node
     }
 
