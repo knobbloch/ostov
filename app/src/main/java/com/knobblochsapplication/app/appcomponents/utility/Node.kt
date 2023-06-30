@@ -241,10 +241,24 @@ data class Node(
         return sortByCompletion(this)
     }
 
+//    private fun sortByCompletion(node: Node): Node {
+////        if (node.tasks.size == 0) {
+////            return node
+////        }
+//        node.tasks.sortBy {
+//            if (tasks.size == 0) {
+//                node.isDone.compareTo(false).toFloat()
+//            } else {
+//                it.tasks.count { it.isDone }.toFloat() / it.tasks.size
+//            }
+//        }
+//        for (item in node.tasks) {
+//            sortByCompletion(item)
+//        }
+//        return node
+//    }
+
     private fun sortByCompletion(node: Node): Node {
-        if (node.tasks.size == 0) {
-            return node
-        }
         node.tasks.sortBy {
             if (tasks.size == 0) {
                 node.isDone.compareTo(false).toFloat()
