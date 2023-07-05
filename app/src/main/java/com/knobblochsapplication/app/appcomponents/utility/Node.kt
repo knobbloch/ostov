@@ -13,6 +13,7 @@ data class Node(
     var name: String?,
     var deadline: String?,
     var priority: Int,
+    var position: Int,
     var isDone: Boolean,
     var description: String?,
     var tasks: MutableList<Node>,
@@ -107,6 +108,7 @@ data class Node(
             node.name,
             node.deadline,
             node.priority,
+            node.position,
             node.isDone,
             node.description,
             mutableListOf()
@@ -183,6 +185,20 @@ data class Node(
             treeNode.addChild(treeNodeAdapter(task, layout, child, height + 1))
         }
         return treeNode
+    }
+
+    fun sortByPosition(): Node {
+        return sortByPosition(this)
+    }
+
+    private fun sortByPosition(node: Node): Node {
+        node.tasks.sortBy {
+            it.position
+        }
+        for (item in node.tasks) {
+            sortByPosition(item)
+        }
+        return node
     }
 
     fun sortByPriority(): Node {

@@ -54,6 +54,7 @@ class CreateGoalDialogFragment : DialogFragment() {
                 binding.goalName.text.toString(),
                 binding.goalDeadline.text.toString(),
                 binding.editPriority.text.toString().toInt(),
+                1,
                 binding.goalDescription.text.toString()
             )
             appStorage.sortByIsDone()

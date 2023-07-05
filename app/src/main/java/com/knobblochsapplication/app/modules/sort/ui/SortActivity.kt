@@ -22,25 +22,36 @@ class SortActivity : BaseActivity<ActivitySortBinding>(R.layout.activity_sort) {
 
     override fun setUpClicks(): Unit {
         when (preferenceHelper.getSortType()) {
+            SortType.BY_POSITION -> {
+                binding.position.isChecked = true
+                binding.date.isChecked = false
+                binding.priority.isChecked = false
+                binding.completion.isChecked = false
+                binding.priorityDate.isChecked = false
+            }
             SortType.BY_PRIORITY -> {
+                binding.position.isChecked = false
                 binding.date.isChecked = false
                 binding.priority.isChecked = true
                 binding.completion.isChecked = false
                 binding.priorityDate.isChecked = false
             }
             SortType.BY_DEADLINE -> {
+                binding.position.isChecked = false
                 binding.date.isChecked = true
                 binding.priority.isChecked = false
                 binding.completion.isChecked = false
                 binding.priorityDate.isChecked = false
             }
             SortType.BY_COMPLETION -> {
+                binding.position.isChecked = false
                 binding.date.isChecked = false
                 binding.priority.isChecked = false
                 binding.completion.isChecked = true
                 binding.priorityDate.isChecked = false
             }
             SortType.BY_PRIORITY_DEADLINE -> {
+                binding.position.isChecked = false
                 binding.date.isChecked = false
                 binding.priority.isChecked = false
                 binding.completion.isChecked = false
@@ -51,8 +62,11 @@ class SortActivity : BaseActivity<ActivitySortBinding>(R.layout.activity_sort) {
             finish()
         }
         binding.btnSort.setOnClickListener {
-            var selected = SortType.BY_PRIORITY
+            var selected = SortType.BY_POSITION
             when (binding.sort.checkedRadioButtonId) {
+                R.id.position -> {
+                    selected = SortType.BY_POSITION
+                }
                 R.id.priority -> {
                     selected = SortType.BY_PRIORITY
                 }

@@ -72,7 +72,16 @@ class DownloadListActivity :
 
     override fun setUpClicks() {
         when (preferenceHelper.getSortType()) {
+            SortType.BY_POSITION -> {
+                binding.position.isChecked = true
+                binding.date.isChecked = false
+                binding.priority.isChecked = false
+                binding.completion.isChecked = false
+                binding.priorityDate.isChecked = false
+            }
+
             SortType.BY_PRIORITY -> {
+                binding.position.isChecked = false
                 binding.date.isChecked = false
                 binding.priority.isChecked = true
                 binding.completion.isChecked = false
@@ -80,6 +89,7 @@ class DownloadListActivity :
             }
 
             SortType.BY_DEADLINE -> {
+                binding.position.isChecked = false
                 binding.date.isChecked = true
                 binding.priority.isChecked = false
                 binding.completion.isChecked = false
@@ -87,6 +97,7 @@ class DownloadListActivity :
             }
 
             SortType.BY_COMPLETION -> {
+                binding.position.isChecked = false
                 binding.date.isChecked = false
                 binding.priority.isChecked = false
                 binding.completion.isChecked = true
@@ -94,6 +105,7 @@ class DownloadListActivity :
             }
 
             SortType.BY_PRIORITY_DEADLINE -> {
+                binding.position.isChecked = false
                 binding.date.isChecked = false
                 binding.priority.isChecked = false
                 binding.completion.isChecked = false
@@ -107,6 +119,10 @@ class DownloadListActivity :
 
         binding.buttonDownload.setOnClickListener {
             when (binding.sort.checkedRadioButtonId) {
+                R.id.position -> {
+                    appStorage.sortByPosition(uid!!)
+                }
+
                 R.id.priority -> {
                     appStorage.sortByPriority(uid!!)
                 }

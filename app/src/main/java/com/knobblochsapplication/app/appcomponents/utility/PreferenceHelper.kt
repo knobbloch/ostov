@@ -81,7 +81,7 @@ class PreferenceHelper() {
     private val SORT_TYPE = "sort_type"
 
     fun getSortType() =
-        sharedPreference.getString(SORT_TYPE, SortType.BY_PRIORITY)
+        sharedPreference.getString(SORT_TYPE, SortType.BY_POSITION)
 
     fun setSortType(sortType: String) {
         sharedPreference

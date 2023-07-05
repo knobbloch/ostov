@@ -17,6 +17,7 @@ class AppStorage(val context: Context) {
         name: String?,
         deadline: String?,
         priority: Int,
+        position: Int,
         description: String?,
     ) {
         val goal = Node(
@@ -24,6 +25,7 @@ class AppStorage(val context: Context) {
             name = name,
             deadline = deadline,
             priority = priority,
+            position = position,
             isDone = false,
             description = description,
             tasks = mutableListOf()
@@ -119,6 +121,7 @@ class AppStorage(val context: Context) {
                 name = name,
                 deadline = deadline,
                 priority = priority,
+                position = 1,
                 isDone = false,
                 description = description,
                 tasks = mutableListOf()
@@ -139,7 +142,8 @@ class AppStorage(val context: Context) {
             priority = priority,
             isDone = false,
             description = description,
-            tasks = mutableListOf()
+            tasks = mutableListOf(),
+            position = parentTask.tasks.size + 1
         )
         parentTask.tasks.add(newTask)
         goal.separate()
@@ -314,6 +318,13 @@ class AppStorage(val context: Context) {
         }
         DocxFile.make_docx(goal)
     }
+    fun sortByPosition(uid: String) {
+        var goal = getGoalByUid(uid)
+        if (goal == null) {
+            return
+        }
+        goal.sortByPosition()
+    }
 
     fun sortByPriority(uid: String) {
         var goal = getGoalByUid(uid)
@@ -364,6 +375,9 @@ class AppStorage(val context: Context) {
             return
         }
         when (selectedSort) {
+            SortType.BY_POSITION -> {
+                goal.sortByPosition()
+            }
             SortType.BY_PRIORITY -> {
                 goal.sortByPriority()
             }
